@@ -24,6 +24,9 @@ namespace DVLD__Driving_License_Management_System_
         {
             ResetButtonColors();
             btnApplications.BackColor = Color.FromArgb(63, 93, 127);
+
+            rjDropdownMenuApplications.Show(btnApplications, btnApplications.Width, 0);
+
         }
 
         private void btnPeople_Click(object sender, EventArgs e)
@@ -48,6 +51,9 @@ namespace DVLD__Driving_License_Management_System_
         {
             ResetButtonColors();
             btnAccountSetting.BackColor = Color.FromArgb(63, 93, 127);
+
+            rjDropdownMenuAccountSettings.Show(btnAccountSetting, btnAccountSetting.Width, 0);
+
         }
 
 
@@ -64,5 +70,7 @@ namespace DVLD__Driving_License_Management_System_
             btnUsers.BackColor = defaultColor;
             btnAccountSetting.BackColor = defaultColor;
         }
+
+      
     }
 }

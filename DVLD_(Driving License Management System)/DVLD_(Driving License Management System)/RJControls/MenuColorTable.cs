@@ -8,8 +8,6 @@ using System.Windows.Forms;
 
 namespace DVLD__Driving_License_Management_System_.RJControls
 {
-    public class MenuColorTable
-    {
         public class MenuColorTable : ProfessionalColorTable
         {
             private Color backColor;
@@ -48,5 +46,4 @@ namespace DVLD__Driving_License_Management_System_.RJControls
             public override Color ImageMarginGradientMiddle { get { return leftColumnColor; } }
             public override Color ImageMarginGradientEnd { get { return leftColumnColor; } }
         }
-    }
 }
