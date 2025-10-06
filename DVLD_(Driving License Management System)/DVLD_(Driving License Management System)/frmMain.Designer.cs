@@ -1,0 +1,247 @@
+﻿namespace DVLD__Driving_License_Management_System_
+{
+    partial class frmMain
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAccountSetting = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
+            this.btnDrivers = new System.Windows.Forms.Button();
+            this.btnPeople = new System.Windows.Forms.Button();
+            this.btnApplications = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMainForm = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMainForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(34)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.btnAccountSetting);
+            this.panel1.Controls.Add(this.btnUsers);
+            this.panel1.Controls.Add(this.btnDrivers);
+            this.panel1.Controls.Add(this.btnPeople);
+            this.panel1.Controls.Add(this.btnApplications);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(295, 1061);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnAccountSetting
+            // 
+            this.btnAccountSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(34)))), ((int)(((byte)(67)))));
+            this.btnAccountSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAccountSetting.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAccountSetting.FlatAppearance.BorderSize = 0;
+            this.btnAccountSetting.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnAccountSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnAccountSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnAccountSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountSetting.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAccountSetting.ForeColor = System.Drawing.Color.White;
+            this.btnAccountSetting.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AccountSettings2_64;
+            this.btnAccountSetting.Location = new System.Drawing.Point(0, 683);
+            this.btnAccountSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAccountSetting.Name = "btnAccountSetting";
+            this.btnAccountSetting.Size = new System.Drawing.Size(295, 111);
+            this.btnAccountSetting.TabIndex = 7;
+            this.btnAccountSetting.Text = "Account Setting";
+            this.btnAccountSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAccountSetting.UseVisualStyleBackColor = false;
+            this.btnAccountSetting.Click += new System.EventHandler(this.btnAccountSetting_Click);
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(34)))), ((int)(((byte)(67)))));
+            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnUsers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.users2_64;
+            this.btnUsers.Location = new System.Drawing.Point(0, 572);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(295, 111);
+            this.btnUsers.TabIndex = 6;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
+            // btnDrivers
+            // 
+            this.btnDrivers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(34)))), ((int)(((byte)(67)))));
+            this.btnDrivers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDrivers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDrivers.FlatAppearance.BorderSize = 0;
+            this.btnDrivers.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnDrivers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnDrivers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnDrivers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDrivers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDrivers.ForeColor = System.Drawing.Color.White;
+            this.btnDrivers.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Driver2_64;
+            this.btnDrivers.Location = new System.Drawing.Point(0, 461);
+            this.btnDrivers.Name = "btnDrivers";
+            this.btnDrivers.Size = new System.Drawing.Size(295, 111);
+            this.btnDrivers.TabIndex = 5;
+            this.btnDrivers.Text = "Drivers";
+            this.btnDrivers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDrivers.UseVisualStyleBackColor = false;
+            this.btnDrivers.Click += new System.EventHandler(this.btnDrivers_Click);
+            // 
+            // btnPeople
+            // 
+            this.btnPeople.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(34)))), ((int)(((byte)(67)))));
+            this.btnPeople.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPeople.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPeople.FlatAppearance.BorderSize = 0;
+            this.btnPeople.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnPeople.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnPeople.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnPeople.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPeople.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPeople.ForeColor = System.Drawing.Color.White;
+            this.btnPeople.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.People2_64;
+            this.btnPeople.Location = new System.Drawing.Point(0, 350);
+            this.btnPeople.Name = "btnPeople";
+            this.btnPeople.Size = new System.Drawing.Size(295, 111);
+            this.btnPeople.TabIndex = 4;
+            this.btnPeople.Text = "People";
+            this.btnPeople.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPeople.UseVisualStyleBackColor = false;
+            this.btnPeople.Click += new System.EventHandler(this.btnPeople_Click);
+            // 
+            // btnApplications
+            // 
+            this.btnApplications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(34)))), ((int)(((byte)(67)))));
+            this.btnApplications.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnApplications.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnApplications.FlatAppearance.BorderSize = 0;
+            this.btnApplications.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnApplications.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnApplications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(93)))), ((int)(((byte)(127)))));
+            this.btnApplications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApplications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnApplications.ForeColor = System.Drawing.Color.White;
+            this.btnApplications.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Applications_64;
+            this.btnApplications.Location = new System.Drawing.Point(0, 239);
+            this.btnApplications.Name = "btnApplications";
+            this.btnApplications.Size = new System.Drawing.Size(295, 111);
+            this.btnApplications.TabIndex = 3;
+            this.btnApplications.Text = "Applications";
+            this.btnApplications.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnApplications.UseVisualStyleBackColor = false;
+            this.btnApplications.Click += new System.EventHandler(this.btnApplications_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(295, 239);
+            this.panel2.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Logo_011;
+            this.pictureBox1.Location = new System.Drawing.Point(65, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(160, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelMainForm
+            // 
+            this.panelMainForm.BackColor = System.Drawing.Color.Black;
+            this.panelMainForm.Controls.Add(this.pictureBox2);
+            this.panelMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMainForm.Location = new System.Drawing.Point(295, 0);
+            this.panelMainForm.Name = "panelMainForm";
+            this.panelMainForm.Size = new System.Drawing.Size(1629, 1061);
+            this.panelMainForm.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.pbMainMenu;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1629, 1061);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // frmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.panelMainForm);
+            this.Controls.Add(this.panel1);
+            this.IsMdiContainer = true;
+            this.Name = "frmMain";
+            this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMainForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAccountSetting;
+        private System.Windows.Forms.Button btnUsers;
+        private System.Windows.Forms.Button btnDrivers;
+        private System.Windows.Forms.Button btnPeople;
+        private System.Windows.Forms.Button btnApplications;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelMainForm;
+        private System.Windows.Forms.PictureBox pictureBox2;
+    }
+}
+
