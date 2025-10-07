@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnAccountSetting = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnDrivers = new System.Windows.Forms.Button();
             this.btnPeople = new System.Windows.Forms.Button();
             this.btnApplications = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelMainForm = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.rjDropdownMenuApplications = new DVLD__Driving_License_Management_System_.RJControls.RJDropdownMenu(this.components);
             this.drivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,13 +57,15 @@
             this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMainForm = new System.Windows.Forms.Panel();
+            this.pbMainPicture = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelMainForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.rjDropdownMenuApplications.SuspendLayout();
             this.rjDropdownMenuAccountSettings.SuspendLayout();
+            this.panelMainForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,6 +82,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 1061);
             this.panel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(295, 239);
+            this.panel2.TabIndex = 2;
             // 
             // btnAccountSetting
             // 
@@ -194,15 +203,6 @@
             this.btnApplications.UseVisualStyleBackColor = false;
             this.btnApplications.Click += new System.EventHandler(this.btnApplications_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(295, 239);
-            this.panel2.TabIndex = 2;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Logo_011;
@@ -212,27 +212,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // panelMainForm
-            // 
-            this.panelMainForm.BackColor = System.Drawing.Color.Black;
-            this.panelMainForm.Controls.Add(this.pictureBox2);
-            this.panelMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainForm.Location = new System.Drawing.Point(295, 0);
-            this.panelMainForm.Name = "panelMainForm";
-            this.panelMainForm.Size = new System.Drawing.Size(1629, 1061);
-            this.panelMainForm.TabIndex = 3;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.pbMainMenu;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1629, 1061);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // rjDropdownMenuApplications
             // 
@@ -247,7 +226,7 @@
             this.rjDropdownMenuApplications.MenuItemTextColor = System.Drawing.Color.Empty;
             this.rjDropdownMenuApplications.Name = "rjDropdownMenuApplications";
             this.rjDropdownMenuApplications.PrimaryColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 376);
+            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 354);
             // 
             // drivingToolStripMenuItem
             // 
@@ -434,6 +413,27 @@
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(253, 70);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             // 
+            // panelMainForm
+            // 
+            this.panelMainForm.BackColor = System.Drawing.Color.Black;
+            this.panelMainForm.Controls.Add(this.pbMainPicture);
+            this.panelMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMainForm.Location = new System.Drawing.Point(295, 0);
+            this.panelMainForm.Name = "panelMainForm";
+            this.panelMainForm.Size = new System.Drawing.Size(1629, 1061);
+            this.panelMainForm.TabIndex = 3;
+            // 
+            // pbMainPicture
+            // 
+            this.pbMainPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbMainPicture.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.pbMainMenu;
+            this.pbMainPicture.Location = new System.Drawing.Point(0, 0);
+            this.pbMainPicture.Name = "pbMainPicture";
+            this.pbMainPicture.Size = new System.Drawing.Size(1629, 1061);
+            this.pbMainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbMainPicture.TabIndex = 0;
+            this.pbMainPicture.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,10 +447,10 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelMainForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.rjDropdownMenuApplications.ResumeLayout(false);
             this.rjDropdownMenuAccountSettings.ResumeLayout(false);
+            this.panelMainForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMainPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,8 +465,6 @@
         private System.Windows.Forms.Button btnApplications;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelMainForm;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private RJControls.RJDropdownMenu rjDropdownMenuApplications;
         private System.Windows.Forms.ToolStripMenuItem drivingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newDrivingLicenseToolStripMenuItem;
@@ -487,6 +485,8 @@
         private System.Windows.Forms.ToolStripMenuItem manageDetainedLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detainLicenseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem releaseLicenseToolStripMenuItem;
+        private System.Windows.Forms.Panel panelMainForm;
+        private System.Windows.Forms.PictureBox pbMainPicture;
     }
 }
 
