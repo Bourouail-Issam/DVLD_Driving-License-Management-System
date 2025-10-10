@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_(Driving License Management System)", "DVLD_(Driving License Management System)\DVLD_(Driving License Management System).csproj", "{F86F98B8-FA7A-49C6-8F38-45F3A7340744}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD", "DVLD_(Driving License Management System)\DVLD.csproj", "{F86F98B8-FA7A-49C6-8F38-45F3A7340744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_DataAccess", "DVLD_DataAccess\DVLD_DataAccess.csproj", "{D83C4871-188D-4108-8CD0-011477572F0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_Buisness", "DVLD_BuisnessDVLD_Buisness\DVLD_Buisness.csproj", "{E5F576A3-BAED-4ABE-B6D8-9A4B121380B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F86F98B8-FA7A-49C6-8F38-45F3A7340744}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F86F98B8-FA7A-49C6-8F38-45F3A7340744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F86F98B8-FA7A-49C6-8F38-45F3A7340744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83C4871-188D-4108-8CD0-011477572F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83C4871-188D-4108-8CD0-011477572F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83C4871-188D-4108-8CD0-011477572F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83C4871-188D-4108-8CD0-011477572F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F576A3-BAED-4ABE-B6D8-9A4B121380B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F576A3-BAED-4ABE-B6D8-9A4B121380B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F576A3-BAED-4ABE-B6D8-9A4B121380B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F576A3-BAED-4ABE-B6D8-9A4B121380B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

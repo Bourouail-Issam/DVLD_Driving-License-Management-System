@@ -148,5 +148,11 @@
   <ItemGroup>
     <None Include="Resources\networking_People.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DVLD_BuisnessDVLD_Buisness\DVLD_Buisness.csproj">
+      <Project>{e5f576a3-baed-4abe-b6d8-9a4b121380b4}</Project>
+      <Name>DVLD_Buisness</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

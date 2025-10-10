@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnAccountSetting = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnDrivers = new System.Windows.Forms.Button();
             this.btnPeople = new System.Windows.Forms.Button();
             this.btnApplications = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rjDropdownMenuApplications = new DVLD__Driving_License_Management_System_.RJControls.RJDropdownMenu(this.components);
             this.drivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,15 +82,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 1061);
             this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(295, 239);
-            this.panel2.TabIndex = 2;
             // 
             // btnAccountSetting
             // 
@@ -202,6 +193,15 @@
             this.btnApplications.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnApplications.UseVisualStyleBackColor = false;
             this.btnApplications.Click += new System.EventHandler(this.btnApplications_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(295, 239);
+            this.panel2.TabIndex = 2;
             // 
             // pictureBox1
             // 
@@ -443,6 +443,7 @@
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
