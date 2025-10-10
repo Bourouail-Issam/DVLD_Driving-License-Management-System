@@ -31,7 +31,18 @@ namespace DVLD__Driving_License_Management_System_.People
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
-      
+        private void _RefreshPeoplList()
+        {
+            _dtAllPeople = clsPerson.GetAllPeople();
+            _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
+                                                       "FirstName", "SecondName", "ThirdName", "LastName",
+                                                       "GendorCaption", "DateOfBirth", "CountryName",
+                                                       "Phone", "Email");
+
+            dgvPeople.DataSource = _dtPeople;
+            lblRecordsCount.Text = dgvPeople.Rows.Count.ToString();
+        }
+
         private void frmPeople_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
@@ -93,11 +104,6 @@ namespace DVLD__Driving_License_Management_System_.People
                 txtFilterValue.Text = "";
                 txtFilterValue.Focus();
             }
-        }
-
-        private void cbFilter_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
@@ -169,11 +175,7 @@ namespace DVLD__Driving_License_Management_System_.People
 
             if (!String.IsNullOrWhiteSpace(txtFilterValue))
             {
-                if (columnName == "PersoonID")
-                    _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}",columnName,txtFilterValue);
-                else
-                    _dtPeople.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
-
+                _dtPeople.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
                 dgvAllPeopleData.DataSource = _dtPeople;
             }
             else
