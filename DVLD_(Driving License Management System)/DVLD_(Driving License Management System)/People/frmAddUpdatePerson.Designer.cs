@@ -49,8 +49,7 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.LLbSetImage = new System.Windows.Forms.LinkLabel();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.cbCountries = new System.Windows.Forms.ComboBox();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbFullName = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.lbPersonID = new System.Windows.Forms.Label();
             this.lbNameOfForm = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -333,26 +333,17 @@
             this.LLbSetImage.TabStop = true;
             this.LLbSetImage.Text = "Set Image";
             // 
-            // pbImage
+            // cbCountry
             // 
-            this.pbImage.Location = new System.Drawing.Point(658, 374);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(256, 195);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImage.TabIndex = 240;
-            this.pbImage.TabStop = false;
-            // 
-            // cbCountries
-            // 
-            this.cbCountries.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbCountries.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbCountries.FormattingEnabled = true;
-            this.cbCountries.Location = new System.Drawing.Point(186, 517);
-            this.cbCountries.Margin = new System.Windows.Forms.Padding(2);
-            this.cbCountries.MaxDropDownItems = 10;
-            this.cbCountries.Name = "cbCountries";
-            this.cbCountries.Size = new System.Drawing.Size(154, 25);
-            this.cbCountries.TabIndex = 231;
+            this.cbCountry.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbCountry.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(186, 517);
+            this.cbCountry.Margin = new System.Windows.Forms.Padding(2);
+            this.cbCountry.MaxDropDownItems = 10;
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(154, 25);
+            this.cbCountry.TabIndex = 231;
             // 
             // label9
             // 
@@ -470,6 +461,15 @@
             this.label7.Text = "Date Of Birth :";
             this.label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(658, 374);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(256, 195);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 240;
+            this.pbImage.TabStop = false;
+            // 
             // frmAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,7 +498,7 @@
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.LLbSetImage);
             this.Controls.Add(this.pbImage);
-            this.Controls.Add(this.cbCountries);
+            this.Controls.Add(this.cbCountry);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbFullName);
@@ -541,7 +541,7 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.LinkLabel LLbSetImage;
         private System.Windows.Forms.PictureBox pbImage;
-        private System.Windows.Forms.ComboBox cbCountries;
+        private System.Windows.Forms.ComboBox cbCountry;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbFullName;
