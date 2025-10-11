@@ -136,5 +136,13 @@ namespace DVLD__Driving_License_Management_System_.People
             //hide/show the remove linke incase there is no image for the person.
             llbRemoveImage.Visible = (_person.ImagePath != "");
         }
+
+        private void frmAddUpdatePerson_Load(object sender, EventArgs e)
+        {
+            _ResetDefualtValues();
+
+            if (_Mode == enMode.Update)
+                _LoadDataPerson();
+        }
     }
 }

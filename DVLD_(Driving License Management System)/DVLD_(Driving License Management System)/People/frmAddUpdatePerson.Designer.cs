@@ -525,6 +525,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddUpdatePerson";
             this.Text = "frmAddUpdatePerson";
+            this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
