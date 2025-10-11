@@ -193,5 +193,12 @@ namespace DVLD__Driving_License_Management_System_.People
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
+
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
+            frm.ShowDialog();
+            _RefreshPeoplList();
+        }
     }
 }
