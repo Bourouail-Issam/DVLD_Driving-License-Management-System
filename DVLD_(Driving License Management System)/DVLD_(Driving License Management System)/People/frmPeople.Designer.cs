@@ -34,7 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvAllPeopleData = new System.Windows.Forms.DataGridView();
+            this.dgvPeople = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllPeopleData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.SuspendLayout();
             // 
             // pbPersonImage
@@ -74,14 +74,14 @@
             // 
             // dgvAllPeopleData
             // 
-            this.dgvAllPeopleData.AllowUserToAddRows = false;
-            this.dgvAllPeopleData.AllowUserToDeleteRows = false;
-            this.dgvAllPeopleData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvPeople.AllowUserToAddRows = false;
+            this.dgvPeople.AllowUserToDeleteRows = false;
+            this.dgvPeople.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAllPeopleData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAllPeopleData.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAllPeopleData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPeople.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPeople.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.PowderBlue;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,8 +89,8 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAllPeopleData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvAllPeopleData.ColumnHeadersHeight = 60;
+            this.dgvPeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPeople.ColumnHeadersHeight = 60;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,11 +98,11 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSlateGray;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAllPeopleData.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvAllPeopleData.EnableHeadersVisualStyles = false;
-            this.dgvAllPeopleData.Location = new System.Drawing.Point(21, 384);
-            this.dgvAllPeopleData.Name = "dgvAllPeopleData";
-            this.dgvAllPeopleData.ReadOnly = true;
+            this.dgvPeople.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvPeople.EnableHeadersVisualStyles = false;
+            this.dgvPeople.Location = new System.Drawing.Point(21, 384);
+            this.dgvPeople.Name = "dgvAllPeopleData";
+            this.dgvPeople.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,12 +110,12 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAllPeopleData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvAllPeopleData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvAllPeopleData.RowTemplate.Height = 27;
-            this.dgvAllPeopleData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAllPeopleData.Size = new System.Drawing.Size(1587, 590);
-            this.dgvAllPeopleData.TabIndex = 103;
+            this.dgvPeople.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvPeople.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvPeople.RowTemplate.Height = 27;
+            this.dgvPeople.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPeople.Size = new System.Drawing.Size(1587, 590);
+            this.dgvPeople.TabIndex = 103;
             // 
             // label1
             // 
@@ -233,7 +233,7 @@
             this.Controls.Add(this.lbRecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvAllPeopleData);
+            this.Controls.Add(this.dgvPeople);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.btnClose);
@@ -245,7 +245,7 @@
             this.Text = "frmPeople";
             this.Load += new System.EventHandler(this.frmPeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllPeopleData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +254,7 @@
         #endregion
         private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvAllPeopleData;
+        private System.Windows.Forms.DataGridView dgvPeople;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddNewPerson;
         private System.Windows.Forms.Button btnClose;

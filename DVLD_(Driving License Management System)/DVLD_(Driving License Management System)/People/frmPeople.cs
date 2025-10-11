@@ -33,58 +33,58 @@ namespace DVLD__Driving_License_Management_System_.People
 
         private void _RefreshPeoplList()
         {
-            _dtAllPeople = clsPerson.GetAllPeople();
+            _dtAllPeople = clsPersoon.GetAllPersons();
             _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
                                                        "FirstName", "SecondName", "ThirdName", "LastName",
                                                        "GendorCaption", "DateOfBirth", "CountryName",
                                                        "Phone", "Email");
 
             dgvPeople.DataSource = _dtPeople;
-            lblRecordsCount.Text = dgvPeople.Rows.Count.ToString();
+            lbRecords.Text = dgvPeople.Rows.Count.ToString();
         }
 
         private void frmPeople_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
 
-            dgvAllPeopleData.DataSource = _dtPeople;
+            dgvPeople.DataSource = _dtPeople;
             cbFilter.SelectedIndex = 0;
-            lbRecords.Text = dgvAllPeopleData.Rows.Count.ToString();
+            lbRecords.Text = dgvPeople.Rows.Count.ToString();
 
-            if(dgvAllPeopleData.Rows.Count > 0)
+            if(dgvPeople.Rows.Count > 0)
             {
-                dgvAllPeopleData.Columns[0].HeaderText = "Person ID";
-                dgvAllPeopleData.Columns[0].Width = 110;
+                dgvPeople.Columns[0].HeaderText = "Person ID";
+                dgvPeople.Columns[0].Width = 110;
 
-                dgvAllPeopleData.Columns[1].HeaderText = "National NO";
-                dgvAllPeopleData.Columns[1].Width = 120;
+                dgvPeople.Columns[1].HeaderText = "National NO";
+                dgvPeople.Columns[1].Width = 120;
 
-                dgvAllPeopleData.Columns[2].HeaderText = "First Name";
-                dgvAllPeopleData.Columns[2].Width = 120;
+                dgvPeople.Columns[2].HeaderText = "First Name";
+                dgvPeople.Columns[2].Width = 120;
 
-                dgvAllPeopleData.Columns[3].HeaderText = "Second Name";
-                dgvAllPeopleData.Columns[3].Width = 140;
+                dgvPeople.Columns[3].HeaderText = "Second Name";
+                dgvPeople.Columns[3].Width = 140;
 
-                dgvAllPeopleData.Columns[4].HeaderText = "Third Name";
-                dgvAllPeopleData.Columns[4].Width = 120;
+                dgvPeople.Columns[4].HeaderText = "Third Name";
+                dgvPeople.Columns[4].Width = 120;
 
-                dgvAllPeopleData.Columns[5].HeaderText = "Last Name";
-                dgvAllPeopleData.Columns[5].Width = 120;
+                dgvPeople.Columns[5].HeaderText = "Last Name";
+                dgvPeople.Columns[5].Width = 120;
 
-                dgvAllPeopleData.Columns[6].HeaderText = "Gendor";
-                dgvAllPeopleData.Columns[6].Width = 120;
+                dgvPeople.Columns[6].HeaderText = "Gendor";
+                dgvPeople.Columns[6].Width = 120;
 
-                dgvAllPeopleData.Columns[7].HeaderText = "Date of Birth";
-                dgvAllPeopleData.Columns[7].Width = 140;
+                dgvPeople.Columns[7].HeaderText = "Date of Birth";
+                dgvPeople.Columns[7].Width = 140;
 
-                dgvAllPeopleData.Columns[8].HeaderText = "Nationalty";
-                dgvAllPeopleData.Columns[8].Width = 120;
+                dgvPeople.Columns[8].HeaderText = "Nationalty";
+                dgvPeople.Columns[8].Width = 120;
 
-                dgvAllPeopleData.Columns[9].HeaderText = "Phone";
-                dgvAllPeopleData.Columns[9].Width = 120;
+                dgvPeople.Columns[9].HeaderText = "Phone";
+                dgvPeople.Columns[9].Width = 120;
 
-                dgvAllPeopleData.Columns[10].HeaderText = "Email";
-                dgvAllPeopleData.Columns[10].Width = 170;
+                dgvPeople.Columns[10].HeaderText = "Email";
+                dgvPeople.Columns[10].Width = 170;
 
             }
         }
@@ -163,7 +163,7 @@ namespace DVLD__Driving_License_Management_System_.People
             if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
             {
                 _dtPeople.DefaultView.RowFilter = "";
-                lbRecords.Text = dgvAllPeopleData.Rows.Count.ToString();
+                lbRecords.Text = dgvPeople.Rows.Count.ToString();
                 return;
             }
 
@@ -176,13 +176,13 @@ namespace DVLD__Driving_License_Management_System_.People
             if (!String.IsNullOrWhiteSpace(txtFilterValue))
             {
                 _dtPeople.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
-                dgvAllPeopleData.DataSource = _dtPeople;
+                dgvPeople.DataSource = _dtPeople;
             }
             else
             {
                 _dtPeople.DefaultView.RowFilter = "";
             }
-            lbRecords.Text = dgvAllPeopleData.Rows.Count.ToString();
+            lbRecords.Text = dgvPeople.Rows.Count.ToString();
         }
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
