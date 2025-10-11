@@ -3,13 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DVLD_BuisnessDVLD_Buisness
 {
-    public class clsPerson
+    public class clsPerson   
     {
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
+
+
         public int PersonID { get; set; }
         public string NationalNo { get; set; }
         public string FirstName { get; set; }
@@ -22,7 +27,17 @@ namespace DVLD_BuisnessDVLD_Buisness
         public string Phone { get; set; }
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
-        public string ImagePath { get; set; }
+
+        private string _ImagePath;
+
+        public string ImagePath
+        {
+            get { return _ImagePath; }
+            set { _ImagePath = value; }
+        }
+        public clsCountry CountryInfo;
+
+
 
 
         public clsPerson()
@@ -40,6 +55,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             Email = string.Empty;
             NationalityCountryID = -1;
             ImagePath = string.Empty;
+            Mode = enMode.AddNew;
         }
         public clsPerson(
             int personID, 
@@ -69,6 +85,8 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.Email = email;
             this.NationalityCountryID = nationalityCountryID;
             this.ImagePath = imagePath;
+
+            Mode = enMode.Update;
         }
 
         public static DataTable GetAllPersons()
