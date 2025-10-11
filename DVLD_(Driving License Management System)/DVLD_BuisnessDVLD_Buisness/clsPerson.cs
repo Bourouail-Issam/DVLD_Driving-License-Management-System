@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DVLD_BuisnessDVLD_Buisness
 {
-    public class clsPersoon
+    public class clsPerson
     {
         public int PersonID { get; set; }
         public string NationalNo { get; set; }
@@ -17,7 +17,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         public string ThirdName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public bool Gendor { get; set; }
+        public byte Gendor { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -25,7 +25,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         public string ImagePath { get; set; }
 
 
-        public clsPersoon()
+        public clsPerson()
         {
             PersonID = -1;
             NationalNo = string.Empty;
@@ -34,14 +34,14 @@ namespace DVLD_BuisnessDVLD_Buisness
             ThirdName = string.Empty;
             LastName = string.Empty;
             DateOfBirth = DateTime.MinValue;
-            Gendor = false;
+            Gendor = 0;
             Address = string.Empty;
             Phone = string.Empty;
             Email = string.Empty;
             NationalityCountryID = -1;
             ImagePath = string.Empty;
         }
-        public clsPersoon(
+        public clsPerson(
             int personID, 
             string nationalNo, 
             string firstName,
@@ -49,7 +49,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             string thirdName,
             string lastName,
             DateTime dateOfBirth,
-            bool gendor, 
+            byte gendor, 
             string address, 
             string phone, 
             string email,
@@ -74,6 +74,38 @@ namespace DVLD_BuisnessDVLD_Buisness
         public static DataTable GetAllPersons()
         {
             return clsPersonData.GetAllPersons();
+        }
+
+        static public clsPerson Find(int PersonID)
+        {
+            string nationalNo = "", firstName = "", secondName = "",
+                   thirdName = "", lastName = "", address = "",
+                   phone = "", email = "", imagePath = "";
+
+            DateTime dateOfBirth = DateTime.Now;
+            byte gendor = 0;
+            int nationalityCountryID = -1;
+
+
+            bool isFound = clsPersonData.GetPersonInfoByID(
+                         PersonID, ref nationalNo,
+                         ref firstName, ref secondName, ref thirdName,
+                         ref lastName, ref dateOfBirth, ref gendor,
+                         ref address, ref phone, ref email,
+                         ref nationalityCountryID, ref imagePath);
+
+
+            if (isFound)
+                //we return new object of that person with the right data
+                return new clsPerson(
+                              PersonID, nationalNo, firstName,
+                              secondName, thirdName, lastName,
+                              dateOfBirth, gendor, address,
+                              phone, email,
+                              nationalityCountryID, imagePath
+                              );
+            else
+                return null;
         }
     }
 }

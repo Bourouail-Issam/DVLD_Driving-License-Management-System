@@ -19,7 +19,7 @@ namespace DVLD__Driving_License_Management_System_.People
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
         private int _PersonID = -1;
-        private clsPersoon _person;
+        private clsPerson _person;
         public frmAddUpdatePerson()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace DVLD__Driving_License_Management_System_.People
             if (_Mode == enMode.AddNew)
             {
                 lbNameOfForm.Text = "Add New Person";
-                _person = new clsPersoon();
+                _person = new clsPerson();
             }
             else
             {

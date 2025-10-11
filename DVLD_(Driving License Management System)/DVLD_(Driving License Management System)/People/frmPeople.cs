@@ -14,7 +14,7 @@ namespace DVLD__Driving_License_Management_System_.People
     public partial class frmPeople : Form
     {
         private frmMain _frmMain;
-        private static DataTable _dtAllPeople = clsPersoon.GetAllPersons();
+        private static DataTable _dtAllPeople = clsPerson.GetAllPersons();
 
 
         //only select the columns that you want to show in the grid
@@ -33,7 +33,7 @@ namespace DVLD__Driving_License_Management_System_.People
 
         private void _RefreshPeoplList()
         {
-            _dtAllPeople = clsPersoon.GetAllPersons();
+            _dtAllPeople = clsPerson.GetAllPersons();
             _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
                                                        "FirstName", "SecondName", "ThirdName", "LastName",
                                                        "GendorCaption", "DateOfBirth", "CountryName",
