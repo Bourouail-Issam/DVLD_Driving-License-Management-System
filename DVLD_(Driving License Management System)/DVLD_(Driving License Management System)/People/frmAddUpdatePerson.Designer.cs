@@ -61,6 +61,7 @@
             this.lbNameOfForm = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pbImage = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -429,12 +430,12 @@
             // 
             this.lbPersonID.AutoSize = true;
             this.lbPersonID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lbPersonID.Location = new System.Drawing.Point(31, 181);
+            this.lbPersonID.Location = new System.Drawing.Point(137, 181);
             this.lbPersonID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbPersonID.Name = "lbPersonID";
-            this.lbPersonID.Size = new System.Drawing.Size(152, 24);
+            this.lbPersonID.Size = new System.Drawing.Size(55, 24);
             this.lbPersonID.TabIndex = 216;
-            this.lbPersonID.Text = "Person ID    ????";
+            this.lbPersonID.Text = " ????";
             // 
             // lbNameOfForm
             // 
@@ -470,12 +471,24 @@
             this.pbImage.TabIndex = 240;
             this.pbImage.TabStop = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label14.Location = new System.Drawing.Point(30, 181);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(92, 24);
+            this.label14.TabIndex = 250;
+            this.label14.Text = "Person ID";
+            // 
             // frmAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(959, 1030);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.llbRemoveImage);
@@ -552,5 +565,6 @@
         private System.Windows.Forms.Label lbPersonID;
         private System.Windows.Forms.Label lbNameOfForm;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
     }
 }

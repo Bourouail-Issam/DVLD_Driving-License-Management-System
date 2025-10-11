@@ -163,5 +163,11 @@
       <Name>DVLD_Buisness</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Female-p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Men-p.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

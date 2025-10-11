@@ -38,8 +38,6 @@ namespace DVLD_BuisnessDVLD_Buisness
         public clsCountry CountryInfo;
 
 
-
-
         public clsPerson()
         {
             PersonID = -1;

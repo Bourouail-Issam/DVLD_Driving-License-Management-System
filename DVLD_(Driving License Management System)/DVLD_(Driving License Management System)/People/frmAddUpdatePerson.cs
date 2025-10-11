@@ -18,8 +18,11 @@ namespace DVLD__Driving_License_Management_System_.People
 
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
+
         private int _PersonID = -1;
         private clsPerson _person;
+
+
         public frmAddUpdatePerson()
         {
             InitializeComponent();
@@ -54,9 +57,7 @@ namespace DVLD__Driving_License_Management_System_.People
                 _person = new clsPerson();
             }
             else
-            {
                 lbNameOfForm.Text = "Update Person";
-            }
 
             //set default image for the person.
             if (rbMale.Checked) 
@@ -87,5 +88,7 @@ namespace DVLD__Driving_License_Management_System_.People
             txtEmail.Text = "";
             rTxtAddress.Text = "";
         }
+
+       
     }
 }
