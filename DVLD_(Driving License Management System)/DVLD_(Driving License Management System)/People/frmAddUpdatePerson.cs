@@ -89,6 +89,52 @@ namespace DVLD__Driving_License_Management_System_.People
             rTxtAddress.Text = "";
         }
 
-       
+        private void _LoadDataPerson()
+        {
+            _person = clsPerson.Find(_PersonID);
+
+            if (_person == null)
+            {
+                MessageBox.Show(
+                    "No Person with ID = " + _PersonID,
+                    "Person Not Found",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation
+                    );
+
+                this.Close();
+                return;
+            }
+
+
+            //the following code will not be executed if the person was not found
+            lbPersonID.Text = _PersonID.ToString();
+            txtNationalNo.Text = _person.NationalNo;
+            txtFirstName.Text = _person.FirstName;
+            txtSecondName.Text = _person.SecondName;
+            txtThirdName.Text = _person.ThirdName;
+            txtLastName.Text = _person.LastName;
+
+            dtpDateOfBirth.Value = _person.DateOfBirth;
+
+            if (_person.Gendor == 0)
+                rbMale.Checked = true;
+            else
+                rbFemale.Checked = true;
+
+            //cbCountry.SelectedIndex = cbCountry.FindString(_person.);
+            txtPhone.Text = _person.Phone;
+            txtEmail.Text = _person.Email;
+            rTxtAddress.Text = _person.Address;
+            cbCountry.SelectedIndex = cbCountry.FindString(_person.CountryInfo.CountryName);
+
+            //load person image incase it was set.
+            if (_person.ImagePath != "")
+                pbImage.ImageLocation = _person.ImagePath;
+
+
+            //hide/show the remove linke incase there is no image for the person.
+            llbRemoveImage.Visible = (_person.ImagePath != "");
+        }
     }
 }
