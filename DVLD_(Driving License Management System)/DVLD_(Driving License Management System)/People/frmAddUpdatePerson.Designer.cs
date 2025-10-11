@@ -438,7 +438,6 @@
             // 
             // lbNameOfForm
             // 
-            this.lbNameOfForm.AutoSize = true;
             this.lbNameOfForm.Font = new System.Drawing.Font("Myanmar Text", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNameOfForm.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lbNameOfForm.Location = new System.Drawing.Point(306, 100);
@@ -463,6 +462,7 @@
             // 
             // pbImage
             // 
+            this.pbImage.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Men_p;
             this.pbImage.Location = new System.Drawing.Point(658, 374);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(256, 195);

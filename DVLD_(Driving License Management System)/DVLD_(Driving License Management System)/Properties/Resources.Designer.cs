@@ -143,6 +143,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Female_p {
+            get {
+                object obj = ResourceManager.GetObject("Female-p", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap International_32 {
             get {
                 object obj = ResourceManager.GetObject("International 32", resourceCulture);
@@ -196,6 +206,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         internal static System.Drawing.Bitmap manageTestType_64 {
             get {
                 object obj = ResourceManager.GetObject("manageTestType 64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Men_p {
+            get {
+                object obj = ResourceManager.GetObject("Men-p", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
