@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DVLD__Driving_License_Management_System_.People
 {
-    public partial class frmPeople : Form
+    public partial class frmListPeople : Form
     {
         private frmMain _frmMain;
         private static DataTable _dtAllPeople = clsPerson.GetAllPersons();
@@ -23,7 +23,7 @@ namespace DVLD__Driving_License_Management_System_.People
                                                          "GendorCaption", "DateOfBirth", "CountryName",
                                                          "Phone", "Email");
 
-        public frmPeople(frmMain frmMain)
+        public frmListPeople(frmMain frmMain)
         {
             InitializeComponent();
             this._frmMain = frmMain;

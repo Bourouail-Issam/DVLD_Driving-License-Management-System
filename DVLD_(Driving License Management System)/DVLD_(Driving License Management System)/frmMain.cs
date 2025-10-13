@@ -38,7 +38,7 @@ namespace DVLD__Driving_License_Management_System_
             btnPeople.BackColor = Color.FromArgb(63, 93, 127);
             panelMainForm.Visible = false;
 
-            frmPeople frm = new frmPeople(this);
+            frmListPeople frm = new frmListPeople(this);
             frm.MdiParent = this;
             frm.Show();
         }
