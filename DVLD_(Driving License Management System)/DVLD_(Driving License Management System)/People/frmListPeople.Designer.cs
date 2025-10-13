@@ -46,12 +46,12 @@
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phooneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSendEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPhooneCall = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.cmsPeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
@@ -190,26 +190,26 @@
             // cmsPeople
             // 
             this.cmsPeople.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showDetailsToolStripMenuItem,
+            this.tsmShow,
             this.toolStripSeparator1,
-            this.addNewPersonToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.deleteToolStripMenuItem,
+            this.tsmAddNewPerson,
+            this.tsmEdit,
+            this.tsmDelete,
             this.toolStripSeparator2,
-            this.sendEmailToolStripMenuItem,
-            this.phooneCallToolStripMenuItem});
+            this.tsmSendEmail,
+            this.tsmPhooneCall});
             this.cmsPeople.Name = "cmsPeople";
-            this.cmsPeople.Size = new System.Drawing.Size(179, 244);
+            this.cmsPeople.Size = new System.Drawing.Size(197, 266);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(193, 6);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
             // 
             // btnAddNewPerson
             // 
@@ -259,53 +259,54 @@
             this.pbPersonImage.TabIndex = 99;
             this.pbPersonImage.TabStop = false;
             // 
-            // showDetailsToolStripMenuItem
+            // tsmShow
             // 
-            this.showDetailsToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.PersonDetails_32;
-            this.showDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
-            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.tsmShow.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.PersonDetails_32;
+            this.tsmShow.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShow.Name = "tsmShow";
+            this.tsmShow.Size = new System.Drawing.Size(196, 38);
+            this.tsmShow.Text = "Show Details";
             // 
-            // addNewPersonToolStripMenuItem
+            // tsmAddNewPerson
             // 
-            this.addNewPersonToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AddPerson_32;
-            this.addNewPersonToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
-            this.addNewPersonToolStripMenuItem.Text = "Add New Person";
+            this.tsmAddNewPerson.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AddPerson_32;
+            this.tsmAddNewPerson.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmAddNewPerson.Name = "tsmAddNewPerson";
+            this.tsmAddNewPerson.Size = new System.Drawing.Size(196, 38);
+            this.tsmAddNewPerson.Text = "Add New Person";
             // 
-            // editToolStripMenuItem
+            // tsmEdit
             // 
-            this.editToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
-            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.tsmEdit.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
+            this.tsmEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(196, 38);
+            this.tsmEdit.Text = "Edit";
+            this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
-            // deleteToolStripMenuItem
+            // tsmDelete
             // 
-            this.deleteToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Delete_32;
-            this.deleteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.tsmDelete.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Delete_32;
+            this.tsmDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(196, 38);
+            this.tsmDelete.Text = "Delete";
             // 
-            // sendEmailToolStripMenuItem
+            // tsmSendEmail
             // 
-            this.sendEmailToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.send_email_32;
-            this.sendEmailToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
-            this.sendEmailToolStripMenuItem.Text = "Send Email";
+            this.tsmSendEmail.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.send_email_32;
+            this.tsmSendEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmSendEmail.Name = "tsmSendEmail";
+            this.tsmSendEmail.Size = new System.Drawing.Size(196, 38);
+            this.tsmSendEmail.Text = "Send Email";
             // 
-            // phooneCallToolStripMenuItem
+            // tsmPhooneCall
             // 
-            this.phooneCallToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.call_32;
-            this.phooneCallToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.phooneCallToolStripMenuItem.Name = "phooneCallToolStripMenuItem";
-            this.phooneCallToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
-            this.phooneCallToolStripMenuItem.Text = "Phoone Call";
+            this.tsmPhooneCall.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.call_32;
+            this.tsmPhooneCall.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmPhooneCall.Name = "tsmPhooneCall";
+            this.tsmPhooneCall.Size = new System.Drawing.Size(196, 38);
+            this.tsmPhooneCall.Text = "Phoone Call";
             // 
             // frmListPeople
             // 
@@ -349,13 +350,13 @@
         private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.ContextMenuStrip cmsPeople;
-        private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmShow;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmAddNewPerson;
+        private System.Windows.Forms.ToolStripMenuItem tsmEdit;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem phooneCallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmSendEmail;
+        private System.Windows.Forms.ToolStripMenuItem tsmPhooneCall;
     }
 }

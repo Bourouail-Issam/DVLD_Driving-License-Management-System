@@ -200,5 +200,13 @@ namespace DVLD__Driving_License_Management_System_.People
             frm.ShowDialog();
             _RefreshPeoplList();
         }
+
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+            frmAddUpdatePerson frm = new frmAddUpdatePerson(PersonID);
+            frm.ShowDialog();
+            _RefreshPeoplList();
+        }
     }
 }
