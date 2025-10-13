@@ -71,7 +71,7 @@ namespace DVLD__Driving_License_Management_System_.People
             llbRemoveImage.Visible = (pbImage.ImageLocation != null);
 
             //we set the max date to 18 years from today, and set the default value the same.
-            dtpDateOfBirth.MaxDate = DateTime.Now.AddDays(-18);
+            dtpDateOfBirth.MaxDate = DateTime.Now.AddYears(-18);
             dtpDateOfBirth.Value = dtpDateOfBirth.MaxDate;
 
             //should not allow adding age more than 100 years

@@ -45,7 +45,6 @@ namespace DVLD__Driving_License_Management_System_
             _xCoordinate = e.X;
             _yCoordinate = e.Y;
         }
-        qq
 
 
         private void panelMoveForm_MouseMove(object sender, MouseEventArgs e)
