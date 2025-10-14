@@ -6,13 +6,14 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DVLD_BuisnessDVLD_Buisness
 {
     public class clsPerson   
     {
-        public enum enMode { AddNew = 0, Update = 1 };
-        public enMode Mode = enMode.AddNew;
+        enum enMode { AddNew = 0, Update = 1 };
+        enMode _Mode = enMode.AddNew;
 
 
         public int PersonID { get; set; }
@@ -29,12 +30,12 @@ namespace DVLD_BuisnessDVLD_Buisness
         public int NationalityCountryID { get; set; }
 
         private string _ImagePath;
-
         public string ImagePath
         {
             get { return _ImagePath; }
             set { _ImagePath = value; }
         }
+
         public clsCountry CountryInfo;
 
 
@@ -53,7 +54,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             Email = string.Empty;
             NationalityCountryID = -1;
             ImagePath = string.Empty;
-            Mode = enMode.AddNew;
+            _Mode = enMode.AddNew;
         }
         public clsPerson(
             int personID, 
@@ -84,8 +85,10 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.NationalityCountryID = nationalityCountryID;
             this.ImagePath = imagePath;
             this.CountryInfo = clsCountry.GetCountryInfoByID(nationalityCountryID);
-            Mode = enMode.Update;
+            _Mode = enMode.Update;
         }
+
+        //################################ CRUD Methods ################################
 
         public static DataTable GetAllPersons()
         {
@@ -123,5 +126,18 @@ namespace DVLD_BuisnessDVLD_Buisness
             else
                 return null;
         }
+
+        private bool _AddNewPerson()
+        {
+            //call DataAccess Layer 
+
+            this.PersonID = clsPersonData.AddNewPerson(this.NationalNo, this.FirstName,
+                  this.SecondName, this.ThirdName, this.LastName,
+                  this.DateOfBirth, this.Gendor, this.Address, this.Phone, this.Email,
+                  this.NationalityCountryID, this.ImagePath);
+
+            return (PersonID != -1);
+        }
+
     }
 }

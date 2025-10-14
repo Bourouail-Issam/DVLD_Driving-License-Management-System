@@ -10,6 +10,11 @@ namespace DVLD_DataAccess
 {
     public class clsPersonData
     {
+
+
+
+        //################################ CRUD Methods ################################
+
         public static DataTable GetAllPersons()
         {
             DataTable dt = new DataTable();
@@ -48,7 +53,7 @@ namespace DVLD_DataAccess
                         if (rd.HasRows)
                             dt.Load(rd);
                     }
-                }        
+                }
                 catch (Exception ex)
                 {
                     //Console.WriteLine(ex.Message);
@@ -59,10 +64,12 @@ namespace DVLD_DataAccess
             return dt;
         }
 
-        public static bool GetPersonInfoByID(int PersonID, ref string NationalNo, 
-            ref string FirstName, ref string SecondName,ref string ThirdName, ref string LastName, 
-            ref DateTime DateOfBirth, ref byte Gendor, ref string Address, 
-            ref string Phone, ref string Email,ref int NationalityCountryID, ref string ImagePath)
+
+
+        public static bool GetPersonInfoByID(int PersonID, ref string NationalNo,
+           ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
+           ref DateTime DateOfBirth, ref byte Gendor, ref string Address,
+           ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;
 
@@ -87,7 +94,7 @@ namespace DVLD_DataAccess
 
                     //ThirdName: allows null in database so we should handle null
                     if (reader["ThirdName"] != DBNull.Value)
-                        ThirdName = (string)reader["ThirdName"];        
+                        ThirdName = (string)reader["ThirdName"];
                     else
                         ThirdName = "";
 
@@ -131,5 +138,78 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+
+
+        public static int AddNewPerson(string NationalNo, string FirstName,
+            string SecondName, string ThirdName, string LastName,
+            DateTime DateOfBirth,byte Gendor, string Address, string Phone,
+            string Email, int NationalityCountryID, string ImagePath)
+        {
+            //this function will return the new person id if succeeded and -1 if not.
+            int PersonID = -1;
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"insert into People(NationalNo,FirstName,SecondName,ThirdName,
+                                                LastName,DateOfBirth,Gendor,Address,Phone,Email,
+                                                NationalityCountryID,ImagePath)
+
+                                     Values(@NationalNo,@FirstName,@SecondName,@ThirdName,@LastName,
+                                            @DateOfBirth,@Gendor,@Address,@Phone,@Email,
+                                            @NationalityCountryID,@ImagePath)
+                                       SELECT SCOPE_IDENTITY()";
+
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@NationalNo", NationalNo);
+            cmd.Parameters.AddWithValue("@FirstName", FirstName);
+            cmd.Parameters.AddWithValue("@SecondName", SecondName);
+
+            if (!string.IsNullOrWhiteSpace(ThirdName))
+                cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
+            else
+                cmd.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+
+            cmd.Parameters.AddWithValue("@LastName", LastName);
+            cmd.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            cmd.Parameters.AddWithValue("@Gendor", Gendor);
+            cmd.Parameters.AddWithValue("@Address", Address);
+            cmd.Parameters.AddWithValue("@Phone", Phone);
+
+            if (!string.IsNullOrWhiteSpace(Email))
+                cmd.Parameters.AddWithValue("@Email", Email);
+            else
+                cmd.Parameters.AddWithValue("@Email", DBNull.Value);
+
+            cmd.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
+
+            if (!string.IsNullOrWhiteSpace(ImagePath))
+                cmd.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                cmd.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+
+            try
+            {
+                conn.Open();
+                object Result = cmd.ExecuteScalar();
+
+                if (Result != null && int.TryParse(Result.ToString(), out int insertedID))
+                    PersonID = insertedID;
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return PersonID;
+        }
+
+
+        // ############################## Exist Methods ##############################
+     
     }
 }
