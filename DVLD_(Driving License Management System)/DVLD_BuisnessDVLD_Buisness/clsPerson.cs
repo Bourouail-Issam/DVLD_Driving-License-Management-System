@@ -139,5 +139,27 @@ namespace DVLD_BuisnessDVLD_Buisness
             return (PersonID != -1);
         }
 
+        //################################ Save Method ################################
+        public bool Save()
+        {
+            switch (_Mode)
+            {
+                case enMode.AddNew:
+                    {
+                        if (_AddNewPerson())
+                        {
+                            _Mode = enMode.Update;
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
+                case enMode.Update:
+                    {
+                        return true;
+                    }
+            }
+            return false;
+        }
     }
 }
