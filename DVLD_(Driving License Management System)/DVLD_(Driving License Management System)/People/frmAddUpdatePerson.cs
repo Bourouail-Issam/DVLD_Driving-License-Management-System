@@ -152,5 +152,31 @@ namespace DVLD__Driving_License_Management_System_.People
             this.Close();
         }
 
+        private void LLbSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog_ImagePerson.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog_ImagePerson.FilterIndex = 1;
+            openFileDialog_ImagePerson.RestoreDirectory = true;
+
+            if (openFileDialog_ImagePerson.ShowDialog() == DialogResult.OK)
+            {
+                // Process the selected file
+                string selectedFilePath = openFileDialog_ImagePerson.FileName;
+                pbImage.Load(selectedFilePath);
+                llbRemoveImage.Visible = true;
+            }
+        }
+
+        private void llbRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            pbImage.ImageLocation = null;
+
+            if (rbMale.Checked)
+                pbImage.Image = Resources.Men_p;
+            else
+                pbImage.Image = Resources.Female_p;
+
+                llbRemoveImage.Visible = false;
+        }
     }
 }

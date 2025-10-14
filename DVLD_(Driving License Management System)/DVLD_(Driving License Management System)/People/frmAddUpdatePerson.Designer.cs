@@ -63,6 +63,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.rTxtAddress = new System.Windows.Forms.RichTextBox();
+            this.openFileDialog_ImagePerson = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +86,6 @@
             // llbRemoveImage
             // 
             this.llbRemoveImage.AutoSize = true;
-            this.llbRemoveImage.Enabled = false;
             this.llbRemoveImage.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llbRemoveImage.Location = new System.Drawing.Point(692, 546);
             this.llbRemoveImage.Name = "llbRemoveImage";
@@ -94,6 +94,7 @@
             this.llbRemoveImage.TabStop = true;
             this.llbRemoveImage.Text = "Remove";
             this.llbRemoveImage.Visible = false;
+            this.llbRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbRemoveImage_LinkClicked);
             // 
             // label12
             // 
@@ -225,6 +226,7 @@
             this.LLbSetImage.TabIndex = 237;
             this.LLbSetImage.TabStop = true;
             this.LLbSetImage.Text = "Set Image";
+            this.LLbSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLbSetImage_LinkClicked);
             // 
             // cbCountry
             // 
@@ -466,6 +468,10 @@
             this.rTxtAddress.TabIndex = 258;
             this.rTxtAddress.Text = "";
             // 
+            // openFileDialog_ImagePerson
+            // 
+            this.openFileDialog_ImagePerson.FileName = "openFileDialog1";
+            // 
             // frmAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,5 +560,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.RichTextBox rTxtAddress;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_ImagePerson;
     }
 }
