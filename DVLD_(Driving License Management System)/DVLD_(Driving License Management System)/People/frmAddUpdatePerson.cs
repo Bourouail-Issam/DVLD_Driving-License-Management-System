@@ -238,5 +238,24 @@ namespace DVLD__Driving_License_Management_System_.People
             }
 
         }
+
+        private void txtPhone_Validating(object sender, CancelEventArgs e)
+        {
+            // Check if phone number is empty
+            if (string.IsNullOrWhiteSpace(txtPhone.Text.Trim()))
+            {
+                errorProvider1.SetError(txtPhone, "Phone number is required!");
+                return;
+            }
+
+            // Validate phone number format using clsValidation
+            if (!clsValidation.ValidatePhoneNumber(txtPhone.Text))
+            {
+                errorProvider1.SetError(txtPhone, "Invalid phone number! Example: +212612345678 or +14085551234");
+                return;
+            }
+         
+            errorProvider1.SetError(txtPhone, null);
+        }
     }
 }

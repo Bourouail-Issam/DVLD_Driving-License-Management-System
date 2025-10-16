@@ -20,7 +20,8 @@ namespace DVLD__Driving_License_Management_System_.Global_Classes
 
         public static bool ValidatePhoneNumber(string PhoneNumber)
         {
-            string pattern = @"^\+?[1-9]\d{1,14}$";
+            int minLength = 8;
+            string pattern = $@"^\+?[1-9]\d{{{minLength - 1},14}}$";
             Regex regex = new Regex(pattern);
             
             return regex.IsMatch(PhoneNumber);
