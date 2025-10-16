@@ -1,4 +1,5 @@
-﻿using DVLD__Driving_License_Management_System_.Properties;
+﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.Properties;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -183,7 +184,6 @@ namespace DVLD__Driving_License_Management_System_.People
         // Validation Error Provider
         private void ValidateEmptyTextBox(object sender, CancelEventArgs e)
         {
-
             // First: set AutoValidate property of your Form to EnableAllowFocusChange in designer 
             TextBox Temp = ((TextBox)sender);
             if (string.IsNullOrEmpty(Temp.Text.Trim()))
@@ -199,10 +199,8 @@ namespace DVLD__Driving_License_Management_System_.People
 
         private void txtNationalNo_Validating(object sender, CancelEventArgs e)
         {
-
             if (string.IsNullOrEmpty(txtNationalNo.Text.Trim()))
             {
-                e.Cancel = true;
                 errorProvider1.SetError(txtNationalNo, "This field is required!");
                 return;
             }
@@ -214,14 +212,31 @@ namespace DVLD__Driving_License_Management_System_.People
             //Make sure the national number is not used by another person
             if (clsPerson.isPersonExist(txtNationalNo.Text.Trim()) && txtNationalNo.Text.Trim() != _person.NationalNo)
             {
-                //e.Cancel = true;
                 errorProvider1.SetError(txtNationalNo, "National Number is used for another person!");
-
             }
             else
             {
                 errorProvider1.SetError(txtNationalNo, null);
             }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+
+            //no need to validate the email incase it's empty.
+            if (txtEmail.Text.Trim() == "")
+                return;
+
+            //validate email format
+            if (!clsValidation.ValidateEmail(txtEmail.Text))
+            {
+                errorProvider1.SetError(txtEmail, "Invalid Email Address Format!");
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, null);
+            }
+
         }
     }
 }

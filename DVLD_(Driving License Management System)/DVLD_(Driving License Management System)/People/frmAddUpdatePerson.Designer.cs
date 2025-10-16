@@ -64,8 +64,8 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.openFileDialog_ImagePerson = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.controlMoveForm1 = new DVLD__Driving_License_Management_System_.controlMoveForm();
             this.txtAddress = new System.Windows.Forms.TextBox();
+            this.controlMoveForm1 = new DVLD__Driving_License_Management_System_.controlMoveForm();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -448,6 +448,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(375, 28);
             this.txtEmail.TabIndex = 256;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtPhone
             // 
@@ -471,14 +472,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // controlMoveForm1
-            // 
-            this.controlMoveForm1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.controlMoveForm1.Location = new System.Drawing.Point(0, 0);
-            this.controlMoveForm1.Name = "controlMoveForm1";
-            this.controlMoveForm1.Size = new System.Drawing.Size(910, 30);
-            this.controlMoveForm1.TabIndex = 251;
-            // 
             // txtAddress
             // 
             this.txtAddress.BackColor = System.Drawing.Color.Gainsboro;
@@ -492,6 +485,14 @@
             this.txtAddress.Size = new System.Drawing.Size(375, 88);
             this.txtAddress.TabIndex = 259;
             this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
+            // 
+            // controlMoveForm1
+            // 
+            this.controlMoveForm1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.controlMoveForm1.Location = new System.Drawing.Point(0, 0);
+            this.controlMoveForm1.Name = "controlMoveForm1";
+            this.controlMoveForm1.Size = new System.Drawing.Size(910, 30);
+            this.controlMoveForm1.TabIndex = 251;
             // 
             // frmAddUpdatePerson
             // 
