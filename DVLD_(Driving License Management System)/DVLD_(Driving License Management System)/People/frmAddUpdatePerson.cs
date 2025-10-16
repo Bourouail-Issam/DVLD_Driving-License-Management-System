@@ -213,7 +213,7 @@ namespace DVLD__Driving_License_Management_System_.People
             }
     
             errorProvider1.SetError(txtNationalNo, null);
-         
+        
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
@@ -252,6 +252,20 @@ namespace DVLD__Driving_License_Management_System_.People
             }
          
             errorProvider1.SetError(txtPhone, null);
+        }
+
+        private void rbMale_Click(object sender, EventArgs e)
+        {
+            //change the defualt image to male incase there is no image set.
+            if (pbImage.ImageLocation == null)
+                pbImage.Image = Resources.Men_p;
+        }
+
+        private void rbFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            //change the defualt image to female incase there is no image set.
+            if (pbImage.ImageLocation == null)
+                pbImage.Image = Resources.Female_p;
         }
     }
 }
