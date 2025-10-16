@@ -93,7 +93,7 @@
             this.llbRemoveImage.Location = new System.Drawing.Point(692, 546);
             this.llbRemoveImage.Name = "llbRemoveImage";
             this.llbRemoveImage.Size = new System.Drawing.Size(64, 20);
-            this.llbRemoveImage.TabIndex = 245;
+            this.llbRemoveImage.TabIndex = 14;
             this.llbRemoveImage.TabStop = true;
             this.llbRemoveImage.Text = "Remove";
             this.llbRemoveImage.Visible = false;
@@ -103,7 +103,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label12.Location = new System.Drawing.Point(763, 170);
+            this.label12.Location = new System.Drawing.Point(790, 170);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 24);
@@ -114,7 +114,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label11.Location = new System.Drawing.Point(376, 170);
+            this.label11.Location = new System.Drawing.Point(393, 170);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 24);
@@ -125,7 +125,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label10.Location = new System.Drawing.Point(572, 170);
+            this.label10.Location = new System.Drawing.Point(594, 170);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 24);
@@ -136,7 +136,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label6.Location = new System.Drawing.Point(207, 170);
+            this.label6.Location = new System.Drawing.Point(219, 170);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 24);
@@ -151,7 +151,7 @@
             this.dtpDateOfBirth.Location = new System.Drawing.Point(164, 267);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(153, 29);
-            this.dtpDateOfBirth.TabIndex = 225;
+            this.dtpDateOfBirth.TabIndex = 5;
             // 
             // txtNationalNo
             // 
@@ -161,10 +161,11 @@
             this.txtNationalNo.ForeColor = System.Drawing.Color.Gray;
             this.txtNationalNo.Location = new System.Drawing.Point(164, 459);
             this.txtNationalNo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNationalNo.MaxLength = 50;
             this.txtNationalNo.Multiline = true;
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(375, 28);
-            this.txtNationalNo.TabIndex = 232;
+            this.txtNationalNo.TabIndex = 9;
             this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalNo_Validating);
             // 
             // rbFemale
@@ -176,7 +177,7 @@
             this.rbFemale.Margin = new System.Windows.Forms.Padding(2);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(92, 28);
-            this.rbFemale.TabIndex = 228;
+            this.rbFemale.TabIndex = 7;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -192,7 +193,7 @@
             this.rbMale.Margin = new System.Windows.Forms.Padding(2);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(69, 28);
-            this.rbMale.TabIndex = 227;
+            this.rbMale.TabIndex = 6;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
@@ -208,9 +209,10 @@
             this.btnSave.Location = new System.Drawing.Point(772, 782);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(122, 33);
-            this.btnSave.TabIndex = 239;
+            this.btnSave.TabIndex = 15;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -218,7 +220,7 @@
             this.btnClose.Location = new System.Drawing.Point(651, 782);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(103, 33);
-            this.btnClose.TabIndex = 238;
+            this.btnClose.TabIndex = 16;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -230,7 +232,7 @@
             this.LLbSetImage.Location = new System.Drawing.Point(686, 513);
             this.LLbSetImage.Name = "LLbSetImage";
             this.LLbSetImage.Size = new System.Drawing.Size(76, 20);
-            this.LLbSetImage.TabIndex = 237;
+            this.LLbSetImage.TabIndex = 13;
             this.LLbSetImage.TabStop = true;
             this.LLbSetImage.Text = "Set Image";
             this.LLbSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLbSetImage_LinkClicked);
@@ -245,7 +247,7 @@
             this.cbCountry.MaxDropDownItems = 10;
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(154, 25);
-            this.cbCountry.TabIndex = 231;
+            this.cbCountry.TabIndex = 8;
             // 
             // label9
             // 
@@ -391,10 +393,11 @@
             this.txtFirstName.ForeColor = System.Drawing.Color.Gray;
             this.txtFirstName.Location = new System.Drawing.Point(164, 203);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFirstName.MaxLength = 50;
             this.txtFirstName.Multiline = true;
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(131, 28);
-            this.txtFirstName.TabIndex = 252;
+            this.txtFirstName.Size = new System.Drawing.Size(154, 28);
+            this.txtFirstName.TabIndex = 1;
             this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
             // txtSecondName
@@ -403,12 +406,13 @@
             this.txtSecondName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.txtSecondName.ForeColor = System.Drawing.Color.Gray;
-            this.txtSecondName.Location = new System.Drawing.Point(349, 203);
+            this.txtSecondName.Location = new System.Drawing.Point(354, 203);
             this.txtSecondName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSecondName.MaxLength = 50;
             this.txtSecondName.Multiline = true;
             this.txtSecondName.Name = "txtSecondName";
-            this.txtSecondName.Size = new System.Drawing.Size(131, 28);
-            this.txtSecondName.TabIndex = 253;
+            this.txtSecondName.Size = new System.Drawing.Size(154, 28);
+            this.txtSecondName.TabIndex = 2;
             this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
             // txtThirdName
@@ -417,12 +421,13 @@
             this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtThirdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.txtThirdName.ForeColor = System.Drawing.Color.Gray;
-            this.txtThirdName.Location = new System.Drawing.Point(534, 203);
+            this.txtThirdName.Location = new System.Drawing.Point(544, 203);
             this.txtThirdName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtThirdName.MaxLength = 50;
             this.txtThirdName.Multiline = true;
             this.txtThirdName.Name = "txtThirdName";
-            this.txtThirdName.Size = new System.Drawing.Size(131, 28);
-            this.txtThirdName.TabIndex = 254;
+            this.txtThirdName.Size = new System.Drawing.Size(154, 28);
+            this.txtThirdName.TabIndex = 3;
             // 
             // txtLastName
             // 
@@ -430,12 +435,13 @@
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.txtLastName.ForeColor = System.Drawing.Color.Gray;
-            this.txtLastName.Location = new System.Drawing.Point(719, 203);
+            this.txtLastName.Location = new System.Drawing.Point(734, 203);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLastName.MaxLength = 50;
             this.txtLastName.Multiline = true;
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(131, 28);
-            this.txtLastName.TabIndex = 255;
+            this.txtLastName.Size = new System.Drawing.Size(154, 28);
+            this.txtLastName.TabIndex = 4;
             this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
             // txtEmail
@@ -446,10 +452,11 @@
             this.txtEmail.ForeColor = System.Drawing.Color.Gray;
             this.txtEmail.Location = new System.Drawing.Point(164, 587);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.MaxLength = 50;
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(375, 28);
-            this.txtEmail.TabIndex = 256;
+            this.txtEmail.TabIndex = 11;
             this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtPhone
@@ -460,10 +467,11 @@
             this.txtPhone.ForeColor = System.Drawing.Color.Gray;
             this.txtPhone.Location = new System.Drawing.Point(164, 523);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPhone.MaxLength = 50;
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(375, 28);
-            this.txtPhone.TabIndex = 257;
+            this.txtPhone.TabIndex = 10;
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // openFileDialog_ImagePerson
@@ -482,10 +490,11 @@
             this.txtAddress.ForeColor = System.Drawing.Color.Gray;
             this.txtAddress.Location = new System.Drawing.Point(164, 655);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAddress.MaxLength = 50;
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(375, 88);
-            this.txtAddress.TabIndex = 259;
+            this.txtAddress.TabIndex = 12;
             this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
             // controlMoveForm1
@@ -500,6 +509,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(910, 837);
             this.Controls.Add(this.txtAddress);

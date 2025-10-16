@@ -146,6 +146,8 @@ namespace DVLD__Driving_License_Management_System_.People
 
             if (_Mode == enMode.Update)
                 _LoadDataPerson();
+
+
         }
     
         private void btnClose_Click(object sender, EventArgs e)
@@ -184,10 +186,11 @@ namespace DVLD__Driving_License_Management_System_.People
         // Validation Error Provider
         private void ValidateEmptyTextBox(object sender, CancelEventArgs e)
         {
-            // First: set AutoValidate property of your Form to EnableAllowFocusChange in designer 
+            //First: set AutoValidate property of your Form to EnableAllowFocusChange in designer
             TextBox Temp = ((TextBox)sender);
             if (string.IsNullOrEmpty(Temp.Text.Trim()))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(Temp, "This field is required!");
             }
             else
@@ -201,38 +204,40 @@ namespace DVLD__Driving_License_Management_System_.People
         {
             if (string.IsNullOrEmpty(txtNationalNo.Text.Trim()))
             {
+                e.Cancel= true;
                 errorProvider1.SetError(txtNationalNo, "This field is required!");
                 return;
             }
 
-            //Make sure the national number is not used by another person
+            ////Make sure the national number is not used by another person
             if (clsPerson.isPersonExist(txtNationalNo.Text.Trim()) && txtNationalNo.Text.Trim() != _person.NationalNo)
             {
+                e.Cancel = true;
                 errorProvider1.SetError(txtNationalNo, "National Number is used for another person!");
-                return ;
+                return;
             }
-    
+
             errorProvider1.SetError(txtNationalNo, null);
-        
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
-
             //no need to validate the email incase it's empty.
             if (txtEmail.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtEmail, null);
                 return;
+            }
 
             //validate email format
             if (!clsValidation.ValidateEmail(txtEmail.Text))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(txtEmail, "Invalid Email Address Format!");
-            }
-            else
-            {
-                errorProvider1.SetError(txtEmail, null);
+                return;
             }
 
+            errorProvider1.SetError(txtEmail, null);
         }
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
@@ -240,6 +245,7 @@ namespace DVLD__Driving_License_Management_System_.People
             // Check if phone number is empty
             if (string.IsNullOrWhiteSpace(txtPhone.Text.Trim()))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(txtPhone, "Phone number is required!");
                 return;
             }
@@ -247,12 +253,14 @@ namespace DVLD__Driving_License_Management_System_.People
             // Validate phone number format using clsValidation
             if (!clsValidation.ValidatePhoneNumber(txtPhone.Text))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(txtPhone, "Invalid phone number! Example: +212612345678 or +14085551234");
                 return;
             }
          
             errorProvider1.SetError(txtPhone, null);
         }
+
 
         private void rbMale_Click(object sender, EventArgs e)
         {
@@ -266,6 +274,19 @@ namespace DVLD__Driving_License_Management_System_.People
             //change the defualt image to female incase there is no image set.
             if (pbImage.ImageLocation == null)
                 pbImage.Image = Resources.Female_p;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show("Person Has save susseccffuly", "Save Person", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }
