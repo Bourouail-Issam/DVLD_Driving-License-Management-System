@@ -140,6 +140,15 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
 
+
+        // ############################## Exist Methods ##############################
+
+
+        public static bool isPersonExist(string NationlNo)
+        {
+            return clsPersonData.IsPersonExist(NationlNo);
+        }
+
         //################################ Save Method ################################
         public bool Save()
         {
