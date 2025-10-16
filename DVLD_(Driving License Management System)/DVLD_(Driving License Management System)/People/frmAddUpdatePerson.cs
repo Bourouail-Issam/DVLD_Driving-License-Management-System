@@ -30,13 +30,13 @@ namespace DVLD__Driving_License_Management_System_.People
             InitializeComponent();
             _Mode = enMode.AddNew;
         }
+
         public frmAddUpdatePerson(int PersonID )
         {
             InitializeComponent();
             _Mode = enMode.Update;
             _PersonID = PersonID;
         }
-
 
         private void _FillCountriesInComoboBox()
         {
@@ -88,7 +88,7 @@ namespace DVLD__Driving_License_Management_System_.People
             txtNationalNo.Text = "";
             txtPhone.Text = "";
             txtEmail.Text = "";
-            rTxtAddress.Text = "";
+            txtAddress.Text = "";
         }
 
         private void _LoadDataPerson()
@@ -127,7 +127,7 @@ namespace DVLD__Driving_License_Management_System_.People
             //cbCountry.SelectedIndex = cbCountry.FindString(_person.);
             txtPhone.Text = _person.Phone;
             txtEmail.Text = _person.Email;
-            rTxtAddress.Text = _person.Address;
+            txtAddress.Text = _person.Address;
             cbCountry.SelectedIndex = cbCountry.FindString(_person.CountryInfo.CountryName);
 
             //load person image incase it was set.
@@ -178,5 +178,24 @@ namespace DVLD__Driving_License_Management_System_.People
 
                 llbRemoveImage.Visible = false;
         }
+
+
+        // Validation Error Provider
+        private void ValidateEmptyTextBox(object sender, CancelEventArgs e)
+        {
+
+            // First: set AutoValidate property of your Form to EnableAllowFocusChange in designer 
+            TextBox Temp = ((TextBox)sender);
+            if (string.IsNullOrEmpty(Temp.Text.Trim()))
+            {
+                errorProvider1.SetError(Temp, "This field is required!");
+            }
+            else
+            {
+                errorProvider1.SetError(Temp, null);
+            }
+
+        }
+
     }
 }

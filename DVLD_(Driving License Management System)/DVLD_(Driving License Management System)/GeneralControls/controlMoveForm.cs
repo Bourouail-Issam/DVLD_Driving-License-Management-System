@@ -32,13 +32,6 @@ namespace DVLD__Driving_License_Management_System_
             panelMoveForm.Cursor = Cursors.Default;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-                parentForm.Close();
-        }
-
         private void panelMoveForm_MouseDown(object sender, MouseEventArgs e)
         {
             _MovePosition = true;
@@ -72,6 +65,13 @@ namespace DVLD__Driving_License_Management_System_
         private void panelMoveForm_MouseLeave(object sender, EventArgs e)
         {
             panelMoveForm.Cursor = Cursors.Default;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+                parentForm.Close();
         }
     }
 }

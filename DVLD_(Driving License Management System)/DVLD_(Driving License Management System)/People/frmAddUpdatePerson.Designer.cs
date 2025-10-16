@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.llbRemoveImage = new System.Windows.Forms.LinkLabel();
@@ -55,16 +56,18 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pbImage = new System.Windows.Forms.PictureBox();
-            this.controlMoveForm1 = new DVLD__Driving_License_Management_System_.controlMoveForm();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtSecondName = new System.Windows.Forms.TextBox();
             this.txtThirdName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.rTxtAddress = new System.Windows.Forms.RichTextBox();
             this.openFileDialog_ImagePerson = new System.Windows.Forms.OpenFileDialog();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.controlMoveForm1 = new DVLD__Driving_License_Management_System_.controlMoveForm();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -100,7 +103,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label12.Location = new System.Drawing.Point(763, 172);
+            this.label12.Location = new System.Drawing.Point(763, 170);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 24);
@@ -111,7 +114,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label11.Location = new System.Drawing.Point(376, 172);
+            this.label11.Location = new System.Drawing.Point(376, 170);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 24);
@@ -122,7 +125,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label10.Location = new System.Drawing.Point(572, 172);
+            this.label10.Location = new System.Drawing.Point(572, 170);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 24);
@@ -133,7 +136,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label6.Location = new System.Drawing.Point(207, 172);
+            this.label6.Location = new System.Drawing.Point(207, 170);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 24);
@@ -145,7 +148,7 @@
             this.dtpDateOfBirth.CalendarMonthBackground = System.Drawing.Color.LightGray;
             this.dtpDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(164, 269);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(164, 267);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(153, 29);
             this.dtpDateOfBirth.TabIndex = 225;
@@ -154,12 +157,13 @@
             // 
             this.txtNationalNo.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNationalNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNationalNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtNationalNo.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNationalNo.Location = new System.Drawing.Point(164, 463);
+            this.txtNationalNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtNationalNo.ForeColor = System.Drawing.Color.Gray;
+            this.txtNationalNo.Location = new System.Drawing.Point(164, 459);
             this.txtNationalNo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNationalNo.Multiline = true;
             this.txtNationalNo.Name = "txtNationalNo";
-            this.txtNationalNo.Size = new System.Drawing.Size(375, 22);
+            this.txtNationalNo.Size = new System.Drawing.Size(375, 28);
             this.txtNationalNo.TabIndex = 232;
             // 
             // rbFemale
@@ -167,7 +171,7 @@
             this.rbFemale.AutoSize = true;
             this.rbFemale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.rbFemale.Location = new System.Drawing.Point(260, 333);
+            this.rbFemale.Location = new System.Drawing.Point(260, 331);
             this.rbFemale.Margin = new System.Windows.Forms.Padding(2);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(92, 28);
@@ -182,7 +186,7 @@
             this.rbMale.Checked = true;
             this.rbMale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.rbMale.Location = new System.Drawing.Point(164, 333);
+            this.rbMale.Location = new System.Drawing.Point(164, 331);
             this.rbMale.Margin = new System.Windows.Forms.Padding(2);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(69, 28);
@@ -233,7 +237,7 @@
             this.cbCountry.BackColor = System.Drawing.Color.Gainsboro;
             this.cbCountry.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(164, 399);
+            this.cbCountry.Location = new System.Drawing.Point(164, 397);
             this.cbCountry.Margin = new System.Windows.Forms.Padding(2);
             this.cbCountry.MaxDropDownItems = 10;
             this.cbCountry.Name = "cbCountry";
@@ -376,6 +380,96 @@
             this.pbImage.TabIndex = 240;
             this.pbImage.TabStop = false;
             // 
+            // txtFirstName
+            // 
+            this.txtFirstName.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtFirstName.ForeColor = System.Drawing.Color.Gray;
+            this.txtFirstName.Location = new System.Drawing.Point(164, 203);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFirstName.Multiline = true;
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(131, 28);
+            this.txtFirstName.TabIndex = 252;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
+            // 
+            // txtSecondName
+            // 
+            this.txtSecondName.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtSecondName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtSecondName.ForeColor = System.Drawing.Color.Gray;
+            this.txtSecondName.Location = new System.Drawing.Point(349, 203);
+            this.txtSecondName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSecondName.Multiline = true;
+            this.txtSecondName.Name = "txtSecondName";
+            this.txtSecondName.Size = new System.Drawing.Size(131, 28);
+            this.txtSecondName.TabIndex = 253;
+            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
+            // 
+            // txtThirdName
+            // 
+            this.txtThirdName.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtThirdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtThirdName.ForeColor = System.Drawing.Color.Gray;
+            this.txtThirdName.Location = new System.Drawing.Point(534, 203);
+            this.txtThirdName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtThirdName.Multiline = true;
+            this.txtThirdName.Name = "txtThirdName";
+            this.txtThirdName.Size = new System.Drawing.Size(131, 28);
+            this.txtThirdName.TabIndex = 254;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtLastName.ForeColor = System.Drawing.Color.Gray;
+            this.txtLastName.Location = new System.Drawing.Point(719, 203);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLastName.Multiline = true;
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(131, 28);
+            this.txtLastName.TabIndex = 255;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtEmail.ForeColor = System.Drawing.Color.Gray;
+            this.txtEmail.Location = new System.Drawing.Point(164, 587);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(375, 28);
+            this.txtEmail.TabIndex = 256;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtPhone.ForeColor = System.Drawing.Color.Gray;
+            this.txtPhone.Location = new System.Drawing.Point(164, 523);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPhone.Multiline = true;
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(375, 28);
+            this.txtPhone.TabIndex = 257;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
+            // 
+            // openFileDialog_ImagePerson
+            // 
+            this.openFileDialog_ImagePerson.FileName = "openFileDialog1";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // controlMoveForm1
             // 
             this.controlMoveForm1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -384,101 +478,27 @@
             this.controlMoveForm1.Size = new System.Drawing.Size(910, 30);
             this.controlMoveForm1.TabIndex = 251;
             // 
-            // txtFirstName
+            // txtAddress
             // 
-            this.txtFirstName.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtFirstName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtFirstName.Location = new System.Drawing.Point(164, 205);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(131, 22);
-            this.txtFirstName.TabIndex = 252;
-            // 
-            // txtSecondName
-            // 
-            this.txtSecondName.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtSecondName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtSecondName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSecondName.Location = new System.Drawing.Point(349, 207);
-            this.txtSecondName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSecondName.Name = "txtSecondName";
-            this.txtSecondName.Size = new System.Drawing.Size(131, 22);
-            this.txtSecondName.TabIndex = 253;
-            // 
-            // txtThirdName
-            // 
-            this.txtThirdName.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtThirdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtThirdName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtThirdName.Location = new System.Drawing.Point(534, 207);
-            this.txtThirdName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtThirdName.Name = "txtThirdName";
-            this.txtThirdName.Size = new System.Drawing.Size(131, 22);
-            this.txtThirdName.TabIndex = 254;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtLastName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtLastName.Location = new System.Drawing.Point(719, 205);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(131, 22);
-            this.txtLastName.TabIndex = 255;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtEmail.ForeColor = System.Drawing.Color.DimGray;
-            this.txtEmail.Location = new System.Drawing.Point(164, 591);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(375, 22);
-            this.txtEmail.TabIndex = 256;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtPhone.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPhone.Location = new System.Drawing.Point(164, 527);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(375, 22);
-            this.txtPhone.TabIndex = 257;
-            // 
-            // rTxtAddress
-            // 
-            this.rTxtAddress.BackColor = System.Drawing.Color.Gainsboro;
-            this.rTxtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rTxtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.rTxtAddress.ForeColor = System.Drawing.Color.DimGray;
-            this.rTxtAddress.Location = new System.Drawing.Point(164, 653);
-            this.rTxtAddress.Name = "rTxtAddress";
-            this.rTxtAddress.Size = new System.Drawing.Size(375, 96);
-            this.rTxtAddress.TabIndex = 258;
-            this.rTxtAddress.Text = "";
-            // 
-            // openFileDialog_ImagePerson
-            // 
-            this.openFileDialog_ImagePerson.FileName = "openFileDialog1";
+            this.txtAddress.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtAddress.ForeColor = System.Drawing.Color.Gray;
+            this.txtAddress.Location = new System.Drawing.Point(164, 655);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(375, 88);
+            this.txtAddress.TabIndex = 259;
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
             // frmAddUpdatePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(910, 829);
-            this.Controls.Add(this.rTxtAddress);
+            this.ClientSize = new System.Drawing.Size(910, 837);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtLastName);
@@ -519,6 +539,7 @@
             this.Text = "frmAddUpdatePerson";
             this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,7 +580,8 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.RichTextBox rTxtAddress;
         private System.Windows.Forms.OpenFileDialog openFileDialog_ImagePerson;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox txtAddress;
     }
 }
