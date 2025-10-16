@@ -65,7 +65,6 @@ namespace DVLD_DataAccess
         }
 
 
-
         public static bool GetPersonInfoByID(int PersonID, ref string NationalNo,
            ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
            ref DateTime DateOfBirth, ref byte Gendor, ref string Address,
@@ -140,7 +139,6 @@ namespace DVLD_DataAccess
         }
 
 
-
         public static int AddNewPerson(string NationalNo, string FirstName,
             string SecondName, string ThirdName, string LastName,
             DateTime DateOfBirth,byte Gendor, string Address, string Phone,
@@ -210,6 +208,39 @@ namespace DVLD_DataAccess
 
 
         // ############################## Exist Methods ##############################
-     
+
+        public static bool IsPersonExist(string NationalNo)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT Found=1 FROM People WHERE NationalNo = @NationalNo";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
     }
 }
