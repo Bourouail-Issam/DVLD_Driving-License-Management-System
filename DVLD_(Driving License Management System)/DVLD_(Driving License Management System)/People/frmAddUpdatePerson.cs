@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace DVLD__Driving_License_Management_System_.People
@@ -276,6 +277,48 @@ namespace DVLD__Driving_License_Management_System_.People
                 pbImage.Image = Resources.Female_p;
         }
 
+        private bool _HandlePersonImage()
+        {
+            // this procedure will handle the person image,
+            // it will take care of deleting the old image from the folder
+            // in case the image changed. and it will rename the new image with guid and 
+            // place it in the images folder.
+
+            if (_person.ImagePath != pbImage.ImageLocation)
+            {
+                if (_person.ImagePath != string.Empty)
+                {
+                    try
+                    {
+                        File.Delete(_person.ImagePath);
+                    }
+                    catch(IOException iox)
+                    {
+                        MessageBox.Show(iox.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+                if (pbImage.ImageLocation != null)
+                {
+                    //then we copy the new image to the image folder after we rename it
+                    string SourceImageFile = pbImage.ImageLocation.ToString();
+
+
+                    if (clsUtil.CopyImageToProjectImagesFolder(ref SourceImageFile))
+                    {
+                        pbImage.ImageLocation = SourceImageFile;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Copying Image File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
@@ -285,7 +328,7 @@ namespace DVLD__Driving_License_Management_System_.People
                 return;
             }
 
-            
+            if(!_HandlePersonImage()) return; 
 
         }
     }
