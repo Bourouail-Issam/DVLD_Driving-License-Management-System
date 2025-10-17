@@ -207,6 +207,77 @@ namespace DVLD_DataAccess
         }
 
 
+        public static bool UpdatePerson(int PersonID, string NationalNo,
+           string FirstName,string SecondName, string ThirdName, string LastName, 
+           DateTime DateOfBirth,byte Gendor, string Address, string Phone, 
+           string Email,int NationalityCountryID, string ImagePath)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"update People
+                                   set NationalNo=@NationalNo,
+                                       FirstName=@FirstName,
+                                       SecondName=@SecondName,
+                                       ThirdName=@ThirdName,
+                                       LastName=@LastName,
+                                       DateOfBirth=@DateOfBirth,
+                                       Gendor=@Gendor,
+                                       Address=@Address,
+                                       Phone=@Phone,
+                                       Email=@Email,
+                                       NationalityCountryID=@NationalityCountryID,
+                                       ImagePath=@ImagePath
+                                    where PersonID=@PersonID";
+
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@PersonID", PersonID);
+            cmd.Parameters.AddWithValue("@NationalNo", NationalNo);
+            cmd.Parameters.AddWithValue("@FirstName", FirstName);
+            cmd.Parameters.AddWithValue("@SecondName", SecondName);
+
+            if (String.IsNullOrWhiteSpace(ThirdName))
+                cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
+            else
+                cmd.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+
+            cmd.Parameters.AddWithValue("@LastName", LastName);
+            cmd.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            cmd.Parameters.AddWithValue("@Gendor", Gendor);
+            cmd.Parameters.AddWithValue("@Address", Address);
+            cmd.Parameters.AddWithValue("@Phone", Phone);
+
+            if (!String.IsNullOrWhiteSpace(Email))
+                cmd.Parameters.AddWithValue("@Email", Email);
+            else
+                cmd.Parameters.AddWithValue("@Email", DBNull.Value);
+
+            cmd.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
+
+            if (!String.IsNullOrWhiteSpace(ImagePath))
+                cmd.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                cmd.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return (rowsAffected > 0);
+        }
+
         // ############################## Exist Methods ##############################
 
         public static bool IsPersonExist(string NationalNo)
