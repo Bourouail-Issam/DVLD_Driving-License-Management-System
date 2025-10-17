@@ -139,10 +139,15 @@ namespace DVLD_BuisnessDVLD_Buisness
             return (PersonID != -1);
         }
 
-
+        private bool _UpdatePerson()
+        {
+            return clsPersonData.UpdatePerson(this.PersonID,
+                this.NationalNo, this.FirstName, this.SecondName, this.ThirdName,
+                this.LastName, this.DateOfBirth, this.Gendor, this.Address, this.Phone, this.Email,
+                this.NationalityCountryID, this.ImagePath);
+        }
 
         // ############################## Exist Methods ##############################
-
 
         public static bool isPersonExist(string NationlNo)
         {
@@ -165,10 +170,9 @@ namespace DVLD_BuisnessDVLD_Buisness
                             return false;
                     }
                 case enMode.Update:
-                    {
-                        return true;
-                    }
+                        return _UpdatePerson(); ;
             }
+
             return false;
         }
     }
