@@ -240,13 +240,13 @@
             // cbCountry
             // 
             this.cbCountry.BackColor = System.Drawing.Color.Gainsboro;
-            this.cbCountry.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
             this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(164, 397);
+            this.cbCountry.Location = new System.Drawing.Point(164, 394);
             this.cbCountry.Margin = new System.Windows.Forms.Padding(2);
             this.cbCountry.MaxDropDownItems = 10;
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(154, 25);
+            this.cbCountry.Size = new System.Drawing.Size(154, 30);
             this.cbCountry.TabIndex = 8;
             // 
             // label9

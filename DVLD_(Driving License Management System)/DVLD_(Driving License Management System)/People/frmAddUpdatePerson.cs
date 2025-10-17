@@ -328,8 +328,43 @@ namespace DVLD__Driving_License_Management_System_.People
                 return;
             }
 
-            if(!_HandlePersonImage()) return; 
+            if(!_HandlePersonImage()) return;
 
+            int NationalityCountryID = clsCountry.Find(cbCountry.Text).ID;
+
+            _person.FirstName = txtFirstName.Text;
+            _person.SecondName = txtSecondName.Text;
+            _person.ThirdName = txtThirdName.Text;
+            _person.LastName = txtLastName.Text;
+            _person.NationalNo = txtNationalNo.Text;
+            _person.Phone = txtPhone.Text;
+            _person.Email = txtEmail.Text;
+            _person.Address = txtAddress.Text;
+            _person.DateOfBirth = dtpDateOfBirth.Value;
+
+            if (rbMale.Checked)
+                _person.Gendor = 0;
+            else
+                _person.Gendor = 1;
+
+            _person.NationalityCountryID = NationalityCountryID;
+
+            if (pbImage.ImageLocation != null)
+                _person.ImagePath = pbImage.ImageLocation;
+            else
+                _person.ImagePath = string.Empty;
+
+            if (_person.Save())
+            {
+                lbPersonID.Text = _person.PersonID.ToString();
+                //change form mode to update.
+                _Mode = enMode.Update;
+                lbNameOfForm.Text = "Update Person";
+
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
