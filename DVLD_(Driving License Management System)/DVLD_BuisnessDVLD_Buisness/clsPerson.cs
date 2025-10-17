@@ -84,7 +84,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.Email = email;
             this.NationalityCountryID = nationalityCountryID;
             this.ImagePath = imagePath;
-            this.CountryInfo = clsCountry.GetCountryInfoByID(nationalityCountryID);
+            this.CountryInfo = clsCountry.Find(nationalityCountryID);
             _Mode = enMode.Update;
         }
 
