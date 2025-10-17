@@ -285,7 +285,7 @@ namespace DVLD__Driving_License_Management_System_.People
                 return;
             }
 
-            MessageBox.Show("Person Has save susseccffuly", "Save Person", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
 
         }
     }
