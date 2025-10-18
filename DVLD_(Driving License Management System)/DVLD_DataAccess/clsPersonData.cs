@@ -278,6 +278,34 @@ namespace DVLD_DataAccess
             return (rowsAffected > 0);
         }
 
+
+        public static bool DeletePerson(int PersonID)
+        {
+            int rowsAffected = 0;
+            SqlConnection conn = new SqlConnection(DataAccessSettings.stringConnection);
+            string query = "delete from People where PersonID=@PersonID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@PersonID", PersonID);
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return (rowsAffected > 0);
+        }
+
+
         // ############################## Exist Methods ##############################
 
         public static bool IsPersonExist(string NationalNo)

@@ -147,8 +147,6 @@ namespace DVLD__Driving_License_Management_System_.People
 
             if (_Mode == enMode.Update)
                 _LoadDataPerson();
-
-
         }
     
         private void btnClose_Click(object sender, EventArgs e)
