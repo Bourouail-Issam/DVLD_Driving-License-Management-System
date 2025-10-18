@@ -282,7 +282,7 @@ namespace DVLD_DataAccess
         public static bool DeletePerson(int PersonID)
         {
             int rowsAffected = 0;
-            SqlConnection conn = new SqlConnection(DataAccessSettings.stringConnection);
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = "delete from People where PersonID=@PersonID";
 
             SqlCommand cmd = new SqlCommand(query, conn);

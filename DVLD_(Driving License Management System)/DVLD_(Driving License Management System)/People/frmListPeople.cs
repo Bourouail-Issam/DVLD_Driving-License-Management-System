@@ -208,5 +208,44 @@ namespace DVLD__Driving_License_Management_System_.People
             frm.ShowDialog();
             _RefreshPeoplList();
         }
+
+        private void tsmDelete_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+
+            if (
+                MessageBox.Show(
+                $"Are you sure you want to delete Person [{PersonID}]",
+                "Confirm Delete",
+                MessageBoxButtons.OKCancel, 
+                MessageBoxIcon.Question) == DialogResult.OK
+                )
+            {
+
+                //Perform Delele and refresh
+                if (clsPerson.DeletePerson(PersonID))
+                {
+                    MessageBox.Show
+                        (
+                        "Person Deleted Successfully.",
+                        "Successful",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                        );
+
+                    _RefreshPeoplList();
+                }
+
+                else
+                    MessageBox.Show
+                        (
+                        "Person was not deleted because it has data linked to it.", 
+                        "Error",
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error
+                        );
+
+            }
+        }
     }
 }
