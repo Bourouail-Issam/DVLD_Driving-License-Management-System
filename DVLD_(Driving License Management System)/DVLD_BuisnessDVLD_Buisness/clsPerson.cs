@@ -147,6 +147,12 @@ namespace DVLD_BuisnessDVLD_Buisness
                 this.NationalityCountryID, this.ImagePath);
         }
 
+        public static bool DeletePerson(int PersonID)
+        {
+            return clsPersonData.DeletePerson(PersonID);
+        }
+
+
         // ############################## Exist Methods ##############################
 
         public static bool isPersonExist(string NationlNo)
