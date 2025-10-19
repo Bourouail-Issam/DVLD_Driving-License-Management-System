@@ -139,6 +139,78 @@ namespace DVLD_DataAccess
         }
 
 
+        public static bool GetPersonInfoByNationalNo(string NationalNo, ref int PersonID, 
+           ref string FirstName, ref string SecondName,ref string ThirdName, ref string LastName, 
+           ref DateTime DateOfBirth,ref short Gendor, ref string Address, ref string Phone,
+           ref string Email,ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool isFound = false;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM People WHERE NationalNo = @NationalNo";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@NationalNo", NationalNo);
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    PersonID = (int)reader["PersonID"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+
+                    //ThirdName: allows null in database so we should handle null
+                    if (reader["ThirdName"] != DBNull.Value)
+                        ThirdName = (string)reader["ThirdName"];
+                    else
+                        ThirdName = "";
+
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gendor = (byte)reader["Gendor"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+
+                    //Email: allows null in database so we should handle null
+                    if (reader["Email"] != DBNull.Value)
+                        Email = (string)reader["Email"];
+                    else
+                        Email = "";
+
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+
+                    //ImagePath: allows null in database so we should handle null
+                    if (reader["ImagePath"] != DBNull.Value)
+                        ImagePath = (string)reader["ImagePath"];
+                    else
+                        ImagePath = "";
+
+                    // The record was found
+                    isFound = true;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
+
+
         public static int AddNewPerson(string NationalNo, string FirstName,
             string SecondName, string ThirdName, string LastName,
             DateTime DateOfBirth,byte Gendor, string Address, string Phone,

@@ -131,10 +131,35 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
         }
 
+        public static clsPerson Find(string NationalNo)
+        {
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "",
+                Email = "", Phone = "", Address = "", ImagePath = "";
+
+            DateTime DateOfBirth = DateTime.Now;
+            int PersonID = -1, NationalityCountryID = -1;
+            short Gendor = 0;
+
+            bool IsFound = clsPersonData.GetPersonInfoByNationalNo
+                                (
+                                    NationalNo, ref PersonID, ref FirstName, ref SecondName,
+                                    ref ThirdName, ref LastName, ref DateOfBirth,
+                                    ref Gendor, ref Address, ref Phone, ref Email,
+                                    ref NationalityCountryID, ref ImagePath
+                                );
+
+            if (IsFound)
+                return new clsPerson(
+                          PersonID, FirstName, SecondName, ThirdName, LastName,
+                          NationalNo, DateOfBirth, Gendor, Address, Phone,
+                          Email, NationalityCountryID, ImagePath
+                          );
+            else
+                return null;
+        }
         private bool _AddNewPerson()
         {
             //call DataAccess Layer 
-
             this.PersonID = clsPersonData.AddNewPerson(this.NationalNo, this.FirstName,
                   this.SecondName, this.ThirdName, this.LastName,
                   this.DateOfBirth, this.Gendor, this.Address, this.Phone, this.Email,
