@@ -20,17 +20,25 @@ namespace DVLD__Driving_License_Management_System_
         private bool _MovePosition;
         private int _xCoordinate;
         private int _yCoordinate;
- 
 
-        private void panel1_MouseEnter(object sender, EventArgs e)
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+                parentForm.Close();
+        }
+
+        private void panelMoveForm_MouseLeave(object sender, EventArgs e)
+        {
+            panelMoveForm.Cursor = Cursors.Default;
+        }
+
+        private void panelMoveForm_MouseEnter(object sender, EventArgs e)
         {
             panelMoveForm.Cursor = Cursors.Hand;
         }
 
-        private void panel1_MouseLeave(object sender, EventArgs e)
-        {
-            panelMoveForm.Cursor = Cursors.Default;
-        }
 
         private void panelMoveForm_MouseDown(object sender, MouseEventArgs e)
         {
@@ -38,7 +46,6 @@ namespace DVLD__Driving_License_Management_System_
             _xCoordinate = e.X;
             _yCoordinate = e.Y;
         }
-
 
         private void panelMoveForm_MouseMove(object sender, MouseEventArgs e)
         {
@@ -55,23 +62,6 @@ namespace DVLD__Driving_License_Management_System_
         private void panelMoveForm_MouseUp(object sender, MouseEventArgs e)
         {
             _MovePosition = false;
-        }
-
-        private void panelMoveForm_MouseEnter(object sender, EventArgs e)
-        {
-            panelMoveForm.Cursor = Cursors.Hand;
-        }
-
-        private void panelMoveForm_MouseLeave(object sender, EventArgs e)
-        {
-            panelMoveForm.Cursor = Cursors.Default;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-                parentForm.Close();
         }
     }
 }

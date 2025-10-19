@@ -59,6 +59,11 @@
             this.panelMoveForm.Name = "panelMoveForm";
             this.panelMoveForm.Size = new System.Drawing.Size(746, 30);
             this.panelMoveForm.TabIndex = 253;
+            this.panelMoveForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMoveForm_MouseDown);
+            this.panelMoveForm.MouseEnter += new System.EventHandler(this.panelMoveForm_MouseEnter);
+            this.panelMoveForm.MouseLeave += new System.EventHandler(this.panelMoveForm_MouseLeave);
+            this.panelMoveForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMoveForm_MouseMove);
+            this.panelMoveForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMoveForm_MouseUp);
             // 
             // controlMoveForm
             // 

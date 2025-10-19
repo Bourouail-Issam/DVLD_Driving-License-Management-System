@@ -135,6 +135,7 @@
             this.tsmShow.Name = "tsmShow";
             this.tsmShow.Size = new System.Drawing.Size(196, 38);
             this.tsmShow.Text = "Show Details";
+            this.tsmShow.Click += new System.EventHandler(this.tsmShow_Click);
             // 
             // toolStripSeparator1
             // 

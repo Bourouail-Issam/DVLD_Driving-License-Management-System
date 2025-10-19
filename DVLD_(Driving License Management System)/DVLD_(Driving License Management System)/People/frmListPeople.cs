@@ -247,5 +247,13 @@ namespace DVLD__Driving_License_Management_System_.People
 
             }
         }
+
+        private void tsmShow_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+            frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog();
+            _RefreshPeoplList();
+        }
     }
 }

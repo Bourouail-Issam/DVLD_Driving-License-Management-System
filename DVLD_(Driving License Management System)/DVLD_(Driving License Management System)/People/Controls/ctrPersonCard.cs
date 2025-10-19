@@ -50,6 +50,7 @@ namespace DVLD__Driving_License_Management_System_.People
                         );
 
             }
+            
         }
 
         private void _FillPersonInfo()
@@ -66,6 +67,13 @@ namespace DVLD__Driving_License_Management_System_.People
             lblCountry.Text = clsCountry.Find(_Person.NationalityCountryID).CountryName;
             lblAddress.Text = _Person.Address;
 
+            if (_Person.ImagePath == "")
+            {
+                if (_Person.Gendor == 0)
+                    pbPersonImage.Image = Resources.Men_p;
+                else
+                    pbPersonImage.Image= Resources.Female_p;
+            }
             _LoadPersonImage();
         }
 

@@ -114,6 +114,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.badgeID_24;
             this.pictureBox1.Location = new System.Drawing.Point(16, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -223,6 +224,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.calendar_24;
             this.pictureBox4.Location = new System.Drawing.Point(451, 101);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(31, 26);
@@ -265,6 +267,7 @@
             // 
             // pbGendor
             // 
+            this.pbGendor.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.gender_32;
             this.pbGendor.Location = new System.Drawing.Point(16, 224);
             this.pbGendor.Name = "pbGendor";
             this.pbGendor.Size = new System.Drawing.Size(31, 26);
@@ -274,6 +277,7 @@
             // 
             // pictureBox8
             // 
+            this.pictureBox8.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.user_24;
             this.pictureBox8.Location = new System.Drawing.Point(16, 106);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(31, 26);
@@ -283,15 +287,17 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(16, 342);
+            this.pictureBox7.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.adress_32;
+            this.pictureBox7.Location = new System.Drawing.Point(16, 338);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox7.Size = new System.Drawing.Size(34, 34);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 126;
             this.pictureBox7.TabStop = false;
             // 
             // pictureBox6
             // 
+            this.pictureBox6.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.flaG_24;
             this.pictureBox6.Location = new System.Drawing.Point(451, 223);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(31, 26);
@@ -301,6 +307,7 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.mail_24;
             this.pictureBox5.Location = new System.Drawing.Point(16, 283);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(31, 26);
@@ -310,6 +317,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.badgeID_24;
             this.pictureBox3.Location = new System.Drawing.Point(16, 165);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 26);
@@ -319,6 +327,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.phone_call_24;
             this.pictureBox2.Location = new System.Drawing.Point(451, 162);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);
@@ -420,6 +429,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.groupBox1);
             this.Name = "ctrPersonCard";
             this.Size = new System.Drawing.Size(1053, 400);
