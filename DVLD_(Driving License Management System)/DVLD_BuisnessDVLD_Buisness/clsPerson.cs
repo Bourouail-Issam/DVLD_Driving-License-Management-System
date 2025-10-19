@@ -138,7 +138,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             DateTime DateOfBirth = DateTime.Now;
             int PersonID = -1, NationalityCountryID = -1;
-            short Gendor = 0;
+            byte Gendor = 0;
 
             bool IsFound = clsPersonData.GetPersonInfoByNationalNo
                                 (

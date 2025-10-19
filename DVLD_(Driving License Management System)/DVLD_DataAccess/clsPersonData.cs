@@ -141,7 +141,7 @@ namespace DVLD_DataAccess
 
         public static bool GetPersonInfoByNationalNo(string NationalNo, ref int PersonID, 
            ref string FirstName, ref string SecondName,ref string ThirdName, ref string LastName, 
-           ref DateTime DateOfBirth,ref short Gendor, ref string Address, ref string Phone,
+           ref DateTime DateOfBirth,ref byte Gendor, ref string Address, ref string Phone,
            ref string Email,ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;

@@ -104,5 +104,24 @@ namespace DVLD__Driving_License_Management_System_.People
             _FillPersonInfo();
         }
 
+        public void LoadPersonInfo(string NationalNo)
+        {
+            _Person = clsPerson.Find(NationalNo);
+            if (_Person == null)
+            {
+                ResetPersonInfo();
+                MessageBox.Show
+                    (
+                    "No Person with PersonID = " + NationalNo.ToString(),
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
+
+            _FillPersonInfo();
+        }
+
     }
 }
