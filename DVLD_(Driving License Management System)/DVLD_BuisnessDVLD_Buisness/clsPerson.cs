@@ -38,6 +38,10 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         public clsCountry CountryInfo;
 
+        public string FullName
+        {
+            get { return $"{FirstName} {SecondName} {ThirdName} {LastName}"; }
+        }
 
         public clsPerson()
         {

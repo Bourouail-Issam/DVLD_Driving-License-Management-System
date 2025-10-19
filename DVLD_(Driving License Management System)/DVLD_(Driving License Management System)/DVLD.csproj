@@ -60,10 +60,10 @@
     </Compile>
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Global Classes\clsValidation.cs" />
-    <Compile Include="People\ctrPersonCard.cs">
+    <Compile Include="People\Controls\ctrPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\ctrPersonCard.Designer.cs">
+    <Compile Include="People\Controls\ctrPersonCard.Designer.cs">
       <DependentUpon>ctrPersonCard.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddUpdatePerson.cs">
@@ -80,6 +80,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RJControls\MenuColorTable.cs" />
     <Compile Include="RJControls\MenuRenderer.cs" />
     <Compile Include="RJControls\RJDropdownMenu.cs">
@@ -91,7 +96,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\ctrPersonCard.resx">
+    <EmbeddedResource Include="People\Controls\ctrPersonCard.resx">
       <DependentUpon>ctrPersonCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
@@ -103,6 +108,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,9 +210,7 @@
   <ItemGroup>
     <None Include="Resources\call 32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="People\Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\badgeID-24.png" />
   </ItemGroup>
@@ -215,6 +219,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gender-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adress-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone-call-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flaG-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
