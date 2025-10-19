@@ -14,7 +14,8 @@ using System.IO;
 namespace DVLD__Driving_License_Management_System_.People
 {
     public partial class ctrPersonCard : UserControl
-    {
+    {   
+
         private clsPerson _Person;
 
         public  clsPerson SelectedPersonInfo
@@ -33,6 +34,7 @@ namespace DVLD__Driving_License_Management_System_.People
         {
             InitializeComponent();
         }
+
         private void _LoadPersonImage()
         {
             string ImagePath = _Person.ImagePath;
@@ -131,5 +133,15 @@ namespace DVLD__Driving_License_Management_System_.People
             _FillPersonInfo();
         }
 
+        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(_Person != null)
+            {
+                frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
+                frm.ShowDialog();
+                //refresh
+                LoadPersonInfo(_PersonID);
+            }
+        }
     }
 }
