@@ -41,6 +41,7 @@ namespace DVLD__Driving_License_Management_System_.People
 
             dgvPeople.DataSource = _dtPeople;
             lbRecords.Text = dgvPeople.Rows.Count.ToString();
+            txtFilterValue_TextChanged(null, null);
         }
 
         private void frmPeople_Load(object sender, EventArgs e)
@@ -103,6 +104,11 @@ namespace DVLD__Driving_License_Management_System_.People
             {
                 txtFilterValue.Text = "";
                 txtFilterValue.Focus();
+            }
+            else
+            {
+                _dtPeople.DefaultView.RowFilter = "";
+                lbRecords.Text = dgvPeople.Rows.Count.ToString();
             }
         }
 
@@ -252,6 +258,13 @@ namespace DVLD__Driving_License_Management_System_.People
         {
             int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
             frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog();
+            _RefreshPeoplList();
+        }
+
+        private void tsmAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
             frm.ShowDialog();
             _RefreshPeoplList();
         }

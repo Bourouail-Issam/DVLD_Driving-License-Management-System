@@ -149,6 +149,7 @@
             this.tsmAddNewPerson.Name = "tsmAddNewPerson";
             this.tsmAddNewPerson.Size = new System.Drawing.Size(196, 38);
             this.tsmAddNewPerson.Text = "Add New Person";
+            this.tsmAddNewPerson.Click += new System.EventHandler(this.tsmAddNewPerson_Click);
             // 
             // tsmEdit
             // 
