@@ -20,6 +20,8 @@ namespace DVLD__Driving_License_Management_System_.People
 {
     public partial class frmAddUpdatePerson : Form
     {
+        private FormMover _formMover;
+
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
 
@@ -147,6 +149,8 @@ namespace DVLD__Driving_License_Management_System_.People
 
             if (_Mode == enMode.Update)
                 _LoadDataPerson();
+
+            _formMover = new FormMover(this, panelMoveForm);
         }
     
         private void btnClose_Click(object sender, EventArgs e)

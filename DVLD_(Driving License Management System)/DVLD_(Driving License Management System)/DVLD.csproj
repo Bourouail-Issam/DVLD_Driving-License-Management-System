@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneralControls\controlMoveForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GeneralControls\controlMoveForm.Designer.cs">
-      <DependentUpon>controlMoveForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +54,7 @@
     </Compile>
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Global Classes\clsValidation.cs" />
+    <Compile Include="Global Classes\FormMover.cs" />
     <Compile Include="People\Controls\ctrPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,9 +91,6 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="GeneralControls\controlMoveForm.resx">
-      <DependentUpon>controlMoveForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

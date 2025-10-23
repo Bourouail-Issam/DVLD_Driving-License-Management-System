@@ -64,7 +64,6 @@ namespace DVLD__Driving_License_Management_System_
         }
 
 
-
         // Method to reset the background color of all buttons to the default color
         public void ResetButtonColors()
         {

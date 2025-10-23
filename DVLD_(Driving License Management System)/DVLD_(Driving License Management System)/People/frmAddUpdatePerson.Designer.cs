@@ -65,9 +65,11 @@
             this.openFileDialog_ImagePerson = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.controlMoveForm1 = new DVLD__Driving_License_Management_System_.controlMoveForm();
+            this.btnClose1 = new System.Windows.Forms.Button();
+            this.panelMoveForm = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panelMoveForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
@@ -497,13 +499,32 @@
             this.txtAddress.TabIndex = 12;
             this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
-            // controlMoveForm1
+            // btnClose1
             // 
-            this.controlMoveForm1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.controlMoveForm1.Location = new System.Drawing.Point(0, 0);
-            this.controlMoveForm1.Name = "controlMoveForm1";
-            this.controlMoveForm1.Size = new System.Drawing.Size(910, 30);
-            this.controlMoveForm1.TabIndex = 251;
+            this.btnClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
+            this.btnClose1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose1.FlatAppearance.BorderSize = 0;
+            this.btnClose1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnClose1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnClose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.delete;
+            this.btnClose1.Location = new System.Drawing.Point(870, 0);
+            this.btnClose1.Name = "btnClose1";
+            this.btnClose1.Size = new System.Drawing.Size(40, 32);
+            this.btnClose1.TabIndex = 252;
+            this.btnClose1.UseVisualStyleBackColor = false;
+            this.btnClose1.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panelMoveForm
+            // 
+            this.panelMoveForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
+            this.panelMoveForm.Controls.Add(this.btnClose1);
+            this.panelMoveForm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMoveForm.Location = new System.Drawing.Point(0, 0);
+            this.panelMoveForm.Name = "panelMoveForm";
+            this.panelMoveForm.Size = new System.Drawing.Size(910, 32);
+            this.panelMoveForm.TabIndex = 251;
             // 
             // frmAddUpdatePerson
             // 
@@ -512,6 +533,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(910, 837);
+            this.Controls.Add(this.panelMoveForm);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
@@ -519,7 +541,6 @@
             this.Controls.Add(this.txtThirdName);
             this.Controls.Add(this.txtSecondName);
             this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.controlMoveForm1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label1);
@@ -554,6 +575,7 @@
             this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panelMoveForm.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,7 +609,6 @@
         private System.Windows.Forms.Label lbNameOfForm;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
-        private controlMoveForm controlMoveForm1;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtSecondName;
         private System.Windows.Forms.TextBox txtThirdName;
@@ -597,5 +618,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog_ImagePerson;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Panel panelMoveForm;
+        private System.Windows.Forms.Button btnClose1;
     }
 }
