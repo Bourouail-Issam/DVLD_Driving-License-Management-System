@@ -24,6 +24,16 @@ namespace DVLD__Driving_License_Management_System_.Login
         {
             _formMover = new FormMover(this,panelMoveForm);
             _formMover = new FormMover(this,panelSideBar);
+
+            string Username = "", Password = "";
+            if (clsGlobal.GetStoredCredential(ref Username, ref Password))
+            {
+                txtUserName.Text = Username;
+                txtPassword.Text = Password;
+                cbRememberMe.Checked = true;
+            }
+            else
+                cbRememberMe.Checked = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
