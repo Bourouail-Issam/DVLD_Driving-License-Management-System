@@ -55,6 +55,7 @@
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Global Classes\clsValidation.cs" />
     <Compile Include="Global Classes\FormMover.cs" />
+    <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,7 +221,6 @@
   <ItemGroup>
     <None Include="Resources\call 32.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\badgeID-24.png" />
   </ItemGroup>
@@ -244,6 +244,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flaG-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

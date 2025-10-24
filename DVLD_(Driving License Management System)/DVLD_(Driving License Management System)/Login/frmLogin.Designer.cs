@@ -39,18 +39,18 @@
             this.panelSideBar = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.panelMoveForm = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panelMoveForm = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panelSideBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMoveForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panelMoveForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbRememberMe
@@ -181,17 +181,6 @@
             this.label3.Text = "Welcom to Driving & vehicle licensse \r\ndepartment (DVLD )system";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(101, 198);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -204,20 +193,15 @@
             this.label2.Text = "Management System";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnClose
+            // panelMoveForm
             // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClose.Location = new System.Drawing.Point(858, 13);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(37, 39);
-            this.btnClose.TabIndex = 72;
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.panelMoveForm.BackColor = System.Drawing.Color.White;
+            this.panelMoveForm.Controls.Add(this.btnClose);
+            this.panelMoveForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMoveForm.Location = new System.Drawing.Point(0, 0);
+            this.panelMoveForm.Name = "panelMoveForm";
+            this.panelMoveForm.Size = new System.Drawing.Size(908, 531);
+            this.panelMoveForm.TabIndex = 252;
             // 
             // btnLogin
             // 
@@ -236,7 +220,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.user_24;
             this.pictureBox5.Location = new System.Drawing.Point(512, 230);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 20);
@@ -246,7 +230,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.password;
             this.pictureBox3.Location = new System.Drawing.Point(512, 276);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 25);
@@ -254,15 +238,31 @@
             this.pictureBox3.TabIndex = 68;
             this.pictureBox3.TabStop = false;
             // 
-            // panelMoveForm
+            // pictureBox1
             // 
-            this.panelMoveForm.BackColor = System.Drawing.Color.White;
-            this.panelMoveForm.Controls.Add(this.btnClose);
-            this.panelMoveForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMoveForm.Location = new System.Drawing.Point(0, 0);
-            this.panelMoveForm.Name = "panelMoveForm";
-            this.panelMoveForm.Size = new System.Drawing.Size(908, 531);
-            this.panelMoveForm.TabIndex = 252;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Logo_011;
+            this.pictureBox1.Location = new System.Drawing.Point(101, 198);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnClose.Location = new System.Drawing.Point(858, 13);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(37, 39);
+            this.btnClose.TabIndex = 72;
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmLogin
             // 
@@ -287,10 +287,10 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panelSideBar.ResumeLayout(false);
             this.panelSideBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMoveForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panelMoveForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
