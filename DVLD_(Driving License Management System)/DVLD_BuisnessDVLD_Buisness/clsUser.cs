@@ -32,7 +32,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
          
         public clsUser(
-            int PersonID, int UserID,
+             int UserID, int PersonID,
             string UserName, string Password,
             bool isActive)
         {

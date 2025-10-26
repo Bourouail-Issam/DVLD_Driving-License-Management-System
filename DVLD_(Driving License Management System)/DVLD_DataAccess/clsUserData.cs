@@ -36,8 +36,6 @@ namespace DVLD_DataAccess
                 {            
                     UserID = (int)reader["UserID"];
                     PersonID = (int)reader["PersonID"];
-                    UserName = (string)reader["UserName"];
-                    Password = (string)reader["Password"];
                     IsActive = (bool)reader["IsActive"];
 
                     // The record was found
