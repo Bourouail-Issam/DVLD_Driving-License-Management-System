@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.People;
+using DVLD__Driving_License_Management_System_.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,12 +48,19 @@ namespace DVLD__Driving_License_Management_System_
         {
             ResetButtonColors();
             btnDrivers.BackColor = Color.FromArgb(63, 93, 127);
+
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
             btnUsers.BackColor = Color.FromArgb(63, 93, 127);
+            panelMainForm.Visible = false;
+
+            frmListUsers frm = new frmListUsers(this);
+            frm.MdiParent = this;
+            frm.Show();
+
         }
 
         private void btnAccountSetting_Click(object sender, EventArgs e)

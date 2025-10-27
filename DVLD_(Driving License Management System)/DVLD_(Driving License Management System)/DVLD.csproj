@@ -98,6 +98,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="User\frmListUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\frmListUsers.Designer.cs">
+      <DependentUpon>frmListUsers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +126,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\frmListUsers.resx">
+      <DependentUpon>frmListUsers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -247,6 +256,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People-group.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
