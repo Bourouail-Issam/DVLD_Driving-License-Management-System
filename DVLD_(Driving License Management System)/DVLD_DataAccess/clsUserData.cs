@@ -11,6 +11,7 @@ namespace DVLD_DataAccess
 {
     public class clsUserData
     {
+        //################################ CRUD Methods ################################
         public static bool GetUserInfoByUsernameAndPassword(
             string UserName, string Password,
             ref int UserID, ref int PersonID, ref bool IsActive
@@ -55,5 +56,55 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+        public static DataTable GetAllUsers()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"
+                             SELECT 
+                                U.UserID, 
+                                U.PersonID, 
+                             
+                                (P.FirstName + ' ' + 
+                                 P.SecondName + ' ' + 
+                                 ISNULL(P.ThirdName, '') + ' ' + 
+                                 P.LastName
+                             	 ) AS FullName, 
+                             
+                                U.UserName, 
+                                U.IsActive
+                             FROM 
+                                Users U INNER JOIN  People P
+                                ON U.PersonID = P.PersonID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                    dt.Load(reader);
+        
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+
+
     }
 }

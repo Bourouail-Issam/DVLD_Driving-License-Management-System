@@ -82,5 +82,10 @@ namespace DVLD__Driving_License_Management_System_
         {
             panelMainForm.Visible = true;
         }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

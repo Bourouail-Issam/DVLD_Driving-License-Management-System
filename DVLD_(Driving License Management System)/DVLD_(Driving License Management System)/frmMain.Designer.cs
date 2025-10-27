@@ -384,7 +384,7 @@
             this.rjDropdownMenuAccountSettings.MenuItemTextColor = System.Drawing.Color.Empty;
             this.rjDropdownMenuAccountSettings.Name = "rjDropdownMenuAccountSettings";
             this.rjDropdownMenuAccountSettings.PrimaryColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenuAccountSettings.Size = new System.Drawing.Size(254, 214);
+            this.rjDropdownMenuAccountSettings.Size = new System.Drawing.Size(254, 236);
             // 
             // currentUserInfoToolStripMenuItem
             // 
@@ -412,6 +412,7 @@
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(253, 70);
             this.signOutToolStripMenuItem.Text = "Sign Out";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // panelMainForm
             // 
