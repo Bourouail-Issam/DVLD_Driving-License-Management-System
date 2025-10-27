@@ -51,5 +51,114 @@ namespace DVLD__Driving_License_Management_System_.User
             _frmMain.MakeMainPictureVisible();
             this.Close();
         }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFilterBy.Text == "IsActive")
+            {
+                txtFilterValue.Visible = false;
+                cbIsActive.Visible = true;
+                cbIsActive.Focus();
+                cbIsActive.SelectedIndex = 0;
+            }
+            else
+            {
+                cbIsActive.Visible = false;
+                txtFilterValue.Visible = (cbFilterBy.Text != "None");
+
+                if (cbFilterBy.Text == "None")
+                    txtFilterValue.Enabled = false;
+                else
+                    txtFilterValue.Enabled = true;
+
+                _FilterDgvUser("", "");
+                txtFilterValue.Text = "";
+                txtFilterValue.Focus();
+            }
+        }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //we allow number incase person id or user id is selected.
+            if (cbFilterBy.Text == "Person ID" || cbFilterBy.Text == "User ID")
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void _FilterDgvUser(string columnName, string txtFilterValue)
+        {
+
+            if (!String.IsNullOrWhiteSpace(txtFilterValue))
+            {
+                if (columnName == "IsActive")
+                    _dtAllUsers.DefaultView.RowFilter = $"{columnName} = {txtFilterValue}";
+                else
+                    _dtAllUsers.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
+            }
+            else
+            {
+                _dtAllUsers.DefaultView.RowFilter = "";
+            }
+            lbRecords.Text = dgvUsers.Rows.Count.ToString();
+        }
+
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+            //Map Selected Filter to real Column name 
+            switch (cbFilterBy.Text)
+            {
+                case "User ID":
+                    FilterColumn = "UserID";
+                    break;
+                case "User Name":
+                    FilterColumn = "UserName";
+                    break;
+
+                case "Person ID":
+                    FilterColumn = "PersonID";
+                    break;
+
+
+                case "Full Name":
+                    FilterColumn = "FullName";
+                    break;
+
+                default:
+                    FilterColumn = "None";
+                    break;
+            }
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dtAllUsers.DefaultView.RowFilter = "";
+                lbRecords.Text = dgvUsers.Rows.Count.ToString();
+                return;
+            }
+            _FilterDgvUser(FilterColumn, txtFilterValue.Text);
+        }
+
+        private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "IsActive";
+            string FilterValue = cbIsActive.Text;
+
+            switch (FilterValue)
+            {
+                case "All":
+                    break;
+                case "Yes":
+                    FilterValue = "1";
+                    break;
+                case "No":
+                    FilterValue = "0";
+                    break;
+            }
+
+            if (FilterValue == "All")
+                _dtAllUsers.DefaultView.RowFilter = "";
+            else
+                _FilterDgvUser(FilterColumn, FilterValue);
+        }
     }
 }
