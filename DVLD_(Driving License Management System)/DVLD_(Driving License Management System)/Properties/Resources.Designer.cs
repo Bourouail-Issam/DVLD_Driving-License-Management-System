@@ -73,9 +73,9 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AddPerson_32 {
+        internal static System.Drawing.Bitmap AddUser_32 {
             get {
-                object obj = ResourceManager.GetObject("AddPerson 32", resourceCulture);
+                object obj = ResourceManager.GetObject("AddUser-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,6 +406,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         internal static System.Drawing.Bitmap PersonDetails_32 {
             get {
                 object obj = ResourceManager.GetObject("PersonDetails 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap personSearch32 {
+            get {
+                object obj = ResourceManager.GetObject("personSearch32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -222,7 +222,6 @@
             // 
             // tsmAddNewPerson
             // 
-            this.tsmAddNewPerson.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AddPerson_32;
             this.tsmAddNewPerson.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmAddNewPerson.Name = "tsmAddNewPerson";
             this.tsmAddNewPerson.Size = new System.Drawing.Size(178, 38);
