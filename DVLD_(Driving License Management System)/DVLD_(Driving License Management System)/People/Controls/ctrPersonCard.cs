@@ -50,7 +50,6 @@ namespace DVLD__Driving_License_Management_System_.People
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                         );
-
             }
             
         }

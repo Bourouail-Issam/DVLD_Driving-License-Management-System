@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ctrPersonCard1 = new DVLD__Driving_License_Management_System_.People.ctrPersonCard();
             this.gbFilters = new System.Windows.Forms.GroupBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
@@ -35,7 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
+            this.errorProviderSeaarchPerson = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbFilters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSeaarchPerson)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrPersonCard1
@@ -62,24 +65,30 @@
             // 
             // cbFilterBy
             // 
+            this.cbFilterBy.BackColor = System.Drawing.Color.Gainsboro;
             this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "National No.",
             "Person ID"});
-            this.cbFilterBy.Location = new System.Drawing.Point(96, 25);
+            this.cbFilterBy.Location = new System.Drawing.Point(96, 24);
             this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.Size = new System.Drawing.Size(210, 21);
+            this.cbFilterBy.Size = new System.Drawing.Size(210, 28);
             this.cbFilterBy.TabIndex = 16;
             // 
             // txtFilterValue
             // 
+            this.txtFilterValue.BackColor = System.Drawing.Color.Gainsboro;
             this.txtFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFilterValue.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtFilterValue.ForeColor = System.Drawing.Color.Gray;
             this.txtFilterValue.Location = new System.Drawing.Point(313, 25);
             this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilterValue.Name = "txtFilterValue";
-            this.txtFilterValue.Size = new System.Drawing.Size(214, 20);
+            this.txtFilterValue.Size = new System.Drawing.Size(214, 27);
             this.txtFilterValue.TabIndex = 17;
+            this.txtFilterValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterValue_Validating);
             // 
             // label1
             // 
@@ -102,6 +111,7 @@
             this.btnAddNewPerson.Size = new System.Drawing.Size(44, 37);
             this.btnAddNewPerson.TabIndex = 20;
             this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
             // btnFind
             // 
@@ -112,6 +122,11 @@
             this.btnFind.Size = new System.Drawing.Size(44, 37);
             this.btnFind.TabIndex = 18;
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // errorProviderSeaarchPerson
+            // 
+            this.errorProviderSeaarchPerson.ContainerControl = this;
             // 
             // ctrlPersonCardWithFilter
             // 
@@ -124,6 +139,7 @@
             this.Size = new System.Drawing.Size(1061, 509);
             this.gbFilters.ResumeLayout(false);
             this.gbFilters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSeaarchPerson)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -137,5 +153,6 @@
         private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProviderSeaarchPerson;
     }
 }

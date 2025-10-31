@@ -20,6 +20,13 @@ namespace DVLD__Driving_License_Management_System_.People
 {
     public partial class frmAddUpdatePerson : Form
     {
+
+        // Declare a delegate
+        public delegate void DataBackEventHandler(object sender, int PersonID);
+
+        // Declare an event using the delegate
+        public event DataBackEventHandler DataBack;
+
         private FormMover _formMover;
 
         public enum enMode { AddNew = 0, Update = 1 };
@@ -364,6 +371,9 @@ namespace DVLD__Driving_License_Management_System_.People
                 lbNameOfForm.Text = "Update Person";
 
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Trigger the event to send data back to the caller form.
+                DataBack?.Invoke(this, _person.PersonID);
             }
             else
                 MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
