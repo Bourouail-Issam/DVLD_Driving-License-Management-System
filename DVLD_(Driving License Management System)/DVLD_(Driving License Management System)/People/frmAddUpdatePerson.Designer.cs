@@ -55,7 +55,6 @@
             this.lbNameOfForm = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtSecondName = new System.Windows.Forms.TextBox();
             this.txtThirdName = new System.Windows.Forms.TextBox();
@@ -65,10 +64,11 @@
             this.openFileDialog_ImagePerson = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.btnClose1 = new System.Windows.Forms.Button();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.panelMoveForm = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.btnClose1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.panelMoveForm.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -377,16 +377,6 @@
             this.label14.TabIndex = 250;
             this.label14.Text = "Person ID";
             // 
-            // pbImage
-            // 
-            this.pbImage.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Men_p;
-            this.pbImage.Location = new System.Drawing.Point(596, 298);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(256, 195);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImage.TabIndex = 240;
-            this.pbImage.TabStop = false;
-            // 
             // txtFirstName
             // 
             this.txtFirstName.BackColor = System.Drawing.Color.Gainsboro;
@@ -499,6 +489,26 @@
             this.txtAddress.TabIndex = 12;
             this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
+            // pbImage
+            // 
+            this.pbImage.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Men_p;
+            this.pbImage.Location = new System.Drawing.Point(596, 298);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(256, 195);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 240;
+            this.pbImage.TabStop = false;
+            // 
+            // panelMoveForm
+            // 
+            this.panelMoveForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
+            this.panelMoveForm.Controls.Add(this.btnClose1);
+            this.panelMoveForm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMoveForm.Location = new System.Drawing.Point(0, 0);
+            this.panelMoveForm.Name = "panelMoveForm";
+            this.panelMoveForm.Size = new System.Drawing.Size(910, 32);
+            this.panelMoveForm.TabIndex = 251;
+            // 
             // btnClose1
             // 
             this.btnClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -515,16 +525,6 @@
             this.btnClose1.TabIndex = 252;
             this.btnClose1.UseVisualStyleBackColor = false;
             this.btnClose1.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // panelMoveForm
-            // 
-            this.panelMoveForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
-            this.panelMoveForm.Controls.Add(this.btnClose1);
-            this.panelMoveForm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMoveForm.Location = new System.Drawing.Point(0, 0);
-            this.panelMoveForm.Name = "panelMoveForm";
-            this.panelMoveForm.Size = new System.Drawing.Size(910, 32);
-            this.panelMoveForm.TabIndex = 251;
             // 
             // frmAddUpdatePerson
             // 
@@ -573,8 +573,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdatePerson";
             this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.panelMoveForm.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

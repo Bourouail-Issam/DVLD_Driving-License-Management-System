@@ -104,6 +104,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="User\frmAddUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\frmAddUpdateUser.Designer.cs">
+      <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\frmListUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\frmAddUpdateUser.resx">
+      <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmListUsers.resx">
       <DependentUpon>frmListUsers.cs</DependentUpon>
@@ -271,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddUser-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next-btn-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

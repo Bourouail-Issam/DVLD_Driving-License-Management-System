@@ -160,5 +160,12 @@ namespace DVLD__Driving_License_Management_System_.User
             else
                 _FilterDgvUser(FilterColumn, FilterValue);
         }
+
+        private void btnAddNewUser_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateUser frm = new frmAddUpdateUser();
+            frm.ShowDialog();
+            frmListUsers_Load(null, null);
+        }
     }
 }

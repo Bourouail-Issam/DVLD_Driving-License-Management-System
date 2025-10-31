@@ -29,39 +29,57 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ctrPersonCard1 = new DVLD__Driving_License_Management_System_.People.ctrPersonCard();
             this.gbFilters = new System.Windows.Forms.GroupBox();
+            this.btnAddNewPerson = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAddNewPerson = new System.Windows.Forms.Button();
-            this.btnFind = new System.Windows.Forms.Button();
             this.errorProviderSeaarchPerson = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrPersonCard1 = new DVLD__Driving_License_Management_System_.People.ctrPersonCard();
             this.gbFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSeaarchPerson)).BeginInit();
             this.SuspendLayout();
             // 
-            // ctrPersonCard1
-            // 
-            this.ctrPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrPersonCard1.Location = new System.Drawing.Point(3, 103);
-            this.ctrPersonCard1.Name = "ctrPersonCard1";
-            this.ctrPersonCard1.Size = new System.Drawing.Size(1053, 400);
-            this.ctrPersonCard1.TabIndex = 0;
-            // 
             // gbFilters
             // 
+            this.gbFilters.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gbFilters.Controls.Add(this.btnAddNewPerson);
             this.gbFilters.Controls.Add(this.btnFind);
             this.gbFilters.Controls.Add(this.cbFilterBy);
             this.gbFilters.Controls.Add(this.txtFilterValue);
             this.gbFilters.Controls.Add(this.label1);
-            this.gbFilters.Location = new System.Drawing.Point(3, 20);
+            this.gbFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.gbFilters.Location = new System.Drawing.Point(8, -1);
             this.gbFilters.Name = "gbFilters";
             this.gbFilters.Size = new System.Drawing.Size(819, 77);
             this.gbFilters.TabIndex = 17;
             this.gbFilters.TabStop = false;
             this.gbFilters.Text = "Filter";
+            // 
+            // btnAddNewPerson
+            // 
+            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddNewPerson.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AddUser_32;
+            this.btnAddNewPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddNewPerson.Location = new System.Drawing.Point(594, 20);
+            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(44, 37);
+            this.btnAddNewPerson.TabIndex = 20;
+            this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.personSearch32;
+            this.btnFind.Location = new System.Drawing.Point(543, 20);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(44, 37);
+            this.btnFind.TabIndex = 18;
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // cbFilterBy
             // 
@@ -100,33 +118,18 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Find By:";
             // 
-            // btnAddNewPerson
-            // 
-            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNewPerson.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AddUser_32;
-            this.btnAddNewPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(594, 20);
-            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(44, 37);
-            this.btnAddNewPerson.TabIndex = 20;
-            this.btnAddNewPerson.UseVisualStyleBackColor = true;
-            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
-            // 
-            // btnFind
-            // 
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.personSearch32;
-            this.btnFind.Location = new System.Drawing.Point(543, 20);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(44, 37);
-            this.btnFind.TabIndex = 18;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
             // errorProviderSeaarchPerson
             // 
             this.errorProviderSeaarchPerson.ContainerControl = this;
+            // 
+            // ctrPersonCard1
+            // 
+            this.ctrPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrPersonCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ctrPersonCard1.Location = new System.Drawing.Point(0, 80);
+            this.ctrPersonCard1.Name = "ctrPersonCard1";
+            this.ctrPersonCard1.Size = new System.Drawing.Size(955, 404);
+            this.ctrPersonCard1.TabIndex = 0;
             // 
             // ctrlPersonCardWithFilter
             // 
@@ -136,7 +139,7 @@
             this.Controls.Add(this.gbFilters);
             this.Controls.Add(this.ctrPersonCard1);
             this.Name = "ctrlPersonCardWithFilter";
-            this.Size = new System.Drawing.Size(1061, 509);
+            this.Size = new System.Drawing.Size(955, 484);
             this.gbFilters.ResumeLayout(false);
             this.gbFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSeaarchPerson)).EndInit();

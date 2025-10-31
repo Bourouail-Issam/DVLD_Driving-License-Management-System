@@ -20,8 +20,6 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
         }
 
 
-
-
         private void FindNow()
         {
             switch (cbFilterBy.Text)
@@ -86,6 +84,11 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
             cbFilterBy.SelectedIndex = 1;
             txtFilterValue.Text = PersonID.ToString();
             ctrPersonCard1.LoadPersonInfo(PersonID);
+        }
+
+        public void FilterFocus()
+        {
+            txtFilterValue.Focus();
         }
     }
 }

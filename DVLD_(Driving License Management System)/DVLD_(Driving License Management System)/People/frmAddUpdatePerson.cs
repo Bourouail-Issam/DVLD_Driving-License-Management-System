@@ -333,7 +333,11 @@ namespace DVLD__Driving_License_Management_System_.People
             if (!this.ValidateChildren())
             {
                 //Here we dont continue becuase the form is not valid
-                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Some fileds are not valide!, put the mouse over the red icon(s) to see the erro",
+                    "Validation Error", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 
@@ -370,13 +374,22 @@ namespace DVLD__Driving_License_Management_System_.People
                 _Mode = enMode.Update;
                 lbNameOfForm.Text = "Update Person";
 
-                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "Data Saved Successfully.",
+                    "Saved", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                    );
 
                 // Trigger the event to send data back to the caller form.
                 DataBack?.Invoke(this, _person.PersonID);
             }
             else
-                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Error: Data Is not Saved Successfully.",
+                    "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
         }
     }
 }
