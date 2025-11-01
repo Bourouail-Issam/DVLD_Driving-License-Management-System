@@ -57,6 +57,52 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
+        public static bool GetUserInfoByUserID(
+            ref string UserName, ref string Password,
+            int UserID, ref int PersonID, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Users WHERE UserID = @UserID";
+
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.Add("@UserID", SqlDbType.Int).Value = UserID;
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    PersonID = (int)reader["PersonID"];
+                    UserName = (string)reader["UserName"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+
+                    // The record was found
+                    isFound = true;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
+
         public static DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();

@@ -132,7 +132,7 @@
             this.llEditPersonInfo.TabIndex = 139;
             this.llEditPersonInfo.TabStop = true;
             this.llEditPersonInfo.Text = "Edit Person Info";
-            this.llEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditPersonInfo_LinkClicked);
+            this.llEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._llEditPersonInfo_LinkClicked);
             // 
             // lblCountry
             // 
@@ -417,6 +417,7 @@
             // 
             this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPersonImage.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Men_p1;
             this.pbPersonImage.InitialImage = null;
             this.pbPersonImage.Location = new System.Drawing.Point(754, 91);
             this.pbPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

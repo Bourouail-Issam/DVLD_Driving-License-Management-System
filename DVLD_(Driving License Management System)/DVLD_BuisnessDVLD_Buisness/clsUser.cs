@@ -66,6 +66,25 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
         }
 
+        public static clsUser FindByUserID (int UserID)
+        {
+            string UserName = "", Password = "";
+            int PersonID = -1;
+
+            bool IsActive = false;
+
+            bool IsFound = clsUserData.GetUserInfoByUserID
+                                (ref UserName, ref Password,
+                                 UserID, ref PersonID, ref IsActive
+                                );
+
+            if (IsFound)
+                //we return new object of that User with the right data
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+            else
+                return null;
+        }
+
         public static DataTable GetAllUsers()
         {
             return clsUserData.GetAllUsers();

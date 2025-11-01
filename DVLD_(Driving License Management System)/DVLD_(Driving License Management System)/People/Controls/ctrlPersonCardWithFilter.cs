@@ -13,12 +13,42 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
 {
     public partial class ctrlPersonCardWithFilter : UserControl
     {
- 
+
+        private bool _FilterEnabled = true;
+        public bool FilterEnabled
+        {
+            get
+            {
+                return _FilterEnabled;
+            }
+            set
+            {
+                _FilterEnabled = value;
+                gbFilters.Enabled = _FilterEnabled;
+            }
+        }
+
         public ctrlPersonCardWithFilter()
         {
             InitializeComponent();
         }
 
+        private int _PersonID = -1;
+        public int PersonID
+        {
+            get { return ctrPersonCard1.PersonId; }
+        }
+
+        public clsPerson SelectedPersonInfo
+        {
+            get { return ctrPersonCard1.SelectedPersonInfo; }
+        }
+
+        private void ctrlPersonCardWithFilter_Load(object sender, EventArgs e)
+        {
+            cbFilterBy.SelectedIndex = 0;
+            txtFilterValue.Focus();
+        }
 
         private void FindNow()
         {
@@ -36,6 +66,14 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
                 default:
                     break;
             }
+        }
+
+        public void LoadPersonInfo(int PersonID)
+        {
+
+            cbFilterBy.SelectedIndex = 1;
+            txtFilterValue.Text = PersonID.ToString();
+            FindNow();
 
         }
 
@@ -74,7 +112,7 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson();
-            frm.DataBack += DataBackEvent;
+            frm.DataBack += DataBackEvent; // Subscribe to the event
             frm.ShowDialog();
         }
 
@@ -88,6 +126,12 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
 
         public void FilterFocus()
         {
+            txtFilterValue.Focus();
+        }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilterValue.Text = "";
             txtFilterValue.Focus();
         }
     }

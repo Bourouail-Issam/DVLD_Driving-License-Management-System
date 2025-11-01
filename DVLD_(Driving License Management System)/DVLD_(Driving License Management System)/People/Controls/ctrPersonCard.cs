@@ -23,7 +23,7 @@ namespace DVLD__Driving_License_Management_System_.People
             get { return _Person; }
         }
 
-        private int _PersonID;
+        private int _PersonID=-1;
 
         public int PersonId
         {
@@ -121,7 +121,7 @@ namespace DVLD__Driving_License_Management_System_.People
                 ResetPersonInfo();
                 MessageBox.Show
                     (
-                    "No Person with PersonID = " + NationalNo.ToString(),
+                    "No Person with NationalNo = " + NationalNo.ToString(),
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -132,7 +132,7 @@ namespace DVLD__Driving_License_Management_System_.People
             _FillPersonInfo();
         }
 
-        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void _llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if(_Person != null)
             {
