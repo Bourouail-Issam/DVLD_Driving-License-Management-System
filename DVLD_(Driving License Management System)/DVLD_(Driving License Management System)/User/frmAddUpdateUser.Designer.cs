@@ -82,6 +82,7 @@
             this.tcUserInfo.SelectedIndex = 0;
             this.tcUserInfo.Size = new System.Drawing.Size(963, 497);
             this.tcUserInfo.TabIndex = 120;
+            this.tcUserInfo.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcUserInfo_Selecting);
             // 
             // tpPersonalInfo
             // 
@@ -146,7 +147,7 @@
             this.tpLoginInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tpLoginInfo.Size = new System.Drawing.Size(955, 464);
             this.tpLoginInfo.TabIndex = 1;
-            this.tpLoginInfo.Text = "LoginInfo";
+            this.tpLoginInfo.Text = "Login Info";
             // 
             // chkIsActive
             // 

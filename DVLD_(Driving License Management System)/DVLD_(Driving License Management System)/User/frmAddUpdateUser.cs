@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.People.Controls;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace DVLD__Driving_License_Management_System_.User
         private enMode _Mode;
         private int _UserID = -1;
         clsUser _User;
+
+        private bool _allowChange = false;
         public frmAddUpdateUser()
         {
             InitializeComponent();
@@ -92,10 +95,13 @@ namespace DVLD__Driving_License_Management_System_.User
         private void frmAddUpdateUser_Load(object sender, EventArgs e)
         {
             _formMover = new FormMover(this, panelMoveForm);
+
             _ResetDefualtValues();
 
             if (_Mode == enMode.Update)
                 _LoadData();
+            else
+                ctrlPersonCardWithFilter1.allowChangeTab += ChangePermissionTabSelection;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -109,14 +115,59 @@ namespace DVLD__Driving_License_Management_System_.User
             {
                 btnSave.Enabled = true;
                 tpLoginInfo.Enabled = true;
+                _allowChange = true;
                 tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLoginInfo"];
             }
 
             //incase of add new mode.
             if (ctrlPersonCardWithFilter1.PersonID != -1)
             {
-                
+                if (clsUser.isUserExistForPersonID(ctrlPersonCardWithFilter1.PersonID))
+                {
+                    MessageBox.Show(
+                        "Selected Person already has a user, choose another one.",
+                        "Select another Person",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                        );
+                    ctrlPersonCardWithFilter1.FilterFocus();
+
+                }
+                else
+                {
+                    btnSave.Enabled = true;
+                    tpLoginInfo.Enabled = true;
+                    _allowChange = true;
+                    tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLoginInfo"];
+                }
             }
+            else
+            {
+                MessageBox.Show(
+                    "Please Select a Person", 
+                    "Select a Person",
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error
+                    );
+                ctrlPersonCardWithFilter1.FilterFocus();
+            }
+        }
+        private void ChangePermissionTabSelection()
+        {
+            _allowChange = false;
+        }
+        private void tcUserInfo_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (!_allowChange)
+            {
+                e.Cancel = true;
+                MessageBox.Show(
+                    "Yoou need to enter in button Next to go to Page Login Info",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }       
         }
     }
 }

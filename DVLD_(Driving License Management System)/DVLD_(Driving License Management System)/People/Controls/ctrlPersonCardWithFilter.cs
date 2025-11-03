@@ -14,6 +14,11 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
     public partial class ctrlPersonCardWithFilter : UserControl
     {
 
+        // Declare a delegate
+        public delegate void DataBack_allowChangeTab();
+        // Declare an event using the delegate
+        public event DataBack_allowChangeTab allowChangeTab;
+
         private bool _FilterEnabled = true;
         public bool FilterEnabled
         {
@@ -52,15 +57,17 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
 
         private void FindNow()
         {
+            // Trigger the event to send data back to the caller form.
+                allowChangeTab?.Invoke();
+
             switch (cbFilterBy.Text)
             {
                 case "Person ID":
-                    ctrPersonCard1.LoadPersonInfo(int.Parse(txtFilterValue.Text));
-
+                    ctrPersonCard1.LoadPersonInfo(int.Parse(txtFilterValue.Text));                
                     break;
 
                 case "National No.":
-                    ctrPersonCard1.LoadPersonInfo(txtFilterValue.Text);
+                     ctrPersonCard1.LoadPersonInfo(txtFilterValue.Text);
                     break;
 
                 default:
