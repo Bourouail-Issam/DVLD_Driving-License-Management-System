@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,6 +37,16 @@
             this.lbRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.cmsUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmSendEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPhooneCall = new System.Windows.Forms.ToolStripMenuItem();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,6 +55,7 @@
             this.btnAddNewUser = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.cmsUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,6 +119,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsers.ColumnHeadersHeight = 60;
+            this.dgvUsers.ContextMenuStrip = this.cmsUsers;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,6 +145,89 @@
             this.dgvUsers.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUsers.Size = new System.Drawing.Size(1587, 590);
             this.dgvUsers.TabIndex = 113;
+            // 
+            // cmsUsers
+            // 
+            this.cmsUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmShow,
+            this.toolStripSeparator1,
+            this.tsmAddNewPerson,
+            this.tsmEdit,
+            this.tsmDelete,
+            this.tmsChangePassword,
+            this.toolStripSeparator2,
+            this.tsmSendEmail,
+            this.tsmPhooneCall});
+            this.cmsUsers.Name = "cmsPeople";
+            this.cmsUsers.Size = new System.Drawing.Size(197, 304);
+            // 
+            // tsmShow
+            // 
+            this.tsmShow.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.PersonDetails_32;
+            this.tsmShow.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShow.Name = "tsmShow";
+            this.tsmShow.Size = new System.Drawing.Size(196, 38);
+            this.tsmShow.Text = "Show Details";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(193, 6);
+            // 
+            // tsmAddNewPerson
+            // 
+            this.tsmAddNewPerson.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.priest__1_;
+            this.tsmAddNewPerson.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmAddNewPerson.Name = "tsmAddNewPerson";
+            this.tsmAddNewPerson.Size = new System.Drawing.Size(196, 38);
+            this.tsmAddNewPerson.Text = "Add New Person";
+            this.tsmAddNewPerson.Click += new System.EventHandler(this.tsmAddNewPerson_Click);
+            // 
+            // tsmEdit
+            // 
+            this.tsmEdit.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
+            this.tsmEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(196, 38);
+            this.tsmEdit.Text = "Edit";
+            this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Delete_32;
+            this.tsmDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(196, 38);
+            this.tsmDelete.Text = "Delete";
+            // 
+            // tmsChangePassword
+            // 
+            this.tmsChangePassword.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.password;
+            this.tmsChangePassword.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tmsChangePassword.Name = "tmsChangePassword";
+            this.tmsChangePassword.Size = new System.Drawing.Size(196, 38);
+            this.tmsChangePassword.Text = "Change Password";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
+            // 
+            // tsmSendEmail
+            // 
+            this.tsmSendEmail.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.send_email_32;
+            this.tsmSendEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmSendEmail.Name = "tsmSendEmail";
+            this.tsmSendEmail.Size = new System.Drawing.Size(196, 38);
+            this.tsmSendEmail.Text = "Send Email";
+            // 
+            // tsmPhooneCall
+            // 
+            this.tsmPhooneCall.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.call_32;
+            this.tsmPhooneCall.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmPhooneCall.Name = "tsmPhooneCall";
+            this.tsmPhooneCall.Size = new System.Drawing.Size(196, 38);
+            this.tsmPhooneCall.Text = "Phoone Call";
             // 
             // cbFilterBy
             // 
@@ -193,7 +289,6 @@
             this.pbPersonImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPersonImage.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.People_group;
             this.pbPersonImage.InitialImage = null;
             this.pbPersonImage.Location = new System.Drawing.Point(642, 29);
             this.pbPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -209,7 +304,7 @@
             this.btnAddNewUser.AutoSize = true;
             this.btnAddNewUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btnAddNewUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewUser.Image")));
+            this.btnAddNewUser.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.priest__1_;
             this.btnAddNewUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnAddNewUser.Location = new System.Drawing.Point(1555, 295);
             this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(4);
@@ -258,6 +353,7 @@
             this.Text = "frmListUsers";
             this.Load += new System.EventHandler(this.frmListUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.cmsUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -277,5 +373,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAddNewUser;
         private System.Windows.Forms.PictureBox pbPersonImage;
+        private System.Windows.Forms.ContextMenuStrip cmsUsers;
+        private System.Windows.Forms.ToolStripMenuItem tsmShow;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem tsmAddNewPerson;
+        private System.Windows.Forms.ToolStripMenuItem tsmEdit;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem tsmSendEmail;
+        private System.Windows.Forms.ToolStripMenuItem tsmPhooneCall;
+        private System.Windows.Forms.ToolStripMenuItem tmsChangePassword;
     }
 }

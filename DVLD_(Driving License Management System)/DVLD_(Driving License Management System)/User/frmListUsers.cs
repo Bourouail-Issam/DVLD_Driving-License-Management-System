@@ -167,5 +167,20 @@ namespace DVLD__Driving_License_Management_System_.User
             frm.ShowDialog();
             frmListUsers_Load(null, null);
         }
+
+        private void tsmAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateUser frm = new frmAddUpdateUser();
+            frm.ShowDialog();
+            frmListUsers_Load(null, null);
+        }
+
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
+            frmAddUpdateUser frm = new frmAddUpdateUser(UserID);
+            frm.ShowDialog();
+            frmListUsers_Load(null, null);
+        }
     }
 }

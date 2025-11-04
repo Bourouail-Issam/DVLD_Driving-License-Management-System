@@ -333,16 +333,6 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Men_p1 {
-            get {
-                object obj = ResourceManager.GetObject("Men-p1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap networking_People {
             get {
                 object obj = ResourceManager.GetObject("networking_People", resourceCulture);
@@ -446,6 +436,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         internal static System.Drawing.Bitmap phone_call_24 {
             get {
                 object obj = ResourceManager.GetObject("phone-call-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap priest__1_ {
+            get {
+                object obj = ResourceManager.GetObject("priest (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

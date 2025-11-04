@@ -117,6 +117,7 @@ namespace DVLD__Driving_License_Management_System_.User
                 tpLoginInfo.Enabled = true;
                 _allowChange = true;
                 tcUserInfo.SelectedTab = tcUserInfo.TabPages["tpLoginInfo"];
+                return;
             }
 
             //incase of add new mode.
@@ -162,7 +163,7 @@ namespace DVLD__Driving_License_Management_System_.User
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Yoou need to enter in button Next to go to Page Login Info",
+                    "Use the 'Next' button to access the Login Info page",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

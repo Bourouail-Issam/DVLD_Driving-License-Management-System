@@ -145,9 +145,6 @@
   <data name="Release Detained License 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Release Detained License 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="detain4 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\detain4 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="networking_People" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\networking_People.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,8 +184,8 @@
   <data name="manageTestType 64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manageTestType 64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="detain4 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detain4 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mail-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,11 +196,17 @@
   <data name="badgeID-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\badgeID-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Local 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Local 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sortie-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sortie-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="call 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\call 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="personSearch32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\personSearch32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,9 +223,6 @@
   <data name="ChangePasswoed 40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChangePasswoed 40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="call 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\call 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="gender-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gender-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -235,8 +235,8 @@
   <data name="AddUser-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddUser-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Local 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Local 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flaG-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flaG-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,6 +247,9 @@
   <data name="pbMainMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pbMainMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="priest (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\priest (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="detain2 64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\detain2 64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -255,8 +258,5 @@
   </data>
   <data name="Delete 32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Men-p1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Men-p1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

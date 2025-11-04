@@ -285,7 +285,7 @@
     <None Include="Resources\next-btn-32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Men-p1.png" />
+    <None Include="Resources\priest %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
