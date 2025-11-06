@@ -152,6 +152,49 @@ namespace DVLD_DataAccess
         }
 
 
+        public static int AddNewUser(int PersonID, string UserName,
+             string Password, bool IsActive)
+        {
+            //this function will return the new person id if succeeded and -1 if not.
+            int UserID = -1;
+
+            SqlConnection coonn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"INSERT INTO Users (PersonID,UserName,Password,IsActive)
+                             VALUES (@PersonID, @UserName,@Password,@IsActive);
+                             SELECT SCOPE_IDENTITY();";
+
+            SqlCommand cmd = new SqlCommand(query, coonn);
+
+            cmd.Parameters.AddWithValue("@PersonID", PersonID);
+            cmd.Parameters.AddWithValue("@UserName", UserName);
+            cmd.Parameters.AddWithValue("@Password", Password);
+            cmd.Parameters.AddWithValue("@IsActive", IsActive);
+            cmd.CommandTimeout = 30;
+            try
+            {
+                coonn.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                    UserID = insertedID;
+
+            }
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+
+            }
+
+            finally
+            {
+                coonn.Close();
+            }
+
+            return UserID;
+        }
 
         //################################ Exist Methods ################################
         public static bool IsUserExistForPersonID(int PersonID)
@@ -166,6 +209,41 @@ namespace DVLD_DataAccess
 
             cmd.Parameters.AddWithValue("@PersonID", PersonID);
             cmd.CommandTimeout = 30;
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
+
+        public static bool IsUserExist(string UserName)
+        {
+            bool isFound = false;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT Found=1 FROM Users WHERE UserName = @UserName";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@UserName", UserName);
+            cmd.CommandTimeout= 30; 
+
             try
             {
                 conn.Open();

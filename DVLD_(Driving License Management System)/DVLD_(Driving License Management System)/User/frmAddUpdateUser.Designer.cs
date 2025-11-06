@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tcUserInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnPersonInfoNext = new System.Windows.Forms.Button();
-            this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
@@ -51,6 +51,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panelMoveForm = new System.Windows.Forms.Panel();
             this.btnClose1 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
             this.tcUserInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -59,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelMoveForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -114,18 +117,6 @@
             this.btnPersonInfoNext.UseVisualStyleBackColor = true;
             this.btnPersonInfoNext.Click += new System.EventHandler(this.btnPersonInfoNext_Click);
             // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.AutoSize = true;
-            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithFilter1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(949, 404);
-            this.ctrlPersonCardWithFilter1.TabIndex = 0;
-            // 
             // tpLoginInfo
             // 
             this.tpLoginInfo.BackColor = System.Drawing.Color.Gainsboro;
@@ -173,6 +164,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(206, 28);
             this.txtConfirmPassword.TabIndex = 147;
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
             // 
             // txtPassword
             // 
@@ -187,6 +179,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(190, 28);
             this.txtPassword.TabIndex = 146;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // txtUserName
             // 
@@ -201,6 +194,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(190, 28);
             this.txtUserName.TabIndex = 145;
+            this.txtUserName.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserName_Validating);
             // 
             // lblUserID
             // 
@@ -301,6 +295,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.No;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -311,6 +306,7 @@
             this.btnSave.TabIndex = 121;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -350,10 +346,27 @@
             this.btnClose1.UseVisualStyleBackColor = false;
             this.btnClose1.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.AutoSize = true;
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithFilter1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(949, 404);
+            this.ctrlPersonCardWithFilter1.TabIndex = 0;
+            // 
             // frmAddUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(984, 644);
             this.Controls.Add(this.lblTitle);
@@ -376,6 +389,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelMoveForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -404,5 +418,6 @@
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.CheckBox chkIsActive;
         private People.Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

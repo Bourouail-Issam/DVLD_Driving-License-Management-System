@@ -100,22 +100,6 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
             FindNow();
         }
 
-        private void txtFilterValue_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtFilterValue.Text))
-            {
-                e.Cancel = true;
-                errorProviderSeaarchPerson.SetError(
-                    txtFilterValue, "This field is required!"
-                    );
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderSeaarchPerson.SetError(txtFilterValue, null);
-            }
-        }
-
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson();
@@ -125,6 +109,9 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
 
         private void DataBackEvent(object sender, int PersonID)
         {
+            // Trigger the event to send data back to the caller form.
+            allowChangeTab?.Invoke();
+
             // Handle the data received
             cbFilterBy.SelectedIndex = 1;
             txtFilterValue.Text = PersonID.ToString();

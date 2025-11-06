@@ -91,12 +91,53 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsUserData.GetAllUsers();
         }
 
+        private bool _AddNewUser()
+        {
+            //call DataAccess Layer 
+
+            this.UserID = clsUserData.AddNewUser(this.PersonID, this.UserName,
+                this.Password, this.IsActive);
+
+            return (this.UserID != -1);
+        }
+
+        // 
+        public bool Save()
+        {
+            switch (_Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewUser())
+                    {
+
+                        _Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+
+                    return true;
+
+            }
+
+            return false;
+        }
+
+
 
         // ###################   Exist Methods   ###################
 
         public static bool isUserExistForPersonID(int PersonID)
         {
             return clsUserData.IsUserExistForPersonID(PersonID);
+        }
+        public static bool isUserExist(string UserName)
+        {
+            return clsUserData.IsUserExist(UserName);
         }
     }
 }

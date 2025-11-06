@@ -107,7 +107,6 @@
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.Size = new System.Drawing.Size(214, 27);
             this.txtFilterValue.TabIndex = 17;
-            this.txtFilterValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterValue_Validating);
             // 
             // label1
             // 
