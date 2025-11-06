@@ -182,5 +182,27 @@ namespace DVLD__Driving_License_Management_System_.User
             frm.ShowDialog();
             frmListUsers_Load(null, null);
         }
+
+        private void tsmDelete_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dgvUsers.CurrentRow?.Cells[0].Value;
+            if (clsUser.DeleteUser(UserID))
+            {
+                MessageBox.Show(
+                    "User has been deleted successfully",
+                    "Deleted",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                    );
+                frmListUsers_Load(null, null);
+            }
+            else
+                MessageBox.Show(
+                    "User is not delted due to data connected to it.",
+                    "Faild",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+        }
     }
 }

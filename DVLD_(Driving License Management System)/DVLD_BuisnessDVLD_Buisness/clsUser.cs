@@ -101,6 +101,11 @@ namespace DVLD_BuisnessDVLD_Buisness
             return (this.UserID != -1);
         }
 
+        public static bool DeleteUser(int UserID)
+        {
+            return clsUserData.DeleteUser(UserID);
+        }
+
         // 
         public bool Save()
         {

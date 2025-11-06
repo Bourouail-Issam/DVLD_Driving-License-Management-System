@@ -196,6 +196,40 @@ namespace DVLD_DataAccess
             return UserID;
         }
 
+        public static bool DeleteUser(int UserID)
+        {
+
+            int rowsAffected = 0;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Delete Users 
+                                where UserID = @UserID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@UserID", UserID);
+
+            try
+            {
+                conn.Open();
+
+                rowsAffected = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return (rowsAffected > 0);
+
+        }
+
         //################################ Exist Methods ################################
         public static bool IsUserExistForPersonID(int PersonID)
         {
