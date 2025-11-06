@@ -106,6 +106,13 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsUserData.DeleteUser(UserID);
         }
 
+        private bool _UpdateUser()
+        {
+            //call DataAccess Layer 
+
+            return clsUserData.UpdateUser(this.UserID, this.UserName,
+                this.Password, this.IsActive);
+        }
         // 
         public bool Save()
         {
@@ -125,7 +132,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
                 case enMode.Update:
 
-                    return true;
+                    return _UpdateUser();
 
             }
 

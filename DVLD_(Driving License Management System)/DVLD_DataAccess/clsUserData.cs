@@ -209,7 +209,7 @@ namespace DVLD_DataAccess
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@UserID", UserID);
-
+            cmd.CommandTimeout=30;
             try
             {
                 conn.Open();
@@ -228,6 +228,47 @@ namespace DVLD_DataAccess
 
             return (rowsAffected > 0);
 
+        }
+
+        public static bool UpdateUser(int UserID ,string UserName,
+             string Password, bool IsActive)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Update  Users  
+                            set
+                                UserName = @UserName,
+                                Password = @Password,
+                                IsActive = @IsActive
+                                where UserID = @UserID";
+
+            SqlCommand cmf = new SqlCommand(query, conn);
+
+            cmf.Parameters.AddWithValue("@UserName", UserName);
+            cmf.Parameters.AddWithValue("@Password", Password);
+            cmf.Parameters.AddWithValue("@IsActive", IsActive);
+            cmf.Parameters.AddWithValue("@UserID", UserID);
+
+
+            try
+            {
+                conn.Open();
+                rowsAffected = cmf.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+
+            return (rowsAffected > 0);
         }
 
         //################################ Exist Methods ################################
