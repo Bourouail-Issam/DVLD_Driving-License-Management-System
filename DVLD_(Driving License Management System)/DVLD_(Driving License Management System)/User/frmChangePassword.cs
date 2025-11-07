@@ -11,15 +11,12 @@ using System.Windows.Forms;
 
 namespace DVLD__Driving_License_Management_System_.User
 {
-    public partial class frmUserInfo : Form
+    public partial class frmChangePassword : Form
     {
         FormMover _formMover;
-
-        private int _UserID=-1;
-        public frmUserInfo(int UserID)
+        public frmChangePassword()
         {
             InitializeComponent();
-            _UserID = UserID;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -27,9 +24,8 @@ namespace DVLD__Driving_License_Management_System_.User
             this.Close();
         }
 
-        private void frmUserInfo_Load(object sender, EventArgs e)
+        private void frmChangePassword_Load(object sender, EventArgs e)
         {
-            clsUserCard1.LoadUserInfo(_UserID);
             _formMover = new FormMover(this, panelMoveForm);
         }
     }
