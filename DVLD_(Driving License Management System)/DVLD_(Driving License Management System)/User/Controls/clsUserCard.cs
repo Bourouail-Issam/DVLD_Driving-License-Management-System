@@ -34,6 +34,7 @@ namespace DVLD__Driving_License_Management_System_.User.Controls
             lblUserName.Text = "[???]";
             lblIsActive.Text = "[???]";
         }
+
         private void _FillUserInfo()
         {
             ctrPersonCard1.LoadPersonInfo(_User.PersonID);

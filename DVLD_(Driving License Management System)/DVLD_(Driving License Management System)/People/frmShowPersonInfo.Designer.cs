@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShowPersonInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose2 = new System.Windows.Forms.Button();
+            this.ctrPersonCard1 = new DVLD__Driving_License_Management_System_.People.ctrPersonCard();
             this.panelMoveForm = new System.Windows.Forms.Panel();
             this.btnClose1 = new System.Windows.Forms.Button();
-            this.ctrPersonCard1 = new DVLD__Driving_License_Management_System_.People.ctrPersonCard();
             this.SuspendLayout();
             // 
             // label1
@@ -67,6 +67,14 @@
             this.btnClose2.UseVisualStyleBackColor = true;
             this.btnClose2.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // ctrPersonCard1
+            // 
+            this.ctrPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrPersonCard1.Location = new System.Drawing.Point(12, 85);
+            this.ctrPersonCard1.Name = "ctrPersonCard1";
+            this.ctrPersonCard1.Size = new System.Drawing.Size(1053, 400);
+            this.ctrPersonCard1.TabIndex = 104;
+            // 
             // panelMoveForm
             // 
             this.panelMoveForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
@@ -92,14 +100,6 @@
             this.btnClose1.TabIndex = 108;
             this.btnClose1.UseVisualStyleBackColor = false;
             this.btnClose1.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // ctrPersonCard1
-            // 
-            this.ctrPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrPersonCard1.Location = new System.Drawing.Point(12, 85);
-            this.ctrPersonCard1.Name = "ctrPersonCard1";
-            this.ctrPersonCard1.Size = new System.Drawing.Size(1053, 400);
-            this.ctrPersonCard1.TabIndex = 104;
             // 
             // frmShowPersonInfo
             // 

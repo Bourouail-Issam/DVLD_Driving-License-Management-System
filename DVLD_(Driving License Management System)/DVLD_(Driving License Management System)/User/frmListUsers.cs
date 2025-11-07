@@ -204,5 +204,13 @@ namespace DVLD__Driving_License_Management_System_.User
                     MessageBoxIcon.Error
                     );
         }
+
+        private void tsmShow_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dgvUsers.CurrentRow?.Cells[0].Value;
+            frmUserInfo frm = new frmUserInfo(UserID);
+            frm.ShowDialog();
+            frmListUsers_Load(null, null);
+        }
     }
 }

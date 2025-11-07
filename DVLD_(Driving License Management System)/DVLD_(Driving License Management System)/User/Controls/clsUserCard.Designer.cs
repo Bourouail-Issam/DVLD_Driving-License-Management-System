@@ -41,7 +41,7 @@
             // 
             // ctrPersonCard1
             // 
-            this.ctrPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrPersonCard1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ctrPersonCard1.Location = new System.Drawing.Point(3, 0);
             this.ctrPersonCard1.Name = "ctrPersonCard1";
             this.ctrPersonCard1.Size = new System.Drawing.Size(953, 404);
@@ -105,6 +105,7 @@
             // gbUserInfo
             // 
             this.gbUserInfo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gbUserInfo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.gbUserInfo.Controls.Add(this.lblIsActive);
             this.gbUserInfo.Controls.Add(this.label3);
             this.gbUserInfo.Controls.Add(this.label2);
@@ -133,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.gbUserInfo);
             this.Controls.Add(this.ctrPersonCard1);
             this.Name = "clsUserCard";
