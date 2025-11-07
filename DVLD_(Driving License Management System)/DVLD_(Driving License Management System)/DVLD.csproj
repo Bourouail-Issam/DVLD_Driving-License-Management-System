@@ -104,6 +104,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="User\Controls\clsUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\Controls\clsUserCard.Designer.cs">
+      <DependentUpon>clsUserCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\frmAddUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Controls\clsUserCard.resx">
+      <DependentUpon>clsUserCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmAddUpdateUser.resx">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>

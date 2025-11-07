@@ -30,7 +30,6 @@ namespace DVLD_BuisnessDVLD_Buisness
             Password = "";
             IsActive = true;
             _Mode = enMode.AddNew;
-
         }
          
         public clsUser(

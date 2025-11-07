@@ -29,17 +29,91 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gbFilters = new System.Windows.Forms.GroupBox();
-            this.btnAddNewPerson = new System.Windows.Forms.Button();
-            this.btnFind = new System.Windows.Forms.Button();
-            this.cbFilterBy = new System.Windows.Forms.ComboBox();
-            this.txtFilterValue = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.errorProviderSeaarchPerson = new System.Windows.Forms.ErrorProvider(this.components);
             this.ctrPersonCard1 = new DVLD__Driving_License_Management_System_.People.ctrPersonCard();
-            this.gbFilters.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFilterValue = new System.Windows.Forms.TextBox();
+            this.cbFilterBy = new System.Windows.Forms.ComboBox();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.btnAddNewPerson = new System.Windows.Forms.Button();
+            this.gbFilters = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSeaarchPerson)).BeginInit();
+            this.gbFilters.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // errorProviderSeaarchPerson
+            // 
+            this.errorProviderSeaarchPerson.ContainerControl = this;
+            // 
+            // ctrPersonCard1
+            // 
+            this.ctrPersonCard1.BackColor = System.Drawing.Color.Gainsboro;
+            this.ctrPersonCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ctrPersonCard1.Location = new System.Drawing.Point(0, 80);
+            this.ctrPersonCard1.Name = "ctrPersonCard1";
+            this.ctrPersonCard1.Size = new System.Drawing.Size(955, 404);
+            this.ctrPersonCard1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 20);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Find By:";
+            // 
+            // txtFilterValue
+            // 
+            this.txtFilterValue.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFilterValue.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtFilterValue.ForeColor = System.Drawing.Color.Gray;
+            this.txtFilterValue.Location = new System.Drawing.Point(313, 25);
+            this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFilterValue.Name = "txtFilterValue";
+            this.txtFilterValue.Size = new System.Drawing.Size(214, 27);
+            this.txtFilterValue.TabIndex = 17;
+            // 
+            // cbFilterBy
+            // 
+            this.cbFilterBy.BackColor = System.Drawing.Color.Gainsboro;
+            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cbFilterBy.FormattingEnabled = true;
+            this.cbFilterBy.Items.AddRange(new object[] {
+            "National No.",
+            "Person ID"});
+            this.cbFilterBy.Location = new System.Drawing.Point(96, 24);
+            this.cbFilterBy.Name = "cbFilterBy";
+            this.cbFilterBy.Size = new System.Drawing.Size(210, 28);
+            this.cbFilterBy.TabIndex = 16;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
+            // 
+            // btnFind
+            // 
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.personSearch32;
+            this.btnFind.Location = new System.Drawing.Point(590, 20);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(44, 37);
+            this.btnFind.TabIndex = 18;
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // btnAddNewPerson
+            // 
+            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddNewPerson.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AddUser_32;
+            this.btnAddNewPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddNewPerson.Location = new System.Drawing.Point(641, 20);
+            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(44, 37);
+            this.btnAddNewPerson.TabIndex = 20;
+            this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
             // gbFilters
             // 
@@ -57,80 +131,6 @@
             this.gbFilters.TabStop = false;
             this.gbFilters.Text = "Filter";
             // 
-            // btnAddNewPerson
-            // 
-            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNewPerson.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.AddUser_32;
-            this.btnAddNewPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(641, 20);
-            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(44, 37);
-            this.btnAddNewPerson.TabIndex = 20;
-            this.btnAddNewPerson.UseVisualStyleBackColor = true;
-            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
-            // 
-            // btnFind
-            // 
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.personSearch32;
-            this.btnFind.Location = new System.Drawing.Point(590, 20);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(44, 37);
-            this.btnFind.TabIndex = 18;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // cbFilterBy
-            // 
-            this.cbFilterBy.BackColor = System.Drawing.Color.Gainsboro;
-            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFilterBy.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.cbFilterBy.FormattingEnabled = true;
-            this.cbFilterBy.Items.AddRange(new object[] {
-            "National No.",
-            "Person ID"});
-            this.cbFilterBy.Location = new System.Drawing.Point(96, 24);
-            this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.Size = new System.Drawing.Size(210, 28);
-            this.cbFilterBy.TabIndex = 16;
-            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
-            // 
-            // txtFilterValue
-            // 
-            this.txtFilterValue.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFilterValue.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtFilterValue.ForeColor = System.Drawing.Color.Gray;
-            this.txtFilterValue.Location = new System.Drawing.Point(313, 25);
-            this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtFilterValue.Name = "txtFilterValue";
-            this.txtFilterValue.Size = new System.Drawing.Size(214, 27);
-            this.txtFilterValue.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Find By:";
-            // 
-            // errorProviderSeaarchPerson
-            // 
-            this.errorProviderSeaarchPerson.ContainerControl = this;
-            // 
-            // ctrPersonCard1
-            // 
-            this.ctrPersonCard1.BackColor = System.Drawing.Color.Gainsboro;
-            this.ctrPersonCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ctrPersonCard1.Location = new System.Drawing.Point(0, 80);
-            this.ctrPersonCard1.Name = "ctrPersonCard1";
-            this.ctrPersonCard1.Size = new System.Drawing.Size(955, 404);
-            this.ctrPersonCard1.TabIndex = 0;
-            // 
             // ctrlPersonCardWithFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,9 +142,9 @@
             this.Name = "ctrlPersonCardWithFilter";
             this.Size = new System.Drawing.Size(955, 484);
             this.Load += new System.EventHandler(this.ctrlPersonCardWithFilter_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSeaarchPerson)).EndInit();
             this.gbFilters.ResumeLayout(false);
             this.gbFilters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSeaarchPerson)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -152,12 +152,12 @@
         #endregion
 
         private ctrPersonCard ctrPersonCard1;
+        private System.Windows.Forms.ErrorProvider errorProviderSeaarchPerson;
         private System.Windows.Forms.GroupBox gbFilters;
         private System.Windows.Forms.Button btnAddNewPerson;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ErrorProvider errorProviderSeaarchPerson;
     }
 }
