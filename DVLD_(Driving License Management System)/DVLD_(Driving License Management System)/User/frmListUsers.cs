@@ -220,5 +220,25 @@ namespace DVLD__Driving_License_Management_System_.User
             frm.ShowDialog();
             frmListUsers_Load(null, null);
         }
+
+        private void tsmSendEmail_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Send Email is under construction",
+                "Info",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
+        }
+
+        private void tsmPhooneCall_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Call Phone is under construction",
+                "Info",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
+        }
     }
 }
