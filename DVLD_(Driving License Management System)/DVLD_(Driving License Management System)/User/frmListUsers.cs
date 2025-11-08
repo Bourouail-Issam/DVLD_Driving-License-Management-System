@@ -212,5 +212,13 @@ namespace DVLD__Driving_License_Management_System_.User
             frm.ShowDialog();
             frmListUsers_Load(null, null);
         }
+
+        private void tmsChangePassword_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dgvUsers.CurrentRow?.Cells[0].Value;
+            frmChangePassword frm = new frmChangePassword(UserID);
+            frm.ShowDialog();
+            frmListUsers_Load(null, null);
+        }
     }
 }
