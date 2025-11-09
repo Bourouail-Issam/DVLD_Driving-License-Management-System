@@ -128,5 +128,16 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
             txtFilterValue.Text = "";
             txtFilterValue.Focus();
         }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //we allow number incase person id or user id is selected.
+            if (cbFilterBy.Text == "Person ID")
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+            if (cbFilterBy.Text == "National No.")
+                e.Handled = (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
+              
+        }
     }
 }
