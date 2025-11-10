@@ -168,6 +168,7 @@
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(375, 28);
             this.txtNationalNo.TabIndex = 9;
+            this.txtNationalNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNationalNo_KeyPress);
             this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalNo_Validating);
             // 
             // rbFemale

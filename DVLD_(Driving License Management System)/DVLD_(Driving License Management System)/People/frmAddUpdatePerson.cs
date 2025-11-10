@@ -391,5 +391,10 @@ namespace DVLD__Driving_License_Management_System_.People
                     MessageBoxIcon.Error
                     );
         }
+
+        private void txtNationalNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
+        }
     }
 }
