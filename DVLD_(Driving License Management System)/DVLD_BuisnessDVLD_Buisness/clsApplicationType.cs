@@ -35,6 +35,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         //################################ CRUD Methods ################################
+
         public static DataTable GetAllApplicationTypes()
         {
             return clsApplicationTypeData.GetAllApplicationTypes();
@@ -51,5 +52,27 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
 
         }
+
+
+        private bool _UpdateApplicationType()
+        {
+            //call DataAccess Layer 
+
+            return clsApplicationTypeData.UpdateApplicationType(this.ID, this.Title, this.Fees);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.Update:
+
+                    return _UpdateApplicationType();
+
+            }
+
+            return false;
+        }
+
     }
 }

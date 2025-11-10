@@ -102,6 +102,21 @@ namespace DVLD__Driving_License_Management_System_.Applications.Application_Type
             }
             _ApplicationType.Title = txtTitle.Text.Trim();
             _ApplicationType.Fees = Convert.ToSingle(txtFees.Text.Trim());
+
+            if (_ApplicationType.Save())
+            {
+                MessageBox.Show(
+                    "Data Saved Successfully.", 
+                    "Saved",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show(
+                    "Error: Data Is not Saved Successfully.", 
+                    "Error", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
         }
     }
 }

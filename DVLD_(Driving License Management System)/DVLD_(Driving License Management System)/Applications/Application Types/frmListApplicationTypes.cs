@@ -51,6 +51,8 @@ namespace DVLD__Driving_License_Management_System_.Applications.Application_Type
             int ApplicationTypeID =  (int)dgvApplicationTypes.CurrentRow.Cells[0].Value;
             frmEditApplicationType frm = new frmEditApplicationType(ApplicationTypeID);
             frm.ShowDialog();
+
+            frmListApplicationTypes_Load(null, null);
         }
     }
 }
