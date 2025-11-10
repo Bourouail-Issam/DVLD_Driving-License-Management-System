@@ -45,5 +45,12 @@ namespace DVLD__Driving_License_Management_System_.Applications.Application_Type
             dgvApplicationTypes.Columns[2].HeaderText = "Fees";
             dgvApplicationTypes.Columns[2].Width = 100;
         }
+
+        private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ApplicationTypeID =  (int)dgvApplicationTypes.CurrentRow.Cells[0].Value;
+            frmEditApplicationType frm = new frmEditApplicationType(ApplicationTypeID);
+            frm.ShowDialog();
+        }
     }
 }
