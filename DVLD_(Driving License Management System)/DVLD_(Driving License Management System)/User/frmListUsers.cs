@@ -14,7 +14,7 @@ namespace DVLD__Driving_License_Management_System_.User
     public partial class frmListUsers : Form
     {
         private frmMain _frmMain;
-        private static DataTable _dtAllUsers;
+        private  DataTable _dtAllUsers;
         public frmListUsers(frmMain frmMain)
         {
             InitializeComponent();

@@ -1,4 +1,5 @@
-﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+﻿using DVLD__Driving_License_Management_System_.Applications.Application_Types;
+using DVLD__Driving_License_Management_System_.Global_Classes;
 using DVLD__Driving_License_Management_System_.People;
 using DVLD__Driving_License_Management_System_.User;
 using System;
@@ -107,6 +108,17 @@ namespace DVLD__Driving_License_Management_System_
         {
             frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
+        }
+
+        private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnApplications.BackColor = Color.FromArgb(63, 93, 127);
+            panelMainForm.Visible = false;
+
+            frmListApplicationTypes frm = new frmListApplicationTypes(this);
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

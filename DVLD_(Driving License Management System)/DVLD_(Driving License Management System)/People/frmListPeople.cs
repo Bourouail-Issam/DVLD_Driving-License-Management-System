@@ -14,14 +14,11 @@ namespace DVLD__Driving_License_Management_System_.People
     public partial class frmListPeople : Form
     {
         private frmMain _frmMain;
-        private static DataTable _dtAllPeople = clsPerson.GetAllPersons();
+        private DataTable _dtAllPeople;
 
 
         //only select the columns that you want to show in the grid
-        private DataTable _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
-                                                         "FirstName", "SecondName", "ThirdName", "LastName",
-                                                         "GendorCaption", "DateOfBirth", "CountryName",
-                                                         "Phone", "Email");
+        private DataTable _dtPeople;
 
         public frmListPeople(frmMain frmMain)
         {
@@ -47,7 +44,11 @@ namespace DVLD__Driving_License_Management_System_.People
         private void frmPeople_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
-
+            _dtAllPeople = clsPerson.GetAllPersons();
+            _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
+                                                         "FirstName", "SecondName", "ThirdName", "LastName",
+                                                         "GendorCaption", "DateOfBirth", "CountryName",
+                                                         "Phone", "Email");
             dgvPeople.DataSource = _dtPeople;
             cbFilter.SelectedIndex = 0;
             lbRecords.Text = dgvPeople.Rows.Count.ToString();

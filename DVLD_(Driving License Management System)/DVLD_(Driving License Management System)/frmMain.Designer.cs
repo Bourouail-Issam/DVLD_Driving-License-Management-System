@@ -226,7 +226,7 @@
             this.rjDropdownMenuApplications.MenuItemTextColor = System.Drawing.Color.Empty;
             this.rjDropdownMenuApplications.Name = "rjDropdownMenuApplications";
             this.rjDropdownMenuApplications.PrimaryColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 354);
+            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 376);
             // 
             // drivingToolStripMenuItem
             // 
@@ -317,6 +317,7 @@
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
             this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(318, 70);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
+            this.manageApplicationsToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationsToolStripMenuItem_Click);
             // 
             // detainLicenseToolStripMenuItem
             // 
@@ -384,7 +385,7 @@
             this.rjDropdownMenuAccountSettings.MenuItemTextColor = System.Drawing.Color.Empty;
             this.rjDropdownMenuAccountSettings.Name = "rjDropdownMenuAccountSettings";
             this.rjDropdownMenuAccountSettings.PrimaryColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenuAccountSettings.Size = new System.Drawing.Size(254, 236);
+            this.rjDropdownMenuAccountSettings.Size = new System.Drawing.Size(254, 214);
             // 
             // currentUserInfoToolStripMenuItem
             // 
