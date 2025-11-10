@@ -16,6 +16,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Application_Type
     {
         private int _ApplicationTypeID = -1;
         private clsApplicationType _ApplicationType;
+        private FormMover _formMover;
 
         public frmEditApplicationType(int ApplicationTypeID)
         {
@@ -53,6 +54,8 @@ namespace DVLD__Driving_License_Management_System_.Applications.Application_Type
             lblApplicationTypeID.Text = _ApplicationTypeID.ToString();
             txtTitle.Text = _ApplicationType.Title;
             txtFees.Text = _ApplicationType.Fees.ToString();
+
+            _formMover = new FormMover(this, panelMoveForm);
         }
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
