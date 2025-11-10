@@ -1,4 +1,5 @@
-﻿using DVLD_BuisnessDVLD_Buisness;
+﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
