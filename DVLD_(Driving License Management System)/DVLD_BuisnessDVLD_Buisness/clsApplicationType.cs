@@ -33,9 +33,23 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.Fees = ApplicationTypeFees;
             Mode = enMode.Update;
         }
+
+        //################################ CRUD Methods ################################
         public static DataTable GetAllApplicationTypes()
         {
             return clsApplicationTypeData.GetAllApplicationTypes();
+        }
+
+        public static clsApplicationType Find(int ID)
+        {
+            string Title = ""; float Fees = 0;
+
+            if (clsApplicationTypeData.GetApplicationTypeInfoByID(ID, ref Title, ref Fees))
+
+                return new clsApplicationType(ID, Title, Fees);
+            else
+                return null;
+
         }
     }
 }
