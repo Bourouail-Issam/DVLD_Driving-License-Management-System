@@ -46,6 +46,8 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbShowPassword = new System.Windows.Forms.CheckBox();
             this.panelSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMoveForm.SuspendLayout();
@@ -59,8 +61,9 @@
             this.cbRememberMe.BackColor = System.Drawing.Color.White;
             this.cbRememberMe.Checked = true;
             this.cbRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbRememberMe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbRememberMe.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRememberMe.Location = new System.Drawing.Point(553, 323);
+            this.cbRememberMe.Location = new System.Drawing.Point(553, 357);
             this.cbRememberMe.Name = "cbRememberMe";
             this.cbRememberMe.Size = new System.Drawing.Size(114, 19);
             this.cbRememberMe.TabIndex = 70;
@@ -92,6 +95,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(174, 23);
             this.txtPassword.TabIndex = 64;
             // 
@@ -211,6 +215,9 @@
             // panelMoveForm
             // 
             this.panelMoveForm.BackColor = System.Drawing.Color.White;
+            this.panelMoveForm.Controls.Add(this.cbShowPassword);
+            this.panelMoveForm.Controls.Add(this.cbRememberMe);
+            this.panelMoveForm.Controls.Add(this.checkBox1);
             this.panelMoveForm.Controls.Add(this.btnClose);
             this.panelMoveForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMoveForm.Location = new System.Drawing.Point(0, 0);
@@ -271,13 +278,35 @@
             this.pictureBox3.TabIndex = 68;
             this.pictureBox3.TabStop = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(0, 0);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 73;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // cbShowPassword
+            // 
+            this.cbShowPassword.AutoSize = true;
+            this.cbShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbShowPassword.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbShowPassword.Location = new System.Drawing.Point(553, 329);
+            this.cbShowPassword.Name = "cbShowPassword";
+            this.cbShowPassword.Size = new System.Drawing.Size(117, 19);
+            this.cbShowPassword.TabIndex = 74;
+            this.cbShowPassword.Text = "Show Password";
+            this.cbShowPassword.UseVisualStyleBackColor = true;
+            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 531);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.cbRememberMe);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox3);
@@ -296,6 +325,7 @@
             this.panelSideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMoveForm.ResumeLayout(false);
+            this.panelMoveForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -322,5 +352,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelMoveForm;
+        private System.Windows.Forms.CheckBox cbShowPassword;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

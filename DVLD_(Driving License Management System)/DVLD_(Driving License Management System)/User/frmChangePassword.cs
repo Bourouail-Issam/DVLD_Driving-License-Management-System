@@ -140,5 +140,22 @@ namespace DVLD__Driving_License_Management_System_.User
                    );
             }
         }
+
+        private void cbShowPasswords_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (cbShowPasswords.Checked)
+            {
+                txtCurrentPassword.PasswordChar = '\0';
+                txtNewPassword.PasswordChar = '\0';
+                txtConfirmPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtCurrentPassword.PasswordChar = '*';
+                txtNewPassword.PasswordChar = '*';
+                txtConfirmPassword.PasswordChar = '*';
+            }
+        }
     }
 }

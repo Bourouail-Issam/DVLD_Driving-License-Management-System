@@ -1,4 +1,5 @@
-﻿using DVLD__Driving_License_Management_System_.People;
+﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.People;
 using DVLD__Driving_License_Management_System_.User;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,18 @@ namespace DVLD__Driving_License_Management_System_
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowPersonInfo frm = new frmShowPersonInfo(clsGlobal.CurrentUser.PersonID);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
         }
     }
 }

@@ -43,7 +43,7 @@
             this.label1.Font = new System.Drawing.Font("Myanmar Text", 27.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(382, 45);
+            this.label1.Location = new System.Drawing.Point(340, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(276, 66);
             this.label1.TabIndex = 103;
@@ -57,7 +57,7 @@
             this.btnClose2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
             this.btnClose2.Image = ((System.Drawing.Image)(resources.GetObject("btnClose2.Image")));
             this.btnClose2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClose2.Location = new System.Drawing.Point(961, 501);
+            this.btnClose2.Location = new System.Drawing.Point(846, 497);
             this.btnClose2.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose2.Name = "btnClose2";
             this.btnClose2.Size = new System.Drawing.Size(104, 39);
@@ -70,9 +70,9 @@
             // ctrPersonCard1
             // 
             this.ctrPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrPersonCard1.Location = new System.Drawing.Point(12, 85);
+            this.ctrPersonCard1.Location = new System.Drawing.Point(6, 90);
             this.ctrPersonCard1.Name = "ctrPersonCard1";
-            this.ctrPersonCard1.Size = new System.Drawing.Size(1053, 400);
+            this.ctrPersonCard1.Size = new System.Drawing.Size(944, 400);
             this.ctrPersonCard1.TabIndex = 104;
             // 
             // panelMoveForm
@@ -81,7 +81,7 @@
             this.panelMoveForm.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMoveForm.Location = new System.Drawing.Point(0, 0);
             this.panelMoveForm.Name = "panelMoveForm";
-            this.panelMoveForm.Size = new System.Drawing.Size(1079, 32);
+            this.panelMoveForm.Size = new System.Drawing.Size(962, 32);
             this.panelMoveForm.TabIndex = 107;
             // 
             // btnClose1
@@ -94,7 +94,7 @@
             this.btnClose1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnClose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.delete;
-            this.btnClose1.Location = new System.Drawing.Point(1039, 0);
+            this.btnClose1.Location = new System.Drawing.Point(922, 0);
             this.btnClose1.Name = "btnClose1";
             this.btnClose1.Size = new System.Drawing.Size(40, 32);
             this.btnClose1.TabIndex = 108;
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1079, 549);
+            this.ClientSize = new System.Drawing.Size(962, 549);
             this.Controls.Add(this.btnClose1);
             this.Controls.Add(this.panelMoveForm);
             this.Controls.Add(this.btnClose2);

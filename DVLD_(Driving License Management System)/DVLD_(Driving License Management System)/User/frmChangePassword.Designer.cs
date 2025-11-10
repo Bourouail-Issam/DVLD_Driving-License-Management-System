@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panelMoveForm = new System.Windows.Forms.Panel();
             this.btnClose1 = new System.Windows.Forms.Button();
-            this.clsUserCard1 = new DVLD__Driving_License_Management_System_.User.Controls.clsUserCard();
             this.txtCurrentPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pbGendor = new System.Windows.Forms.PictureBox();
@@ -44,6 +43,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbShowPasswords = new System.Windows.Forms.CheckBox();
+            this.clsUserCard1 = new DVLD__Driving_License_Management_System_.User.Controls.clsUserCard();
             this.panelMoveForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGendor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,14 +79,6 @@
             this.btnClose1.UseVisualStyleBackColor = false;
             this.btnClose1.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // clsUserCard1
-            // 
-            this.clsUserCard1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.clsUserCard1.Location = new System.Drawing.Point(0, 38);
-            this.clsUserCard1.Name = "clsUserCard1";
-            this.clsUserCard1.Size = new System.Drawing.Size(955, 491);
-            this.clsUserCard1.TabIndex = 117;
-            // 
             // txtCurrentPassword
             // 
             this.txtCurrentPassword.BackColor = System.Drawing.Color.White;
@@ -98,6 +91,7 @@
             this.txtCurrentPassword.MaxLength = 50;
             this.txtCurrentPassword.Multiline = true;
             this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.PasswordChar = '*';
             this.txtCurrentPassword.Size = new System.Drawing.Size(243, 28);
             this.txtCurrentPassword.TabIndex = 149;
             this.txtCurrentPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtCurrentPassword_Validating);
@@ -135,6 +129,7 @@
             this.txtNewPassword.MaxLength = 50;
             this.txtNewPassword.Multiline = true;
             this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(243, 28);
             this.txtNewPassword.TabIndex = 152;
             this.txtNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtNewPassword_Validating);
@@ -172,6 +167,7 @@
             this.txtConfirmPassword.MaxLength = 50;
             this.txtConfirmPassword.Multiline = true;
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(243, 28);
             this.txtConfirmPassword.TabIndex = 155;
             this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
@@ -227,12 +223,34 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // cbShowPasswords
+            // 
+            this.cbShowPasswords.AutoSize = true;
+            this.cbShowPasswords.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbShowPasswords.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowPasswords.Location = new System.Drawing.Point(489, 617);
+            this.cbShowPasswords.Name = "cbShowPasswords";
+            this.cbShowPasswords.Size = new System.Drawing.Size(149, 24);
+            this.cbShowPasswords.TabIndex = 159;
+            this.cbShowPasswords.Text = "Show Passwords";
+            this.cbShowPasswords.UseVisualStyleBackColor = true;
+            this.cbShowPasswords.CheckedChanged += new System.EventHandler(this.cbShowPasswords_CheckedChanged);
+            // 
+            // clsUserCard1
+            // 
+            this.clsUserCard1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.clsUserCard1.Location = new System.Drawing.Point(0, 38);
+            this.clsUserCard1.Name = "clsUserCard1";
+            this.clsUserCard1.Size = new System.Drawing.Size(955, 491);
+            this.clsUserCard1.TabIndex = 117;
+            // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(957, 722);
+            this.Controls.Add(this.cbShowPasswords);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtConfirmPassword);
@@ -278,5 +296,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckBox cbShowPasswords;
     }
 }
