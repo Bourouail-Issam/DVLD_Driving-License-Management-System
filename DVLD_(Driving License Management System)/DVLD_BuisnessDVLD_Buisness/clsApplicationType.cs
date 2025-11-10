@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,7 +54,6 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         }
 
-
         private bool _UpdateApplicationType()
         {
             //call DataAccess Layer 
@@ -61,16 +61,41 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsApplicationTypeData.UpdateApplicationType(this.ID, this.Title, this.Fees);
         }
 
+
+        // Note: This function _AddNewApplicationType isn't currently used in the project.
+        // I’ve added it just in case we need this feature in the future.
+        // It might save time later if a similar functionality is required.
+        private bool _AddNewApplicationType()
+        {
+            //call DataAccess Layer 
+
+            this.ID = clsApplicationTypeData.AddNewApplicationType(this.Title, this.Fees);
+
+            return (this.ID != -1);
+        }
+
         public bool Save()
         {
             switch (Mode)
             {
-                case enMode.Update:
+                // Note: This function _AddNewApplicationType isn't currently used in the project.
+                // I’ve added it just in case we need this feature in the future.
+                // It might save time later if a similar functionality is required.
+                case enMode.AddNew:
+                    {
+                        if (_AddNewApplicationType())
+                        {
+                            Mode = enMode.Update;
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
 
+                case enMode.Update:
                     return _UpdateApplicationType();
 
             }
-
             return false;
         }
 

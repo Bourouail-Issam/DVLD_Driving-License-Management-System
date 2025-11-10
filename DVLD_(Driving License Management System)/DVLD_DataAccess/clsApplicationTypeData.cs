@@ -124,5 +124,48 @@ namespace DVLD_DataAccess
 
             return (rowsAffected > 0);
         }
+
+
+        // Note: This function AddNewApplicationType isn't currently used in the project.
+        // I’ve added it just in case we need this feature in the future.
+        // It might save time later if a similar functionality is required.
+        public static int AddNewApplicationType(string Title, float Fees)
+        {
+            int ApplicationTypeID = -1;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Insert Into ApplicationTypes (ApplicationTypeTitle,ApplicationFees)
+                            Values (@Title,@Fees)
+                            
+                            SELECT SCOPE_IDENTITY();";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@ApplicationTypeTitle", Title);
+            cmd.Parameters.AddWithValue("@ApplicationFees", Fees);
+            cmd.CommandTimeout = 30;
+            try
+            {
+                conn.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                    ApplicationTypeID = insertedID;
+            }
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+
+            return ApplicationTypeID;
+        }
     }
 }
