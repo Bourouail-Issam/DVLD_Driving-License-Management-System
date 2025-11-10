@@ -32,9 +32,9 @@
             this.panelMoveForm = new System.Windows.Forms.Panel();
             this.btnClose1 = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblApplicationTypeID = new System.Windows.Forms.TextBox();
+            this.txtFees = new System.Windows.Forms.TextBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.lblUserID = new System.Windows.Forms.Label();
+            this.lblApplicationTypeID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pbGendor = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -87,20 +87,20 @@
             this.lblTitle.Text = "Update Application Type";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblApplicationTypeID
+            // txtFees
             // 
-            this.lblApplicationTypeID.BackColor = System.Drawing.Color.White;
-            this.lblApplicationTypeID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblApplicationTypeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
-            this.lblApplicationTypeID.ForeColor = System.Drawing.Color.Gray;
-            this.lblApplicationTypeID.Location = new System.Drawing.Point(143, 275);
-            this.lblApplicationTypeID.Margin = new System.Windows.Forms.Padding(2);
-            this.lblApplicationTypeID.MaxLength = 50;
-            this.lblApplicationTypeID.Multiline = true;
-            this.lblApplicationTypeID.Name = "lblApplicationTypeID";
-            this.lblApplicationTypeID.Size = new System.Drawing.Size(337, 28);
-            this.lblApplicationTypeID.TabIndex = 271;
-            this.lblApplicationTypeID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lblApplicationTypeID_KeyPress);
+            this.txtFees.BackColor = System.Drawing.Color.White;
+            this.txtFees.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.5F);
+            this.txtFees.ForeColor = System.Drawing.Color.Gray;
+            this.txtFees.Location = new System.Drawing.Point(143, 275);
+            this.txtFees.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFees.MaxLength = 50;
+            this.txtFees.Multiline = true;
+            this.txtFees.Name = "txtFees";
+            this.txtFees.Size = new System.Drawing.Size(337, 28);
+            this.txtFees.TabIndex = 271;
+            this.txtFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lblApplicationTypeID_KeyPress);
             // 
             // txtTitle
             // 
@@ -116,17 +116,17 @@
             this.txtTitle.Size = new System.Drawing.Size(337, 28);
             this.txtTitle.TabIndex = 270;
             // 
-            // lblUserID
+            // lblApplicationTypeID
             // 
-            this.lblUserID.AutoSize = true;
-            this.lblUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUserID.Location = new System.Drawing.Point(123, 160);
-            this.lblUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(59, 20);
-            this.lblUserID.TabIndex = 269;
-            this.lblUserID.Text = "[????]";
+            this.lblApplicationTypeID.AutoSize = true;
+            this.lblApplicationTypeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationTypeID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblApplicationTypeID.Location = new System.Drawing.Point(123, 160);
+            this.lblApplicationTypeID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApplicationTypeID.Name = "lblApplicationTypeID";
+            this.lblApplicationTypeID.Size = new System.Drawing.Size(59, 20);
+            this.lblApplicationTypeID.TabIndex = 269;
+            this.lblApplicationTypeID.Text = "[????]";
             // 
             // label5
             // 
@@ -223,9 +223,9 @@
             this.ClientSize = new System.Drawing.Size(713, 379);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblApplicationTypeID);
+            this.Controls.Add(this.txtFees);
             this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.lblUserID);
+            this.Controls.Add(this.lblApplicationTypeID);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pbGendor);
             this.Controls.Add(this.pictureBox1);
@@ -238,6 +238,7 @@
             this.Name = "frmEditApplicationType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmEditApplicationType";
+            this.Load += new System.EventHandler(this.frmEditApplicationType_Load);
             this.panelMoveForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbGendor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -252,9 +253,9 @@
         private System.Windows.Forms.Panel panelMoveForm;
         private System.Windows.Forms.Button btnClose1;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox lblApplicationTypeID;
+        private System.Windows.Forms.TextBox txtFees;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.Label lblUserID;
+        private System.Windows.Forms.Label lblApplicationTypeID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pbGendor;
         private System.Windows.Forms.PictureBox pictureBox1;
