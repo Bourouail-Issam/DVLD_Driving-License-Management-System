@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DVLD_DataAccess;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +36,13 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.Description = Description;
             this.Fees = TestTypeFees;
             _Mode = enMode.Update;
+        }
+
+
+        //################################ CRUD Methods ################################
+        public static DataTable GetAllTestTypes()
+        {
+            return clsTestTypeData.GetAllTestTypes();
         }
     }
 }
