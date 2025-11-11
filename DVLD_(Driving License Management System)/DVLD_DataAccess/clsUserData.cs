@@ -103,6 +103,52 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
+        public static bool GetUserInfoByPersonID(int PersonID, ref int UserID, ref string UserName,
+         ref string Password, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Users WHERE PersonID = @PersonID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.Add("@PersonID", SqlDbType.Int).Value = PersonID;
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    UserID = (int)reader["UserID"];
+                    UserName = (string)reader["UserName"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+
+                    // The record was found
+                    isFound = true;
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
+
+
         public static DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();
@@ -230,7 +276,7 @@ namespace DVLD_DataAccess
 
         }
 
-        public static bool UpdateUser(int UserID ,string UserName,
+        public static bool UpdateUser(int UserID, int PersonID, string UserName,
              string Password, bool IsActive)
         {
 
@@ -239,6 +285,7 @@ namespace DVLD_DataAccess
 
             string query = @"Update  Users  
                             set
+                                PersonID = @PersonID,
                                 UserName = @UserName,
                                 Password = @Password,
                                 IsActive = @IsActive
@@ -270,6 +317,7 @@ namespace DVLD_DataAccess
 
             return (rowsAffected > 0);
         }
+
 
         //################################ Exist Methods ################################
         public static bool IsUserExistForPersonID(int PersonID)

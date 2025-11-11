@@ -10,9 +10,6 @@ namespace DVLD_DataAccess
 {
     public class clsPersonData
     {
-
-
-
         //################################ CRUD Methods ################################
 
         public static DataTable GetAllPersons()
@@ -63,7 +60,6 @@ namespace DVLD_DataAccess
             // Return the filled DataTable
             return dt;
         }
-
 
         public static bool GetPersonInfoByID(int PersonID, ref string NationalNo,
            ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
@@ -138,7 +134,6 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-
         public static bool GetPersonInfoByNationalNo(string NationalNo, ref int PersonID, 
            ref string FirstName, ref string SecondName,ref string ThirdName, ref string LastName, 
            ref DateTime DateOfBirth,ref byte Gendor, ref string Address, ref string Phone,
@@ -209,7 +204,6 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-
 
         public static int AddNewPerson(string NationalNo, string FirstName,
             string SecondName, string ThirdName, string LastName,
@@ -350,7 +344,6 @@ namespace DVLD_DataAccess
             return (rowsAffected > 0);
         }
 
-
         public static bool DeletePerson(int PersonID)
         {
             int rowsAffected = 0;
@@ -379,6 +372,41 @@ namespace DVLD_DataAccess
 
 
         // ############################## Exist Methods ##############################
+
+        public static bool IsPersonExist(int PersonID)
+        {
+            bool isFound = false;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT Found=1 FROM People WHERE PersonID = @PersonID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.Add("@PersonID",SqlDbType.Int).Value = PersonID;
+            cmd.CommandTimeout=30;
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
 
         public static bool IsPersonExist(string NationalNo)
         {

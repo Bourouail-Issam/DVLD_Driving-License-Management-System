@@ -85,6 +85,22 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
         }
 
+        public static clsUser FindByPersonID(int PersonID)
+        {
+            int UserID = -1;
+            string UserName = "", Password = "";
+            bool IsActive = false;
+
+            bool IsFound = clsUserData.GetUserInfoByPersonID
+                                (PersonID, ref UserID, ref UserName, ref Password, ref IsActive);
+
+            if (IsFound)
+                //we return new object of that User with the right data
+                return new clsUser(UserID, UserID, UserName, Password, IsActive);
+            else
+                return null;
+        }
+
         public static DataTable GetAllUsers()
         {
             return clsUserData.GetAllUsers();
@@ -108,8 +124,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         private bool _UpdateUser()
         {
             //call DataAccess Layer 
-
-            return clsUserData.UpdateUser(this.UserID, this.UserName,
+            return clsUserData.UpdateUser(this.UserID, this.PersonID,this.UserName,
                 this.Password, this.IsActive);
         }
         // 
@@ -139,16 +154,17 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
 
-
         // ###################   Exist Methods   ###################
 
         public static bool isUserExistForPersonID(int PersonID)
         {
             return clsUserData.IsUserExistForPersonID(PersonID);
         }
+
         public static bool isUserExist(string UserName)
         {
             return clsUserData.IsUserExist(UserName);
         }
+
     }
 }

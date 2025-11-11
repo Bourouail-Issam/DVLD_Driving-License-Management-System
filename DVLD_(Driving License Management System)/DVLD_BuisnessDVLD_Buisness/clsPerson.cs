@@ -190,6 +190,11 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsPersonData.IsPersonExist(NationlNo);
         }
 
+        public static bool isPersonExist(int PersonID)
+        {
+            return clsPersonData.IsPersonExist(PersonID);
+        }
+
         //################################ Save Method ################################
         public bool Save()
         {
