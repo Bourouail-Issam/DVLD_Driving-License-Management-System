@@ -110,7 +110,8 @@ namespace DVLD__Driving_License_Management_System_
             frm.ShowDialog();
         }
 
-        private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
             btnApplications.BackColor = Color.FromArgb(63, 93, 127);

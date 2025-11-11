@@ -116,6 +116,12 @@
     <Compile Include="RJControls\RJDropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Tests\Test Types\frmListTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Test Types\frmListTestTypes.Designer.cs">
+      <DependentUpon>frmListTestTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\Controls\clsUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +183,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\Test Types\frmListTestTypes.resx">
+      <DependentUpon>frmListTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\Controls\clsUserCard.resx">
       <DependentUpon>clsUserCard.cs</DependentUpon>

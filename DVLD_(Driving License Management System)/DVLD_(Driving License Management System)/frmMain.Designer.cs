@@ -37,6 +37,8 @@
             this.btnApplications = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMainForm = new System.Windows.Forms.Panel();
+            this.pbMainPicture = new System.Windows.Forms.PictureBox();
             this.rjDropdownMenuApplications = new DVLD__Driving_License_Management_System_.RJControls.RJDropdownMenu(this.components);
             this.drivingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,15 +59,13 @@
             this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelMainForm = new System.Windows.Forms.Panel();
-            this.pbMainPicture = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.rjDropdownMenuApplications.SuspendLayout();
-            this.rjDropdownMenuAccountSettings.SuspendLayout();
             this.panelMainForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPicture)).BeginInit();
+            this.rjDropdownMenuApplications.SuspendLayout();
+            this.rjDropdownMenuAccountSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -213,6 +213,27 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panelMainForm
+            // 
+            this.panelMainForm.BackColor = System.Drawing.Color.Black;
+            this.panelMainForm.Controls.Add(this.pbMainPicture);
+            this.panelMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMainForm.Location = new System.Drawing.Point(295, 0);
+            this.panelMainForm.Name = "panelMainForm";
+            this.panelMainForm.Size = new System.Drawing.Size(1629, 1061);
+            this.panelMainForm.TabIndex = 3;
+            // 
+            // pbMainPicture
+            // 
+            this.pbMainPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbMainPicture.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.pbMainMenu;
+            this.pbMainPicture.Location = new System.Drawing.Point(0, 0);
+            this.pbMainPicture.Name = "pbMainPicture";
+            this.pbMainPicture.Size = new System.Drawing.Size(1629, 1061);
+            this.pbMainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbMainPicture.TabIndex = 0;
+            this.pbMainPicture.TabStop = false;
+            // 
             // rjDropdownMenuApplications
             // 
             this.rjDropdownMenuApplications.IsMainMenu = false;
@@ -317,7 +338,6 @@
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
             this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(318, 70);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
-            this.manageApplicationsToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationsToolStripMenuItem_Click);
             // 
             // detainLicenseToolStripMenuItem
             // 
@@ -364,6 +384,7 @@
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
             this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(318, 70);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
+            this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationTypesToolStripMenuItem_Click);
             // 
             // manageTestTypesToolStripMenuItem
             // 
@@ -417,27 +438,6 @@
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
-            // panelMainForm
-            // 
-            this.panelMainForm.BackColor = System.Drawing.Color.Black;
-            this.panelMainForm.Controls.Add(this.pbMainPicture);
-            this.panelMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainForm.Location = new System.Drawing.Point(295, 0);
-            this.panelMainForm.Name = "panelMainForm";
-            this.panelMainForm.Size = new System.Drawing.Size(1629, 1061);
-            this.panelMainForm.TabIndex = 3;
-            // 
-            // pbMainPicture
-            // 
-            this.pbMainPicture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbMainPicture.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.pbMainMenu;
-            this.pbMainPicture.Location = new System.Drawing.Point(0, 0);
-            this.pbMainPicture.Name = "pbMainPicture";
-            this.pbMainPicture.Size = new System.Drawing.Size(1629, 1061);
-            this.pbMainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbMainPicture.TabIndex = 0;
-            this.pbMainPicture.TabStop = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,10 +452,10 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.rjDropdownMenuApplications.ResumeLayout(false);
-            this.rjDropdownMenuAccountSettings.ResumeLayout(false);
             this.panelMainForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMainPicture)).EndInit();
+            this.rjDropdownMenuApplications.ResumeLayout(false);
+            this.rjDropdownMenuAccountSettings.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
