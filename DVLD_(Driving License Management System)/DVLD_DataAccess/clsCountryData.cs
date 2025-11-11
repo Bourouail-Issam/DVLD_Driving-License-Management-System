@@ -14,17 +14,18 @@ namespace DVLD_DataAccess
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = "SELECT * FROM Countries order by CountryName";
 
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.CommandTimeout = 30;
 
             try
             {
-                connection.Open();
+                conn.Open();
 
-                SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.HasRows)
 
@@ -34,7 +35,6 @@ namespace DVLD_DataAccess
 
                 reader.Close();
 
-
             }
 
             catch (Exception ex)
@@ -43,7 +43,7 @@ namespace DVLD_DataAccess
             }
             finally
             {
-                connection.Close();
+                conn.Close();
             }
 
             return dt;
@@ -54,18 +54,19 @@ namespace DVLD_DataAccess
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = "SELECT * FROM Countries WHERE CountryID = @CountryID";
 
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, conn);
 
-            command.Parameters.AddWithValue("@CountryID", ID);
+            cmd.Parameters.Add("@CountryID", SqlDbType.Int).Value= ID;
+            cmd.CommandTimeout = 30;
 
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
@@ -82,7 +83,7 @@ namespace DVLD_DataAccess
             }
             finally
             {
-                connection.Close();
+                conn.Close();
             }
 
             return isFound;
@@ -92,18 +93,19 @@ namespace DVLD_DataAccess
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = "SELECT * FROM Countries WHERE CountryName = @CountryName";
 
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, conn);
 
-            command.Parameters.AddWithValue("@CountryName", CountryName);
+            cmd.Parameters.Add("@CountryName",SqlDbType.NVarChar).Value = CountryName;
+            cmd.CommandTimeout = 30;
 
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
@@ -120,7 +122,7 @@ namespace DVLD_DataAccess
             }
             finally
             {
-                connection.Close();
+                conn.Close();
             }
 
             return isFound;
