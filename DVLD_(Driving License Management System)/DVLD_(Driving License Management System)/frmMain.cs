@@ -1,6 +1,7 @@
 ﻿using DVLD__Driving_License_Management_System_.Applications.Application_Types;
 using DVLD__Driving_License_Management_System_.Global_Classes;
 using DVLD__Driving_License_Management_System_.People;
+using DVLD__Driving_License_Management_System_.Tests.Test_Types;
 using DVLD__Driving_License_Management_System_.User;
 using System;
 using System.Collections.Generic;
@@ -118,6 +119,17 @@ namespace DVLD__Driving_License_Management_System_
             panelMainForm.Visible = false;
 
             frmListApplicationTypes frm = new frmListApplicationTypes(this);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnApplications.BackColor = Color.FromArgb(63, 93, 127);
+            panelMainForm.Visible = false;
+
+            frmListTestTypes frm = new frmListTestTypes(this);
             frm.MdiParent = this;
             frm.Show();
         }
