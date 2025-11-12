@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListTestTypes));
             this.lbRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvTestTypes = new System.Windows.Forms.DataGridView();
+            this.cmsTestTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.editeTestTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.Button();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
-            this.cmsTestTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editeTestTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editTestTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.cmsTestTypes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lbRecords
@@ -81,41 +82,48 @@
             this.dgvTestTypes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTestTypes.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvTestTypes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.PowderBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestTypes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestTypes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTestTypes.ColumnHeadersHeight = 60;
             this.dgvTestTypes.ContextMenuStrip = this.cmsTestTypes;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestTypes.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestTypes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTestTypes.EnableHeadersVisualStyles = false;
             this.dgvTestTypes.Location = new System.Drawing.Point(12, 252);
             this.dgvTestTypes.Name = "dgvTestTypes";
             this.dgvTestTypes.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestTypes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestTypes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTestTypes.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dgvTestTypes.RowTemplate.Height = 27;
             this.dgvTestTypes.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTestTypes.Size = new System.Drawing.Size(1587, 465);
             this.dgvTestTypes.TabIndex = 125;
+            // 
+            // cmsTestTypes
+            // 
+            this.cmsTestTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editTestTypeToolStripMenuItem});
+            this.cmsTestTypes.Name = "cmsTestTypes";
+            this.cmsTestTypes.Size = new System.Drawing.Size(163, 42);
             // 
             // label1
             // 
@@ -130,6 +138,14 @@
             this.label1.TabIndex = 124;
             this.label1.Text = "Manage Test Types";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // editeTestTypeToolStripMenuItem
+            // 
+            this.editeTestTypeToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
+            this.editeTestTypeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editeTestTypeToolStripMenuItem.Name = "editeTestTypeToolStripMenuItem";
+            this.editeTestTypeToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.editeTestTypeToolStripMenuItem.Text = "Edite Test Type";
             // 
             // btnClose
             // 
@@ -163,20 +179,14 @@
             this.pbPersonImage.TabIndex = 122;
             this.pbPersonImage.TabStop = false;
             // 
-            // cmsTestTypes
+            // editTestTypeToolStripMenuItem
             // 
-            this.cmsTestTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editeTestTypeToolStripMenuItem});
-            this.cmsTestTypes.Name = "cmsTestTypes";
-            this.cmsTestTypes.Size = new System.Drawing.Size(169, 42);
-            // 
-            // editeTestTypeToolStripMenuItem
-            // 
-            this.editeTestTypeToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
-            this.editeTestTypeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editeTestTypeToolStripMenuItem.Name = "editeTestTypeToolStripMenuItem";
-            this.editeTestTypeToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
-            this.editeTestTypeToolStripMenuItem.Text = "Edite Test Type";
+            this.editTestTypeToolStripMenuItem.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
+            this.editTestTypeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editTestTypeToolStripMenuItem.Name = "editTestTypeToolStripMenuItem";
+            this.editTestTypeToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.editTestTypeToolStripMenuItem.Text = "Edit Test Type";
+            this.editTestTypeToolStripMenuItem.Click += new System.EventHandler(this.editTestTypeToolStripMenuItem_Click);
             // 
             // frmListTestTypes
             // 
@@ -195,8 +205,8 @@
             this.Text = "frmListTestTypes";
             this.Load += new System.EventHandler(this.frmListTestTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.cmsTestTypes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +222,6 @@
         private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.ContextMenuStrip cmsTestTypes;
         private System.Windows.Forms.ToolStripMenuItem editeTestTypeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editTestTypeToolStripMenuItem;
     }
 }

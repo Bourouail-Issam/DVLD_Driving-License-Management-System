@@ -46,5 +46,14 @@ namespace DVLD__Driving_License_Management_System_.Tests.Test_Types
             dgvTestTypes.Columns[3].HeaderText = "Fees";
             dgvTestTypes.Columns[3].Width = 100;
         }
+
+        private void editTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsTestType.enTestType TestTypeID = 
+                (clsTestType.enTestType)dgvTestTypes.CurrentRow.Cells[0].Value;
+
+            frmEditTestType frm = new frmEditTestType(TestTypeID);
+            frm.ShowDialog();
+        }
     }
 }
