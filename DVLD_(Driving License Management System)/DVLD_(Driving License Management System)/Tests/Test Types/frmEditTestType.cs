@@ -15,8 +15,11 @@ namespace DVLD__Driving_License_Management_System_.Tests.Test_Types
 {
     public partial class frmEditTestType : Form
     {
+        private FormMover _formMover;
+
         private clsTestType.enTestType _TestTypeID = clsTestType.enTestType.VisionTest;
         private clsTestType _TestType;
+
         public frmEditTestType(clsTestType.enTestType testTypeID)
         {
             InitializeComponent();
@@ -44,6 +47,8 @@ namespace DVLD__Driving_License_Management_System_.Tests.Test_Types
                     );     
                 this.Close();
             }
+
+            _formMover = new FormMover(this, panelMoveForm);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

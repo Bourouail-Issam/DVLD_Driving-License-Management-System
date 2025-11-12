@@ -45,7 +45,6 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsTestTypeData.GetAllTestTypes();
         }
 
-
         public static clsTestType Find(clsTestType.enTestType TestTypeID)
         {
             string Title = "", Description = ""; float Fees = 0;
@@ -56,6 +55,12 @@ namespace DVLD_BuisnessDVLD_Buisness
             else
                 return null;
 
+        }
+
+        private bool _UpdateTestType()
+        {
+            //call DataAccess Layer 
+            return clsTestTypeData.UpdateTestType((int)this.ID, this.Title, this.Description,(decimal)this.Fees);
         }
     }
 }

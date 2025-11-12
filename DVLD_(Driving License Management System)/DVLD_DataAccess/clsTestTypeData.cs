@@ -90,5 +90,44 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+        public static bool UpdateTestType(int TestTypeID, string Title, string Description, decimal Fees)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Update  TestTypes  
+                            set TestTypeTitle = @TestTypeTitle,
+                                TestTypeDescription=@TestTypeDescription,
+                                TestTypeFees = @TestTypeFees
+                                where TestTypeID = @TestTypeID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.Add("@TestTypeID", SqlDbType.Int,100).Value = TestTypeID;
+            cmd.Parameters.Add("@TestTypeTitle",SqlDbType.NVarChar,500).Value = Title;
+            cmd.Parameters.Add("@TestTypeDescription", SqlDbType.NVarChar).Value = Description;
+            cmd.Parameters.Add("@TestTypeFees", SqlDbType.SmallMoney).Value = Fees;
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }
