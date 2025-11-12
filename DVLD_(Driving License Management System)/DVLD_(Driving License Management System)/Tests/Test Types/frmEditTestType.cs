@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BuisnessDVLD_Buisness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace DVLD__Driving_License_Management_System_.Tests.Test_Types
 {
     public partial class frmEditTestType : Form
     {
-        public frmEditTestType()
+        private clsTestType.enTestType _testTypeID = clsTestType.enTestType.VisionTest;
+        private clsTestType _testType;
+        public frmEditTestType(clsTestType.enTestType testTypeID)
         {
             InitializeComponent();
+            _testTypeID = testTypeID;
         }
+
+     
     }
 }
