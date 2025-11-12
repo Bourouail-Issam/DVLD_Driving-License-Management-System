@@ -183,6 +183,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Description_48 {
+            get {
+                object obj = ResourceManager.GetObject("Description 48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap detain2_64 {
             get {
                 object obj = ResourceManager.GetObject("detain2 64", resourceCulture);
@@ -226,6 +236,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         internal static System.Drawing.Bitmap edit_32 {
             get {
                 object obj = ResourceManager.GetObject("edit 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fees_48 {
+            get {
+                object obj = ResourceManager.GetObject("Fees 48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,6 +536,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         internal static System.Drawing.Bitmap sortie_40 {
             get {
                 object obj = ResourceManager.GetObject("sortie-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title_48 {
+            get {
+                object obj = ResourceManager.GetObject("Title 48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
