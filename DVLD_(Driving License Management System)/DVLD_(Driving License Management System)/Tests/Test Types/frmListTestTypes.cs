@@ -54,6 +54,7 @@ namespace DVLD__Driving_License_Management_System_.Tests.Test_Types
 
             frmEditTestType frm = new frmEditTestType(TestTypeID);
             frm.ShowDialog();
+            frmListTestTypes_Load(null, null);
         }
     }
 }

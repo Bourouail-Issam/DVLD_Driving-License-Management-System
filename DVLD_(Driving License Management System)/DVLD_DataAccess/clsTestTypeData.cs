@@ -105,9 +105,9 @@ namespace DVLD_DataAccess
 
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.Add("@TestTypeID", SqlDbType.Int,100).Value = TestTypeID;
-            cmd.Parameters.Add("@TestTypeTitle",SqlDbType.NVarChar,500).Value = Title;
-            cmd.Parameters.Add("@TestTypeDescription", SqlDbType.NVarChar).Value = Description;
+            cmd.Parameters.Add("@TestTypeID", SqlDbType.Int).Value = TestTypeID;
+            cmd.Parameters.Add("@TestTypeTitle",SqlDbType.NVarChar,100).Value = Title;
+            cmd.Parameters.Add("@TestTypeDescription", SqlDbType.NVarChar, 500).Value = Description;
             cmd.Parameters.Add("@TestTypeFees", SqlDbType.SmallMoney).Value = Fees;
             cmd.CommandTimeout = 30;
 

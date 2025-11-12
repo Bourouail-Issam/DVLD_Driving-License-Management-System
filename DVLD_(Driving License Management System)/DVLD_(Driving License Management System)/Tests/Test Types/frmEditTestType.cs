@@ -104,5 +104,42 @@ namespace DVLD__Driving_License_Management_System_.Tests.Test_Types
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' ;
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show(
+                    "Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", 
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
+
+            _TestType.Title = txtTitle.Text.Trim();
+            _TestType.Description = txtDescription.Text.Trim();
+            _TestType.Fees = Convert.ToSingle(txtFees.Text.Trim());
+
+
+            if (_TestType.Save())
+            {
+                MessageBox.Show(
+                    "Data Saved Successfully.", 
+                    "Saved", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                    );
+            }
+            else
+                MessageBox.Show(
+                    "Error: Data Is not Saved Successfully.", 
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+        }
     }
 }

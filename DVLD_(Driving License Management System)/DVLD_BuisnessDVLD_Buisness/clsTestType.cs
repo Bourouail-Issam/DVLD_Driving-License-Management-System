@@ -62,5 +62,16 @@ namespace DVLD_BuisnessDVLD_Buisness
             //call DataAccess Layer 
             return clsTestTypeData.UpdateTestType((int)this.ID, this.Title, this.Description,(decimal)this.Fees);
         }
+
+        public bool Save()
+        {
+            switch (_Mode)
+            {  
+                case enMode.Update:
+                    return _UpdateTestType();
+            }
+
+            return false;
+        }
     }
 }

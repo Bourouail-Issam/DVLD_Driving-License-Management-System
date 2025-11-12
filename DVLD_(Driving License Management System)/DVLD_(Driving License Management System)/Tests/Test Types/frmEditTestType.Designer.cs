@@ -80,7 +80,7 @@
             this.txtTitle.ForeColor = System.Drawing.Color.Gray;
             this.txtTitle.Location = new System.Drawing.Point(138, 191);
             this.txtTitle.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTitle.MaxLength = 50;
+            this.txtTitle.MaxLength = 100;
             this.txtTitle.Multiline = true;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(390, 28);
@@ -151,7 +151,7 @@
             this.txtDescription.ForeColor = System.Drawing.Color.Gray;
             this.txtDescription.Location = new System.Drawing.Point(191, 305);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDescription.MaxLength = 50;
+            this.txtDescription.MaxLength = 500;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(337, 159);
@@ -190,6 +190,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
