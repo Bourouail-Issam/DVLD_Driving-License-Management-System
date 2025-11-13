@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Applications.Application_Types;
+using DVLD__Driving_License_Management_System_.Applications.Local_Driving_License;
 using DVLD__Driving_License_Management_System_.Global_Classes;
 using DVLD__Driving_License_Management_System_.People;
 using DVLD__Driving_License_Management_System_.Tests.Test_Types;
@@ -132,6 +133,15 @@ namespace DVLD__Driving_License_Management_System_
             frmListTestTypes frm = new frmListTestTypes(this);
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {      
+
+            frmAddUpdateLocalDrivingLicesnseApplication frm =
+                new frmAddUpdateLocalDrivingLicesnseApplication();
+            
+            frm.ShowDialog();
         }
     }
 }
