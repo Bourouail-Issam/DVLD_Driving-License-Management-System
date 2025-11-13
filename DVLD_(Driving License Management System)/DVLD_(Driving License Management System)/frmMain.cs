@@ -143,5 +143,13 @@ namespace DVLD__Driving_License_Management_System_
             
             frm.ShowDialog();
         }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateLocalDrivingLicesnseApplication frm =
+             new frmAddUpdateLocalDrivingLicesnseApplication();
+
+            frm.ShowDialog();
+        }
     }
 }

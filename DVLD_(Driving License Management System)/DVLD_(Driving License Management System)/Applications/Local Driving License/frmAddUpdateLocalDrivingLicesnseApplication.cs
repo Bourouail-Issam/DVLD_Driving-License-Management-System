@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,9 +37,62 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             this.Close();
         }
 
+        private void _FillLicenseClassesInComoboBox()
+        {
+            DataTable LicenseClassList = clsLicenseClass.GetAllLicenseClasses();
+            cbLicenseClass.Items.Clear();
+
+            foreach (DataRow row in LicenseClassList.Rows)
+            {
+                cbLicenseClass.Items.Add(row["ClassName"]);
+            }
+        }
+        void MakeBtnSaveDisable()
+        {
+            btnSave.Enabled = false;
+            btnSave.Cursor = Cursors.Arrow;
+            btnSave.BackColor = Color.FromArgb(89, 146, 202);
+            btnSave.ForeColor = Color.Black;
+        }
+        void MakeBtnSaveEnable()
+        {
+            btnSave.Enabled = true;
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.BackColor = Color.RoyalBlue;
+            btnSave.ForeColor = Color.White;
+        }
+        private void _ResetDefualtValues()
+        {
+            //this will initialize the reset the defaule values
+            _FillLicenseClassesInComoboBox();
+
+            if (_Mode == enMode.addNew)
+            {
+                lblTitle.Text = "New Local Driving License Application";
+                this.Text = "New Local Driving License Application";
+    
+                tpApplicationInfo.Enabled = false;
+                cbLicenseClass.SelectedIndex = 2;
+                lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
+                lblApplicationDate.Text = DateTime.Now.ToString("MMM /dd /yyyy");
+
+                MakeBtnSaveDisable();
+                ctrlPersonCardWithFilter1.FilterFocus();
+            }
+            else
+            {
+                lblTitle.Text = "Update Local Driving License Application";
+                this.Text = "Update Local Driving License Application";
+
+                tpApplicationInfo.Enabled = true;
+                MakeBtnSaveEnable();
+            }
+
+            lblLocalDrivingLicebseApplicationID.Text = "[????]";
+        }
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
         {
-
+            _ResetDefualtValues();
             _formMover = new FormMover(this, panelMoveForm);
         }
     }

@@ -31,7 +31,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.tcApplicationInfo = new System.Windows.Forms.TabControl();
+            this.tpApplicationInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnApplicationInfoNext = new System.Windows.Forms.Button();
             this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
@@ -53,7 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose1 = new System.Windows.Forms.Button();
             this.panelMoveForm = new System.Windows.Forms.Panel();
-            this.tcApplicationInfo.SuspendLayout();
+            this.tpApplicationInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -79,6 +79,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.No;
+            this.btnSave.Enabled = false;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,16 +102,16 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // tcApplicationInfo
+            // tpApplicationInfo
             // 
-            this.tcApplicationInfo.Controls.Add(this.tpPersonalInfo);
-            this.tcApplicationInfo.Controls.Add(this.tpLoginInfo);
-            this.tcApplicationInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tcApplicationInfo.Location = new System.Drawing.Point(10, 91);
-            this.tcApplicationInfo.Name = "tcApplicationInfo";
-            this.tcApplicationInfo.SelectedIndex = 0;
-            this.tcApplicationInfo.Size = new System.Drawing.Size(963, 497);
-            this.tcApplicationInfo.TabIndex = 254;
+            this.tpApplicationInfo.Controls.Add(this.tpPersonalInfo);
+            this.tpApplicationInfo.Controls.Add(this.tpLoginInfo);
+            this.tpApplicationInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tpApplicationInfo.Location = new System.Drawing.Point(10, 91);
+            this.tpApplicationInfo.Name = "tpApplicationInfo";
+            this.tpApplicationInfo.SelectedIndex = 0;
+            this.tpApplicationInfo.Size = new System.Drawing.Size(963, 497);
+            this.tpApplicationInfo.TabIndex = 254;
             // 
             // tpPersonalInfo
             // 
@@ -245,12 +246,13 @@
             // 
             // cbLicenseClass
             // 
+            this.cbLicenseClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLicenseClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbLicenseClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.cbLicenseClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLicenseClass.FormattingEnabled = true;
-            this.cbLicenseClass.Location = new System.Drawing.Point(222, 172);
+            this.cbLicenseClass.Location = new System.Drawing.Point(222, 173);
             this.cbLicenseClass.Name = "cbLicenseClass";
-            this.cbLicenseClass.Size = new System.Drawing.Size(227, 28);
+            this.cbLicenseClass.Size = new System.Drawing.Size(307, 28);
             this.cbLicenseClass.TabIndex = 152;
             // 
             // lblApplicationDate
@@ -375,14 +377,14 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.tcApplicationInfo);
+            this.Controls.Add(this.tpApplicationInfo);
             this.Controls.Add(this.panelMoveForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddUpdateLocalDrivingLicesnseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAddUpdateLocalDrivingLicesnseApplication";
             this.Load += new System.EventHandler(this.frmAddUpdateLocalDrivingLicesnseApplication_Load);
-            this.tcApplicationInfo.ResumeLayout(false);
+            this.tpApplicationInfo.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);
             this.tpPersonalInfo.PerformLayout();
             this.tpLoginInfo.ResumeLayout(false);
@@ -402,7 +404,7 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TabControl tcApplicationInfo;
+        private System.Windows.Forms.TabControl tpApplicationInfo;
         private System.Windows.Forms.TabPage tpPersonalInfo;
         private System.Windows.Forms.Button btnApplicationInfoNext;
         private People.Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;

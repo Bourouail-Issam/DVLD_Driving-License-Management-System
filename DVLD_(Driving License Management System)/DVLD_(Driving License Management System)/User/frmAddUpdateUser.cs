@@ -73,6 +73,7 @@ namespace DVLD__Driving_License_Management_System_.User
                 tpLoginInfo.Enabled = true;
                 MakeBtnSaveEnable();
             }
+
             lblUserID.Text = "[????]";
             txtUserName.Text = "";
             txtPassword.Text = "";
