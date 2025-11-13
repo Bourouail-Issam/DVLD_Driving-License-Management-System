@@ -203,7 +203,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.badgeID_24;
+            this.pictureBox2.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.user_24;
             this.pictureBox2.Location = new System.Drawing.Point(44, 293);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 26);
@@ -267,7 +267,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.user_24;
+            this.pictureBox1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.calendar_24;
             this.pictureBox1.Location = new System.Drawing.Point(44, 113);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
@@ -310,7 +310,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.badgeID_24;
+            this.pictureBox3.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Description_48;
             this.pictureBox3.Location = new System.Drawing.Point(44, 173);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 26);
