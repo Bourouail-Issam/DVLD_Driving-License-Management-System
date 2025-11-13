@@ -47,6 +47,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                 cbLicenseClass.Items.Add(row["ClassName"]);
             }
         }
+
         void MakeBtnSaveDisable()
         {
             btnSave.Enabled = false;
@@ -54,6 +55,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             btnSave.BackColor = Color.FromArgb(89, 146, 202);
             btnSave.ForeColor = Color.Black;
         }
+
         void MakeBtnSaveEnable()
         {
             btnSave.Enabled = true;
@@ -61,6 +63,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             btnSave.BackColor = Color.RoyalBlue;
             btnSave.ForeColor = Color.White;
         }
+
         private void _ResetDefualtValues()
         {
             //this will initialize the reset the defaule values
@@ -73,8 +76,9 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
     
                 tpApplicationInfo.Enabled = false;
                 cbLicenseClass.SelectedIndex = 2;
+                lblApplicationDate.Text = DateTime.Now.ToString("MMM/dd/yyyy");
+                lblFees.Text =clsApplicationType.Find((int)clsApplication.enApplicationType.NewDrivingLicense).Fees.ToString() + " $";
                 lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
-                lblApplicationDate.Text = DateTime.Now.ToString("MMM /dd /yyyy");
 
                 MakeBtnSaveDisable();
                 ctrlPersonCardWithFilter1.FilterFocus();
@@ -90,6 +94,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
             lblLocalDrivingLicebseApplicationID.Text = "[????]";
         }
+
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
         {
             _ResetDefualtValues();
