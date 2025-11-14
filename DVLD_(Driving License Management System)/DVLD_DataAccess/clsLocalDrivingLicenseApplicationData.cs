@@ -8,24 +8,26 @@ using System.Threading.Tasks;
 
 namespace DVLD_DataAccess
 {
-    public class clsApplicationData
+    public class clsLocalDrivingLicenseApplicationData
     {
-
         // ###################   CURD Methods   ###################
-        public static bool GetApplicationInfoByID(int ApplicationID,
-            ref int ApplicantPersonID, ref DateTime ApplicationDate, ref int ApplicationTypeID,
-            ref byte ApplicationStatus, ref DateTime LastStatusDate,
-            ref float PaidFees, ref int CreatedByUserID)
+
+        public static bool GetLocalDrivingLicenseApplicationInfoByID(
+           int LocalDrivingLicenseApplicationID, 
+           ref int ApplicationID, ref int LicenseClassID)
         {
             bool isFound = false;
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
+
+            string query = @"SELECT * FROM LocalDrivingLicenseApplications 
+                             WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.Add("@ApplicationID", SqlDbType.Int).Value = ApplicationID;
+            cmd.Parameters.Add("@LocalDrivingLicenseApplicationID",SqlDbType.Int).Value = LocalDrivingLicenseApplicationID;
+            cmd.CommandTimeout = 30;
 
             try
             {
@@ -34,19 +36,13 @@ namespace DVLD_DataAccess
 
                 if (reader.Read())
                 {
-                    ApplicantPersonID = (int)reader["ApplicantPersonID"];
-                    ApplicationDate = (DateTime)reader["ApplicationDate"];
-                    ApplicationTypeID = (int)reader["ApplicationTypeID"];
-                    ApplicationStatus = (byte)reader["ApplicationStatus"];
-                    LastStatusDate = (DateTime)reader["LastStatusDate"];
-                    PaidFees = Convert.ToSingle(reader["PaidFees"]);
-                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    ApplicationID = (int)reader["ApplicationID"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
 
                     // The record was found
                     isFound = true;
                 }
                 reader.Close();
-
             }
             catch (Exception ex)
             {
@@ -60,5 +56,6 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
     }
 }

@@ -97,9 +97,40 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             lblLocalDrivingLicebseApplicationID.Text = "[????]";
         }
 
+        private void _LoadData()
+        {
+            ctrlPersonCardWithFilter1.FilterEnabled = false;
+            _LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
+
+
+            if (_LocalDrivingLicenseApplication == null)
+            {
+                MessageBox.Show(
+                    "No Application with ID = " + _LocalDrivingLicenseApplicationID, 
+                    "Application Not Found",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation
+                    );
+                this.Close();
+
+                return;
+            }
+            ctrlPersonCardWithFilter1.LoadPersonInfo(_LocalDrivingLicenseApplication.ApplicantPersonID);
+            lblLocalDrivingLicebseApplicationID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblApplicationDate.Text = _LocalDrivingLicenseApplication.ApplicationDate.ToString("MMM/dd/yyyy");
+            cbLicenseClass.SelectedIndex =
+                cbLicenseClass.FindString(clsLicenseClass.Find(_LocalDrivingLicenseApplication.LicenseClassID).ClassName);
+            lblFees.Text = _LocalDrivingLicenseApplication.PaidFees.ToString()+" $";
+            lblCreatedByUser.Text = clsUser.FindByUserID(_LocalDrivingLicenseApplication.CreatedByUserID).UserName;
+        }
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
         {
             _ResetDefualtValues();
+
+            if (_Mode == enMode.Update)
+                _LoadData();
+            
             _formMover = new FormMover(this, panelMoveForm);
         }
     }

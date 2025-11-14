@@ -93,7 +93,31 @@ namespace DVLD_BuisnessDVLD_Buisness
             _Mode = enMode.Update;
         }
 
-        // ###################   CURD Methods   ###################
 
+        // ###################   CURD Methods   ###################
+        public static clsApplication FindBaseApplication(int ApplicationID)
+        {
+            int ApplicantPersonID = -1;
+            DateTime ApplicationDate = DateTime.Now; int ApplicationTypeID = -1;
+            byte ApplicationStatus = 1; DateTime LastStatusDate = DateTime.Now;
+            float PaidFees = 0; int CreatedByUserID = -1;
+
+            bool IsFound = clsApplicationData.GetApplicationInfoByID
+                                (
+                                    ApplicationID, ref ApplicantPersonID,
+                                    ref ApplicationDate, ref ApplicationTypeID,
+                                    ref ApplicationStatus, ref LastStatusDate,
+                                    ref PaidFees, ref CreatedByUserID
+                                );
+
+            if (IsFound)
+                //we return new object of that person with the right data
+                return new clsApplication(ApplicationID, ApplicantPersonID,
+                                     ApplicationDate, ApplicationTypeID,
+                                    (enApplicationStatus)ApplicationStatus, LastStatusDate,
+                                     PaidFees, CreatedByUserID);
+            else
+                return null;
+        }
     }
 }

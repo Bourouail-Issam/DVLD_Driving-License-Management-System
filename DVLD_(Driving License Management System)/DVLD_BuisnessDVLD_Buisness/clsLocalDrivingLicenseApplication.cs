@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,28 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.LicenseClassInfo = clsLicenseClass.Find(LicenseClassID);
 
             _Mode = enMode.Update;
+        }
+
+        // ###################   CURD Methods   ###################
+        public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int LocalDrivingLicenseApplicationID)
+        {
+            int ApplicationID=-1,LicenseClassID = -1;
+
+            bool IsFound = clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByID
+                (LocalDrivingLicenseApplicationID, ref ApplicationID, ref LicenseClassID);
+
+            if (IsFound)
+            {
+                //now we find the base application
+                clsApplication AppInfo = clsApplication.FindBaseApplication(ApplicationID);
+
+                return new clsLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID,ApplicationID,
+                    AppInfo.ApplicantPersonID, AppInfo.ApplicationDate, AppInfo.ApplicationTypeID,
+                    AppInfo.ApplicationStatus, AppInfo.LastStatusDate, 
+                    AppInfo.PaidFees, AppInfo.CreatedByUserID, LicenseClassID);
+            }
+            else
+                return null;
         }
     }
 }
