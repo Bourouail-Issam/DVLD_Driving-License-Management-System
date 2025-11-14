@@ -18,6 +18,8 @@ namespace DVLD_BuisnessDVLD_Buisness
         public string Title { set; get; }
         public float Fees { set; get; }
 
+        // ###################   Constructors   ###################
+
         public clsApplicationType()
 
         {

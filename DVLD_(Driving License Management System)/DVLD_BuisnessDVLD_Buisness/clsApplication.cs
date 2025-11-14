@@ -73,6 +73,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             _Mode = enMode.AddNew;
         }
+
         public clsApplication(int ApplicationID, int ApplicantPersonID,
              DateTime ApplicationDate, int ApplicationTypeID,
               enApplicationStatus ApplicationStatus, DateTime LastStatusDate,

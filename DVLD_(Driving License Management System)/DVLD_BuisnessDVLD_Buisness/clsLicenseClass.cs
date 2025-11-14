@@ -20,6 +20,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         public byte DefaultValidityLength { set; get; }
         public float ClassFees { set; get; }
 
+        // ###################   Constructors   ###################
         public clsLicenseClass()
         {
             this.LicenseClassID = -1;
@@ -51,6 +52,22 @@ namespace DVLD_BuisnessDVLD_Buisness
         public static DataTable GetAllLicenseClasses()
         {
             return clsLicenseClassData.GetAllLicenseClasses();
+        }
+
+        public static clsLicenseClass Find(int LicenseClassID)
+        {
+            string ClassName = "", ClassDescription = "";
+            byte MinimumAllowedAge = 18,DefaultValidityLength = 10; 
+            float ClassFees = 0;
+
+            if (clsLicenseClassData.GetLicenseClassInfoByID(LicenseClassID, ref ClassName, ref ClassDescription,
+                    ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+
+                return new clsLicenseClass(LicenseClassID, ClassName, ClassDescription,
+                    MinimumAllowedAge, DefaultValidityLength, ClassFees);
+            else
+                return null;
+
         }
     }
 }

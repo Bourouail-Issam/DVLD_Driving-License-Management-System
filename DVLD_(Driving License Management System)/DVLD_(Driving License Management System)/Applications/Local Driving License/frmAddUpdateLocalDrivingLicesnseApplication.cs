@@ -18,8 +18,9 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
         private enMode _Mode;
 
         private int _LocalDrivingLicenseApplicationID = -1;
-
+        clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
         FormMover _formMover;
+
         public frmAddUpdateLocalDrivingLicesnseApplication()
         {
             InitializeComponent();
@@ -73,7 +74,8 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             {
                 lblTitle.Text = "New Local Driving License Application";
                 this.Text = "New Local Driving License Application";
-    
+                _LocalDrivingLicenseApplication = new clsLocalDrivingLicenseApplication();
+
                 tpApplicationInfo.Enabled = false;
                 cbLicenseClass.SelectedIndex = 2;
                 lblApplicationDate.Text = DateTime.Now.ToString("MMM/dd/yyyy");
