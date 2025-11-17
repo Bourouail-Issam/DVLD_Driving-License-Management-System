@@ -31,11 +31,11 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.tpApplicationInfo = new System.Windows.Forms.TabControl();
+            this.tcApplicationInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnApplicationInfoNext = new System.Windows.Forms.Button();
             this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
-            this.tpLoginInfo = new System.Windows.Forms.TabPage();
+            this.tpApplicationInfo = new System.Windows.Forms.TabPage();
             this.lblFees = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -53,9 +53,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose1 = new System.Windows.Forms.Button();
             this.panelMoveForm = new System.Windows.Forms.Panel();
-            this.tpApplicationInfo.SuspendLayout();
+            this.tcApplicationInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
-            this.tpLoginInfo.SuspendLayout();
+            this.tpApplicationInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGendor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,16 +102,16 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // tpApplicationInfo
+            // tcApplicationInfo
             // 
-            this.tpApplicationInfo.Controls.Add(this.tpPersonalInfo);
-            this.tpApplicationInfo.Controls.Add(this.tpLoginInfo);
-            this.tpApplicationInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tpApplicationInfo.Location = new System.Drawing.Point(10, 91);
-            this.tpApplicationInfo.Name = "tpApplicationInfo";
-            this.tpApplicationInfo.SelectedIndex = 0;
-            this.tpApplicationInfo.Size = new System.Drawing.Size(963, 497);
-            this.tpApplicationInfo.TabIndex = 254;
+            this.tcApplicationInfo.Controls.Add(this.tpPersonalInfo);
+            this.tcApplicationInfo.Controls.Add(this.tpApplicationInfo);
+            this.tcApplicationInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tcApplicationInfo.Location = new System.Drawing.Point(10, 91);
+            this.tcApplicationInfo.Name = "tcApplicationInfo";
+            this.tcApplicationInfo.SelectedIndex = 0;
+            this.tcApplicationInfo.Size = new System.Drawing.Size(963, 497);
+            this.tcApplicationInfo.TabIndex = 254;
             // 
             // tpPersonalInfo
             // 
@@ -153,30 +153,30 @@
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(949, 404);
             this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
-            // tpLoginInfo
+            // tpApplicationInfo
             // 
-            this.tpLoginInfo.BackColor = System.Drawing.Color.Gainsboro;
-            this.tpLoginInfo.Controls.Add(this.lblFees);
-            this.tpLoginInfo.Controls.Add(this.lblCreatedByUser);
-            this.tpLoginInfo.Controls.Add(this.pictureBox2);
-            this.tpLoginInfo.Controls.Add(this.label6);
-            this.tpLoginInfo.Controls.Add(this.label5);
-            this.tpLoginInfo.Controls.Add(this.pbGendor);
-            this.tpLoginInfo.Controls.Add(this.cbLicenseClass);
-            this.tpLoginInfo.Controls.Add(this.lblApplicationDate);
-            this.tpLoginInfo.Controls.Add(this.pictureBox1);
-            this.tpLoginInfo.Controls.Add(this.label4);
-            this.tpLoginInfo.Controls.Add(this.lblLocalDrivingLicebseApplicationID);
-            this.tpLoginInfo.Controls.Add(this.pictureBox8);
-            this.tpLoginInfo.Controls.Add(this.pictureBox3);
-            this.tpLoginInfo.Controls.Add(this.label2);
-            this.tpLoginInfo.Controls.Add(this.label1);
-            this.tpLoginInfo.Location = new System.Drawing.Point(4, 29);
-            this.tpLoginInfo.Name = "tpLoginInfo";
-            this.tpLoginInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLoginInfo.Size = new System.Drawing.Size(955, 464);
-            this.tpLoginInfo.TabIndex = 1;
-            this.tpLoginInfo.Text = "Application Info";
+            this.tpApplicationInfo.BackColor = System.Drawing.Color.Gainsboro;
+            this.tpApplicationInfo.Controls.Add(this.lblFees);
+            this.tpApplicationInfo.Controls.Add(this.lblCreatedByUser);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox2);
+            this.tpApplicationInfo.Controls.Add(this.label6);
+            this.tpApplicationInfo.Controls.Add(this.label5);
+            this.tpApplicationInfo.Controls.Add(this.pbGendor);
+            this.tpApplicationInfo.Controls.Add(this.cbLicenseClass);
+            this.tpApplicationInfo.Controls.Add(this.lblApplicationDate);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox1);
+            this.tpApplicationInfo.Controls.Add(this.label4);
+            this.tpApplicationInfo.Controls.Add(this.lblLocalDrivingLicebseApplicationID);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox8);
+            this.tpApplicationInfo.Controls.Add(this.pictureBox3);
+            this.tpApplicationInfo.Controls.Add(this.label2);
+            this.tpApplicationInfo.Controls.Add(this.label1);
+            this.tpApplicationInfo.Location = new System.Drawing.Point(4, 29);
+            this.tpApplicationInfo.Name = "tpApplicationInfo";
+            this.tpApplicationInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpApplicationInfo.Size = new System.Drawing.Size(955, 464);
+            this.tpApplicationInfo.TabIndex = 1;
+            this.tpApplicationInfo.Text = "Application Info";
             // 
             // lblFees
             // 
@@ -377,18 +377,18 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.tpApplicationInfo);
+            this.Controls.Add(this.tcApplicationInfo);
             this.Controls.Add(this.panelMoveForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddUpdateLocalDrivingLicesnseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAddUpdateLocalDrivingLicesnseApplication";
             this.Load += new System.EventHandler(this.frmAddUpdateLocalDrivingLicesnseApplication_Load);
-            this.tpApplicationInfo.ResumeLayout(false);
+            this.tcApplicationInfo.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);
             this.tpPersonalInfo.PerformLayout();
-            this.tpLoginInfo.ResumeLayout(false);
-            this.tpLoginInfo.PerformLayout();
+            this.tpApplicationInfo.ResumeLayout(false);
+            this.tpApplicationInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGendor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -404,11 +404,11 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TabControl tpApplicationInfo;
+        private System.Windows.Forms.TabControl tcApplicationInfo;
         private System.Windows.Forms.TabPage tpPersonalInfo;
         private System.Windows.Forms.Button btnApplicationInfoNext;
         private People.Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
-        private System.Windows.Forms.TabPage tpLoginInfo;
+        private System.Windows.Forms.TabPage tpApplicationInfo;
         private System.Windows.Forms.ComboBox cbLicenseClass;
         private System.Windows.Forms.Label lblApplicationDate;
         private System.Windows.Forms.PictureBox pictureBox1;

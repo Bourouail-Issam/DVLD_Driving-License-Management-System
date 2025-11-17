@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.People.Controls;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -124,6 +125,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             lblFees.Text = _LocalDrivingLicenseApplication.PaidFees.ToString()+" $";
             lblCreatedByUser.Text = clsUser.FindByUserID(_LocalDrivingLicenseApplication.CreatedByUserID).UserName;
         }
+
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
         {
             _ResetDefualtValues();
