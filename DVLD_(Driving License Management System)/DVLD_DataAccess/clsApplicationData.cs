@@ -151,6 +151,60 @@ namespace DVLD_DataAccess
         }
 
 
+        public static bool UpdateApplication(
+            int applicationID, int applicantPersonID, 
+            DateTime applicationDate, int applicationTypeID,
+            byte applicationStatus, DateTime lastStatusDate,
+            decimal paidFees, int createdByUserID
+            )
+        {
 
+            int rowsAffected = 0;
+          
+
+            string query = @"Update  Applications  
+                            set ApplicantPersonID = @ApplicantPersonID,
+                                ApplicationDate = @ApplicationDate,
+                                ApplicationTypeID = @ApplicationTypeID,
+                                ApplicationStatus = @ApplicationStatus, 
+                                LastStatusDate = @LastStatusDate,
+                                PaidFees = @PaidFees,
+                                CreatedByUserID=@CreatedByUserID
+                            where ApplicationID=@ApplicationID";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+
+                cmd.Parameters.Add("@ApplicationID", SqlDbType.Int).Value = applicationID;
+                cmd.Parameters.Add("@ApplicantPersonID", SqlDbType.Int).Value = applicantPersonID;
+                cmd.Parameters.Add("@ApplicationDate", SqlDbType.DateTime).Value = applicationDate;
+                cmd.Parameters.Add("@ApplicationTypeID", SqlDbType.Int).Value = applicationTypeID;
+                cmd.Parameters.Add("@ApplicationStatus", SqlDbType.TinyInt).Value = applicationStatus;
+                cmd.Parameters.Add("@LastStatusDate", SqlDbType.DateTime).Value = lastStatusDate;
+                cmd.Parameters.Add("@PaidFees", SqlDbType.SmallMoney).Value = paidFees;
+                cmd.Parameters.Add("@CreatedByUserID", SqlDbType.Int).Value = createdByUserID;
+                cmd.CommandTimeout = 30;
+                try
+                {
+                    conn.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (SqlException sqlEx) 
+                {
+                    // Logger.LogError($"DB Error: {sqlEx.Message}");
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    // Logger.LogError($"Error: {ex.Message}");
+                    return false;
+                }
+
+                return (rowsAffected > 0);
+            }
+        }
     }
 }
+
+

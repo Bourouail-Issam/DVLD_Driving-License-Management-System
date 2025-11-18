@@ -136,5 +136,15 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return (this.ApplicationID != -1);
         }
+
+        private bool _UpdateApplication()
+        {
+            //call DataAccess Layer 
+
+            return clsApplicationData.UpdateApplication(this.ApplicationID, this.ApplicantPersonID, this.ApplicationDate,
+                this.ApplicationTypeID, (byte)this.ApplicationStatus,
+                this.LastStatusDate, (decimal)this.PaidFees, this.CreatedByUserID);
+
+        }
     }
 }
