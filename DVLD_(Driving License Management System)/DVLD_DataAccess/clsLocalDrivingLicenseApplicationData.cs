@@ -128,6 +128,45 @@ namespace DVLD_DataAccess
             return (rowsAffected > 0);
         }
 
+        public static int AddNewLocalDrivingLicenseApplication(int ApplicationID, int LicenseClassID)
+        {
 
+            //this function will return the new person id if succeeded and -1 if not.
+            int LocalDrivingLicenseApplicationID = -1;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"INSERT INTO LocalDrivingLicenseApplications (ApplicationID,LicenseClassID)
+                                         VALUES (@ApplicationID,@LicenseClassID);
+                             SELECT SCOPE_IDENTITY();";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.Add("ApplicationID", SqlDbType.Int).Value = ApplicationID;
+            cmd.Parameters.Add("LicenseClassID", SqlDbType.Int).Value = LicenseClassID;
+
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                    LocalDrivingLicenseApplicationID = insertedID;
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+
+            return LocalDrivingLicenseApplicationID;
+        }
     }
 }

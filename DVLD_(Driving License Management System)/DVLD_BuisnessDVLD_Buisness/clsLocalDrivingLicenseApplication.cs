@@ -81,7 +81,8 @@ namespace DVLD_BuisnessDVLD_Buisness
             bool IsLocalDrivingApplicationDeleted = false;
             bool IsBaseApplicationDeleted = false;
             //First we delete the Local Driving License Application
-            IsLocalDrivingApplicationDeleted = clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationID);
+            IsLocalDrivingApplicationDeleted = 
+                clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationID);
 
             if (!IsLocalDrivingApplicationDeleted)
                 return IsLocalDrivingApplicationDeleted;
@@ -91,6 +92,16 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return IsBaseApplicationDeleted;
 
+        }
+
+        private bool _AddNewLocalDrivingLicenseApplication()
+        {
+            //call DataAccess Layer 
+
+            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationData.AddNewLocalDrivingLicenseApplication
+                (this.ApplicationID, this.LicenseClassID);
+
+            return (this.LocalDrivingLicenseApplicationID != -1);
         }
     }
 }
