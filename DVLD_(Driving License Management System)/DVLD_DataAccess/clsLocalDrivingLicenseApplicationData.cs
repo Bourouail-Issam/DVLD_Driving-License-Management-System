@@ -11,6 +11,44 @@ namespace DVLD_DataAccess
     public class clsLocalDrivingLicenseApplicationData
     {
         // ###################   CURD Methods   ###################
+        public static DataTable GetAllLocalDrivingLicenseApplications()
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT *
+                              FROM LocalDrivingLicenseApplications_View
+                              order by ApplicationDate Desc";
+
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.CommandTimeout = 30;
+            try
+            {
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                    dt.Load(reader);
+
+                reader.Close();
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+
+        }
+
 
         public static bool GetLocalDrivingLicenseApplicationInfoByID(
            int LocalDrivingLicenseApplicationID, 

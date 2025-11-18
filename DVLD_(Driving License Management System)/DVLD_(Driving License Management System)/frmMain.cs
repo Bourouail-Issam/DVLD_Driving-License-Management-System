@@ -146,6 +146,14 @@ namespace DVLD__Driving_License_Management_System_
 
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ResetButtonColors();
+            btnApplications.BackColor = Color.FromArgb(63, 93, 127);
+            panelMainForm.Visible = false;
+
+            frmListLocalDrivingLicesnseApplications frm =
+                new frmListLocalDrivingLicesnseApplications(this);
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

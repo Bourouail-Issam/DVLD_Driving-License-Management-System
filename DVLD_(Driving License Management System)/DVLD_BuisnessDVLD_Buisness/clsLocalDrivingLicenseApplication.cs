@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,7 +48,13 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         // ###################   CURD Methods   ###################
-        public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID(int LocalDrivingLicenseApplicationID)
+
+        public static DataTable GetAllLocalDrivingLicenseApplications()
+        {
+            return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
+        }
+        public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID
+            (int LocalDrivingLicenseApplicationID)
         {
             int ApplicationID=-1,LicenseClassID = -1;
 
