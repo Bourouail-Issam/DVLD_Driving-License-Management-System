@@ -103,5 +103,15 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return (this.LocalDrivingLicenseApplicationID != -1);
         }
+
+
+        private bool _UpdateLocalDrivingLicenseApplication()
+        {
+            //call DataAccess Layer 
+
+            return clsLocalDrivingLicenseApplicationData.UpdateLocalDrivingLicenseApplication
+                (this.LocalDrivingLicenseApplicationID, this.ApplicationID, this.LicenseClassID);
+
+        }
     }
 }

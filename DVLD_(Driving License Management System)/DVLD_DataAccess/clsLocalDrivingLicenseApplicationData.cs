@@ -168,5 +168,44 @@ namespace DVLD_DataAccess
 
             return LocalDrivingLicenseApplicationID;
         }
+
+        public static bool UpdateLocalDrivingLicenseApplication
+            (int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Update  LocalDrivingLicenseApplications  
+                            set ApplicationID = @ApplicationID,
+                                LicenseClassID = @LicenseClassID
+                            where LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.Add("@LocalDrivingLicenseApplicationID", SqlDbType.Int).Value = LocalDrivingLicenseApplicationID;
+            cmd.Parameters.Add("ApplicationID", SqlDbType.Int).Value = ApplicationID;
+            cmd.Parameters.Add("LicenseClassID", SqlDbType.Int).Value = LicenseClassID;
+            
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }
