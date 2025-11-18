@@ -93,5 +93,64 @@ namespace DVLD_DataAccess
 
             return (rowsAffected > 0);
         }
+
+        public static int AddNewApplication(
+            int applicantPersonID,
+            DateTime applicationDate,
+            int applicationTypeID,
+            byte applicationStatus,
+            DateTime lastStatusDate,
+            decimal paidFees,
+            int createdByUserID)
+        {
+            int applicationID = -1; // ✅ camelCase
+
+            string query = @"INSERT INTO Applications ( 
+                                 ApplicantPersonID, ApplicationDate, ApplicationTypeID,
+                                 ApplicationStatus, LastStatusDate,
+                                 PaidFees, CreatedByUserID)
+                             VALUES (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID,
+                                     @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
+                             SELECT SCOPE_IDENTITY();";
+
+         
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@ApplicantPersonID", SqlDbType.Int).Value = applicantPersonID;
+                cmd.Parameters.Add("@ApplicationDate", SqlDbType.DateTime).Value = applicationDate;
+                cmd.Parameters.Add("@ApplicationTypeID", SqlDbType.Int).Value = applicationTypeID;
+                cmd.Parameters.Add("@ApplicationStatus", SqlDbType.TinyInt).Value = applicationStatus;
+                cmd.Parameters.Add("@LastStatusDate", SqlDbType.DateTime).Value = lastStatusDate;
+                cmd.Parameters.Add("@PaidFees", SqlDbType.SmallMoney).Value = paidFees;
+                cmd.Parameters.Add("@CreatedByUserID", SqlDbType.Int).Value = createdByUserID;
+
+                cmd.CommandTimeout = 30;
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                        applicationID = insertedID;
+                }
+                catch (SqlException sqlEx)
+                {
+                    // Logger.LogError($"DB Error: {sqlEx.Message}");
+                    applicationID = -1;
+                }
+                catch (Exception ex)
+                {
+                    // Logger.LogError($"Error: {ex.Message}");
+                    applicationID = -1;
+                }             
+            }
+
+            return applicationID;
+        }
+
+
+
     }
 }

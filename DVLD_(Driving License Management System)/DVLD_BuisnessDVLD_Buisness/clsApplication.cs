@@ -9,8 +9,8 @@ namespace DVLD_BuisnessDVLD_Buisness
 {
     public class clsApplication
     {
-        public enum enMode { AddNew = 0, Update = 1 };
-        private enMode _Mode = enMode.AddNew;
+        protected enum enMode { AddNew = 0, Update = 1 };
+        protected enMode _Mode = enMode.AddNew;
 
         public enum enApplicationType
         {
@@ -123,6 +123,18 @@ namespace DVLD_BuisnessDVLD_Buisness
         public bool Delete()
         {
             return clsApplicationData.DeleteApplication(this.ApplicationID);
+        }
+
+        private bool _AddNewApplication()
+        {
+            //call DataAccess Layer 
+
+            this.ApplicationID = clsApplicationData.AddNewApplication(
+                this.ApplicantPersonID, this.ApplicationDate,
+                this.ApplicationTypeID, (byte)this.ApplicationStatus,
+                this.LastStatusDate, (decimal)this.PaidFees, this.CreatedByUserID);
+
+            return (this.ApplicationID != -1);
         }
     }
 }
