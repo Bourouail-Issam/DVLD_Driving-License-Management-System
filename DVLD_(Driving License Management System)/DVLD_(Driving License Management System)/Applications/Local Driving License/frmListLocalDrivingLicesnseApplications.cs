@@ -35,6 +35,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
             dgvLocalDrivingLicenseApplications.DataSource = _dtLocalDrivingLicenseApplication;
             lbRecords.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+
             cbFilterBy.SelectedIndex = 0;
 
             if (dgvLocalDrivingLicenseApplications.Rows.Count>0)
@@ -155,6 +156,18 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             {
                 e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
             }
+        }
+
+        // Context menu strip events
+        private void tsmEditTool_Click(object sender, EventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            frmAddUpdateLocalDrivingLicesnseApplication frm =
+                         new frmAddUpdateLocalDrivingLicesnseApplication(LocalDrivingLicenseApplicationID);
+            frm.ShowDialog();
+
+            frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
     }
 }

@@ -28,22 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListLocalDrivingLicesnseApplications));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListLocalDrivingLicesnseApplications));
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.lbRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvLocalDrivingLicenseApplications = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.cmsApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmEditTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDeleteApplication = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmCancelApplicaiton = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmScheduleTestsMenue = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmScheduleVisionTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmScheduleWrittenTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmScheduleStreetTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmIssueDrivingLicenseFirstTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmShowLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddNewApplication = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).BeginInit();
+            this.dgvLocalDrivingLicenseApplications = new System.Windows.Forms.DataGridView();
+            this.cmsApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).BeginInit();
             this.SuspendLayout();
             // 
             // cbFilterBy
@@ -111,51 +131,6 @@
             this.label3.TabIndex = 119;
             this.label3.Text = "Filter By : ";
             // 
-            // dgvLocalDrivingLicenseApplications
-            // 
-            this.dgvLocalDrivingLicenseApplications.AllowUserToAddRows = false;
-            this.dgvLocalDrivingLicenseApplications.AllowUserToDeleteRows = false;
-            this.dgvLocalDrivingLicenseApplications.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvLocalDrivingLicenseApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLocalDrivingLicenseApplications.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dgvLocalDrivingLicenseApplications.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PowderBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalDrivingLicenseApplications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvLocalDrivingLicenseApplications.ColumnHeadersHeight = 60;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLocalDrivingLicenseApplications.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLocalDrivingLicenseApplications.EnableHeadersVisualStyles = false;
-            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(21, 385);
-            this.dgvLocalDrivingLicenseApplications.Name = "dgvLocalDrivingLicenseApplications";
-            this.dgvLocalDrivingLicenseApplications.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalDrivingLicenseApplications.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvLocalDrivingLicenseApplications.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvLocalDrivingLicenseApplications.RowTemplate.Height = 27;
-            this.dgvLocalDrivingLicenseApplications.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalDrivingLicenseApplications.Size = new System.Drawing.Size(1587, 590);
-            this.dgvLocalDrivingLicenseApplications.TabIndex = 118;
-            // 
             // lblTitle
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -168,6 +143,149 @@
             this.lblTitle.Size = new System.Drawing.Size(807, 85);
             this.lblTitle.TabIndex = 117;
             this.lblTitle.Text = "Local Driving License Applications";
+            // 
+            // cmsApplications
+            // 
+            this.cmsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmShowDetails,
+            this.toolStripSeparator2,
+            this.tsmEditTool,
+            this.tsmDeleteApplication,
+            this.toolStripSeparator5,
+            this.tsmCancelApplicaiton,
+            this.toolStripSeparator1,
+            this.tsmScheduleTestsMenue,
+            this.toolStripSeparator3,
+            this.tsmIssueDrivingLicenseFirstTime,
+            this.toolStripSeparator4,
+            this.tsmShowLicense,
+            this.toolStripSeparator6,
+            this.tsmShowPersonLicenseHistory});
+            this.cmsApplications.Name = "contextMenuStrip1";
+            this.cmsApplications.Size = new System.Drawing.Size(266, 398);
+            // 
+            // tsmShowDetails
+            // 
+            this.tsmShowDetails.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.PersonDetails_32;
+            this.tsmShowDetails.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowDetails.Name = "tsmShowDetails";
+            this.tsmShowDetails.Size = new System.Drawing.Size(265, 42);
+            this.tsmShowDetails.Text = "&Show Application Details";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(262, 6);
+            // 
+            // tsmEditTool
+            // 
+            this.tsmEditTool.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
+            this.tsmEditTool.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmEditTool.Name = "tsmEditTool";
+            this.tsmEditTool.Size = new System.Drawing.Size(265, 42);
+            this.tsmEditTool.Text = "&Edit Application";
+            this.tsmEditTool.Click += new System.EventHandler(this.tsmEditTool_Click);
+            // 
+            // tsmDeleteApplication
+            // 
+            this.tsmDeleteApplication.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.supprimer_fichier_32;
+            this.tsmDeleteApplication.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmDeleteApplication.Name = "tsmDeleteApplication";
+            this.tsmDeleteApplication.Size = new System.Drawing.Size(265, 42);
+            this.tsmDeleteApplication.Text = "&Delete Application";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(262, 6);
+            // 
+            // tsmCancelApplicaiton
+            // 
+            this.tsmCancelApplicaiton.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Delete_32;
+            this.tsmCancelApplicaiton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmCancelApplicaiton.Name = "tsmCancelApplicaiton";
+            this.tsmCancelApplicaiton.Size = new System.Drawing.Size(265, 42);
+            this.tsmCancelApplicaiton.Text = "&Cancel Application";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(262, 6);
+            // 
+            // tsmScheduleTestsMenue
+            // 
+            this.tsmScheduleTestsMenue.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmScheduleVisionTest,
+            this.tsmScheduleWrittenTest,
+            this.tsmScheduleStreetTest});
+            this.tsmScheduleTestsMenue.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Schedule_Test2_32;
+            this.tsmScheduleTestsMenue.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmScheduleTestsMenue.Name = "tsmScheduleTestsMenue";
+            this.tsmScheduleTestsMenue.Size = new System.Drawing.Size(265, 42);
+            this.tsmScheduleTestsMenue.Text = "Sechdule &Tests";
+            // 
+            // tsmScheduleVisionTest
+            // 
+            this.tsmScheduleVisionTest.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Vision_Test_32;
+            this.tsmScheduleVisionTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmScheduleVisionTest.Name = "tsmScheduleVisionTest";
+            this.tsmScheduleVisionTest.Size = new System.Drawing.Size(204, 38);
+            this.tsmScheduleVisionTest.Text = "Schedule Vision Test";
+            // 
+            // tsmScheduleWrittenTest
+            // 
+            this.tsmScheduleWrittenTest.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Written_Test_32;
+            this.tsmScheduleWrittenTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmScheduleWrittenTest.Name = "tsmScheduleWrittenTest";
+            this.tsmScheduleWrittenTest.Size = new System.Drawing.Size(204, 38);
+            this.tsmScheduleWrittenTest.Text = "Schedule Written Test";
+            // 
+            // tsmScheduleStreetTest
+            // 
+            this.tsmScheduleStreetTest.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Street_Test_32;
+            this.tsmScheduleStreetTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmScheduleStreetTest.Name = "tsmScheduleStreetTest";
+            this.tsmScheduleStreetTest.Size = new System.Drawing.Size(204, 38);
+            this.tsmScheduleStreetTest.Text = "Schedule Street Test";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(262, 6);
+            // 
+            // tsmIssueDrivingLicenseFirstTime
+            // 
+            this.tsmIssueDrivingLicenseFirstTime.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.IssueDrivingLicense_32;
+            this.tsmIssueDrivingLicenseFirstTime.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmIssueDrivingLicenseFirstTime.Name = "tsmIssueDrivingLicenseFirstTime";
+            this.tsmIssueDrivingLicenseFirstTime.Size = new System.Drawing.Size(265, 42);
+            this.tsmIssueDrivingLicenseFirstTime.Text = "&Issue Driving License (First Time)";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(262, 6);
+            // 
+            // tsmShowLicense
+            // 
+            this.tsmShowLicense.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.License_View_32;
+            this.tsmShowLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowLicense.Name = "tsmShowLicense";
+            this.tsmShowLicense.Size = new System.Drawing.Size(265, 42);
+            this.tsmShowLicense.Text = "Show &License";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(262, 6);
+            // 
+            // tsmShowPersonLicenseHistory
+            // 
+            this.tsmShowPersonLicenseHistory.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.icons8_driving_license_35;
+            this.tsmShowPersonLicenseHistory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmShowPersonLicenseHistory.Name = "tsmShowPersonLicenseHistory";
+            this.tsmShowPersonLicenseHistory.Size = new System.Drawing.Size(265, 42);
+            this.tsmShowPersonLicenseHistory.Text = "Show Person License History";
             // 
             // btnAddNewApplication
             // 
@@ -217,18 +335,64 @@
             this.pbPersonImage.TabIndex = 114;
             this.pbPersonImage.TabStop = false;
             // 
+            // dgvLocalDrivingLicenseApplications
+            // 
+            this.dgvLocalDrivingLicenseApplications.AllowUserToAddRows = false;
+            this.dgvLocalDrivingLicenseApplications.AllowUserToDeleteRows = false;
+            this.dgvLocalDrivingLicenseApplications.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLocalDrivingLicenseApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLocalDrivingLicenseApplications.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dgvLocalDrivingLicenseApplications.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalDrivingLicenseApplications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLocalDrivingLicenseApplications.ColumnHeadersHeight = 60;
+            this.dgvLocalDrivingLicenseApplications.ContextMenuStrip = this.cmsApplications;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLocalDrivingLicenseApplications.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLocalDrivingLicenseApplications.EnableHeadersVisualStyles = false;
+            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(21, 379);
+            this.dgvLocalDrivingLicenseApplications.Name = "dgvLocalDrivingLicenseApplications";
+            this.dgvLocalDrivingLicenseApplications.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Myanmar Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalDrivingLicenseApplications.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvLocalDrivingLicenseApplications.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvLocalDrivingLicenseApplications.RowTemplate.Height = 27;
+            this.dgvLocalDrivingLicenseApplications.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalDrivingLicenseApplications.Size = new System.Drawing.Size(1587, 590);
+            this.dgvLocalDrivingLicenseApplications.TabIndex = 124;
+            // 
             // frmListLocalDrivingLicesnseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1629, 1061);
+            this.Controls.Add(this.dgvLocalDrivingLicenseApplications);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.lbRecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvLocalDrivingLicenseApplications);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnAddNewApplication);
             this.Controls.Add(this.btnClose);
@@ -237,8 +401,9 @@
             this.Name = "frmListLocalDrivingLicesnseApplications";
             this.Text = "frmListLocalDrivingLicesnseApplications";
             this.Load += new System.EventHandler(this.frmListLocalDrivingLicesnseApplications_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).EndInit();
+            this.cmsApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,10 +416,28 @@
         private System.Windows.Forms.Label lbRecords;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvLocalDrivingLicenseApplications;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnAddNewApplication;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pbPersonImage;
+        private System.Windows.Forms.ContextMenuStrip cmsApplications;
+        private System.Windows.Forms.ToolStripMenuItem tsmShowDetails;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem tsmEditTool;
+        private System.Windows.Forms.ToolStripMenuItem tsmDeleteApplication;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancelApplicaiton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem tsmScheduleTestsMenue;
+        private System.Windows.Forms.ToolStripMenuItem tsmScheduleVisionTest;
+        private System.Windows.Forms.ToolStripMenuItem tsmScheduleWrittenTest;
+        private System.Windows.Forms.ToolStripMenuItem tsmScheduleStreetTest;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem tsmIssueDrivingLicenseFirstTime;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem tsmShowLicense;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem tsmShowPersonLicenseHistory;
+        private System.Windows.Forms.DataGridView dgvLocalDrivingLicenseApplications;
     }
 }
