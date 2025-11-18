@@ -61,6 +61,7 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(210, 28);
             this.cbFilterBy.TabIndex = 123;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // txtFilterValue
             // 
@@ -71,6 +72,8 @@
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.Size = new System.Drawing.Size(256, 27);
             this.txtFilterValue.TabIndex = 122;
+            this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
+            this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
             // 
             // lbRecords
             // 
@@ -136,7 +139,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLocalDrivingLicenseApplications.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLocalDrivingLicenseApplications.EnableHeadersVisualStyles = false;
-            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(21, 375);
+            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(21, 385);
             this.dgvLocalDrivingLicenseApplications.Name = "dgvLocalDrivingLicenseApplications";
             this.dgvLocalDrivingLicenseApplications.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -174,12 +177,13 @@
             this.btnAddNewApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.btnAddNewApplication.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.New_Application_64;
             this.btnAddNewApplication.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddNewApplication.Location = new System.Drawing.Point(1539, 300);
+            this.btnAddNewApplication.Location = new System.Drawing.Point(1539, 292);
             this.btnAddNewApplication.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNewApplication.Name = "btnAddNewApplication";
             this.btnAddNewApplication.Size = new System.Drawing.Size(70, 70);
             this.btnAddNewApplication.TabIndex = 116;
             this.btnAddNewApplication.UseVisualStyleBackColor = true;
+            this.btnAddNewApplication.Click += new System.EventHandler(this.btnAddNewApplication_Click);
             // 
             // btnClose
             // 

@@ -63,5 +63,98 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
 
         }
+
+
+        private void btnAddNewApplication_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateLocalDrivingLicesnseApplication frm =
+                new frmAddUpdateLocalDrivingLicesnseApplication();
+            frm.ShowDialog();
+        }
+
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilterValue.Visible = (cbFilterBy.Text != "None");
+            if (txtFilterValue.Visible)
+            {
+                txtFilterValue.Text = "";
+                txtFilterValue.Focus();
+            }
+            else
+            {
+                _dtLocalDrivingLicenseApplication.DefaultView.RowFilter = "";
+                lbRecords.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+            }
+        }
+
+
+        private void _FilterDgvLocalDrivingLicenseApplication(string columnName, string txtFilterValue)
+        {
+
+            if (!String.IsNullOrWhiteSpace(txtFilterValue))
+            {
+                _dtLocalDrivingLicenseApplication.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
+                dgvLocalDrivingLicenseApplications.DataSource = _dtLocalDrivingLicenseApplication;
+            }
+            else
+            {
+                _dtLocalDrivingLicenseApplication.DefaultView.RowFilter = "";
+            }
+            lbRecords.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+        }
+
+
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+
+            //Map Selected Filter to real Column name 
+            switch (cbFilterBy.Text)
+            {
+
+                case "L.D.L.AppID":
+                    FilterColumn = "LocalDrivingLicenseApplicationID";
+                    break;
+
+                case "National No.":
+                    FilterColumn = "NationalNo";
+                    break;
+
+
+                case "Full Name":
+                    FilterColumn = "FullName";
+                    break;
+
+                case "Status":
+                    FilterColumn = "Status";
+                    break;
+
+
+                default:
+                    FilterColumn = "None";
+                    break;
+
+            }
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dtLocalDrivingLicenseApplication.DefaultView.RowFilter = "";
+                lbRecords.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+                return;
+            }
+
+            _FilterDgvLocalDrivingLicenseApplication(FilterColumn, txtFilterValue.Text);
+        }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //we allow number incase person id is selected.
+            if (cbFilterBy.Text == "L.D.L.AppID")
+            {
+                e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
+            }
+        }
     }
 }
