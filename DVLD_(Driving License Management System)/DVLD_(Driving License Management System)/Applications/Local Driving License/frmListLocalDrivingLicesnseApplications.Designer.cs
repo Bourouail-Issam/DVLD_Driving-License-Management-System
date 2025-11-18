@@ -193,6 +193,7 @@
             this.tsmDeleteApplication.Name = "tsmDeleteApplication";
             this.tsmDeleteApplication.Size = new System.Drawing.Size(265, 42);
             this.tsmDeleteApplication.Text = "&Delete Application";
+            this.tsmDeleteApplication.Click += new System.EventHandler(this.tsmDeleteApplication_Click);
             // 
             // toolStripSeparator5
             // 

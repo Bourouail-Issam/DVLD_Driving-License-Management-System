@@ -49,7 +49,6 @@ namespace DVLD_DataAccess
 
         }
 
-
         public static bool GetLocalDrivingLicenseApplicationInfoByID(
            int LocalDrivingLicenseApplicationID, 
            ref int ApplicationID, ref int LicenseClassID)
@@ -94,6 +93,41 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+        public static bool DeleteLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
+        {
+
+            int rowsAffected = 0;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Delete LocalDrivingLicenseApplications 
+                                where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.CommandTimeout=30;
+
+            cmd.Parameters.Add("@LocalDrivingLicenseApplicationID", SqlDbType.Int).Value = 
+                LocalDrivingLicenseApplicationID;
+
+            try
+            {
+                conn.Open();
+
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
+
 
     }
 }

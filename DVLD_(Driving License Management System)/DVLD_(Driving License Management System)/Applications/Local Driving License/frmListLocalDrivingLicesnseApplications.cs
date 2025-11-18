@@ -169,5 +169,48 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
             frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
+
+        private void tsmDeleteApplication_Click(object sender, EventArgs e)
+        {
+            if (
+                MessageBox.Show(
+                "Are you sure do want to delete this application?", 
+                "Confirm", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.No
+                )
+                   return;
+
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Delete())
+                {
+                    MessageBox.Show(
+                        "Application Deleted Successfully.", 
+                        "Deleted", 
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                        );
+                    //refresh the form again.
+                    frmListLocalDrivingLicesnseApplications_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Could not delete applicatoin, other data depends on it.",
+                        "Error",
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error
+                        );
+                }
+            }
+
+        }
     }
 }

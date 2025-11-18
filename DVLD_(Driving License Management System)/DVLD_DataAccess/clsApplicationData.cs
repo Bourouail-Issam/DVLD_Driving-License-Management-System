@@ -60,5 +60,38 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+        public static bool DeleteApplication(int ApplicationID)
+        {
+
+            int rowsAffected = 0;
+
+            SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Delete Applications 
+                                where ApplicationID = @ApplicationID";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            cmd.CommandTimeout = 30;
+
+            try
+            {
+                conn.Open();
+
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }

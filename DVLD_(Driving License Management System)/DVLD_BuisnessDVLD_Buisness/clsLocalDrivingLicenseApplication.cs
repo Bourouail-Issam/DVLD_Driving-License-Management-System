@@ -53,6 +53,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
         }
+
         public static clsLocalDrivingLicenseApplication FindByLocalDrivingAppLicenseID
             (int LocalDrivingLicenseApplicationID)
         {
@@ -73,6 +74,23 @@ namespace DVLD_BuisnessDVLD_Buisness
             }
             else
                 return null;
+        }
+
+        public bool Delete()
+        {
+            bool IsLocalDrivingApplicationDeleted = false;
+            bool IsBaseApplicationDeleted = false;
+            //First we delete the Local Driving License Application
+            IsLocalDrivingApplicationDeleted = clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationID);
+
+            if (!IsLocalDrivingApplicationDeleted)
+                return IsLocalDrivingApplicationDeleted;
+
+            //Then we delete the base Application
+            IsBaseApplicationDeleted = base.Delete();
+
+            return IsBaseApplicationDeleted;
+
         }
     }
 }
