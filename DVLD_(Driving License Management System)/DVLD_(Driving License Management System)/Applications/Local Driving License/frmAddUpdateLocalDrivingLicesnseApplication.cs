@@ -18,6 +18,9 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
         public enum enMode {addNew=0, Update=1 };
         private enMode _Mode;
 
+        private bool _allowChange = false;
+
+
         private int _LocalDrivingLicenseApplicationID = -1;
         clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
         FormMover _formMover;
@@ -27,6 +30,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             InitializeComponent();
             _Mode = enMode.addNew;
         }
+
         public frmAddUpdateLocalDrivingLicesnseApplication(int LocalDrivingLicenseApplicationID)
         {
             InitializeComponent();
@@ -126,14 +130,68 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             lblCreatedByUser.Text = clsUser.FindByUserID(_LocalDrivingLicenseApplication.CreatedByUserID).UserName;
         }
 
+        private void DisablePermissionTabSelection()
+        {
+            _allowChange = false;
+            _Mode = enMode.addNew;
+            _ResetDefualtValues();
+        }
+
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
         {
             _ResetDefualtValues();
 
             if (_Mode == enMode.Update)
                 _LoadData();
-            
+            else
+                ctrlPersonCardWithFilter1.allowChangeTab += DisablePermissionTabSelection;
+
             _formMover = new FormMover(this, panelMoveForm);
+        }
+
+        private void tcApplicationInfo_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (!_allowChange)
+            {
+                e.Cancel = true;
+                MessageBox.Show(
+                    "Use the 'Next' button to access the Login Info page",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }
+        }
+
+        private void btnApplicationInfoNext_Click(object sender, EventArgs e)
+        {
+            if (_Mode == enMode.Update)
+            {
+                MakeBtnSaveEnable();
+                tpApplicationInfo.Enabled = true;
+                _allowChange = true;
+                tcApplicationInfo.SelectedTab = tcApplicationInfo.TabPages["tpApplicationInfo"];
+                return;
+            }
+
+            //incase of add new mode.
+            if (ctrlPersonCardWithFilter1.PersonID != -1)
+            {
+                MakeBtnSaveEnable();
+                tpApplicationInfo.Enabled = true;
+                _allowChange = true;
+                tcApplicationInfo.SelectedTab = tcApplicationInfo.TabPages["tpApplicationInfo"];
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Please Select a Person",
+                    "Select a Person",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                ctrlPersonCardWithFilter1.FilterFocus();
+            }
         }
     }
 }

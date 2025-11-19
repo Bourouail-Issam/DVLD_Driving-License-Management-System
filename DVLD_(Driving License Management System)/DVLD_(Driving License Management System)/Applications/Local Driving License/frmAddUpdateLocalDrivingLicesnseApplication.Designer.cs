@@ -34,7 +34,6 @@
             this.tcApplicationInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnApplicationInfoNext = new System.Windows.Forms.Button();
-            this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
             this.lblFees = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose1 = new System.Windows.Forms.Button();
             this.panelMoveForm = new System.Windows.Forms.Panel();
+            this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
             this.tcApplicationInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpApplicationInfo.SuspendLayout();
@@ -112,6 +112,7 @@
             this.tcApplicationInfo.SelectedIndex = 0;
             this.tcApplicationInfo.Size = new System.Drawing.Size(963, 497);
             this.tcApplicationInfo.TabIndex = 254;
+            this.tcApplicationInfo.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcApplicationInfo_Selecting);
             // 
             // tpPersonalInfo
             // 
@@ -141,17 +142,7 @@
             this.btnApplicationInfoNext.Text = "Next";
             this.btnApplicationInfoNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnApplicationInfoNext.UseVisualStyleBackColor = true;
-            // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.AutoSize = true;
-            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(949, 404);
-            this.ctrlPersonCardWithFilter1.TabIndex = 0;
+            this.btnApplicationInfoNext.Click += new System.EventHandler(this.btnApplicationInfoNext_Click);
             // 
             // tpApplicationInfo
             // 
@@ -368,6 +359,17 @@
             this.panelMoveForm.Name = "panelMoveForm";
             this.panelMoveForm.Size = new System.Drawing.Size(984, 32);
             this.panelMoveForm.TabIndex = 257;
+            // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.AutoSize = true;
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(949, 404);
+            this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
             // frmAddUpdateLocalDrivingLicesnseApplication
             // 

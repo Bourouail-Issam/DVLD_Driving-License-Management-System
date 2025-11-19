@@ -42,6 +42,7 @@ namespace DVLD__Driving_License_Management_System_.User
             btnSave.BackColor = Color.FromArgb(89, 146, 202);
             btnSave.ForeColor = Color.Black;
         }
+
         void MakeBtnSaveEnable()
         {
             btnSave.Enabled = true;
@@ -49,6 +50,7 @@ namespace DVLD__Driving_License_Management_System_.User
             btnSave.BackColor = Color.RoyalBlue;
             btnSave.ForeColor = Color.White;
         }
+
         private void _ResetDefualtValues()
         {
             //this will initialize the reset the defaule values

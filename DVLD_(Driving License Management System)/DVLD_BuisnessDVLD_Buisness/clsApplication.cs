@@ -155,7 +155,7 @@ namespace DVLD_BuisnessDVLD_Buisness
                     if (_AddNewApplication())
                     {
 
-                        Mode = enMode.Update;
+                        _Mode = enMode.Update;
                         return true;
                     }
                     else
