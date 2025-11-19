@@ -113,6 +113,30 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         }
 
+        public bool Save()
+        {
+            //Because of inheritance first we call the save method in the base class,
+            //it will take care of adding all information to the application table.
+            base._Mode = (clsApplication.enMode)_Mode;
+            if (!base.Save())
+                return false;
 
+            //After we save the main application now we save the sub application.
+            switch (_Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewLocalDrivingLicenseApplication())
+                    {
+                        _Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+    
+                case enMode.Update:
+                    return _UpdateLocalDrivingLicenseApplication();
+            }
+            return false;
+        }
     }
 }

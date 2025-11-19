@@ -146,5 +146,29 @@ namespace DVLD_BuisnessDVLD_Buisness
                 this.LastStatusDate, (decimal)this.PaidFees, this.CreatedByUserID);
 
         }
+
+        public bool Save()
+        {
+            switch (_Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewApplication())
+                    {
+
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+
+                case enMode.Update:
+
+                    return _UpdateApplication();
+
+            }
+
+            return false;
+        }
     }
 }
