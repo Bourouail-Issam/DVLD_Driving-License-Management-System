@@ -87,5 +87,60 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+
+        public static bool GetLicenseClassInfoByClassName(
+            string className, ref int licenseClassID,
+            ref string classDescription, ref byte minimumAllowedAge,
+            ref byte defaultValidityLength, ref decimal classFees)
+        {
+            bool isFound = false;
+
+            string query = @"SELECT LicenseClassID, ClassDescription, MinimumAllowedAge, 
+                        DefaultValidityLength, ClassFees 
+                 FROM LicenseClasses 
+                 WHERE ClassName = @ClassName";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@ClassName", SqlDbType.NVarChar, 50).Value = className;
+                cmd.CommandTimeout = 30;
+
+                try
+                {
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (reader.Read())
+                        {
+
+                            licenseClassID = (int)reader["LicenseClassID"];
+                            classDescription = (string)reader["ClassDescription"];
+                            minimumAllowedAge = (byte)reader["MinimumAllowedAge"];
+                            defaultValidityLength = (byte)reader["DefaultValidityLength"];
+                            classFees = (decimal)reader["ClassFees"];
+  
+                            // The record was found
+                            isFound = true;
+                        }
+                    }                 
+
+                }
+                catch (SqlException sqlEx)
+                {
+                    // Logger.LogError($"DB Error: {sqlEx.Message}");
+                    isFound = false;
+                }
+                catch (Exception ex)
+                {
+                    // Logger.LogError($"Error: {ex.Message}");
+                    isFound = false;
+                }
+                return isFound;
+            }
+        }
     }
 }

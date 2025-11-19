@@ -193,5 +193,21 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                 ctrlPersonCardWithFilter1.FilterFocus();
             }
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show(
+                    "Some fileds are not valide!," +
+                    " put the mouse over the red icon(s) to see the erro", 
+                    "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+        }
     }
 }
