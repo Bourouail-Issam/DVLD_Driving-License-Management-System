@@ -14,7 +14,7 @@ using System.IO;
 namespace DVLD__Driving_License_Management_System_.People
 {
     public partial class ctrPersonCard : UserControl
-    {   
+    {
 
         private clsPerson _Person;
 

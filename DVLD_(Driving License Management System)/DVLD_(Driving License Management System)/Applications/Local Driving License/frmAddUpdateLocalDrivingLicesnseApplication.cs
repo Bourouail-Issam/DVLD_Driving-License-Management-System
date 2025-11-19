@@ -18,6 +18,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
         public enum enMode {addNew=0, Update=1 };
         private enMode _Mode;
 
+        int _SelectedPersonID = -1;
         private bool _allowChange = false;
 
 
@@ -128,6 +129,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                 cbLicenseClass.FindString(clsLicenseClass.Find(_LocalDrivingLicenseApplication.LicenseClassID).ClassName);
             lblFees.Text = _LocalDrivingLicenseApplication.PaidFees.ToString()+" $";
             lblCreatedByUser.Text = clsUser.FindByUserID(_LocalDrivingLicenseApplication.CreatedByUserID).UserName;
+            _allowChange = true;
         }
 
         private void DisablePermissionTabSelection()
@@ -135,6 +137,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             _allowChange = false;
             _Mode = enMode.addNew;
             _ResetDefualtValues();
+            _SelectedPersonID = ctrlPersonCardWithFilter1.PersonID;
         }
 
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
@@ -209,6 +212,28 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
 
             int LicenseClassID = clsLicenseClass.Find(cbLicenseClass.Text).LicenseClassID;
+
+
+            int ActiveApplicationID = clsApplication.GetActiveApplicationIDForLicenseClass(
+                        _SelectedPersonID,
+                        clsApplication.enApplicationType.NewDrivingLicense,
+                        LicenseClassID
+                        );
+
+            if (ActiveApplicationID != -1)
+            {
+                MessageBox.Show(
+                    @"Choose another License Class, the selected Person Already have an active application
+                      for the selected class with id=" + ActiveApplicationID,
+                    "Error", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                cbLicenseClass.Focus();
+                return;
+            }
+
         }
+
     }
 }
