@@ -14,7 +14,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         public enum enApplicationType
         {
-            NewDrivingLicense = 1, RenewDrivingLicense = 2, 
+            NewDrivingLicense = 1, RenewDrivingLicense = 2,
             ReplaceLostDrivingLicense = 3, ReplaceDamagedDrivingLicense = 4,
             ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6,
             RetakeTest = 7
@@ -169,6 +169,13 @@ namespace DVLD_BuisnessDVLD_Buisness
             }
 
             return false;
+        }
+
+        // ###################    Methods   ###################
+        public static int GetActiveApplicationIDForLicenseClass(int PersonID, clsApplication.enApplicationType ApplicationTypeID, int LicenseClassID)
+        {
+            return clsApplicationData.GetActiveApplicationIDForLicenseClass(PersonID, (int)ApplicationTypeID, LicenseClassID);
+
         }
     }
 }

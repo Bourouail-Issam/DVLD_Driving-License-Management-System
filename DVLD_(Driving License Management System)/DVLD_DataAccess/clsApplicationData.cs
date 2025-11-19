@@ -204,6 +204,58 @@ namespace DVLD_DataAccess
                 return (rowsAffected > 0);
             }
         }
+
+
+        // ###################   Methods   ###################
+
+        public static int GetActiveApplicationIDForLicenseClass(int personID, int applicationTypeID, int licenseClassID)
+        {
+            int active_ApplicationId = -1;
+            const int ACTIVE_STATUS = 1;
+
+            string query = @"SELECT TOP 1 App.ApplicationID  
+                            FROM Applications  App
+                            INNER JOIN LocalDrivingLicenseApplications LDLA
+                                ON  App.ApplicationID = LDLA.ApplicationID
+                            WHERE   App.ApplicantPersonID = @applicantPersonID 
+                                AND App.ApplicationTypeID = @applicationTypeID 
+							    AND LDLA.LicenseClassID = @licenseClassID
+                                AND App.ApplicationStatus = @status
+                            ORDER BY App.ApplicationID DESC;";
+
+   
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using(SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@applicantPersonID", SqlDbType.Int).Value = personID;
+                cmd.Parameters.Add("@applicationTypeID", SqlDbType.Int).Value = applicationTypeID;
+                cmd.Parameters.Add("@licenseClassID", SqlDbType.Int).Value = licenseClassID;
+                cmd.Parameters.Add("@status", SqlDbType.Int).Value = ACTIVE_STATUS;
+
+                cmd.CommandTimeout=30;
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int appID))
+                        active_ApplicationId = appID;
+                }
+                catch(SqlException sqlEx)
+                {
+                    // Logger.LogError($"DB Error: {sqlEx.Message}");
+                     active_ApplicationId=-1;
+                }
+                catch (Exception ex)
+                {
+                    // Logger.LogError($"Error: {ex.Message}");
+                     active_ApplicationId=-1;
+                }
+
+                return active_ApplicationId;
+            }
+        }
     }
 }
 

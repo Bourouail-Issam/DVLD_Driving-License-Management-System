@@ -208,6 +208,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             }
 
 
+            int LicenseClassID = clsLicenseClass.Find(cbLicenseClass.Text).LicenseClassID;
         }
     }
 }
