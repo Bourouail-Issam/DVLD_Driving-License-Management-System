@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         public enMode Mode = enMode.AddNew;
 
         public clsLicenseClass LicenseClassIfo;
+        public clsDriver DriverInfo;
 
         public enum enIssueReason { FirstTime = 1, Renew = 2, DamagedReplacement = 3, LostReplacement = 4 };
 
@@ -77,7 +79,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.CreatedByUserID = CreatedByUserID;
 
             this.LicenseClassIfo = clsLicenseClass.Find(this.LicenseClass);
-
+            this.DriverInfo = clsDriver.FindByDriverID(DriverID);
             Mode = enMode.Update;
         }
 
@@ -99,6 +101,18 @@ namespace DVLD_BuisnessDVLD_Buisness
                 default:
                     return "First Time";
             }
+        }
+
+        private bool _AddNewLicense()
+        {
+            //call DataAccess Layer 
+
+            this.LicenseID = clsLicenseData.AddNewLicense(this.ApplicationID, this.DriverID, this.LicenseClass,
+               this.IssueDate, this.ExpirationDate, this.Notes, (decimal)this.PaidFees,
+               this.IsActive, (byte)this.IssueReason, this.CreatedByUserID);
+
+
+            return (this.LicenseID != -1);
         }
     }
 }

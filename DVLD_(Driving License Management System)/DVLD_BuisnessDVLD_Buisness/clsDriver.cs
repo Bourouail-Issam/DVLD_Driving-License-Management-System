@@ -1,0 +1,56 @@
+﻿using DVLD_DataAccess;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DVLD_BuisnessDVLD_Buisness
+{
+    public class clsDriver
+    {
+        public enum enMode { AddNew = 0, Update = 1 };
+        public enMode Mode = enMode.AddNew;
+
+        public clsPerson PersonInfo;
+        public int DriverID { set; get; }
+        public int PersonID { set; get; }
+        public int CreatedByUserID { set; get; }
+        public DateTime CreatedDate { get; }
+
+        // ###################   Constructors   ###################
+        public clsDriver()
+        {
+            this.DriverID = -1;
+            this.PersonID = -1;
+            this.CreatedByUserID = -1;
+            this.CreatedDate = DateTime.Now;
+            Mode = enMode.AddNew;
+        }
+        public clsDriver(int DriverID, int PersonID, int CreatedByUserID, DateTime CreatedDate)
+        {
+            this.DriverID = DriverID;
+            this.PersonID = PersonID;
+            this.CreatedByUserID = CreatedByUserID;
+            this.CreatedDate = CreatedDate;
+
+            this.PersonInfo = clsPerson.Find(PersonID);
+            Mode = enMode.Update;
+        }
+
+        // ###################  CRUD Methods  ###################
+
+
+        public static clsDriver FindByDriverID(int DriverID)
+        {
+            int PersonID = -1; int CreatedByUserID = -1; DateTime CreatedDate = DateTime.Now;
+
+            if (clsDriverData.GetDriverInfoByDriverID(DriverID, ref PersonID, ref CreatedByUserID, ref CreatedDate))
+
+                return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
+            else
+                return null;
+
+        }
+    }
+}
