@@ -139,5 +139,46 @@ namespace DVLD_DataAccess
             }
             return (rowsAffected > 0);
         }
+
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        {
+            int LicenseID = -1;
+
+
+            string query = @"SELECT TOP 1 L.LicenseID
+                             FROM Licenses L 
+                             INNER JOIN Drivers D ON L.DriverID = D.DriverID
+                             WHERE L.LicenseClass = @LicenseClassID
+                               AND D.PersonID = @PersonID
+                               AND L.IsActive = 1
+                             ORDER BY L.LicenseID DESC;";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@PersonID", SqlDbType.Int).Value = PersonID;
+                cmd.Parameters.Add("@LicenseClassID", SqlDbType.Int).Value = LicenseClassID;
+
+                try
+                {
+                    conn.Open();
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                        LicenseID = Convert.ToInt32(result);
+                }
+                catch (SqlException sqlEx)
+                {
+                    LicenseID = -1;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    LicenseID = -1;
+                }
+            }
+            return LicenseID;
+        }
     }
 }

@@ -103,6 +103,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             }
         }
 
+
         private bool _AddNewLicense()
         {
             //call DataAccess Layer 
@@ -142,6 +143,11 @@ namespace DVLD_BuisnessDVLD_Buisness
                     return _UpdateLicense();
             }
             return false;
+        }
+
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        {
+            return clsLicenseData.GetActiveLicenseIDByPersonID(PersonID, LicenseClassID);
         }
     }
 }
