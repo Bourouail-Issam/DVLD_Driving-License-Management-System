@@ -114,5 +114,34 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return (this.LicenseID != -1);
         }
+
+        private bool _UpdateLicense()
+        {
+            //call DataAccess Layer 
+
+            return clsLicenseData.UpdateLicense(this.LicenseID, this.ApplicationID,this.DriverID, 
+                this.LicenseClass,this.IssueDate, this.ExpirationDate, this.Notes, (decimal)this.PaidFees,
+               this.IsActive, (byte)this.IssueReason, this.CreatedByUserID);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewLicense())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+
+                case enMode.Update:
+                    return _UpdateLicense();
+            }
+            return false;
+        }
     }
 }

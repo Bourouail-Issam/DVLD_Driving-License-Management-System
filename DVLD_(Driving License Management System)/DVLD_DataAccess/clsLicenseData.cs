@@ -11,8 +11,8 @@ namespace DVLD_DataAccess
     public class clsLicenseData
     {
         public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClass,
-     DateTime IssueDate, DateTime ExpirationDate, string Notes,
-     decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
+            DateTime IssueDate, DateTime ExpirationDate, string Notes,
+            decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int LicenseID = -1;
 
@@ -39,31 +39,31 @@ namespace DVLD_DataAccess
                                    @CreatedByUserID);
                               SELECT SCOPE_IDENTITY();";
 
-            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                command.Parameters.Add("@ApplicationID", SqlDbType.Int).Value = ApplicationID;
-                command.Parameters.Add("@DriverID", SqlDbType.Int).Value = DriverID;
-                command.Parameters.Add("@LicenseClass", SqlDbType.Int).Value = LicenseClass;
-                command.Parameters.Add("@IssueDate", SqlDbType.DateTime).Value = IssueDate;
-                command.Parameters.Add("@ExpirationDate", SqlDbType.DateTime).Value = ExpirationDate;
+                cmd.Parameters.Add("@ApplicationID", SqlDbType.Int).Value = ApplicationID;
+                cmd.Parameters.Add("@DriverID", SqlDbType.Int).Value = DriverID;
+                cmd.Parameters.Add("@LicenseClass", SqlDbType.Int).Value = LicenseClass;
+                cmd.Parameters.Add("@IssueDate", SqlDbType.DateTime).Value = IssueDate;
+                cmd.Parameters.Add("@ExpirationDate", SqlDbType.DateTime).Value = ExpirationDate;
 
                 if (string.IsNullOrWhiteSpace(Notes))
-                    command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Notes", DBNull.Value);
                 else
-                    command.Parameters.Add("@Notes", SqlDbType.NVarChar, 500).Value = Notes;
+                    cmd.Parameters.Add("@Notes", SqlDbType.NVarChar, 500).Value = Notes;
 
-                command.Parameters.Add("@PaidFees", SqlDbType.SmallMoney).Value = PaidFees;
-                command.Parameters.Add("@IsActive", SqlDbType.Bit).Value = IsActive;
-                command.Parameters.Add("@IssueReason", SqlDbType.TinyInt).Value = IssueReason;
+                cmd.Parameters.Add("@PaidFees", SqlDbType.SmallMoney).Value = PaidFees;
+                cmd.Parameters.Add("@IsActive", SqlDbType.Bit).Value = IsActive;
+                cmd.Parameters.Add("@IssueReason", SqlDbType.TinyInt).Value = IssueReason;
 
-                command.Parameters.Add("@CreatedByUserID", SqlDbType.Int).Value = CreatedByUserID;
+                cmd.Parameters.Add("@CreatedByUserID", SqlDbType.Int).Value = CreatedByUserID;
 
                 try
                 {
-                    connection.Open();
+                    conn.Open();
 
-                    object result = command.ExecuteScalar();
+                    object result = cmd.ExecuteScalar();
 
                     if (result != null && result != DBNull.Value)
                         LicenseID = Convert.ToInt32(result);
@@ -80,6 +80,64 @@ namespace DVLD_DataAccess
             }
 
             return LicenseID;
+        }
+
+        public static bool UpdateLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClass,
+            DateTime IssueDate, DateTime ExpirationDate, string Notes,
+            decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
+        {
+
+            int rowsAffected = 0;
+
+            string query = @"UPDATE Licenses
+                           SET ApplicationID=@ApplicationID, DriverID = @DriverID,
+                              LicenseClass = @LicenseClass,
+                              IssueDate = @IssueDate,
+                              ExpirationDate = @ExpirationDate,
+                              Notes = @Notes,
+                              PaidFees = @PaidFees,
+                              IsActive = @IsActive,
+                              IssueReason = @IssueReason,
+                              CreatedByUserID = @CreatedByUserID
+                         WHERE LicenseID = @LicenseID";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@LicenseID", SqlDbType.Int).Value = LicenseID;
+                cmd.Parameters.Add("@ApplicationID", SqlDbType.Int).Value = ApplicationID;
+                cmd.Parameters.Add("@DriverID", SqlDbType.Int).Value = DriverID;
+                cmd.Parameters.Add("@LicenseClass", SqlDbType.Int).Value = LicenseClass;
+                cmd.Parameters.Add("@IssueDate", SqlDbType.DateTime).Value = IssueDate;
+                cmd.Parameters.Add("@ExpirationDate", SqlDbType.DateTime).Value = ExpirationDate;
+
+                if (string.IsNullOrWhiteSpace(Notes))
+                    cmd.Parameters.AddWithValue("@Notes", DBNull.Value);
+                else
+                    cmd.Parameters.Add("@Notes", SqlDbType.NVarChar, 500).Value = Notes;
+
+                cmd.Parameters.Add("@PaidFees", SqlDbType.SmallMoney).Value = PaidFees;
+                cmd.Parameters.Add("@IsActive", SqlDbType.Bit).Value = IsActive;
+                cmd.Parameters.Add("@IssueReason", SqlDbType.TinyInt).Value = IssueReason;
+                cmd.Parameters.Add("@CreatedByUserID", SqlDbType.Int).Value = CreatedByUserID;
+
+                try
+                {
+                    conn.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (SqlException sqlEx)
+                {
+                    //Logger.LogError($"DB Error in UpdateLicense: {sqlEx.Message}");
+                    rowsAffected = 0;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    rowsAffected = 0;
+                }
+            }
+            return (rowsAffected > 0);
         }
     }
 }
