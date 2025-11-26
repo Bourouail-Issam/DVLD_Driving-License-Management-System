@@ -57,9 +57,7 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
 
         private void FindNow()
         {
-            // Trigger the event to send data back to the caller form.
-                allowChangeTab?.Invoke();
-
+        
             switch (cbFilterBy.Text)
             {
                 case "Person ID":
@@ -73,6 +71,8 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
                 default:
                     break;
             }
+            // Trigger the event to send data back to the caller form.
+            allowChangeTab?.Invoke();
         }
 
         public void LoadPersonInfo(int PersonID)

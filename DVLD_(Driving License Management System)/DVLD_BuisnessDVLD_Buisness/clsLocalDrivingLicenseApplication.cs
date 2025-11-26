@@ -33,10 +33,11 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             _Mode = enMode.AddNew;
         }
-        public clsLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID, int ApplicationID, int ApplicantPersonID,
-             DateTime ApplicationDate, int ApplicationTypeID,
-              enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
-               float PaidFees, int CreatedByUserID, int LicenseClassID)     
+        public clsLocalDrivingLicenseApplication(
+            int LocalDrivingLicenseApplicationID, int ApplicationID, int ApplicantPersonID,
+            DateTime ApplicationDate, int ApplicationTypeID,
+            enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
+            float PaidFees, int CreatedByUserID, int LicenseClassID)     
             : base(ApplicationID,ApplicantPersonID,ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate,
                   PaidFees, CreatedByUserID) 
         {

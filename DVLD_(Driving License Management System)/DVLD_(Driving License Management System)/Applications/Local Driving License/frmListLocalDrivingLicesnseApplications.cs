@@ -71,6 +71,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             frmAddUpdateLocalDrivingLicesnseApplication frm =
                 new frmAddUpdateLocalDrivingLicesnseApplication();
             frm.ShowDialog();
+            frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
 
 

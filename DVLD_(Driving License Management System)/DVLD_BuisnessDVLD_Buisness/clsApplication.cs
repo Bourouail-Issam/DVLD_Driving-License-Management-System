@@ -172,9 +172,13 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         // ###################    Methods   ###################
-        public static int GetActiveApplicationIDForLicenseClass(int PersonID, clsApplication.enApplicationType ApplicationTypeID, int LicenseClassID)
+        public static int GetActiveApplicationIDForLicenseClass(int PersonID, 
+            clsApplication.enApplicationType ApplicationTypeID, int LicenseClassID
+            )
         {
-            return clsApplicationData.GetActiveApplicationIDForLicenseClass(PersonID, (int)ApplicationTypeID, LicenseClassID);
+            return clsApplicationData.GetActiveApplicationIDForLicenseClass(
+                PersonID, (int)ApplicationTypeID, LicenseClassID
+                );
 
         }
     }
