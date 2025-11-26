@@ -130,6 +130,8 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             lblFees.Text = _LocalDrivingLicenseApplication.PaidFees.ToString()+" $";
             lblCreatedByUser.Text = clsUser.FindByUserID(_LocalDrivingLicenseApplication.CreatedByUserID).UserName;
             _allowChange = true;
+
+            _SelectedPersonID = _LocalDrivingLicenseApplication.ApplicantPersonID;
         }
 
         private void DisablePermissionTabSelection()
