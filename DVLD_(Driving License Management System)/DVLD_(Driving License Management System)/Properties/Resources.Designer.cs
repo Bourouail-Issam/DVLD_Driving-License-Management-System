@@ -113,6 +113,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ApplicationType {
+            get {
+                object obj = ResourceManager.GetObject("ApplicationType", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap badgeID_24 {
             get {
                 object obj = ResourceManager.GetObject("badgeID-24", resourceCulture);
@@ -276,6 +286,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         internal static System.Drawing.Bitmap gender_32 {
             get {
                 object obj = ResourceManager.GetObject("gender-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_Type_App_36 {
+            get {
+                object obj = ResourceManager.GetObject("icon Type App 36", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -586,6 +606,16 @@ namespace DVLD__Driving_License_Management_System_.Properties {
         internal static System.Drawing.Bitmap sortie_40 {
             get {
                 object obj = ResourceManager.GetObject("sortie-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap status_app_36 {
+            get {
+                object obj = ResourceManager.GetObject("status app 36", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
