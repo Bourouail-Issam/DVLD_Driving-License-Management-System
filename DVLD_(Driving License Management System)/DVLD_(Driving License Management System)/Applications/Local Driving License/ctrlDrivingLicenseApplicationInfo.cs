@@ -36,5 +36,37 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             lblLocalDrivingLicenseApplicationID.Text = "[????]";
             lblAppliedFor.Text = "[????]";
         }
+
+        public void LoadApplicationInfoByLocalDrivingAppID(int LocalDrivingLicenseApplicationID)
+        {
+            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+            if (_LocalDrivingLicenseApplication == null)
+            {
+                _ResetLocalDrivingLicenseApplicationInfo();
+                MessageBox.Show(
+                    "No Application with ApplicationID = " + LocalDrivingLicenseApplicationID.ToString(), 
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        public void LoadApplicationInfoByApplicationID(int ApplicationID)
+        {
+            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByApplicationID(ApplicationID);
+            if (_LocalDrivingLicenseApplication == null)
+            {
+                _ResetLocalDrivingLicenseApplicationInfo();
+
+                MessageBox.Show(
+                    "No Application with ApplicationID = " + LocalDrivingLicenseApplicationID.ToString(),
+                    "Error", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+        }
+
     }
 }
