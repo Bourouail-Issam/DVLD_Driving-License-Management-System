@@ -207,5 +207,51 @@ namespace DVLD_DataAccess
 
             return (rowsAffected > 0);
         }
+
+        public static bool GetLocalDrivingLicenseApplicationInfoByApplicationID(
+        int ApplicationID, ref int LocalDrivingLicenseApplicationID,ref int LicenseClassID)
+        {
+
+            string query = @"SELECT LocalDrivingLicenseApplicationID, LicenseClassID 
+                             FROM LocalDrivingLicenseApplications 
+                             WHERE ApplicationID = @ApplicationID";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@ApplicationID", SqlDbType.Int).Value = ApplicationID;
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                                LocalDrivingLicenseApplicationID = reader.IsDBNull(0)
+                                     ? -1 
+                                     : reader.GetInt32(0);
+
+                            LicenseClassID = reader.IsDBNull(1)
+                                     ? -1 
+                                     : reader.GetInt32(1);
+
+                            // The record was found
+                            return true;
+                        }
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+            return false;
+        }
     }
 }

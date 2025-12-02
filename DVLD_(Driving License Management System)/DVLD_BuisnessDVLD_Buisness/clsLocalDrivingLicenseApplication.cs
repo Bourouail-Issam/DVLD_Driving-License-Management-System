@@ -77,13 +77,42 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
         }
 
+        public static clsLocalDrivingLicenseApplication FindByApplicationID(int ApplicationID)
+        {
+            // 
+            int LocalDrivingLicenseApplicationID = -1, LicenseClassID = -1;
+
+            bool IsFound = 
+                clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationInfoByApplicationID
+                (ApplicationID, ref LocalDrivingLicenseApplicationID, ref LicenseClassID);
+
+
+            if (IsFound)
+            {
+                //now we find the base application
+                clsApplication Application = clsApplication.FindBaseApplication(ApplicationID);
+
+                //we return new object of that person with the right data
+                return new clsLocalDrivingLicenseApplication(
+                    LocalDrivingLicenseApplicationID, Application.ApplicationID,
+                    Application.ApplicantPersonID,
+                                     Application.ApplicationDate, Application.ApplicationTypeID,
+                                    (enApplicationStatus)Application.ApplicationStatus, Application.LastStatusDate,
+                                     Application.PaidFees, Application.CreatedByUserID, LicenseClassID);
+            }
+            else
+                return null;
+        }
+
         public bool Delete()
         {
             bool IsLocalDrivingApplicationDeleted = false;
             bool IsBaseApplicationDeleted = false;
             //First we delete the Local Driving License Application
             IsLocalDrivingApplicationDeleted = 
-                clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationID);
+                clsLocalDrivingLicenseApplicationData.DeleteLocalDrivingLicenseApplication(
+                    this.LocalDrivingLicenseApplicationID
+                    );
 
             if (!IsLocalDrivingApplicationDeleted)
                 return IsLocalDrivingApplicationDeleted;
@@ -113,6 +142,7 @@ namespace DVLD_BuisnessDVLD_Buisness
                 (this.LocalDrivingLicenseApplicationID, this.ApplicationID, this.LicenseClassID);
 
         }
+
 
         public bool Save()
         {
