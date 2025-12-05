@@ -143,7 +143,6 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         }
 
-
         public bool Save()
         {
             //Because of inheritance first we call the save method in the base class,
@@ -169,5 +168,12 @@ namespace DVLD_BuisnessDVLD_Buisness
             }
             return false;
         }
+
+        // ###################   Other Methods   ###################
+        public int GetActiveLicenseID()
+        {//this will get the license id that belongs to this application
+            return clsLicense.GetActiveLicenseIDByPersonID(this.ApplicantPersonID, this.LicenseClassID);
+        }
+
     }
 }
