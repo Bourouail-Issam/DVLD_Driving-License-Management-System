@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,12 @@ namespace DVLD_BuisnessDVLD_Buisness
         public int RetakeTestApplicationID { set; get; }
         public clsApplication RetakeTestAppInfo { set; get; }
 
+        public int TestID
+        {
+            get { return _GetTestID(); }
+
+        }
+
         public clsTestAppointment()
         {
             this.TestAppointmentID = -1;
@@ -35,7 +42,6 @@ namespace DVLD_BuisnessDVLD_Buisness
         public clsTestAppointment(int TestAppointmentID, clsTestType.enTestType TestTypeID,
             int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, float PaidFees,
             int CreatedByUserID, bool IsLocked, int RetakeTestApplicationID)
-
         {
             this.TestAppointmentID = TestAppointmentID;
             this.TestTypeID = TestTypeID;
@@ -48,6 +54,12 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.RetakeTestAppInfo = clsApplication.FindBaseApplication(RetakeTestApplicationID);
 
             Mode = enMode.Update;
+        }
+        // ###################   Other Methods   ###################
+
+        private int _GetTestID()
+        {
+            return clsTestAppointmentData.GetTestID(TestAppointmentID);
         }
     }
 }
