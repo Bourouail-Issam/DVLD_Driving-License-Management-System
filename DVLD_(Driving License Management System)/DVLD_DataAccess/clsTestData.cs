@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DVLD_DataAccess
 {
-    internal class clsTestData
+    public class clsTestData
     {
+
     }
 }
