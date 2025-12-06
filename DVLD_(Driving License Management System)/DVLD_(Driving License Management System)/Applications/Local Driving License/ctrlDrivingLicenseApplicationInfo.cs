@@ -37,6 +37,21 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             lblAppliedFor.Text = "[????]";
         }
 
+        private void _FillLocalDrivingLicenseApplicationInfo()
+        {
+            _LicenseID = _LocalDrivingLicenseApplication.GetActiveLicenseID();
+
+            //incase there is license enable the show link.
+            llShowLicenceInfo.Enabled = (_LicenseID != -1);
+
+
+            lblLocalDrivingLicenseApplicationID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblAppliedFor.Text = clsLicenseClass.Find(_LocalDrivingLicenseApplication.LicenseClassID).ClassName;
+            lblPassedTests.Text = _LocalDrivingLicenseApplication.GetPassedTestCount().ToString() + "/3";
+            ctrlApplicationBasicInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplication.ApplicationID);
+
+        }
+
         public void LoadApplicationInfoByLocalDrivingAppID(int LocalDrivingLicenseApplicationID)
         {
             _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
@@ -50,6 +65,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                     MessageBoxIcon.Error);
                 return;
             }
+            _FillLocalDrivingLicenseApplicationInfo();
         }
 
         public void LoadApplicationInfoByApplicationID(int ApplicationID)
@@ -66,7 +82,9 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                     MessageBoxIcon.Error);
                 return;
             }
+            _FillLocalDrivingLicenseApplicationInfo();
         }
+
 
     }
 }

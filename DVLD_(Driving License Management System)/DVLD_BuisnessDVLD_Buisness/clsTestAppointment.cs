@@ -55,8 +55,26 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             Mode = enMode.Update;
         }
-        // ###################   Other Methods   ###################
 
+
+        public static clsTestAppointment Find(int TestAppointmentID)
+        {
+            int TestTypeID = 1,LocalDrivingLicenseApplicationID = -1, CreatedByUserID = -1, RetakeTestApplicationID = -1;
+            DateTime AppointmentDate = DateTime.Now;
+            decimal PaidFees = 0;
+            bool IsLocked = false; 
+
+            if (clsTestAppointmentData.GetTestAppointmentInfoByID(
+                TestAppointmentID, ref TestTypeID, ref LocalDrivingLicenseApplicationID,
+                ref AppointmentDate, ref PaidFees, ref CreatedByUserID, ref IsLocked, ref RetakeTestApplicationID))
+
+                return new clsTestAppointment(TestAppointmentID, (clsTestType.enTestType)TestTypeID, LocalDrivingLicenseApplicationID,
+             AppointmentDate, (float)PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID);
+            else
+                return null;
+
+        }
+        // ###################   Other Methods   ###################
         private int _GetTestID()
         {
             return clsTestAppointmentData.GetTestID(TestAppointmentID);

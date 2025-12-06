@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,6 @@ namespace DVLD_BuisnessDVLD_Buisness
         public int CreatedByUserID { set; get; }
 
         public clsTest()
-
         {
             this.TestID = -1;
             this.TestAppointmentID = -1;
@@ -42,6 +42,12 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.CreatedByUserID = CreatedByUserID;
 
             Mode = enMode.Update;
+        }
+
+        // ###################   Other Methods   ###################
+        public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        {
+            return clsTestData.GetPassedTestCount(LocalDrivingLicenseApplicationID);
         }
     }
 }
