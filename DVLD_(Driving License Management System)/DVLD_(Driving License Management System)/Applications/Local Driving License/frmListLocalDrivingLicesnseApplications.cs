@@ -27,7 +27,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             this.Close();
         }
 
-        private void frmListLocalDrivingLicesnseApplications_Load(object sender, EventArgs e)
+        private void _frmListLocalDrivingLicesnseApplications_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
             _dtLocalDrivingLicenseApplication = 
@@ -61,8 +61,6 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                 dgvLocalDrivingLicenseApplications.Columns[6].HeaderText = "Status";
                 dgvLocalDrivingLicenseApplications.Columns[6].Width = 100;
             }
-
-
         }
 
 
@@ -71,7 +69,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             frmAddUpdateLocalDrivingLicesnseApplication frm =
                 new frmAddUpdateLocalDrivingLicesnseApplication();
             frm.ShowDialog();
-            frmListLocalDrivingLicesnseApplications_Load(null, null);
+            _frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
 
 
@@ -168,7 +166,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                          new frmAddUpdateLocalDrivingLicesnseApplication(LocalDrivingLicenseApplicationID);
             frm.ShowDialog();
 
-            frmListLocalDrivingLicesnseApplications_Load(null, null);
+            _frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
 
         private void tsmDeleteApplication_Click(object sender, EventArgs e)
@@ -199,7 +197,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                         MessageBoxIcon.Information
                         );
                     //refresh the form again.
-                    frmListLocalDrivingLicesnseApplications_Load(null, null);
+                    _frmListLocalDrivingLicesnseApplications_Load(null, null);
                 }
                 else
                 {
@@ -212,6 +210,17 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                 }
             }
 
+        }
+
+        private void tsmShowDetails_Click(object sender, EventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID =
+                 (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            frmLocalDrivingLicenseApplicationInfo frm =
+                new frmLocalDrivingLicenseApplicationInfo(LocalDrivingLicenseApplicationID);
+            frm.ShowDialog();
+            _frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
     }
 }

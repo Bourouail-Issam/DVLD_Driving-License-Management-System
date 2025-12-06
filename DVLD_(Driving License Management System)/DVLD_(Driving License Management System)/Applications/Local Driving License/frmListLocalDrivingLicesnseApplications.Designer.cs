@@ -171,6 +171,7 @@
             this.tsmShowDetails.Name = "tsmShowDetails";
             this.tsmShowDetails.Size = new System.Drawing.Size(265, 42);
             this.tsmShowDetails.Text = "&Show Application Details";
+            this.tsmShowDetails.Click += new System.EventHandler(this.tsmShowDetails_Click);
             // 
             // toolStripSeparator2
             // 
@@ -401,7 +402,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListLocalDrivingLicesnseApplications";
             this.Text = "frmListLocalDrivingLicesnseApplications";
-            this.Load += new System.EventHandler(this.frmListLocalDrivingLicesnseApplications_Load);
+            this.Load += new System.EventHandler(this._frmListLocalDrivingLicesnseApplications_Load);
             this.cmsApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseApplications)).EndInit();
