@@ -38,6 +38,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             DateTime ApplicationDate, int ApplicationTypeID,
             enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
             float PaidFees, int CreatedByUserID, int LicenseClassID)     
+
             : base(ApplicationID,ApplicantPersonID,ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate,
                   PaidFees, CreatedByUserID) 
         {
@@ -77,7 +78,8 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
         }
 
-        public static clsLocalDrivingLicenseApplication FindByApplicationID(int ApplicationID)
+        public static clsLocalDrivingLicenseApplication FindByApplicationID(
+            int ApplicationID)
         {
             // 
             int LocalDrivingLicenseApplicationID = -1, LicenseClassID = -1;
@@ -179,6 +181,13 @@ namespace DVLD_BuisnessDVLD_Buisness
         public byte GetPassedTestCount()
         {
             return clsTest.GetPassedTestCount(this.LocalDrivingLicenseApplicationID);
+        }
+
+        public bool Cancel()
+        {
+            return clsApplicationData.UpdateStatus(
+                ApplicationID, (int)clsApplication.enApplicationStatus.Cancelled
+                );
         }
     }
 }

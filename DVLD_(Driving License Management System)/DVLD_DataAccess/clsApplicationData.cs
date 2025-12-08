@@ -206,9 +206,10 @@ namespace DVLD_DataAccess
         }
 
 
-        // ###################   Methods   ###################
+        // ###################  Other Methods   ###################
 
-        public static int GetActiveApplicationIDForLicenseClass(int personID, int applicationTypeID, int licenseClassID)
+        public static int GetActiveApplicationIDForLicenseClass(
+            int personID, int applicationTypeID, int licenseClassID)
         {
             int active_ApplicationId = -1;
             const int ACTIVE_STATUS = 1;
@@ -254,6 +255,35 @@ namespace DVLD_DataAccess
                 }
 
                 return active_ApplicationId;
+            }
+        }
+
+        public static bool UpdateStatus(int applicationID, short newStatus)
+        {
+            string query = @"UPDATE  Applications  
+                            SET   ApplicationStatus = @newStatus, 
+                                  LastStatusDate = @lastStatusDate
+                            WHERE ApplicationID = @applicationID;";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@applicationID", applicationID);
+                cmd.Parameters.AddWithValue("@newStatus", newStatus);
+                cmd.Parameters.AddWithValue("@lastStatusDate", DateTime.Now);
+
+
+                try
+                {
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine($"Error updating status: {ex.Message}");
+                    return false;
+                }
             }
         }
     }

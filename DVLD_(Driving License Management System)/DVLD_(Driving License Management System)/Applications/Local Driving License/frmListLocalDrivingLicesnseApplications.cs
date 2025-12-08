@@ -222,5 +222,45 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             frm.ShowDialog();
             _frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
+
+        private void tsmCancelApplicaiton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure do want to cancel this application?", 
+                "Confirm",
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.No
+                )
+                return;
+
+            int LocalDrivingLicenseApplicationID =
+                (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Cancel())
+                {
+                    MessageBox.Show(
+                        "Application Cancelled Successfully.",
+                        "Cancelled",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                        );
+                    //refresh the form again.
+                    _frmListLocalDrivingLicesnseApplications_Load(null, null);
+                }
+                else
+                    MessageBox.Show(
+                        "Could not cancel applicatoin.", 
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                        );
+            }
+        }
     }
 }

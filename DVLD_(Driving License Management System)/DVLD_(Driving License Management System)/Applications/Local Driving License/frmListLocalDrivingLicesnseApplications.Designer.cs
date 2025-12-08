@@ -208,6 +208,7 @@
             this.tsmCancelApplicaiton.Name = "tsmCancelApplicaiton";
             this.tsmCancelApplicaiton.Size = new System.Drawing.Size(265, 42);
             this.tsmCancelApplicaiton.Text = "&Cancel Application";
+            this.tsmCancelApplicaiton.Click += new System.EventHandler(this.tsmCancelApplicaiton_Click);
             // 
             // toolStripSeparator1
             // 
