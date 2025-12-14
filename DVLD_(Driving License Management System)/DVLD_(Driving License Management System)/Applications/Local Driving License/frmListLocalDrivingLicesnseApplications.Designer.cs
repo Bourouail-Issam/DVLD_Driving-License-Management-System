@@ -163,6 +163,7 @@
             this.tsmShowPersonLicenseHistory});
             this.cmsApplications.Name = "contextMenuStrip1";
             this.cmsApplications.Size = new System.Drawing.Size(266, 398);
+            this.cmsApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApplications_Opening);
             // 
             // tsmShowDetails
             // 
@@ -180,6 +181,7 @@
             // 
             // tsmEditTool
             // 
+            this.tsmEditTool.Enabled = false;
             this.tsmEditTool.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.edit_32;
             this.tsmEditTool.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmEditTool.Name = "tsmEditTool";
@@ -189,6 +191,7 @@
             // 
             // tsmDeleteApplication
             // 
+            this.tsmDeleteApplication.Enabled = false;
             this.tsmDeleteApplication.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.supprimer_fichier_32;
             this.tsmDeleteApplication.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmDeleteApplication.Name = "tsmDeleteApplication";
@@ -203,6 +206,7 @@
             // 
             // tsmCancelApplicaiton
             // 
+            this.tsmCancelApplicaiton.Enabled = false;
             this.tsmCancelApplicaiton.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Delete_32;
             this.tsmCancelApplicaiton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmCancelApplicaiton.Name = "tsmCancelApplicaiton";
@@ -221,6 +225,7 @@
             this.tsmScheduleVisionTest,
             this.tsmScheduleWrittenTest,
             this.tsmScheduleStreetTest});
+            this.tsmScheduleTestsMenue.Enabled = false;
             this.tsmScheduleTestsMenue.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Schedule_Test2_32;
             this.tsmScheduleTestsMenue.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmScheduleTestsMenue.Name = "tsmScheduleTestsMenue";
@@ -229,6 +234,7 @@
             // 
             // tsmScheduleVisionTest
             // 
+            this.tsmScheduleVisionTest.Enabled = false;
             this.tsmScheduleVisionTest.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Vision_Test_32;
             this.tsmScheduleVisionTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmScheduleVisionTest.Name = "tsmScheduleVisionTest";
@@ -237,6 +243,7 @@
             // 
             // tsmScheduleWrittenTest
             // 
+            this.tsmScheduleWrittenTest.Enabled = false;
             this.tsmScheduleWrittenTest.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Written_Test_32;
             this.tsmScheduleWrittenTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmScheduleWrittenTest.Name = "tsmScheduleWrittenTest";
@@ -245,6 +252,7 @@
             // 
             // tsmScheduleStreetTest
             // 
+            this.tsmScheduleStreetTest.Enabled = false;
             this.tsmScheduleStreetTest.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Street_Test_32;
             this.tsmScheduleStreetTest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmScheduleStreetTest.Name = "tsmScheduleStreetTest";
@@ -258,6 +266,7 @@
             // 
             // tsmIssueDrivingLicenseFirstTime
             // 
+            this.tsmIssueDrivingLicenseFirstTime.Enabled = false;
             this.tsmIssueDrivingLicenseFirstTime.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.IssueDrivingLicense_32;
             this.tsmIssueDrivingLicenseFirstTime.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmIssueDrivingLicenseFirstTime.Name = "tsmIssueDrivingLicenseFirstTime";
@@ -271,6 +280,7 @@
             // 
             // tsmShowLicense
             // 
+            this.tsmShowLicense.Enabled = false;
             this.tsmShowLicense.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.License_View_32;
             this.tsmShowLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmShowLicense.Name = "tsmShowLicense";

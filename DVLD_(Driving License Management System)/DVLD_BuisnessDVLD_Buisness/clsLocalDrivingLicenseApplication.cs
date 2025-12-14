@@ -1,4 +1,4 @@
-﻿using DVLD_DataAccess;
+﻿ using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,6 +33,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             _Mode = enMode.AddNew;
         }
+
         public clsLocalDrivingLicenseApplication(
             int LocalDrivingLicenseApplicationID, int ApplicationID, int ApplicantPersonID,
             DateTime ApplicationDate, int ApplicationTypeID,
@@ -106,7 +107,7 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
         }
 
-        public bool Delete()
+        public bool delete()
         {
             bool IsLocalDrivingApplicationDeleted = false;
             bool IsBaseApplicationDeleted = false;
@@ -172,6 +173,10 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         // ###################   Other Methods   ###################
+        public bool IsLicenseIssued()
+        {
+            return (GetActiveLicenseID() != -1);
+        }
         public int GetActiveLicenseID()
         {
             //this will get the license id that belongs to this application

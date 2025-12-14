@@ -188,7 +188,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
             if (LocalDrivingLicenseApplication != null)
             {
-                if (LocalDrivingLicenseApplication.Delete())
+                if (LocalDrivingLicenseApplication.delete())
                 {
                     MessageBox.Show(
                         "Application Deleted Successfully.", 
@@ -261,6 +261,39 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                         MessageBoxIcon.Error
                         );
             }
+        }
+
+        private void cmsApplications_Opening(object sender, CancelEventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication =
+                    clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID
+                                                    (LocalDrivingLicenseApplicationID);
+
+            int TotalPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+
+            bool LicenseExists = LocalDrivingLicenseApplication.IsLicenseIssued();
+
+            //Enabled only if person passed all tests and Does not have license. 
+            tsmIssueDrivingLicenseFirstTime.Enabled = (TotalPassedTests == 3) && !LicenseExists;
+
+            tsmShowLicense.Enabled = LicenseExists;
+
+            tsmEditTool.Enabled = !LicenseExists && 
+                (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            tsmScheduleTestsMenue.Enabled = !LicenseExists;
+
+            //Enable/Disable Cancel Menue Item
+            //We only canel the applications with status=new.
+            tsmCancelApplicaiton.Enabled = 
+                LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New;
+
+            //Enable/Disable Delete Menue Item
+            //We only allow delete incase the application status is new not complete or Cancelled.
+            tsmDeleteApplication.Enabled =
+                (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
         }
     }
 }
