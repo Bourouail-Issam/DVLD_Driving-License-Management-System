@@ -253,5 +253,44 @@ namespace DVLD_DataAccess
             }
             return false;
         }
+
+        public static bool DoesPassTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            const string query = @"select  TOP 1 TestResult
+                                   FROM LocalDrivingLicenseApplications LDLA 
+                                   INNER JOIN testAppointments TA 
+                                       ON LDLA.LocalDrivingLicenseApplicationID = TA.LocalDrivingLicenseApplicationID
+                             	   INNER JOIN Tests 
+                                       ON Tests.TestAppointmentID = TA.TestAppointmentID
+                                   WHERE (LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                                      AND TA.TestTypeID = @TestTypeID)
+                                   ORDER BY TA.TestAppointmentID DESC;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                try
+                {
+                    connection.Open();
+
+                    object result = command.ExecuteScalar();
+                    return result != null && Convert.ToBoolean(result);   
+                }
+                catch (SqlException ex)
+                {
+                    // Log database specific errors
+                    // Logger.LogError($"Database error in DoesPassTestType: {ex.Message}");
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+        }
     }
 }

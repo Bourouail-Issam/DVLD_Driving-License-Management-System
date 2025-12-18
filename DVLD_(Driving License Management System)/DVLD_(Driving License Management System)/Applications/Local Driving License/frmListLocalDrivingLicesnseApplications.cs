@@ -294,6 +294,27 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             //We only allow delete incase the application status is new not complete or Cancelled.
             tsmDeleteApplication.Enabled =
                 (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            //Enable Disable Schedule menue and it's sub menue
+            bool PassedVisionTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.VisionTest); ;
+            bool PassedWrittenTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.WrittenTest);
+            bool PassedStreetTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.StreetTest);
+
+            tsmScheduleTestsMenue.Enabled =
+                (!PassedVisionTest || !PassedWrittenTest || !PassedStreetTest) &&
+                (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            if (tsmScheduleTestsMenue.Enabled)
+            {
+                //To Allow Schdule vision test, Person must not passed the same test before.
+                tsmScheduleVisionTest.Enabled = !PassedVisionTest;
+
+                //To Allow Schdule written test, Person must pass the vision test and must not passed the same test before.
+                tsmScheduleWrittenTest.Enabled = PassedVisionTest && !PassedWrittenTest;
+
+                //To Allow Schdule steet test, Person must pass the vision * written tests, and must not passed the same test before.
+                tsmScheduleStreetTest.Enabled = PassedVisionTest && PassedWrittenTest && !PassedStreetTest;
+            }
         }
     }
 }

@@ -177,6 +177,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return (GetActiveLicenseID() != -1);
         }
+
         public int GetActiveLicenseID()
         {
             //this will get the license id that belongs to this application
@@ -194,5 +195,12 @@ namespace DVLD_BuisnessDVLD_Buisness
                 ApplicationID, (int)clsApplication.enApplicationStatus.Cancelled
                 );
         }
+
+        public bool DoesPassTestType(clsTestType.enTestType TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesPassTestType(
+                this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
+
     }
 }
