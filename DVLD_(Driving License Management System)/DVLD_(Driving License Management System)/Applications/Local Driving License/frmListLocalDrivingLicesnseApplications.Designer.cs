@@ -162,7 +162,7 @@
             this.toolStripSeparator6,
             this.tsmShowPersonLicenseHistory});
             this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(266, 398);
+            this.cmsApplications.Size = new System.Drawing.Size(266, 376);
             this.cmsApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApplications_Opening);
             // 
             // tsmShowDetails
@@ -286,6 +286,7 @@
             this.tsmShowLicense.Name = "tsmShowLicense";
             this.tsmShowLicense.Size = new System.Drawing.Size(265, 42);
             this.tsmShowLicense.Text = "Show &License";
+            this.tsmShowLicense.Click += new System.EventHandler(this.tsmShowLicense_Click);
             // 
             // toolStripSeparator6
             // 

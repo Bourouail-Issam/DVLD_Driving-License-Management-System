@@ -180,5 +180,60 @@ namespace DVLD_DataAccess
             }
             return LicenseID;
         }
+
+        public static bool GetLicenseInfoByID(
+            int LicenseID, ref int ApplicationID, ref int DriverID, ref int LicenseClass,
+            ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes,
+            ref float PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
+        {
+
+            const string query = @"SELECT ApplicationID, DriverID, LicenseClass, IssueDate, 
+                                          ExpirationDate, Notes, PaidFees, IsActive, IssueReason, 
+                                          CreatedByUserID 
+                                   FROM Licenses 
+                                   WHERE LicenseID = @LicenseID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            ApplicationID = (int)reader["ApplicationID"];
+                            DriverID = (int)reader["DriverID"];
+                            LicenseClass = (int)reader["LicenseClass"];
+                            IssueDate = (DateTime)reader["IssueDate"];
+                            ExpirationDate = (DateTime)reader["ExpirationDate"];
+                            Notes = (reader["Notes"] == DBNull.Value) 
+                                ?   String.Empty 
+                                :  (string)reader["Notes"];
+                            PaidFees = Convert.ToSingle(reader["PaidFees"]);
+                            IsActive = (bool)reader["IsActive"];
+                            IssueReason = (byte)reader["IssueReason"];
+                            CreatedByUserID = (int)reader["CreatedByUserID"];
+                            return true;
+                        }
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    // Logger.LogError($"Database error: {sqlEx.Message}");
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    // Logger.LogError($"Error: {ex.Message}");
+                    return false;
+                }
+            }
+
+            return false;
+        }
     }
 }

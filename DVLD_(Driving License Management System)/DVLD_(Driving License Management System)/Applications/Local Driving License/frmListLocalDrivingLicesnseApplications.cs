@@ -1,4 +1,5 @@
-﻿using DVLD_BuisnessDVLD_Buisness;
+﻿using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
     {
         private frmMain _frmMain;
         private DataTable _dtLocalDrivingLicenseApplication;
+
         public frmListLocalDrivingLicesnseApplications(frmMain frmMain)
         {
             InitializeComponent();
@@ -63,7 +65,6 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             }
         }
 
-
         private void btnAddNewApplication_Click(object sender, EventArgs e)
         {
             frmAddUpdateLocalDrivingLicesnseApplication frm =
@@ -71,7 +72,6 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             frm.ShowDialog();
             _frmListLocalDrivingLicesnseApplications_Load(null, null);
         }
-
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -88,7 +88,6 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             }
         }
 
-
         private void _FilterDgvLocalDrivingLicenseApplication(string columnName, string txtFilterValue)
         {
 
@@ -103,7 +102,6 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             }
             lbRecords.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
         }
-
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
@@ -314,6 +312,30 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
                 //To Allow Schdule steet test, Person must pass the vision * written tests, and must not passed the same test before.
                 tsmScheduleStreetTest.Enabled = PassedVisionTest && PassedWrittenTest && !PassedStreetTest;
+            }
+        }
+
+        private void tsmShowLicense_Click(object sender, EventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = 
+                (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            int LicenseID = clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(
+               LocalDrivingLicenseApplicationID).GetActiveLicenseID();
+
+            if (LicenseID != -1)
+            {
+                frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No License Found!", 
+                    "No License",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
             }
         }
     }

@@ -59,8 +59,8 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         public clsLicense(
             int LicenseID, int ApplicationID, int DriverID,
-            int LicenseClass,DateTime IssueDate, DateTime
-            ExpirationDate, string Notes,
+            int LicenseClass,DateTime IssueDate, 
+            DateTime ExpirationDate, string Notes,
             float PaidFees, bool IsActive, 
             enIssueReason IssueReason, int CreatedByUserID
             )
@@ -83,7 +83,27 @@ namespace DVLD_BuisnessDVLD_Buisness
             Mode = enMode.Update;
         }
 
-        // ###################   Helps Methods   ###################
+        // ###################   CRUD Methods   ###################
+
+        static public clsLicense Find(int LicenseID)
+        {
+            int ApplicationID = -1, DriverID = -1 , LicenseClass = -1 , CreatedByUserID = -1;
+            DateTime IssueDate = default, ExpirationDate = default;
+            string Notes = string.Empty;
+            float PaidFees = 0;
+            bool IsActive = false;
+            byte IssueReason = 0;
+
+            if(clsLicenseData.GetLicenseInfoByID(LicenseID,ref ApplicationID, ref DriverID,
+                ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees,
+                ref IsActive, ref IssueReason, ref CreatedByUserID))
+            {
+                return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass,
+                                     IssueDate, ExpirationDate, Notes,PaidFees,
+                                     IsActive, (enIssueReason)IssueReason, CreatedByUserID);
+            }
+            return null;
+        }
 
         public static string GetIssueReasonText(enIssueReason IssueReason)
         {
@@ -102,7 +122,6 @@ namespace DVLD_BuisnessDVLD_Buisness
                     return "First Time";
             }
         }
-
 
         private bool _AddNewLicense()
         {
@@ -154,5 +173,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsLicenseData.GetActiveLicenseIDByPersonID(PersonID, LicenseClassID);
         }
+
+
     }
 }
