@@ -37,7 +37,10 @@ namespace DVLD_BuisnessDVLD_Buisness
             }
         }
 
-
+        public bool IsDetained
+        {
+            get { return clsDetainedLicense.IsLicenseDetained(this.LicenseID); }
+        }
         // ###################   Constructors   ###################
 
         clsLicense()
