@@ -57,6 +57,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsLicense.GetDriverLicenses(DriverID);
         }
+
         public static DataTable GetInternationalLicenses(int DriverID)
         {
             return clsInternationalLicense.GetDriverInternationalLicenses(DriverID);
