@@ -53,6 +53,19 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         }
 
+        public static clsDriver FindByPersonID(int PersonID)
+        {
+
+            int DriverID = -1; int CreatedByUserID = -1; DateTime CreatedDate = DateTime.Now;
+
+            if (clsDriverData.GetDriverInfoByPersonID(PersonID, ref DriverID, ref CreatedByUserID, ref CreatedDate))
+
+                return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
+            else
+                return null;
+
+        }
+
         public static DataTable GetLicenses(int DriverID)
         {
             return clsLicense.GetDriverLicenses(DriverID);
