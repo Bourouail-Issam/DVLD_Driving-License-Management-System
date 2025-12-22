@@ -171,7 +171,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             return false;
         }
 
-        // ###################    Methods   ###################
+        // ###################  Other  Methods   ###################
         public static int GetActiveApplicationIDForLicenseClass(int PersonID, 
             clsApplication.enApplicationType ApplicationTypeID, int LicenseClassID
             )
