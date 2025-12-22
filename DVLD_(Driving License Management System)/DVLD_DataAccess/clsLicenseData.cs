@@ -235,5 +235,47 @@ namespace DVLD_DataAccess
 
             return false;
         }
+
+        public static DataTable GetDriverLicenses(int DriverID)
+        {
+
+            DataTable dt = new DataTable();
+
+            const string query = @"SELECT L.LicenseID,
+                                    ApplicationID,
+                                    LC.ClassName, L.IssueDate, 
+                                    L.ExpirationDate, L.IsActive
+                             FROM Licenses L INNER JOIN
+                                  LicenseClasses LC ON L.LicenseClass = LC.LicenseClassID
+                              where DriverID = @DriverID
+                              Order By IsActive Desc, ExpirationDate Desc";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@DriverID", DriverID);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                       {
+                           if (reader.HasRows)
+                           {
+                               dt.Load(reader);
+                           }
+                       }       
+                }
+                catch (SqlException sqlEx)
+                {
+                    // Logger.LogError($"Database error: {sqlEx.Message}");
+                }
+                catch (Exception ex)
+                {
+                    // Logger.LogError($"Error: {ex.Message}");
+                }
+                return dt;
+            }
+        }
     }
 }

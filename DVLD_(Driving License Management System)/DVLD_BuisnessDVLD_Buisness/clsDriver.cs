@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,6 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         // ###################  CRUD Methods  ###################
 
-
         public static clsDriver FindByDriverID(int DriverID)
         {
             int PersonID = -1; int CreatedByUserID = -1; DateTime CreatedDate = DateTime.Now;
@@ -51,6 +51,11 @@ namespace DVLD_BuisnessDVLD_Buisness
             else
                 return null;
 
+        }
+
+        public static DataTable GetLicenses(int DriverID)
+        {
+            return clsLicense.GetDriverLicenses(DriverID);
         }
     }
 }
