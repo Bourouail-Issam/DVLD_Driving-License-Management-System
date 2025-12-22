@@ -90,6 +90,19 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Controls
             _LoadLocalLicenseInfo();
             _LoadInternationalLicenseInfo();
         }
+
+        public void LoadInfoByPersonID(int PersonID)
+        {
+
+            _Driver = clsDriver.FindByPersonID(PersonID);
+            if (_Driver != null)
+            {
+                _DriverID = _Driver.DriverID;
+                _LoadLocalLicenseInfo();
+                _LoadInternationalLicenseInfo();
+            }
+        }
+
         public void Clear()
         {
             _dtDriverLocalLicensesHistory.Clear();
