@@ -171,7 +171,7 @@ namespace DVLD__Driving_License_Management_System_.User
             }
         }
 
-        private void DisablePermissionTabSelection()
+        private void DisablePermissionTabSelection(int p)
         {
             _allowChange = false;
             _Mode = enMode.AddNew;

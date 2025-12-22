@@ -15,7 +15,7 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
     {
 
         // Declare a delegate
-        public delegate void DataBack_allowChangeTab();
+        public delegate void DataBack_allowChangeTab(int personID);
         // Declare an event using the delegate
         public event DataBack_allowChangeTab allowChangeTab;
 
@@ -72,7 +72,7 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
                     break;
             }
             // Trigger the event to send data back to the caller form.
-            allowChangeTab?.Invoke();
+            allowChangeTab?.Invoke(ctrPersonCard1.PersonId);
         }
 
         public void LoadPersonInfo(int PersonID)
@@ -110,7 +110,7 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
         private void DataBackEvent(object sender, int PersonID)
         {
             // Trigger the event to send data back to the caller form.
-            allowChangeTab?.Invoke();
+            allowChangeTab?.Invoke(PersonID);
 
             // Handle the data received
             cbFilterBy.SelectedIndex = 1;

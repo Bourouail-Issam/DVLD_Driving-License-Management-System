@@ -1,4 +1,5 @@
-﻿using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
+﻿using DVLD__Driving_License_Management_System_.Licenses;
+using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -337,6 +338,21 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                     MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void tsmShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = 
+                (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication = 
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(
+                    LocalDrivingLicenseApplicationID
+                    );
+
+            frmShowPersonLicenseHistory frm = 
+                new frmShowPersonLicenseHistory(localDrivingLicenseApplication.ApplicantPersonID);
+            frm.ShowDialog();
         }
     }
 }

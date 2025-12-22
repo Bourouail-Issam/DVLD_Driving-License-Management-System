@@ -47,11 +47,11 @@
             // 
             // ctrPersonCard1
             // 
-            this.ctrPersonCard1.BackColor = System.Drawing.Color.Gainsboro;
+            this.ctrPersonCard1.BackColor = System.Drawing.Color.White;
             this.ctrPersonCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ctrPersonCard1.Location = new System.Drawing.Point(0, 80);
+            this.ctrPersonCard1.Location = new System.Drawing.Point(0, 82);
             this.ctrPersonCard1.Name = "ctrPersonCard1";
-            this.ctrPersonCard1.Size = new System.Drawing.Size(955, 404);
+            this.ctrPersonCard1.Size = new System.Drawing.Size(955, 402);
             this.ctrPersonCard1.TabIndex = 0;
             // 
             // label1
@@ -66,7 +66,7 @@
             // 
             // txtFilterValue
             // 
-            this.txtFilterValue.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtFilterValue.BackColor = System.Drawing.Color.White;
             this.txtFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilterValue.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtFilterValue.ForeColor = System.Drawing.Color.Gray;
@@ -137,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.gbFilters);
             this.Controls.Add(this.ctrPersonCard1);
             this.Name = "ctrlPersonCardWithFilter";

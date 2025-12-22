@@ -134,12 +134,12 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             _SelectedPersonID = _LocalDrivingLicenseApplication.ApplicantPersonID;
         }
 
-        private void DisablePermissionTabSelection()
+        private void DisablePermissionTabSelection(int PersonID)
         {
             _allowChange = false;
             _Mode = enMode.addNew;
             _ResetDefualtValues();
-            _SelectedPersonID = ctrlPersonCardWithFilter1.PersonID;
+            _SelectedPersonID = PersonID;
         }
 
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
