@@ -202,5 +202,10 @@ namespace DVLD_BuisnessDVLD_Buisness
                 this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
 
+        public bool IsThereAnActiveScheduledTest(clsTestType.enTestType TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.IsThereAnActiveScheduledTest(
+                this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
     }
 }

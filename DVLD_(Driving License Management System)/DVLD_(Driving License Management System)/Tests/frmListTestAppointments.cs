@@ -83,5 +83,23 @@ namespace DVLD__Driving_License_Management_System_.Tests
                 dgvLicenseTestAppointments.Columns[3].Width = 100;
             }
         }
+
+        private void btnAddNewAppointment_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
+
+
+            if (localDrivingLicenseApplication.IsThereAnActiveScheduledTest(_TestType))
+            {
+                MessageBox.Show(
+                    "Person Already have an active appointment for this test, You cannot add new appointment",
+                    "Not allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
+        }
     }
 }
