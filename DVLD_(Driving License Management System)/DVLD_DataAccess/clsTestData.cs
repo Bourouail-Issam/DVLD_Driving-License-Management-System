@@ -45,5 +45,63 @@ namespace DVLD_DataAccess
             }
             return 0;
         }
+
+        public static bool GetLastTestByPersonAndTestTypeAndLicenseClass
+          (int PersonID, int LicenseClassID, int TestTypeID, ref int TestID,
+            ref int TestAppointmentID, ref bool TestResult,
+            ref string Notes, ref int CreatedByUserID)
+        {
+            const string query = @"
+                 SELECT TOP 1 
+                     T.TestID, 
+                     T.TestAppointmentID, 
+                     T.TestResult, 
+                     T.Notes, 
+                     T.CreatedByUserID
+                 FROM Tests T
+                 INNER JOIN TestAppointments TA 
+                     ON T.TestAppointmentID = TA.TestAppointmentID
+                 INNER JOIN LocalDrivingLicenseApplications LDLA 
+                     ON TA.LocalDrivingLicenseApplicationID = LDLA.LocalDrivingLicenseApplicationID
+                 INNER JOIN Applications A 
+                     ON LDLA.ApplicationID = A.ApplicationID
+                 WHERE A.ApplicantPersonID = @PersonID 
+                   AND LDLA.LicenseClassID = @LicenseClassID
+                   AND TA.TestTypeID = @TestTypeID
+                 ORDER BY T.TestID DESC";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@PersonID", PersonID);
+                cmd.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            TestID = reader.GetInt32(0);
+                            TestAppointmentID = reader.GetInt32(1);
+                            TestResult = reader.GetBoolean(2);
+                            Notes = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
+                            CreatedByUserID = reader.GetInt32(4);
+
+                            return true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+            return false;
+        }
+
     }
 }

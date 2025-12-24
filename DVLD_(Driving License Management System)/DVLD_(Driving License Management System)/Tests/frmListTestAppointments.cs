@@ -100,6 +100,10 @@ namespace DVLD__Driving_License_Management_System_.Tests
                     );
                 return;
             }
+
+            //---
+            clsTest LastTest = localDrivingLicenseApplication.GetLastTestPerTestType(_TestType);
+
         }
     }
 }

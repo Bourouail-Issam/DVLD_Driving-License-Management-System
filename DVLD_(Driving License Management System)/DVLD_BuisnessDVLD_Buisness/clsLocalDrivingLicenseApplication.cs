@@ -207,5 +207,10 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsLocalDrivingLicenseApplicationData.IsThereAnActiveScheduledTest(
                 this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+
+        public clsTest GetLastTestPerTestType(clsTestType.enTestType TestTypeID)
+        {
+            return clsTest.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
+        }
     }
 }

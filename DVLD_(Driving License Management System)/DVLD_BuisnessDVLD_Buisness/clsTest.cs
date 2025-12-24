@@ -49,5 +49,24 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsTestData.GetPassedTestCount(LocalDrivingLicenseApplicationID);
         }
+
+        public static clsTest FindLastTestPerPersonAndLicenseClass
+             (int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
+        {
+            int TestID = -1;
+            int TestAppointmentID = -1;
+            bool TestResult = false; string Notes = ""; int CreatedByUserID = -1;
+
+            if (clsTestData.GetLastTestByPersonAndTestTypeAndLicenseClass
+                (PersonID, LicenseClassID, (int)TestTypeID, ref TestID,
+            ref TestAppointmentID, ref TestResult,
+            ref Notes, ref CreatedByUserID))
+
+                return new clsTest(TestID,
+                        TestAppointmentID, TestResult,
+                        Notes, CreatedByUserID);
+            else
+                return null;
+        }
     }
 }
