@@ -1,5 +1,6 @@
 ﻿using DVLD__Driving_License_Management_System_.Licenses;
 using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
+using DVLD__Driving_License_Management_System_.Tests;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -353,6 +354,30 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             frmShowPersonLicenseHistory frm = 
                 new frmShowPersonLicenseHistory(localDrivingLicenseApplication.ApplicantPersonID);
             frm.ShowDialog();
+        }
+        private void _ScheduleTest(clsTestType.enTestType TestType)
+        {
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            frmListTestAppointments frm = new frmListTestAppointments(LocalDrivingLicenseApplicationID, TestType);
+            frm.ShowDialog();
+            //refresh
+            _frmListLocalDrivingLicesnseApplications_Load(null, null);
+
+        }
+        private void tsmScheduleVisionTest_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestType.enTestType.VisionTest);
+        }
+
+        private void tsmScheduleWrittenTest_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestType.enTestType.WrittenTest);
+        }
+
+        private void tsmScheduleStreetTest_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestType.enTestType.StreetTest);
         }
     }
 }

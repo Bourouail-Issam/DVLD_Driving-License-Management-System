@@ -228,6 +228,7 @@
             this.tsmScheduleVisionTest.Name = "tsmScheduleVisionTest";
             this.tsmScheduleVisionTest.Size = new System.Drawing.Size(204, 38);
             this.tsmScheduleVisionTest.Text = "Schedule Vision Test";
+            this.tsmScheduleVisionTest.Click += new System.EventHandler(this.tsmScheduleVisionTest_Click);
             // 
             // tsmScheduleWrittenTest
             // 
@@ -237,6 +238,7 @@
             this.tsmScheduleWrittenTest.Name = "tsmScheduleWrittenTest";
             this.tsmScheduleWrittenTest.Size = new System.Drawing.Size(204, 38);
             this.tsmScheduleWrittenTest.Text = "Schedule Written Test";
+            this.tsmScheduleWrittenTest.Click += new System.EventHandler(this.tsmScheduleWrittenTest_Click);
             // 
             // tsmScheduleStreetTest
             // 
@@ -246,6 +248,7 @@
             this.tsmScheduleStreetTest.Name = "tsmScheduleStreetTest";
             this.tsmScheduleStreetTest.Size = new System.Drawing.Size(204, 38);
             this.tsmScheduleStreetTest.Text = "Schedule Street Test";
+            this.tsmScheduleStreetTest.Click += new System.EventHandler(this.tsmScheduleStreetTest_Click);
             // 
             // toolStripSeparator3
             // 
