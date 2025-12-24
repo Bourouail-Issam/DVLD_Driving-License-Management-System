@@ -44,7 +44,6 @@ namespace DVLD__Driving_License_Management_System_.Licenses.International_Licens
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                         );
-
         }
         public void LoadInfo(int InternationalLicenseID)
         {
@@ -57,7 +56,6 @@ namespace DVLD__Driving_License_Management_System_.Licenses.International_Licens
                 _InternationalLicenseID = -1;
                 return;
             }
-
             lblInternationalLicenseID.Text = _InternationalLicense.InternationalLicenseID.ToString();
             lblApplicationID.Text = _InternationalLicense.ApplicationID.ToString();
             lblIsActive.Text = _InternationalLicense.IsActive ? "Yes" : "No";
@@ -66,15 +64,10 @@ namespace DVLD__Driving_License_Management_System_.Licenses.International_Licens
             lblNationalNo.Text = _InternationalLicense.DriverInfo.PersonInfo.NationalNo;
             lblGendor.Text = _InternationalLicense.DriverInfo.PersonInfo.Gendor == 0 ? "Male" : "Female";
             lblDateOfBirth.Text = clsFormat.DateToShort(_InternationalLicense.DriverInfo.PersonInfo.DateOfBirth);
-
             lblDriverID.Text = _InternationalLicense.DriverID.ToString();
             lblIssueDate.Text = clsFormat.DateToShort(_InternationalLicense.IssueDate);
             lblExpirationDate.Text = clsFormat.DateToShort(_InternationalLicense.ExpirationDate);
-
             _LoadPersonImage();
-
-
-
         }
     }
 }

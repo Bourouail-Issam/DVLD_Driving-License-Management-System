@@ -1,4 +1,5 @@
-﻿using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
+﻿using DVLD__Driving_License_Management_System_.Licenses.International_Licenses;
+using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -109,11 +110,19 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Controls
             _dtDriverLocalLicensesHistory.Clear();
         }
 
-        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void tsmShowLicenseInfo_Click(object sender, EventArgs e)
         {
             int LicenseID = (int)dgvLocalLicensesHistory.CurrentRow.Cells[0].Value;
-
             frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+            frm.ShowDialog();
+        }
+
+        private void tsmShowInternationalLicenseInfo_Click(object sender, EventArgs e)
+        {
+            int InternationalLicenseID = (int)dgvInternationalLicensesHistory.CurrentRow.Cells[0].Value;
+            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(InternationalLicenseID);
             frm.ShowDialog();
         }
     }
