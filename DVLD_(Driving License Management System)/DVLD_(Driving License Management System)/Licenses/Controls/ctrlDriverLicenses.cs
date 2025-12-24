@@ -1,4 +1,5 @@
-﻿using DVLD_BuisnessDVLD_Buisness;
+﻿using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,7 +59,8 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Controls
             _dtDriverInternationalLicensesHistory = clsDriver.GetInternationalLicenses(_DriverID);
 
             dgvInternationalLicensesHistory.DataSource = _dtDriverInternationalLicensesHistory;
-            lblInternationalLicensesRecords.Text = dgvInternationalLicensesHistory.Rows.Count.ToString();
+            lblInternationalLicensesRecords.Text = 
+                dgvInternationalLicensesHistory.Rows.Count.ToString();
 
             if (dgvInternationalLicensesHistory.Rows.Count > 0)
             {
@@ -93,7 +95,6 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Controls
 
         public void LoadInfoByPersonID(int PersonID)
         {
-
             _Driver = clsDriver.FindByPersonID(PersonID);
             if (_Driver != null)
             {
@@ -106,6 +107,14 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Controls
         public void Clear()
         {
             _dtDriverLocalLicensesHistory.Clear();
+        }
+
+        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)dgvLocalLicensesHistory.CurrentRow.Cells[0].Value;
+
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+            frm.ShowDialog();
         }
     }
 }

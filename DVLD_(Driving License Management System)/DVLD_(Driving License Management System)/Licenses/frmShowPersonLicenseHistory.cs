@@ -30,6 +30,8 @@ namespace DVLD__Driving_License_Management_System_.Licenses
             {
                 ctrlPersonCardWithFilter1.LoadPersonInfo(_PersonID);
                 ctrlPersonCardWithFilter1.FilterEnabled = false;
+                ctrlDriverLicenses1.LoadInfoByPersonID(_PersonID);
+
             }
             else
             {

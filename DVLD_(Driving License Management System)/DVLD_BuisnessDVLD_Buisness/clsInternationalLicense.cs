@@ -70,5 +70,35 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsInternationalLicenseData.GetDriverInternationalLicenses(DriverID);
         }
+
+        public static clsInternationalLicense Find(int InternationalLicenseID)
+        {
+            int ApplicationID = -1;
+            int DriverID = -1; int IssuedUsingLocalLicenseID = -1;
+            DateTime IssueDate = DateTime.Now; DateTime ExpirationDate = DateTime.Now;
+            bool IsActive = true; int CreatedByUserID = 1;
+
+            if (clsInternationalLicenseData.GetInternationalLicenseInfoByID(InternationalLicenseID, ref ApplicationID, ref DriverID,
+                ref IssuedUsingLocalLicenseID,
+            ref IssueDate, ref ExpirationDate, ref IsActive, ref CreatedByUserID))
+            {
+                //now we find the base application
+                clsApplication Application = clsApplication.FindBaseApplication(ApplicationID);
+
+
+                return new clsInternationalLicense(Application.ApplicationID,
+                    Application.ApplicantPersonID,
+                                     Application.ApplicationDate,
+                                    (enApplicationStatus)Application.ApplicationStatus, Application.LastStatusDate,
+                                     Application.PaidFees, Application.CreatedByUserID,
+                                     InternationalLicenseID, DriverID, IssuedUsingLocalLicenseID,
+                                         IssueDate, ExpirationDate, IsActive);
+
+            }
+
+            else
+                return null;
+
+        }
     }
 }

@@ -30,9 +30,9 @@
         {
             this.btnClose1 = new System.Windows.Forms.Button();
             this.panelMoveForm = new System.Windows.Forms.Panel();
-            this.ctrlDriverLicenses1 = new DVLD__Driving_License_Management_System_.Licenses.Controls.ctrlDriverLicenses();
-            this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.ctrlPersonCardWithFilter1 = new DVLD__Driving_License_Management_System_.People.Controls.ctrlPersonCardWithFilter();
+            this.ctrlDriverLicenses1 = new DVLD__Driving_License_Management_System_.Licenses.Controls.ctrlDriverLicenses();
             this.panelMoveForm.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,12 +63,16 @@
             this.panelMoveForm.Size = new System.Drawing.Size(1081, 32);
             this.panelMoveForm.TabIndex = 109;
             // 
-            // ctrlDriverLicenses1
+            // lblTitle
             // 
-            this.ctrlDriverLicenses1.Location = new System.Drawing.Point(12, 624);
-            this.ctrlDriverLicenses1.Name = "ctrlDriverLicenses1";
-            this.ctrlDriverLicenses1.Size = new System.Drawing.Size(1061, 342);
-            this.ctrlDriverLicenses1.TabIndex = 110;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTitle.Location = new System.Drawing.Point(9, 55);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(1062, 39);
+            this.lblTitle.TabIndex = 130;
+            this.lblTitle.Text = "License History";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ctrlPersonCardWithFilter1
             // 
@@ -80,16 +84,12 @@
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(955, 484);
             this.ctrlPersonCardWithFilter1.TabIndex = 111;
             // 
-            // lblTitle
+            // ctrlDriverLicenses1
             // 
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(9, 55);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1062, 39);
-            this.lblTitle.TabIndex = 130;
-            this.lblTitle.Text = "License History";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ctrlDriverLicenses1.Location = new System.Drawing.Point(12, 624);
+            this.ctrlDriverLicenses1.Name = "ctrlDriverLicenses1";
+            this.ctrlDriverLicenses1.Size = new System.Drawing.Size(1061, 342);
+            this.ctrlDriverLicenses1.TabIndex = 110;
             // 
             // frmShowPersonLicenseHistory
             // 
@@ -103,6 +103,7 @@
             this.Controls.Add(this.panelMoveForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmShowPersonLicenseHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmShowPersonLicenseHistory";
             this.Load += new System.EventHandler(this.frmShowPersonLicenseHistory_Load);
             this.panelMoveForm.ResumeLayout(false);
