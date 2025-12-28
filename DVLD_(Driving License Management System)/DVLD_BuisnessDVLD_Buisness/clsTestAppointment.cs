@@ -75,6 +75,31 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return null;
 
         }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (true)
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+
+                    return true;
+
+            }
+
+            return false;
+        }
+
         // ###################   Other Methods   ###################
         private int _GetTestID()
         {
