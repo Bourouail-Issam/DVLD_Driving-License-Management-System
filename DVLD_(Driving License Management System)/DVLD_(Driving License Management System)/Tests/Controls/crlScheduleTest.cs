@@ -307,7 +307,10 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                 return;
 
             _TestAppointment.TestTypeID = _TestTypeID;
-            _TestAppointment.LocalDrivingLicenseApplicationID = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID;
+
+            _TestAppointment.LocalDrivingLicenseApplicationID = 
+                _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID;
+
             _TestAppointment.AppointmentDate = dtpTestDate.Value;
             _TestAppointment.PaidFees = Convert.ToSingle(lblFees.Text);
             _TestAppointment.CreatedByUserID = clsGlobal.CurrentUser.UserID;

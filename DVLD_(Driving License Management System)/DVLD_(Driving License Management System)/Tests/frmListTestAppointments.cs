@@ -105,5 +105,15 @@ namespace DVLD__Driving_License_Management_System_.Tests
             clsTest LastTest = localDrivingLicenseApplication.GetLastTestPerTestType(_TestType);
 
         }
+
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+            int TestAppointmentID = (int)dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
+
+
+            frmScheduleTest frm = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestType, TestAppointmentID);
+            frm.ShowDialog();
+            frmListTestAppointments_Load(null, null);
+        }
     }
 }

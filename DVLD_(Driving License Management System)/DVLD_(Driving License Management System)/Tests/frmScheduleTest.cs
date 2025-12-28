@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.Tests.Controls;
+using DVLD_BuisnessDVLD_Buisness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,32 @@ namespace DVLD__Driving_License_Management_System_.Tests
 {
     public partial class frmScheduleTest : Form
     {
-        public frmScheduleTest()
+        private FormMover _formMover;
+        private int _LocalDrivingLicenseApplicationID = -1;
+        private clsTestType.enTestType _TestTypeID = clsTestType.enTestType.VisionTest;
+        private int _AppointmentID = -1;
+        public frmScheduleTest(int LocalDrivingLicenseApplicationID, 
+            clsTestType.enTestType TestTypeID, 
+            int AppointmentID = -1
+            )
         {
             InitializeComponent();
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            _TestTypeID = TestTypeID;
+            _AppointmentID = AppointmentID;
+        }
+
+        private void frmScheduleTest_Load(object sender, EventArgs e)
+        {
+            crlScheduleTest1.TestTypeID = _TestTypeID;
+            crlScheduleTest1.LoadInfo(_LocalDrivingLicenseApplicationID, _AppointmentID);
+
+            _formMover = new FormMover(this,panelMoveForm);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
