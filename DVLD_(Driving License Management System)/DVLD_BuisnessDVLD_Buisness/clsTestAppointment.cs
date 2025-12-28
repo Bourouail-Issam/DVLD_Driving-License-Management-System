@@ -76,27 +76,40 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         }
 
+        private bool _AddNewTestAppointment()
+        {
+            //call DataAccess Layer 
+
+            this.TestAppointmentID = clsTestAppointmentData.AddNewTestAppointment((int)this.TestTypeID, this.LocalDrivingLicenseApplicationID,
+                this.AppointmentDate, this.PaidFees, this.CreatedByUserID, this.RetakeTestApplicationID);
+
+            return (this.TestAppointmentID != -1);
+        }
+
+
+        private bool _UpdateTestAppointment()
+        {
+            //call DataAccess Layer 
+
+            return clsTestAppointmentData.UpdateTestAppointment(this.TestAppointmentID, (int)this.TestTypeID, this.LocalDrivingLicenseApplicationID,
+                this.AppointmentDate, this.PaidFees, this.CreatedByUserID, this.IsLocked, this.RetakeTestApplicationID);
+        }
         public bool Save()
         {
             switch (Mode)
             {
                 case enMode.AddNew:
-                    if (true)
+                    if (_AddNewTestAppointment())
                     {
                         Mode = enMode.Update;
                         return true;
                     }
                     else
-                    {
                         return false;
-                    }
 
                 case enMode.Update:
-
-                    return true;
-
+                    return _UpdateTestAppointment();
             }
-
             return false;
         }
 

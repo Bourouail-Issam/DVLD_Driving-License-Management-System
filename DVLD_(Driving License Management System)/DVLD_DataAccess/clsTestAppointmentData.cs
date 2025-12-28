@@ -94,6 +94,7 @@ namespace DVLD_DataAccess
             }
             return -1;
         }
+
         public static DataTable GetApplicationTestAppointmentsPerTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
 
@@ -126,6 +127,105 @@ namespace DVLD_DataAccess
                 }
             }
             return dt;
+        }
+
+        public static int AddNewTestAppointment(
+            int TestTypeID, int LocalDrivingLicenseApplicationID,
+            DateTime AppointmentDate, float PaidFees, int CreatedByUserID, int RetakeTestApplicationID)
+        {
+            int TestAppointmentID = -1;
+            const string query = @"INSERT INTO TestAppointments 
+                                    (TestTypeID,
+                                     LocalDrivingLicenseApplicationID,
+                                     AppointmentDate,
+                                     PaidFees,
+                                     CreatedByUserID,
+                                     IsLocked,
+                                     RetakeTestApplicationID)
+                   VALUES (@TestTypeID,
+                           @LocalDrivingLicenseApplicationID,
+                           @AppointmentDate,
+                           @PaidFees,
+                           @CreatedByUserID,
+                           0,
+                           @RetakeTestApplicationID);
+                   SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                cmd.Parameters.AddWithValue("@AppointmentDate", AppointmentDate);
+                cmd.Parameters.AddWithValue("@PaidFees", PaidFees);
+                cmd.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                if (RetakeTestApplicationID == -1)
+                    cmd.Parameters.AddWithValue("@RetakeTestApplicationID", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@RetakeTestApplicationID", RetakeTestApplicationID);
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                    {
+                        TestAppointmentID = insertedID;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                }
+            } 
+
+            return TestAppointmentID;
+        }
+
+        public static bool UpdateTestAppointment(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID,
+            DateTime AppointmentDate, float PaidFees,
+            int CreatedByUserID, bool IsLocked, int RetakeTestApplicationID)
+        {
+            int rowsAffected = 0;
+
+            string query = @"Update  TestAppointments  
+                               SET TestTypeID = @TestTypeID,
+                                   LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID,
+                                   AppointmentDate = @AppointmentDate,
+                                   PaidFees = @PaidFees,
+                                   CreatedByUserID = @CreatedByUserID,
+                                   IsLocked=@IsLocked,
+                                   RetakeTestApplicationID=@RetakeTestApplicationID
+                             WHERE TestAppointmentID = @TestAppointmentID";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                cmd.Parameters.AddWithValue("@AppointmentDate", AppointmentDate);
+                cmd.Parameters.AddWithValue("@PaidFees", PaidFees);
+                cmd.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+                cmd.Parameters.AddWithValue("@IsLocked", IsLocked);
+                if (RetakeTestApplicationID == -1)
+                    cmd.Parameters.AddWithValue("@RetakeTestApplicationID", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@RetakeTestApplicationID", RetakeTestApplicationID);
+
+                try
+                {
+                    conn.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
         }
 
     }
