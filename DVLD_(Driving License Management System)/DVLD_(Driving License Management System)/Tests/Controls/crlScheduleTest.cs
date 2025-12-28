@@ -68,6 +68,46 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
             }
         }
 
+        private bool _LoadTestAppointmentData()
+        {
+            _TestAppointment = clsTestAppointment.Find(_TestAppointmentID);
+
+            if (_TestAppointment == null)
+            {
+                MessageBox.Show(
+                    "Error: No Appointment with ID = " + _TestAppointmentID.ToString(),
+                    "Error",
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error
+                    );
+                btnSave.Enabled = false;
+                return false;
+            }
+
+            lblFees.Text = _TestAppointment.PaidFees.ToString();
+            //we compare the current date with the appointment date to set the min date.
+            if (DateTime.Compare(DateTime.Now, _TestAppointment.AppointmentDate) < 0)
+                dtpTestDate.MinDate = DateTime.Now;
+            else
+                dtpTestDate.MinDate = _TestAppointment.AppointmentDate;
+
+            dtpTestDate.Value = _TestAppointment.AppointmentDate;
+
+            if (_TestAppointment.RetakeTestApplicationID == -1)
+            {
+                lblRetakeAppFees.Text = "0";
+                lblRetakeTestAppID.Text = "N/A";
+            }
+            else
+            {
+                lblRetakeAppFees.Text = _TestAppointment.RetakeTestAppInfo.PaidFees.ToString();
+                gbRetakeTestInfo.Enabled = true;
+                lblTitle.Text = "Schedule Retake Test";
+                lblRetakeTestAppID.Text = _TestAppointment.RetakeTestApplicationID.ToString();
+            }
+            return true;
+        }
+
         public void LoadInfo(int LocalDrivingLicenseApplicationID, int AppointmentID = -1)
         {
             //if no appointment id this means AddNew mode otherwise it's update mode.
@@ -117,7 +157,22 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
             lblDrivingClass.Text = _LocalDrivingLicenseApplication.LicenseClassInfo.ClassName;
             lblFullName.Text = _LocalDrivingLicenseApplication.PersonFullName;
 
+            //this will show the trials for this test before  
+            lblTrial.Text = _LocalDrivingLicenseApplication.TotalTrialsPerTest(_TestTypeID).ToString();
 
+
+
+            if (_Mode == enMode.AddNew)
+            {
+                lblFees.Text = clsTestType.Find(_TestTypeID).Fees.ToString();
+                dtpTestDate.MinDate = DateTime.Now;
+                lblRetakeTestAppID.Text = "N/A";
+                _TestAppointment = new clsTestAppointment();
+            }
+            else
+            {
+                if (!_LoadTestAppointmentData()) return;
+            }
         }
     }
 }

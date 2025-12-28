@@ -352,5 +352,39 @@ namespace DVLD_DataAccess
                 }
             }
         }
+
+        public static byte TotalTrialsPerTest(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            byte totalTrials = 0;
+
+            const string query = @"
+                SELECT COUNT(*)
+                FROM TestAppointments TA 
+                INNER JOIN Tests T ON TA.TestAppointmentID = T.TestAppointmentID
+                WHERE TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                  AND TA.TestTypeID = @TestTypeID";
+
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToByte(result) : (byte)0;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    totalTrials = 0;
+                }
+            }
+            return totalTrials;
+        }
+
     }
 }
