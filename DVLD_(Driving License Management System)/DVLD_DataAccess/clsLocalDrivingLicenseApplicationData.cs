@@ -321,8 +321,6 @@ namespace DVLD_DataAccess
                     return false;
                 }
             }
-        }
-
-
+        }   
     }
 }
