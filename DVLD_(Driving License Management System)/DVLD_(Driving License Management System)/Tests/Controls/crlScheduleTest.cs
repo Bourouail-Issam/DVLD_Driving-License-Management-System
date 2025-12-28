@@ -93,6 +93,31 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                 btnSave.Enabled = false;
                 return;
             }
+
+            if (_LocalDrivingLicenseApplication.DoesAttendTestType(_TestTypeID))
+                _CreationMode = enCreationMode.RetakeTestSchedule;
+            else
+                _CreationMode = enCreationMode.FirstTimeSchedule;
+
+            if (_CreationMode == enCreationMode.RetakeTestSchedule)
+            {
+                lblRetakeAppFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.RetakeTest).Fees.ToString();
+                gbRetakeTestInfo.Enabled = true;
+                lblTitle.Text = "Schedule Retake Test";
+                lblRetakeTestAppID.Text = "0";
+            }
+            else
+            {
+                gbRetakeTestInfo.Enabled = false;
+                lblTitle.Text = "Schedule Test";
+                lblRetakeAppFees.Text = "0";
+                lblRetakeTestAppID.Text = "N/A";
+            }
+            lblLocalDrivingLicenseAppID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblDrivingClass.Text = _LocalDrivingLicenseApplication.LicenseClassInfo.ClassName;
+            lblFullName.Text = _LocalDrivingLicenseApplication.PersonFullName;
+
+
         }
     }
 }

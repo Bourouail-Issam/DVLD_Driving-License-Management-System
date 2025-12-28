@@ -321,6 +321,36 @@ namespace DVLD_DataAccess
                     return false;
                 }
             }
-        }   
+        }
+
+        public static bool DoesAttendTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            const string query = @"
+               SELECT CASE WHEN EXISTS (
+                   SELECT 1
+                   FROM TestAppointments TA
+                   INNER JOIN Tests T ON TA.TestAppointmentID = T.TestAppointmentID
+                   WHERE TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                     AND TA.TestTypeID = @TestTypeID
+               ) THEN 1 ELSE 0 END";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                try
+                {
+                    conn.Open();
+                    return (int)cmd.ExecuteScalar() == 1;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+        }
     }
 }

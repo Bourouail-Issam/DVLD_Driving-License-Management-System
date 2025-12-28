@@ -213,6 +213,13 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsTest.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
         }
+
+        public bool DoesAttendTestType(clsTestType.enTestType TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesAttendTestType(
+                this.LocalDrivingLicenseApplicationID, (int)TestTypeID
+                );
+        }
        
     }
 }
