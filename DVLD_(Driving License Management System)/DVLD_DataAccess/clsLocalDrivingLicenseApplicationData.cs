@@ -256,15 +256,13 @@ namespace DVLD_DataAccess
 
         public static bool DoesPassTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
-            const string query = @"select  TOP 1 TestResult
-                                   FROM LocalDrivingLicenseApplications LDLA 
-                                   INNER JOIN testAppointments TA 
-                                       ON LDLA.LocalDrivingLicenseApplicationID = TA.LocalDrivingLicenseApplicationID
-                             	   INNER JOIN Tests 
-                                       ON Tests.TestAppointmentID = TA.TestAppointmentID
-                                   WHERE (LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
-                                      AND TA.TestTypeID = @TestTypeID)
-                                   ORDER BY TA.TestAppointmentID DESC;";
+            const string query = @"select TOP 1 TestResult
+                                    FROM  testAppointments TA INNER JOIN Tests T
+                                      ON T.TestAppointmentID = TA.TestAppointmentID
+                                   	WHERE (TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                                     AND TA.TestTypeID =  @TestTypeID)
+                                   ORDER BY TA.TestAppointmentID DESC
+                                   ;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             using (SqlCommand command = new SqlCommand(query, connection))

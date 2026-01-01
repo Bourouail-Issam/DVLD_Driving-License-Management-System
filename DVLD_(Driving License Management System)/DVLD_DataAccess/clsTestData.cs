@@ -47,7 +47,8 @@ namespace DVLD_DataAccess
         }
 
         public static bool GetLastTestByPersonAndTestTypeAndLicenseClass
-          (int PersonID, int LicenseClassID, int TestTypeID, ref int TestID,
+          ( int LocalDrivingLicenseApplicationID, int PersonID, int LicenseClassID, 
+            int TestTypeID, ref int TestID,
             ref int TestAppointmentID, ref bool TestResult,
             ref string Notes, ref int CreatedByUserID)
         {
@@ -68,6 +69,7 @@ namespace DVLD_DataAccess
                  WHERE A.ApplicantPersonID = @PersonID 
                    AND LDLA.LicenseClassID = @LicenseClassID
                    AND TA.TestTypeID = @TestTypeID
+                   AND LDLA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
                  ORDER BY T.TestID DESC";
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -76,6 +78,7 @@ namespace DVLD_DataAccess
                 cmd.Parameters.AddWithValue("@PersonID", PersonID);
                 cmd.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
                 cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
 
                 try
                 {

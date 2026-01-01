@@ -29,20 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScheduleTest));
-            this.crlScheduleTest1 = new DVLD__Driving_License_Management_System_.Tests.Controls.crlScheduleTest();
             this.panelMoveForm = new System.Windows.Forms.Panel();
             this.btnClose1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.crlScheduleTest1 = new DVLD__Driving_License_Management_System_.Tests.Controls.crlScheduleTest();
             this.panelMoveForm.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // crlScheduleTest1
-            // 
-            this.crlScheduleTest1.Location = new System.Drawing.Point(9, 65);
-            this.crlScheduleTest1.Name = "crlScheduleTest1";
-            this.crlScheduleTest1.Size = new System.Drawing.Size(533, 760);
-            this.crlScheduleTest1.TabIndex = 0;
-            this.crlScheduleTest1.TestTypeID = DVLD_BuisnessDVLD_Buisness.clsTestType.enTestType.VisionTest;
             // 
             // panelMoveForm
             // 
@@ -89,6 +81,15 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // crlScheduleTest1
+            // 
+            this.crlScheduleTest1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.crlScheduleTest1.Location = new System.Drawing.Point(9, 65);
+            this.crlScheduleTest1.Name = "crlScheduleTest1";
+            this.crlScheduleTest1.Size = new System.Drawing.Size(533, 760);
+            this.crlScheduleTest1.TabIndex = 0;
+            this.crlScheduleTest1.TestTypeID = DVLD_BuisnessDVLD_Buisness.clsTestType.enTestType.VisionTest;
+            // 
             // frmScheduleTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,6 +100,7 @@
             this.Controls.Add(this.crlScheduleTest1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmScheduleTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmScheduleTest";
             this.Load += new System.EventHandler(this.frmScheduleTest_Load);
             this.panelMoveForm.ResumeLayout(false);

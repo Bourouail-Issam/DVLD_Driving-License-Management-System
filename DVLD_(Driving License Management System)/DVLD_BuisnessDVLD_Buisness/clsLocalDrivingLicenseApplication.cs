@@ -147,7 +147,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         }
 
-        public bool Save()
+        public bool Save_LDLA()
         {
             //Because of inheritance first we call the save method in the base class,
             //it will take care of adding all information to the application table.
@@ -211,7 +211,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         public clsTest GetLastTestPerTestType(clsTestType.enTestType TestTypeID)
         {
-            return clsTest.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
+            return clsTest.FindLastTestPerPersonAndLicenseClass(this.LocalDrivingLicenseApplicationID,this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
         }
 
         public bool DoesAttendTestType(clsTestType.enTestType TestTypeID)

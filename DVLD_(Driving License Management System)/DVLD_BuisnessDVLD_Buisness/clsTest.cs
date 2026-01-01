@@ -51,16 +51,16 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         public static clsTest FindLastTestPerPersonAndLicenseClass
-             (int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
+             (int LocalDrivingLicenseApplicationID, int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)
         {
             int TestID = -1;
             int TestAppointmentID = -1;
             bool TestResult = false; string Notes = ""; int CreatedByUserID = -1;
 
             if (clsTestData.GetLastTestByPersonAndTestTypeAndLicenseClass
-                (PersonID, LicenseClassID, (int)TestTypeID, ref TestID,
-            ref TestAppointmentID, ref TestResult,
-            ref Notes, ref CreatedByUserID))
+                (LocalDrivingLicenseApplicationID, PersonID, LicenseClassID, (int)TestTypeID, ref TestID,
+                    ref TestAppointmentID, ref TestResult,
+                    ref Notes, ref CreatedByUserID))
 
                 return new clsTest(TestID,
                         TestAppointmentID, TestResult,

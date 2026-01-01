@@ -20,7 +20,7 @@ namespace DVLD__Driving_License_Management_System_.Tests
         private clsTestType.enTestType _TestTypeID = clsTestType.enTestType.VisionTest;
         private int _AppointmentID = -1;
         public frmScheduleTest(int LocalDrivingLicenseApplicationID, 
-            clsTestType.enTestType TestTypeID, 
+            clsTestType.enTestType TestTypeID,  
             int AppointmentID = -1
             )
         {

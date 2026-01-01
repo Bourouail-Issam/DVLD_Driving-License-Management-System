@@ -82,10 +82,12 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                     MessageBoxIcon.Error
                     );
                 btnSave.Enabled = false;
+                btnSave.Cursor = Cursors.No;
                 return false;
             }
 
             lblFees.Text = _TestAppointment.PaidFees.ToString();
+
             //we compare the current date with the appointment date to set the min date.
             if (DateTime.Compare(DateTime.Now, _TestAppointment.AppointmentDate) < 0)
                 dtpTestDate.MinDate = DateTime.Now;
@@ -132,6 +134,7 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                     MessageBoxIcon.Error
                     );
                 btnSave.Enabled = false;
+                btnSave.Cursor = Cursors.No;
                 return;
             }
 
@@ -171,9 +174,20 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                 _TestAppointment = new clsTestAppointment();
             }
             else
-            {
                 if (!_LoadTestAppointmentData()) return;
-            }
+
+
+            if (!_HandleActiveTestAppointmentConstraint())
+                return;
+
+            if (!_HandleAppointmentLockedConstraint())
+                return;
+
+            if (!_HandlePrviousTestConstraint())
+                return;
+
+            btnSave.Enabled = true;
+            btnSave.Cursor = Cursors.Hand;
         }
 
         private bool _HandleActiveTestAppointmentConstraint()
@@ -184,6 +198,7 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
             {
                 lblUserMessage.Text = "Person Already have an active appointment for this test";
                 btnSave.Enabled = false;
+                btnSave.Cursor = Cursors.No;
                 dtpTestDate.Enabled = false;
                 return false;
             }
@@ -201,12 +216,13 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                 lblUserMessage.Text = "Person already sat for the test, appointment loacked.";
                 dtpTestDate.Enabled = false;
                 btnSave.Enabled = false;
+                btnSave.Cursor = Cursors.No;
                 return false;
 
             }
             else
                 lblUserMessage.Visible = false;
-
+ 
             return true;
         }
 
@@ -232,13 +248,13 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                         lblUserMessage.Text = "Cannot Sechule, Vision Test should be passed first";
                         lblUserMessage.Visible = true;
                         btnSave.Enabled = false;
+                        btnSave.Cursor = Cursors.No;
                         dtpTestDate.Enabled = false;
                         return false;
                     }
                     else
                     {
                         lblUserMessage.Visible = false;
-                        btnSave.Enabled = true;
                         dtpTestDate.Enabled = true;
                     }
                     return true;
@@ -252,13 +268,13 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                         lblUserMessage.Text = "Cannot Sechule, Written Test should be passed first";
                         lblUserMessage.Visible = true;
                         btnSave.Enabled = false;
+                        btnSave.Cursor = Cursors.No;
                         dtpTestDate.Enabled = false;
                         return false;
                     }
                     else
                     {
                         lblUserMessage.Visible = false;
-                        btnSave.Enabled = true;
                         dtpTestDate.Enabled = true;
                     }
                     return true;

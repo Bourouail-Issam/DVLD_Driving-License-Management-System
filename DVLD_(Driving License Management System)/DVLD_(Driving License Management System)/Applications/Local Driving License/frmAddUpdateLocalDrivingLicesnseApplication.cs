@@ -258,7 +258,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             _LocalDrivingLicenseApplication.LicenseClassID = LicenseClassID;
 
 
-            if (_LocalDrivingLicenseApplication.Save())
+            if (_LocalDrivingLicenseApplication.Save_LDLA())
             {
                 lblLocalDrivingLicebseApplicationID.Text =
                     _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
