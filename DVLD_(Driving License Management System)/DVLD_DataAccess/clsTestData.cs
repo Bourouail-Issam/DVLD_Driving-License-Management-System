@@ -10,7 +10,46 @@ namespace DVLD_DataAccess
 {
     public class clsTestData
     {
-        
+        // ###################   CURD Methods   ###################
+        public static bool GetTestInfoByID(int testID,
+           ref int testAppointmentId, ref bool testResult,
+           ref string notes, ref int createdByUserId)
+        {
+            const string query = @"
+                 SELECT TestAppointmentID, TestResult, Notes, CreatedByUserID
+                 FROM Tests 
+                 WHERE TestID = @TestID";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn)) 
+            {
+                cmd.Parameters.Add("@TestID", SqlDbType.Int).Value = testID;
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            testAppointmentId = reader.GetInt32(0);
+                            testResult = reader.GetBoolean(1);
+                            notes = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+                            createdByUserId = reader.GetInt32(3);
+
+                            // The record was found
+                            return  true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+            return false;
+        }
+
 
         // ###################   Other Methods   ###################
         public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)

@@ -34,21 +34,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelMoveForm = new System.Windows.Forms.Panel();
-            this.btnClose1 = new System.Windows.Forms.Button();
             this.dgvLicenseTestAppointments = new System.Windows.Forms.DataGridView();
+            this.cmsApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlDrivingLicenseApplicationInfo1 = new DVLD__Driving_License_Management_System_.Applications.Local_Driving_License.ctrlDrivingLicenseApplicationInfo();
             this.btnAddNewAppointment = new System.Windows.Forms.Button();
-            this.pbTestTypeImage = new System.Windows.Forms.PictureBox();
-            this.cmsApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTakeTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctrlDrivingLicenseApplicationInfo1 = new DVLD__Driving_License_Management_System_.Applications.Local_Driving_License.ctrlDrivingLicenseApplicationInfo();
+            this.btnClose1 = new System.Windows.Forms.Button();
+            this.pbTestTypeImage = new System.Windows.Forms.PictureBox();
             this.panelMoveForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLicenseTestAppointments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTestTypeImage)).BeginInit();
             this.cmsApplications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestTypeImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -71,23 +71,6 @@
             this.panelMoveForm.Name = "panelMoveForm";
             this.panelMoveForm.Size = new System.Drawing.Size(940, 32);
             this.panelMoveForm.TabIndex = 136;
-            // 
-            // btnClose1
-            // 
-            this.btnClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
-            this.btnClose1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose1.FlatAppearance.BorderSize = 0;
-            this.btnClose1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnClose1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnClose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.delete;
-            this.btnClose1.Location = new System.Drawing.Point(900, 0);
-            this.btnClose1.Name = "btnClose1";
-            this.btnClose1.Size = new System.Drawing.Size(40, 32);
-            this.btnClose1.TabIndex = 113;
-            this.btnClose1.UseVisualStyleBackColor = false;
-            this.btnClose1.Click += new System.EventHandler(this.btnClose1_Click);
             // 
             // dgvLicenseTestAppointments
             // 
@@ -134,6 +117,14 @@
             this.dgvLicenseTestAppointments.Size = new System.Drawing.Size(916, 246);
             this.dgvLicenseTestAppointments.TabIndex = 140;
             // 
+            // cmsApplications
+            // 
+            this.cmsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmEdit,
+            this.tsmTakeTest});
+            this.cmsApplications.Name = "contextMenuStrip1";
+            this.cmsApplications.Size = new System.Drawing.Size(201, 110);
+            // 
             // lblRecordsCount
             // 
             this.lblRecordsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -169,6 +160,13 @@
             this.label1.TabIndex = 141;
             this.label1.Text = "Appointments:";
             // 
+            // ctrlDrivingLicenseApplicationInfo1
+            // 
+            this.ctrlDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(0, 212);
+            this.ctrlDrivingLicenseApplicationInfo1.Name = "ctrlDrivingLicenseApplicationInfo1";
+            this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(936, 383);
+            this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 137;
+            // 
             // btnAddNewAppointment
             // 
             this.btnAddNewAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -179,27 +177,6 @@
             this.btnAddNewAppointment.TabIndex = 142;
             this.btnAddNewAppointment.UseVisualStyleBackColor = true;
             this.btnAddNewAppointment.Click += new System.EventHandler(this.btnAddNewAppointment_Click);
-            // 
-            // pbTestTypeImage
-            // 
-            this.pbTestTypeImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbTestTypeImage.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Driving_Test_100;
-            this.pbTestTypeImage.InitialImage = null;
-            this.pbTestTypeImage.Location = new System.Drawing.Point(414, 40);
-            this.pbTestTypeImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pbTestTypeImage.Name = "pbTestTypeImage";
-            this.pbTestTypeImage.Size = new System.Drawing.Size(113, 104);
-            this.pbTestTypeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbTestTypeImage.TabIndex = 134;
-            this.pbTestTypeImage.TabStop = false;
-            // 
-            // cmsApplications
-            // 
-            this.cmsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmEdit,
-            this.tsmTakeTest});
-            this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(201, 110);
             // 
             // tsmEdit
             // 
@@ -217,13 +194,37 @@
             this.tsmTakeTest.Name = "tsmTakeTest";
             this.tsmTakeTest.Size = new System.Drawing.Size(200, 42);
             this.tsmTakeTest.Text = "Take Test";
+            this.tsmTakeTest.Click += new System.EventHandler(this.tsmTakeTest_Click);
             // 
-            // ctrlDrivingLicenseApplicationInfo1
+            // btnClose1
             // 
-            this.ctrlDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(0, 212);
-            this.ctrlDrivingLicenseApplicationInfo1.Name = "ctrlDrivingLicenseApplicationInfo1";
-            this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(936, 383);
-            this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 137;
+            this.btnClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
+            this.btnClose1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose1.FlatAppearance.BorderSize = 0;
+            this.btnClose1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnClose1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnClose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.delete;
+            this.btnClose1.Location = new System.Drawing.Point(900, 0);
+            this.btnClose1.Name = "btnClose1";
+            this.btnClose1.Size = new System.Drawing.Size(40, 32);
+            this.btnClose1.TabIndex = 113;
+            this.btnClose1.UseVisualStyleBackColor = false;
+            this.btnClose1.Click += new System.EventHandler(this.btnClose1_Click);
+            // 
+            // pbTestTypeImage
+            // 
+            this.pbTestTypeImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbTestTypeImage.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.Driving_Test_100;
+            this.pbTestTypeImage.InitialImage = null;
+            this.pbTestTypeImage.Location = new System.Drawing.Point(414, 40);
+            this.pbTestTypeImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbTestTypeImage.Name = "pbTestTypeImage";
+            this.pbTestTypeImage.Size = new System.Drawing.Size(113, 104);
+            this.pbTestTypeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTestTypeImage.TabIndex = 134;
+            this.pbTestTypeImage.TabStop = false;
             // 
             // frmListTestAppointments
             // 
@@ -247,8 +248,8 @@
             this.Load += new System.EventHandler(this.frmListTestAppointments_Load);
             this.panelMoveForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLicenseTestAppointments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTestTypeImage)).EndInit();
             this.cmsApplications.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestTypeImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

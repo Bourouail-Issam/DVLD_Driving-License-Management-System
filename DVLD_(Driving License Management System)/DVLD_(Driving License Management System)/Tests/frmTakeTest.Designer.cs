@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMoveForm = new System.Windows.Forms.Panel();
+            this.btnClose1 = new System.Windows.Forms.Button();
             this.lblUserMessage = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.rbFail = new System.Windows.Forms.RadioButton();
@@ -37,10 +38,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlSecheduledTest1 = new DVLD__Driving_License_Management_System_.Tests.Controls.ctrlSecheduledTest();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnClose1 = new System.Windows.Forms.Button();
+            this.ctrlSecheduledTest1 = new DVLD__Driving_License_Management_System_.Tests.Controls.ctrlSecheduledTest();
             this.panelMoveForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,6 +55,23 @@
             this.panelMoveForm.Name = "panelMoveForm";
             this.panelMoveForm.Size = new System.Drawing.Size(602, 32);
             this.panelMoveForm.TabIndex = 254;
+            // 
+            // btnClose1
+            // 
+            this.btnClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
+            this.btnClose1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose1.FlatAppearance.BorderSize = 0;
+            this.btnClose1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnClose1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnClose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.delete;
+            this.btnClose1.Location = new System.Drawing.Point(562, 0);
+            this.btnClose1.Name = "btnClose1";
+            this.btnClose1.Size = new System.Drawing.Size(40, 32);
+            this.btnClose1.TabIndex = 252;
+            this.btnClose1.UseVisualStyleBackColor = false;
+            this.btnClose1.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblUserMessage
             // 
@@ -147,13 +164,7 @@
             this.btnClose.TabIndex = 264;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // ctrlSecheduledTest1
-            // 
-            this.ctrlSecheduledTest1.Location = new System.Drawing.Point(9, 46);
-            this.ctrlSecheduledTest1.Name = "ctrlSecheduledTest1";
-            this.ctrlSecheduledTest1.Size = new System.Drawing.Size(585, 646);
-            this.ctrlSecheduledTest1.TabIndex = 273;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pictureBox1
             // 
@@ -175,21 +186,12 @@
             this.pictureBox2.TabIndex = 274;
             this.pictureBox2.TabStop = false;
             // 
-            // btnClose1
+            // ctrlSecheduledTest1
             // 
-            this.btnClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(115)))), ((int)(((byte)(151)))));
-            this.btnClose1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose1.FlatAppearance.BorderSize = 0;
-            this.btnClose1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnClose1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnClose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose1.Image = global::DVLD__Driving_License_Management_System_.Properties.Resources.delete;
-            this.btnClose1.Location = new System.Drawing.Point(562, 0);
-            this.btnClose1.Name = "btnClose1";
-            this.btnClose1.Size = new System.Drawing.Size(40, 32);
-            this.btnClose1.TabIndex = 252;
-            this.btnClose1.UseVisualStyleBackColor = false;
+            this.ctrlSecheduledTest1.Location = new System.Drawing.Point(9, 46);
+            this.ctrlSecheduledTest1.Name = "ctrlSecheduledTest1";
+            this.ctrlSecheduledTest1.Size = new System.Drawing.Size(585, 646);
+            this.ctrlSecheduledTest1.TabIndex = 273;
             // 
             // frmTakeTest
             // 
@@ -210,7 +212,9 @@
             this.Controls.Add(this.panelMoveForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTakeTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmTakeTest";
+            this.Load += new System.EventHandler(this.frmTakeTest_Load);
             this.panelMoveForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

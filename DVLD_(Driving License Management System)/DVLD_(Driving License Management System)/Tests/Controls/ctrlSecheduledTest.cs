@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.Properties;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,43 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
         public int TestAppointmentID
         {
             get  { return _TestAppointmentID;}
+        }
+        public clsTestType.enTestType TestTypeID
+        {
+            get
+            {
+                return _TestTypeID;
+            }
+            set
+            {
+                _TestTypeID = value;
+
+                switch (_TestTypeID)
+                {
+
+                    case clsTestType.enTestType.VisionTest:
+                        {
+                            gbTestType.Text = "Vision Test";
+                            pbTestTypeImage.Image = Resources.Vision_512;
+                            break;
+                        }
+
+                    case clsTestType.enTestType.WrittenTest:
+                        {
+                            gbTestType.Text = "Written Test";
+                            pbTestTypeImage.Image = Resources.Written_Test_512;
+                            break;
+                        }
+                    case clsTestType.enTestType.StreetTest:
+                        {
+                            gbTestType.Text = "Street Test";
+                            pbTestTypeImage.Image = Resources.driving_test_512;
+                            break;
+
+
+                        }
+                }
+            }
         }
 
         public ctrlSecheduledTest()

@@ -44,6 +44,27 @@ namespace DVLD_BuisnessDVLD_Buisness
             Mode = enMode.Update;
         }
 
+        // ###################   CURD Methods   ###################
+
+        public static clsTest Find(int TestID)
+        {
+            int TestAppointmentID = -1;
+            bool TestResult = false; string Notes = ""; int CreatedByUserID = -1;
+
+            if (clsTestData.GetTestInfoByID(TestID,
+            ref TestAppointmentID, ref TestResult,
+            ref Notes, ref CreatedByUserID))
+
+                return new clsTest(
+                    TestID,TestAppointmentID,
+                    TestResult,Notes, CreatedByUserID
+                    );
+            else
+                return null;
+
+        }
+
+
         // ###################   Other Methods   ###################
         public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
         {
