@@ -64,6 +64,36 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         }
 
+        private bool _AddNewTest()
+        {
+            //call DataAccess Layer 
+
+            this.TestID = clsTestData.AddNewTest(this.TestAppointmentID,
+                this.TestResult, this.Notes, this.CreatedByUserID);
+
+            return (this.TestID != -1);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewTest())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case enMode.Update:
+
+                    return true;
+            }
+
+            return false;
+        }
 
         // ###################   Other Methods   ###################
         public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)

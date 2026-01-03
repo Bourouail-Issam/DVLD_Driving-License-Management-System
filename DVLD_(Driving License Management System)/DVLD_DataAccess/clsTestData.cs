@@ -50,6 +50,52 @@ namespace DVLD_DataAccess
             return false;
         }
 
+        public static int AddNewTest(int TestAppointmentID, bool TestResult,
+            string Notes, int CreatedByUserID)
+        {
+            int TestID = -1;
+
+            const string query = @"
+                DECLARE @NewTestID INT;
+                
+                INSERT INTO Tests (TestAppointmentID, TestResult, Notes, CreatedByUserID)
+                VALUES (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
+                
+                SET @NewTestID = SCOPE_IDENTITY();
+                
+                UPDATE TestAppointments 
+                SET IsLocked = 1 
+                WHERE TestAppointmentID = @TestAppointmentID;
+                
+                SELECT @NewTestID;";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@TestAppointmentID", SqlDbType.Int).Value = TestAppointmentID;
+                cmd.Parameters.Add("@TestResult", SqlDbType.Bit).Value = TestResult;
+                cmd.Parameters.Add("@Notes", SqlDbType.NVarChar,500).Value =
+                    string.IsNullOrWhiteSpace(Notes) ? (object)DBNull.Value : Notes;
+                cmd.Parameters.Add("@CreatedByUserID", SqlDbType.Int).Value = CreatedByUserID;
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                        TestID = Convert.ToInt32(result);
+                }
+
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    TestID = -1;
+                }
+            }
+          
+            return TestID;
+        }
 
         // ###################   Other Methods   ###################
         public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)

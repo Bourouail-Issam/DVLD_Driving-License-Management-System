@@ -59,5 +59,37 @@ namespace DVLD__Driving_License_Management_System_.Tests
         {
             this.Close();  
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure you want to save? After that you cannot change the Pass/Fail results after you save?.",
+                "Confirm",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No
+               ) return;
+
+            _Test.TestAppointmentID = _AppointmentID;
+            _Test.TestResult = rbPass.Checked;
+            _Test.Notes = txtNotes.Text.Trim();
+            _Test.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+
+            if (_Test.Save())
+            {
+                MessageBox.Show("" +
+                    "Data Saved Successfully.", 
+                    "Saved", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information
+                    );
+                btnSave.Enabled = false;
+                btnSave.Cursor = Cursors.No;
+
+            }
+            else
+                MessageBox.Show(
+                    "Error: Data Is not Saved Successfully.",
+                    "Error", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error)
+                    ;
+        }
     }
 }
