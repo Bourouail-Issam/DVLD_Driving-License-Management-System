@@ -104,6 +104,7 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
             else
             {
                 lblRetakeAppFees.Text = _TestAppointment.RetakeTestAppInfo.PaidFees.ToString();
+                lblTotalFees.Text = (_TestAppointment.RetakeTestAppInfo.PaidFees + _TestAppointment.PaidFees).ToString();
                 gbRetakeTestInfo.Enabled = true;
                 lblTitle.Text = "Schedule Retake Test";
                 lblRetakeTestAppID.Text = _TestAppointment.RetakeTestApplicationID.ToString();
@@ -137,7 +138,7 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                 btnSave.Cursor = Cursors.No;
                 return;
             }
-
+            
             if (_LocalDrivingLicenseApplication.DoesAttendTestType(_TestTypeID))
                 _CreationMode = enCreationMode.RetakeTestSchedule;
             else

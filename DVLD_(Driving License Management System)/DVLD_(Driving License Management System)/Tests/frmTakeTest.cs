@@ -32,9 +32,22 @@ namespace DVLD__Driving_License_Management_System_.Tests
             ctrlSecheduledTest1.TestTypeID = _TestType;
             ctrlSecheduledTest1.LoadInfo(_AppointmentID);
 
-            btnSave.Enabled = ctrlSecheduledTest1.TestAppointmentID == -1 ? false : true;
+            if (ctrlSecheduledTest1.IsLockedAppointement || ctrlSecheduledTest1.TestAppointmentID == -1)
+            {
+                btnSave.Enabled = false;
+                btnSave.Cursor = Cursors.No;
+                txtNotes.Enabled = false;
+            }
+            else
+            {
+                btnSave.Enabled = true;
+                btnSave.Cursor = Cursors.Hand;
+                txtNotes.Enabled = true;
+            }
 
-            int _TestID = ctrlSecheduledTest1.TestID;
+
+
+                int _TestID = ctrlSecheduledTest1.TestID;
             if (_TestID != -1)
             {
                 _Test = clsTest.Find(_TestID);

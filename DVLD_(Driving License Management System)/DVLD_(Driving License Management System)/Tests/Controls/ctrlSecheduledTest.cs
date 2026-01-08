@@ -31,6 +31,13 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
         {
             get  { return _TestAppointmentID;}
         }
+
+        private bool _IsLockedAppointement;
+        public bool IsLockedAppointement
+        {
+            get { return _IsLockedAppointement; }
+        }
+
         public clsTestType.enTestType TestTypeID
         {
             get
@@ -78,6 +85,8 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
             _TestAppointmentID = TestAppointmentID;
 
             _TestAppointment = clsTestAppointment.Find(_TestAppointmentID);
+            _IsLockedAppointement = _TestAppointment.IsLocked;
+
             //incase we did not find any appointment .
             if (_TestAppointment == null)
             {
