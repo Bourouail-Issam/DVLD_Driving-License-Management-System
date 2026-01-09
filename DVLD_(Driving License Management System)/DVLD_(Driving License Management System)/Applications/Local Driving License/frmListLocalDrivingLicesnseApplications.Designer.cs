@@ -263,6 +263,7 @@
             this.tsmIssueDrivingLicenseFirstTime.Name = "tsmIssueDrivingLicenseFirstTime";
             this.tsmIssueDrivingLicenseFirstTime.Size = new System.Drawing.Size(265, 42);
             this.tsmIssueDrivingLicenseFirstTime.Text = "&Issue Driving License (First Time)";
+            this.tsmIssueDrivingLicenseFirstTime.Click += new System.EventHandler(this.tsmIssueDrivingLicenseFirstTime_Click);
             // 
             // toolStripSeparator4
             // 

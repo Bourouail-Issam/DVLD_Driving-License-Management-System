@@ -220,10 +220,12 @@ namespace DVLD_BuisnessDVLD_Buisness
                 this.LocalDrivingLicenseApplicationID, (int)TestTypeID
                 );
         }
+
         public byte TotalTrialsPerTest(clsTestType.enTestType TestTypeID)
         {
             return clsLocalDrivingLicenseApplicationData.TotalTrialsPerTest(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+
         public static bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestTypeID)
         {
             return clsLocalDrivingLicenseApplicationData.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, (int)TestTypeID);
