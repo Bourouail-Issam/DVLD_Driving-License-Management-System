@@ -95,6 +95,7 @@ namespace DVLD__Driving_License_Management_System_.Tests
                     );
                 btnSave.Enabled = false;
                 btnSave.Cursor = Cursors.No;
+                txtNotes.Enabled = false;
 
             }
             else
