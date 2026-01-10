@@ -119,5 +119,11 @@ namespace DVLD_BuisnessDVLD_Buisness
             else
                 return null;
         }
+
+        public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
+        {
+            //if total passed test less than 3 it will return false otherwise will return true
+            return GetPassedTestCount(LocalDrivingLicenseApplicationID) == 3;
+        }
     }
 }

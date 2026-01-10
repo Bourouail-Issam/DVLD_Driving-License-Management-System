@@ -48,6 +48,21 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses
                 this.Close();
                 return;
             }
+
+
+            if (!_LocalDrivingLicenseApplication.PassedAllTests())
+            {
+                MessageBox.Show(
+                    "Person Should Pass All Tests First.",
+                    "Not Allowed", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                this.Close();
+                return;
+            }
+
+
             int LicenseID = _LocalDrivingLicenseApplication.GetActiveLicenseID();
             if (LicenseID != -1)
             {
@@ -66,3 +81,4 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses
         }
     }
 }
+    
