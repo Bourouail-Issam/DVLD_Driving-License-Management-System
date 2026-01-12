@@ -53,6 +53,7 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
         public static bool GetDriverInfoByPersonID(int PersonID, ref int DriverID,
             ref int CreatedByUserID, ref DateTime CreatedDate)
         {
@@ -95,6 +96,38 @@ namespace DVLD_DataAccess
             }
 
             return isFound;
+        }
+
+
+        public static int AddNewDriver(int PersonID, int CreatedByUserID)
+        {
+            int DriverID = -1;
+
+            const string query = @"Insert Into Drivers (PersonID,CreatedByUserID,CreatedDate)
+                                   Values (@PersonID,@CreatedByUserID,@CreatedDate);          
+                                   SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@PersonID", PersonID);
+                cmd.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+                cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                try
+                {
+                    conn.Open();
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                        DriverID = insertedID;
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+            return DriverID;
         }
     }
 }

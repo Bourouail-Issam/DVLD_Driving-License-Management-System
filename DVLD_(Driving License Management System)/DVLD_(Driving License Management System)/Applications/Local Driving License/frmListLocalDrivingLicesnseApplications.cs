@@ -275,11 +275,8 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
 
             bool LicenseExists = LocalDrivingLicenseApplication.IsLicenseIssued();
 
-            clsApplication.enApplicationStatus appStatus =
-                (clsApplication.enApplicationStatus)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
-
             //Enabled only if person passed all tests and Does not have license. 
-            tsmIssueDrivingLicenseFirstTime.Enabled = (TotalPassedTests == 3) && !LicenseExists && appStatus == clsApplication.enApplicationStatus.New;
+            tsmIssueDrivingLicenseFirstTime.Enabled = (TotalPassedTests == 3) && !LicenseExists && LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New;
 
             tsmShowLicense.Enabled = LicenseExists;
 

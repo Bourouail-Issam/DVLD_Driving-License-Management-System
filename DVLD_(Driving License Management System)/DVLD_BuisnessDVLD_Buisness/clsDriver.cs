@@ -40,7 +40,12 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         // ###################  CRUD Methods  ###################
-
+        private bool _AddNewDriver()
+        {
+            //call DataAccess Layer 
+            this.DriverID = clsDriverData.AddNewDriver(this.PersonID, this.CreatedByUserID);
+            return (this.DriverID != -1);
+        }
         public static clsDriver FindByDriverID(int DriverID)
         {
             int PersonID = -1; int CreatedByUserID = -1; DateTime CreatedDate = DateTime.Now;
@@ -55,7 +60,6 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         public static clsDriver FindByPersonID(int PersonID)
         {
-
             int DriverID = -1; int CreatedByUserID = -1; DateTime CreatedDate = DateTime.Now;
 
             if (clsDriverData.GetDriverInfoByPersonID(PersonID, ref DriverID, ref CreatedByUserID, ref CreatedDate))
@@ -63,7 +67,6 @@ namespace DVLD_BuisnessDVLD_Buisness
                 return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
             else
                 return null;
-
         }
 
         public static DataTable GetLicenses(int DriverID)

@@ -93,10 +93,8 @@ namespace DVLD__Driving_License_Management_System_.Tests
                     "Saved", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information
                     );
-                btnSave.Enabled = false;
-                btnSave.Cursor = Cursors.No;
-                txtNotes.Enabled = false;
-
+                this.Close();
+                return;
             }
             else
                 MessageBox.Show(

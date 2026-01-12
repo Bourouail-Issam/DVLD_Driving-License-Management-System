@@ -30,7 +30,6 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses
 
         private void frmIssueDriverLicenseFirstTime_Load(object sender, EventArgs e)
         {
-
             txtNotes.Focus();
             _LocalDrivingLicenseApplication =
                 clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
@@ -79,6 +78,7 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses
             ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
             _formMover = new FormMover(this, panelMoveForm);
         }
+
     }
 }
     

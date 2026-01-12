@@ -1,4 +1,5 @@
-﻿using DVLD__Driving_License_Management_System_.Properties;
+﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.Properties;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace DVLD__Driving_License_Management_System_.Tests
         private DataTable _dtLicenseTestAppointments;
         private int _LocalDrivingLicenseApplicationID;
         private clsTestType.enTestType _TestType = clsTestType.enTestType.VisionTest;
+        private FormMover _formMover;
         public frmListTestAppointments(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestType)
         {
             InitializeComponent();
@@ -82,6 +84,7 @@ namespace DVLD__Driving_License_Management_System_.Tests
                 dgvLicenseTestAppointments.Columns[3].HeaderText = "Is Locked";
                 dgvLicenseTestAppointments.Columns[3].Width = 100;
             }
+            _formMover = new FormMover(this,panelMoveForm);
         }
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)

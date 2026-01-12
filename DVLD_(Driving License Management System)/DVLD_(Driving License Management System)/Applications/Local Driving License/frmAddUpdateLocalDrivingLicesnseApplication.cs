@@ -224,8 +224,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
             if (ActiveApplicationID != -1)
             {
                 MessageBox.Show(
-                    @"Choose another License Class, the selected Person Already have an active application 
-                      for the selected class with id=" + ActiveApplicationID,
+                    @"Choose another License Class, the selected Person Already have an active application for the selected class with id=" + ActiveApplicationID,
                     "Error", 
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -241,8 +240,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Local_Driving_Li
                 LicenseClassID))
             {
                 MessageBox.Show(
-                    @"Person already have a license with the same applied driving class, 
-                    Choose diffrent driving class",
+                    @"Person already have a license with the same applied driving class, Choose diffrent driving class",
                     "Not allowed", 
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

@@ -343,6 +343,8 @@ namespace DVLD__Driving_License_Management_System_.Tests.Controls
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
+                if (_CreationMode == enCreationMode.RetakeTestSchedule)
+                    lblRetakeTestAppID.Text = _TestAppointment.RetakeTestApplicationID.ToString();
             }
             else
                 MessageBox.Show(
