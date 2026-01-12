@@ -44,7 +44,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
         // ###################   Constructors   ###################
 
-        clsLicense()
+        public clsLicense()
         {
             this.LicenseID = -1;
             this.ApplicationID = -1;

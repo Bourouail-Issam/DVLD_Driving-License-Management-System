@@ -98,7 +98,6 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-
         public static int AddNewDriver(int PersonID, int CreatedByUserID)
         {
             int DriverID = -1;

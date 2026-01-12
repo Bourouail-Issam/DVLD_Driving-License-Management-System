@@ -46,6 +46,22 @@ namespace DVLD_BuisnessDVLD_Buisness
             this.DriverID = clsDriverData.AddNewDriver(this.PersonID, this.CreatedByUserID);
             return (this.DriverID != -1);
         }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewDriver())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+            }
+            return false;
+        }
         public static clsDriver FindByDriverID(int DriverID)
         {
             int PersonID = -1; int CreatedByUserID = -1; DateTime CreatedDate = DateTime.Now;
