@@ -181,5 +181,11 @@ namespace DVLD_BuisnessDVLD_Buisness
                 );
 
         }
+
+
+        public bool SetComplete()
+        {
+            return clsApplicationData.UpdateStatus(ApplicationID, 3);
+        }
     }
 }

@@ -81,6 +81,28 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses
 
         private void btnIssueLicense_Click(object sender, EventArgs e)
         {
+            int LicenseID =
+              _LocalDrivingLicenseApplication.IssueLicenseForTheFirtTime(txtNotes.Text.Trim(), clsGlobal.CurrentUser.UserID);
+
+            if (LicenseID != -1)
+            {
+                MessageBox.Show(
+                    "License Issued Successfully with License ID = " + LicenseID.ToString(),
+                    "Succeeded",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                    );
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "License Was not Issued ! ",
+                    "Faild",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }
 
         }
     }

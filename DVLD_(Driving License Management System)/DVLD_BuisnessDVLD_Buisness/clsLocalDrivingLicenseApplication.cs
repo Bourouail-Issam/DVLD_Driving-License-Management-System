@@ -11,8 +11,8 @@ namespace DVLD_BuisnessDVLD_Buisness
 {
     public class clsLocalDrivingLicenseApplication : clsApplication
     {
-        private enum enMode { AddNew = 0, Update = 1 };
-        private enMode _Mode = enMode.AddNew;
+        private new enum enMode { AddNew = 0, Update = 1 };
+        private new enMode _Mode = enMode.AddNew;
         public int LocalDrivingLicenseApplicationID { set; get; }
 
         public int LicenseClassID { set; get; }
@@ -274,7 +274,15 @@ namespace DVLD_BuisnessDVLD_Buisness
             License.CreatedByUserID = CreatedByUserID;
 
 
-            return -1;
+            if (License.Save())
+            {
+                //now we should set the application status to complete.
+                this.SetComplete();
+
+                return License.LicenseID;
+            }
+            else
+                return -1;
         }
     }
 }
