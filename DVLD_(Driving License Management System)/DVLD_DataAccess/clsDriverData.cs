@@ -128,5 +128,31 @@ namespace DVLD_DataAccess
             }
             return DriverID;
         }
+
+        public static DataTable GetAllDrivers()
+        {
+            DataTable dt = new DataTable();
+
+            const string query = "SELECT * FROM Drivers_View order by FullName";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    // Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+            return dt;
+        }
     }
 }

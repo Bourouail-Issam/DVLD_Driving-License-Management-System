@@ -1,5 +1,6 @@
 ﻿using DVLD__Driving_License_Management_System_.Applications.Application_Types;
 using DVLD__Driving_License_Management_System_.Applications.Local_Driving_License;
+using DVLD__Driving_License_Management_System_.Drivers;
 using DVLD__Driving_License_Management_System_.Global_Classes;
 using DVLD__Driving_License_Management_System_.People;
 using DVLD__Driving_License_Management_System_.Tests.Test_Types;
@@ -52,7 +53,12 @@ namespace DVLD__Driving_License_Management_System_
         {
             ResetButtonColors();
             btnDrivers.BackColor = Color.FromArgb(63, 93, 127);
+            btnPeople.BackColor = Color.FromArgb(63, 93, 127);
+            panelMainForm.Visible = false;
 
+            frmListDrivers frm = new frmListDrivers(this);
+            frm.MdiParent = this;
+            frm.Show();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
