@@ -58,5 +58,78 @@ namespace DVLD__Driving_License_Management_System_.Drivers
                 dgvDrivers.Columns[5].Width = 150;
             }
         }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtFilterValue.Visible = (cbFilter.Text != "None");
+
+            if (txtFilterValue.Visible)
+            {
+                txtFilterValue.Text = "";
+                txtFilterValue.Focus();
+            }
+            else
+            {
+                if (_dtAllDrivers != null)
+                {
+                    _dtAllDrivers.DefaultView.RowFilter = "";
+                    lblRecordsCount.Text = dgvDrivers.Rows.Count.ToString();
+                }
+            }
+        }
+
+
+        private void _FilterDgvPeople(string columnName, string txtFilterValue)
+        {
+
+            if (!String.IsNullOrWhiteSpace(txtFilterValue))
+            {
+                _dtAllDrivers.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
+                dgvDrivers.DataSource = _dtAllDrivers;
+            }
+            else
+            {
+                _dtAllDrivers.DefaultView.RowFilter = "";
+            }
+            lblRecordsCount.Text = dgvDrivers.Rows.Count.ToString();
+        }
+
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+
+            //Map Selected Filter to real Column name 33
+            switch (cbFilter.Text)
+            {
+                case "Driver ID":
+                    FilterColumn = "DriverID";
+                    break;
+
+                case "Person ID":
+                    FilterColumn = "PersonID";
+                    break;
+
+                case "National No.":
+                    FilterColumn = "NationalNo";
+                    break;
+
+
+                case "Full Name":
+                    FilterColumn = "FullName";
+                    break;
+
+                default:
+                    FilterColumn = "None";
+                    break;
+            }
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dtAllDrivers.DefaultView.RowFilter = "";
+                lblRecordsCount.Text =  dgvDrivers.Rows.Count.ToString();
+                return;
+            }
+            _FilterDgvPeople(FilterColumn, txtFilterValue.Text);
+        }
     }
 }
