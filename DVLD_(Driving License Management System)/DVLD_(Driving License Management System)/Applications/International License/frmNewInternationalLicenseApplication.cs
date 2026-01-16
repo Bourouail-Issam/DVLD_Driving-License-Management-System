@@ -24,7 +24,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
             _formMover = new FormMover(this,panelMoveForm);
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e) 
         {
             this.Close();
         }
