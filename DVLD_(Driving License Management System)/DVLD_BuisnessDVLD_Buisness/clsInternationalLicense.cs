@@ -113,5 +113,32 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return (this.InternationalLicenseID != -1);
         }
+        public new bool Save()
+        {
+            //Because of inheritance first we call the save method in the base class,
+            //it will take care of adding all information to the application table.
+            base._Mode = (clsApplication.enMode)Mode;
+            if (!base.Save())
+                return false;
+
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewInternationalLicense())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case enMode.Update:
+
+                    return true;
+
+            }
+
+            return false;
+        }
     }
 }

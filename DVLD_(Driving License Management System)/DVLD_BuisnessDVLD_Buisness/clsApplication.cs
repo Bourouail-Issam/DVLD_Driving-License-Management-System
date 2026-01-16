@@ -154,16 +154,13 @@ namespace DVLD_BuisnessDVLD_Buisness
                 case enMode.AddNew:
                     if (_AddNewApplication())
                     {
-
                         _Mode = enMode.Update;
                         return true;
                     }
                     else
                         return false;
 
-
                 case enMode.Update:
-
                     return _UpdateApplication();
 
             }
