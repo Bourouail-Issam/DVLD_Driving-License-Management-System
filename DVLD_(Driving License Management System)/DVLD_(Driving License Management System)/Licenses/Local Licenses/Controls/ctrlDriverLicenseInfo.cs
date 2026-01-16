@@ -53,7 +53,7 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses.Contr
         }
         public void LoadInfo(int LicenseID)
         {
-            _LicenseID = LicenseID;
+                _LicenseID = LicenseID;
             _License = clsLicense.Find(_LicenseID);
 
             if (_License == null)

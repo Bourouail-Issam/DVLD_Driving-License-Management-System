@@ -249,7 +249,7 @@
             this.rjDropdownMenuApplications.MenuItemTextColor = System.Drawing.Color.Empty;
             this.rjDropdownMenuApplications.Name = "rjDropdownMenuApplications";
             this.rjDropdownMenuApplications.PrimaryColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 354);
+            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 376);
             // 
             // drivingToolStripMenuItem
             // 
@@ -296,6 +296,7 @@
             this.internationalLicenseToolStripMenuItem.Name = "internationalLicenseToolStripMenuItem";
             this.internationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(246, 38);
             this.internationalLicenseToolStripMenuItem.Text = "international License";
+            this.internationalLicenseToolStripMenuItem.Click += new System.EventHandler(this.internationalLicenseToolStripMenuItem_Click);
             // 
             // renewDrivingLicenseToolStripMenuItem
             // 

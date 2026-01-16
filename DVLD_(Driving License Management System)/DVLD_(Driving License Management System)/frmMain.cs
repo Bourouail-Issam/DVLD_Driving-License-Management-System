@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Applications.Application_Types;
+using DVLD__Driving_License_Management_System_.Applications.International_License;
 using DVLD__Driving_License_Management_System_.Applications.Local_Driving_License;
 using DVLD__Driving_License_Management_System_.Drivers;
 using DVLD__Driving_License_Management_System_.Global_Classes;
@@ -56,11 +57,11 @@ namespace DVLD__Driving_License_Management_System_
             btnPeople.BackColor = Color.FromArgb(63, 93, 127);
             panelMainForm.Visible = false;
 
-            frmListDrivers frm = new frmListDrivers(this);
-            frm.MdiParent = this;
+            frmListDrivers frm = new frmListDrivers(this);  
+            frm.MdiParent = this;                       
             frm.Show();
         }
-
+        
         private void btnUsers_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
@@ -160,6 +161,12 @@ namespace DVLD__Driving_License_Management_System_
                 new frmListLocalDrivingLicesnseApplications(this);
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalLicenseApplication frm = new frmNewInternationalLicenseApplication();
+            frm.ShowDialog();
         }
     }
 }

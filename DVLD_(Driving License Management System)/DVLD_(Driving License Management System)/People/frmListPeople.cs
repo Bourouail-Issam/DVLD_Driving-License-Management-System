@@ -40,7 +40,7 @@ namespace DVLD__Driving_License_Management_System_.People
             lbRecords.Text = dgvPeople.Rows.Count.ToString();
             txtFilterValue_TextChanged(null, null);
         }
-
+            
         private void frmPeople_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
