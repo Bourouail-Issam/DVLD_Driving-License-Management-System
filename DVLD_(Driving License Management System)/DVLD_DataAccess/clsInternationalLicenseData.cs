@@ -173,6 +173,40 @@ namespace DVLD_DataAccess
 
                 return InternationalLicenseID;
             }
-   
+
+        public static int GetActiveInternationalLicenseIDByDriverID(int DriverID)
+        {
+            int InternationalLicenseID = -1;
+
+            const string query = @"  
+                    SELECT TOP 1 InternationalLicenseID
+                    FROM InternationalLicenses 
+                    WHERE DriverID = @DriverID 
+                      AND GETDATE() BETWEEN IssueDate AND ExpirationDate 
+                      AND IsActive = 1
+                    ORDER BY ExpirationDate DESC;";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@DriverID", DriverID);
+
+                try
+                {
+                    conn.Open();
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                        InternationalLicenseID = Convert.ToInt32(result);
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
+            return InternationalLicenseID;
+        }
     }
 }

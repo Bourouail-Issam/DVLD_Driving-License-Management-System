@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BuisnessDVLD_Buisness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,17 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses.Contr
 {
     public partial class ctrlDriverLicenseInfoWithFilter : UserControl
     {
+        // Define a custom event handler delegate with parameters
+        public event Action<int> OnLicenseSelected;
+        protected virtual void PersonSelected(int LicenseID)
+        {
+            Action<int> handler = OnLicenseSelected;
+            if (handler != null)
+            {
+                handler(LicenseID); //      
+            }
+        }
         private int _LicenseID = -1;
-
         public int LicenseID
         {
             get { return ctrlDriverLicenseInfo1.LicenseID; }
@@ -33,6 +43,10 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses.Contr
             }
         }
 
+        public clsLicense SelectedLicenseInfo
+        {
+            get { return ctrlDriverLicenseInfo1.SelectedLicenseInfo;}
+        }
         public ctrlDriverLicenseInfoWithFilter()
         {
             InitializeComponent();
@@ -50,6 +64,10 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Local_Licenses.Contr
         public void LoadLicenseInfo(int LicenseID)
         {
             ctrlDriverLicenseInfo1.LoadInfo(LicenseID);
+
+            if (OnLicenseSelected != null && FilterEnabled)
+                // Raise the event with a parameter
+                OnLicenseSelected(_LicenseID);
         }
         private void btnSerachLicense_Click(object sender, EventArgs e)
         {

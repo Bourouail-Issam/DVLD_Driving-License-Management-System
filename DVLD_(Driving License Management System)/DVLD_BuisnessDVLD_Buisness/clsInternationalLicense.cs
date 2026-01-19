@@ -140,5 +140,10 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return false;
         }
+
+        public static int GetActiveInternationalLicenseIDByDriverID(int DriverID)
+        {
+            return clsInternationalLicenseData.GetActiveInternationalLicenseIDByDriverID(DriverID);
+        }
     }
 }

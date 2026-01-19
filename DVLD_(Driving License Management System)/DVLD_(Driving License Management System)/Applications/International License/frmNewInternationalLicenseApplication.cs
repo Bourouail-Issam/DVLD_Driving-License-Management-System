@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,19 +15,83 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
     public partial class frmNewInternationalLicenseApplication : Form
     {
         private FormMover _formMover;
+        private int _InternationalLicenseID = -1;
         public frmNewInternationalLicenseApplication()
         {
-            InitializeComponent();
-        }
-
-        private void ctrlDriverLicenseInfoWithFilter1_Load(object sender, EventArgs e)
-        {
-            _formMover = new FormMover(this,panelMoveForm);
+            InitializeComponent();  
         }
 
         private void btnClose_Click(object sender, EventArgs e) 
         {
             this.Close();
+        }
+
+        private void btnIssueLicense_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure you want to issue the license?",
+                "Confirm",
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            clsInternationalLicense InternationalLicense = new clsInternationalLicense();
+        }
+
+        private void ctrlDriverLicenseInfoWithFilter1_OnLicenseSelected(int obj)
+        {
+            int SelectedLicenseID = obj;
+            lblLocalLicenseID.Text = SelectedLicenseID.ToString();
+
+            llShowLicenseHistory.Enabled = (SelectedLicenseID != -1);
+
+            if (SelectedLicenseID == -1)
+                return;
+                
+
+            //check the license class, person could not issue international license without having
+            //normal license of class 3.
+
+            if (ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseClass != 3)
+            {
+                MessageBox.Show(
+                    "Selected License should be Class 3, select another one.",
+                    "Not allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                btnIssueLicense.Enabled = false;
+                return;
+            }
+
+            //check if person already have an active international license
+            int ActiveInternaionalLicenseID = clsInternationalLicense.GetActiveInternationalLicenseIDByDriverID(ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverID);
+
+            if (ActiveInternaionalLicenseID != -1)
+            {
+                MessageBox.Show(
+                    "Person already have an active international license with ID = " + ActiveInternaionalLicenseID.ToString(),
+                    "Not allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                llShowLicenseInfo.Enabled = true;
+                _InternationalLicenseID = ActiveInternaionalLicenseID;
+                btnIssueLicense.Enabled = false;
+                return;
+            }
+            btnIssueLicense.Enabled = true;
+        }
+
+        private void frmNewInternationalLicenseApplication_Load(object sender, EventArgs e)
+        {
+            lblApplicationDate.Text = clsFormat.DateToShort(DateTime.Now);
+            lblIssueDate.Text = lblApplicationDate.Text;
+            lblExpirationDate.Text = clsFormat.DateToShort(DateTime.Now.AddYears(1));//add one year.
+            lblFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalLicense).Fees.ToString();
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
+            _formMover = new FormMover(this, panelMoveForm);
         }
     }
 }
