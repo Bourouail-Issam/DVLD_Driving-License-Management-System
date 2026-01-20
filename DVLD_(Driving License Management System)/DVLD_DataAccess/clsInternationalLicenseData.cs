@@ -11,6 +11,38 @@ namespace DVLD_DataAccess
     public class clsInternationalLicenseData
     {
         // ###################   CURD Methods   ###################
+
+        public static DataTable GetAllInternationalLicenses()
+        {
+
+            DataTable dt = new DataTable();
+
+            const string query = @"
+                   SELECT InternationalLicenseID, ApplicationID,DriverID,
+		                  IssuedUsingLocalLicenseID , IssueDate, 
+                          ExpirationDate, IsActive
+		           FROM InternationalLicenses 
+                   ORDER BY  IsActive, ExpirationDate desc";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                       dt.Load(reader); 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+            return dt;
+        }
         public static DataTable GetDriverInternationalLicenses(int DriverID)
         {
 

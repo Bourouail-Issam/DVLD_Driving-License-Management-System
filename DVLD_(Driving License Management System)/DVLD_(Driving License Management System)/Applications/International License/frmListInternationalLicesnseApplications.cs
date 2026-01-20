@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BuisnessDVLD_Buisness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
     public partial class frmListInternationalLicesnseApplications : Form
     {
         private frmMain _frmMain;
+        private DataTable _dtInternationalLicenseApplications;
         public frmListInternationalLicesnseApplications(frmMain frmMain)
         {
             InitializeComponent();
@@ -22,6 +24,13 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
         private void frmListInternationalLicesnseApplications_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Fill;
+            _dtInternationalLicenseApplications = clsInternationalLicense.GetAllInternationalLicenses();
+            cbFilterBy.SelectedIndex = 0;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

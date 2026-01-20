@@ -145,5 +145,10 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsInternationalLicenseData.GetActiveInternationalLicenseIDByDriverID(DriverID);
         }
+
+        public static DataTable GetAllInternationalLicenses()
+        {
+            return clsInternationalLicenseData.GetAllInternationalLicenses();
+        }
     }
 }
