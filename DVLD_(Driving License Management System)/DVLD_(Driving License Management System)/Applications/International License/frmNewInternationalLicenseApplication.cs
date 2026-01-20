@@ -1,4 +1,6 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.Licenses;
+using DVLD__Driving_License_Management_System_.Licenses.International_Licenses;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -37,6 +39,41 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
                 return;
             }
             clsInternationalLicense InternationalLicense = new clsInternationalLicense();
+            //those are the information for the base application, because it inhirts from application, they are part of the sub class.
+
+            InternationalLicense.ApplicantPersonID = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID;
+            InternationalLicense.ApplicationDate = DateTime.Now;
+            InternationalLicense.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+            InternationalLicense.LastStatusDate = DateTime.Now;
+            InternationalLicense.PaidFees = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalLicense).Fees;
+            InternationalLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+
+
+            InternationalLicense.DriverID = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverID;
+            InternationalLicense.IssuedUsingLocalLicenseID = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID;
+            InternationalLicense.IssueDate = DateTime.Now;
+            InternationalLicense.ExpirationDate = DateTime.Now.AddYears(1);
+
+            InternationalLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+
+            if (!InternationalLicense.Save())
+            {
+                MessageBox.Show("Faild to Issue International License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            lblApplicationID.Text = InternationalLicense.ApplicationID.ToString();
+            _InternationalLicenseID = InternationalLicense.InternationalLicenseID;
+            lblInternationalLicenseID.Text = InternationalLicense.InternationalLicenseID.ToString();
+            MessageBox.Show(
+                "International License Issued Successfully with ID=" + InternationalLicense.InternationalLicenseID.ToString(),
+                "License Issued",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
+
+            btnIssueLicense.Enabled = false;
+            ctrlDriverLicenseInfoWithFilter1.FilterEnabled = false;
+            llShowLicenseInfo.Enabled = true;
         }
 
         private void ctrlDriverLicenseInfoWithFilter1_OnLicenseSelected(int obj)
@@ -54,7 +91,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
             //normal license of class 3.
 
             if (ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseClass != 3)
-            {
+            {       
                 MessageBox.Show(
                     "Selected License should be Class 3, select another one.",
                     "Not allowed",
@@ -92,6 +129,21 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
             lblFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalLicense).Fees.ToString();
             lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
             _formMover = new FormMover(this, panelMoveForm);
+        }
+
+        private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            frmShowPersonLicenseHistory frm =
+                new frmShowPersonLicenseHistory(ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID);
+            frm.ShowDialog();
+        }
+
+        private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmShowInternationalLicenseInfo frm =
+             new frmShowInternationalLicenseInfo(_InternationalLicenseID);
+            frm.ShowDialog();
         }
     }
 }
