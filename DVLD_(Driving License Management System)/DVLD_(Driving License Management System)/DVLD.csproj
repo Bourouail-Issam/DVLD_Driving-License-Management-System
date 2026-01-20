@@ -621,5 +621,8 @@
   <ItemGroup>
     <None Include="Resources\Applications.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory 32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

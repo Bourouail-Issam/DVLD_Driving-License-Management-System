@@ -1,4 +1,7 @@
-﻿using DVLD_BuisnessDVLD_Buisness;
+﻿using DVLD__Driving_License_Management_System_.Licenses;
+using DVLD__Driving_License_Management_System_.Licenses.International_Licenses;
+using DVLD__Driving_License_Management_System_.People;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -111,6 +114,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
             }
             lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
         }
+
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
@@ -176,6 +180,31 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
             else
                 _FilterDgvInternationalLicense(FilterColumn, FilterValue);
 
+        }
+
+        private void tsmPesonDetails_Click(object sender, EventArgs e)
+        {
+
+            int DriverID = (int)dgvInternationalLicenses.CurrentRow.Cells[2].Value;
+            int PersonID = clsDriver.FindByDriverID(DriverID).PersonID;
+
+            frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog();
+        }
+
+        private void tsmShowDetails_Click(object sender, EventArgs e)
+        {
+            int InternationalLicenseID = (int)dgvInternationalLicenses.CurrentRow.Cells[0].Value;
+            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(InternationalLicenseID);
+            frm.ShowDialog();
+        }
+
+        private void tsmShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            int DriverID = (int)dgvInternationalLicenses.CurrentRow.Cells[2].Value;
+            int PersonID = clsDriver.FindByDriverID(DriverID).PersonID;
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frm.ShowDialog();
         }
     }
 }
