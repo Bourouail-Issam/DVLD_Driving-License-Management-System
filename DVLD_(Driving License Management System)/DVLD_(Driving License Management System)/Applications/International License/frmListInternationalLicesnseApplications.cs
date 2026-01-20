@@ -88,5 +88,68 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
                 txtFilterValue.Focus();
             }
         }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //we allow numbers only becasue all fiters are numbers.
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+        private void _FilterDgvPeople(string columnName, string txtFilterValue)
+        {
+
+            if (!String.IsNullOrWhiteSpace(txtFilterValue))
+            {
+                _dtInternationalLicenseApplications.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
+                dgvInternationalLicenses.DataSource = _dtInternationalLicenseApplications;
+            }
+            else
+            {
+                _dtInternationalLicenseApplications.DefaultView.RowFilter = "";
+            }
+            lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
+        }
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+            //Map Selected Filter to real Column name 
+            switch (cbFilterBy.Text)
+            {
+                case "International License ID":
+                    FilterColumn = "InternationalLicenseID";
+                    break;
+                case "Application ID":
+                    {
+                        FilterColumn = "ApplicationID";
+                        break;
+                    }
+                    ;
+
+                case "Driver ID":
+                    FilterColumn = "DriverID";
+                    break;
+
+                case "Local License ID":
+                    FilterColumn = "IssuedUsingLocalLicenseID";
+                    break;
+
+                case "Is Active":
+                    FilterColumn = "IsActive";
+                    break;
+
+
+                default:
+                    FilterColumn = "None";
+                    break;
+            }
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dtInternationalLicenseApplications.DefaultView.RowFilter = "";
+                lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
+                return;
+            }
+            _FilterDgvPeople(FilterColumn, txtFilterValue.Text);
+        }
     }
 }
