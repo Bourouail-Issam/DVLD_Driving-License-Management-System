@@ -249,7 +249,7 @@
             this.rjDropdownMenuApplications.MenuItemTextColor = System.Drawing.Color.Empty;
             this.rjDropdownMenuApplications.Name = "rjDropdownMenuApplications";
             this.rjDropdownMenuApplications.PrimaryColor = System.Drawing.Color.Empty;
-            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 354);
+            this.rjDropdownMenuApplications.Size = new System.Drawing.Size(319, 376);
             // 
             // drivingToolStripMenuItem
             // 
@@ -306,6 +306,7 @@
             this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
             this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(385, 38);
             this.renewDrivingLicenseToolStripMenuItem.Text = "Renew Driving License";
+            this.renewDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.renewDrivingLicenseToolStripMenuItem_Click);
             // 
             // replacementForLostDamagedLicenseToolStripMenuItem
             // 

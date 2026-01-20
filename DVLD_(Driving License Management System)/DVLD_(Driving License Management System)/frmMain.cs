@@ -1,6 +1,7 @@
 ﻿using DVLD__Driving_License_Management_System_.Applications.Application_Types;
 using DVLD__Driving_License_Management_System_.Applications.International_License;
 using DVLD__Driving_License_Management_System_.Applications.Local_Driving_License;
+using DVLD__Driving_License_Management_System_.Applications.Renew_Local_License;
 using DVLD__Driving_License_Management_System_.Drivers;
 using DVLD__Driving_License_Management_System_.Global_Classes;
 using DVLD__Driving_License_Management_System_.People;
@@ -178,6 +179,12 @@ namespace DVLD__Driving_License_Management_System_
             frmListInternationalLicesnseApplications frm = new frmListInternationalLicesnseApplications(this);
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalDrivingLicenseApplication frm = new frmRenewLocalDrivingLicenseApplication();
+            frm.ShowDialog();
         }
     }
 }

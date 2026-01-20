@@ -10,7 +10,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 {
     public class clsInternationalLicense:clsApplication
     {
-        public enum enMode { AddNew = 0, Update = 1 };
+        public new enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
         public int InternationalLicenseID { set; get; }
