@@ -168,5 +168,16 @@ namespace DVLD__Driving_License_Management_System_
             frmNewInternationalLicenseApplication frm = new frmNewInternationalLicenseApplication();
             frm.ShowDialog();
         }
+
+        private void internationalLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnApplications.BackColor = Color.FromArgb(63, 93, 127);
+            panelMainForm.Visible = false;
+
+            frmListInternationalLicesnseApplications frm = new frmListInternationalLicesnseApplications(this);
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
