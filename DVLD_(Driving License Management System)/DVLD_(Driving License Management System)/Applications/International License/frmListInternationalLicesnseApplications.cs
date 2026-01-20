@@ -72,6 +72,9 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _dtInternationalLicenseApplications.DefaultView.RowFilter = "";
+            lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
+
             if (cbFilterBy.Text == "Is Active")
             {
                 txtFilterValue.Visible = false;
@@ -94,7 +97,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
             //we allow numbers only becasue all fiters are numbers.
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-        private void _FilterDgvPeople(string columnName, string txtFilterValue)
+        private void _FilterDgvInternationalLicense(string columnName, string txtFilterValue)
         {
 
             if (!String.IsNullOrWhiteSpace(txtFilterValue))
@@ -118,11 +121,8 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
                     FilterColumn = "InternationalLicenseID";
                     break;
                 case "Application ID":
-                    {
-                        FilterColumn = "ApplicationID";
-                        break;
-                    }
-                    ;
+                    FilterColumn = "ApplicationID";
+                    break;
 
                 case "Driver ID":
                     FilterColumn = "DriverID";
@@ -136,7 +136,6 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
                     FilterColumn = "IsActive";
                     break;
 
-
                 default:
                     FilterColumn = "None";
                     break;
@@ -149,7 +148,34 @@ namespace DVLD__Driving_License_Management_System_.Applications.International_Li
                 lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
                 return;
             }
-            _FilterDgvPeople(FilterColumn, txtFilterValue.Text);
+            _FilterDgvInternationalLicense(FilterColumn, txtFilterValue.Text);
+        }
+
+        private void cbIsReleased_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "IsActive";
+            string FilterValue = cbIsReleased.Text;
+
+            switch (FilterValue)
+            {
+                case "All":
+                    break;
+                case "Yes":
+                    FilterValue = "true";
+                    break;
+                case "No":
+                    FilterValue = "false";
+                    break;
+            }
+
+            if (FilterValue == "All")
+            {
+                _dtInternationalLicenseApplications.DefaultView.RowFilter = "";
+                lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
+            }
+            else
+                _FilterDgvInternationalLicense(FilterColumn, FilterValue);
+
         }
     }
 }
