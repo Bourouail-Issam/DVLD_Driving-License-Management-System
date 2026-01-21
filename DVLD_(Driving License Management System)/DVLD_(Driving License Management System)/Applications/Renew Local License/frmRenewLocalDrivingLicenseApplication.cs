@@ -85,5 +85,16 @@ namespace DVLD__Driving_License_Management_System_.Applications.Renew_Local_Lice
 
             btnRenewLicense.Enabled = true;
         }
+
+        private void btnRenewLicense_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure you want to Renew the license?", 
+                "Confirm", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+        }
     }
 }

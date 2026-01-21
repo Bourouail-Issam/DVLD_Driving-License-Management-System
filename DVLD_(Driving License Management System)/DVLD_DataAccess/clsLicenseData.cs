@@ -277,5 +277,33 @@ namespace DVLD_DataAccess
                 return dt;
             }
         }
+
+        public static bool DeactivateLicense(int LicenseID)
+        {
+
+            int rowsAffected = 0;
+
+            const string query = @"UPDATE Licenses
+                                   SET IsActive = 0           
+                                   WHERE LicenseID=@LicenseID";
+                                   
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@LicenseID", SqlDbType.Int).Value = LicenseID;
+                try
+                {
+                    conn.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }
