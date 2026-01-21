@@ -95,6 +95,35 @@ namespace DVLD__Driving_License_Management_System_.Applications.Renew_Local_Lice
             {
                 return;
             }
+
+            clsLicense NewLicense =
+               ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.RenewLicense(txtNotes.Text.Trim(),
+               clsGlobal.CurrentUser.UserID);
+
+            if (NewLicense == null)
+            {
+                MessageBox.Show(
+                    "Faild to Renew the License",
+                    "Error", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            lblApplicationID.Text = NewLicense.ApplicationID.ToString();
+            _NewLicenseID = NewLicense.LicenseID;
+            lblRenewedLicenseID.Text = _NewLicenseID.ToString();
+
+            MessageBox.Show(
+                "Licensed Renewed Successfully with ID=" + _NewLicenseID.ToString(), "License Issued",
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information
+                );
+
+            btnRenewLicense.Enabled = false;
+            ctrlDriverLicenseInfoWithFilter1.FilterEnabled = false;
+            llShowLicenseInfo.Enabled = true;
         }
     }
 }
