@@ -1,4 +1,5 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,67 @@ namespace DVLD__Driving_License_Management_System_.Applications.Renew_Local_Lice
 
         private void frmRenewLocalDrivingLicenseApplication_Load(object sender, EventArgs e)
         {
+            ctrlDriverLicenseInfoWithFilter1.txtLicenseIDFocus();
+
+            lblApplicationDate.Text = clsFormat.DateToShort(DateTime.Now);
+            lblIssueDate.Text = lblApplicationDate.Text;
+
+            lblExpirationDate.Text = "???";
+            lblApplicationFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.RenewDrivingLicense).Fees.ToString();
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
+
             _formMover = new FormMover(this,panelMoveForm);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ctrlDriverLicenseInfoWithFilter1_OnLicenseSelected(int obj)
+        {
+            int SelectedLicenseID = obj;
+
+            lblOldLicenseID.Text = SelectedLicenseID.ToString();
+
+            llShowLicenseHistory.Enabled = (SelectedLicenseID != -1);
+
+            if (SelectedLicenseID == -1) return;
+
+
+
+            int DefaultValidityLength = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseClassIfo.DefaultValidityLength;
+            lblExpirationDate.Text = clsFormat.DateToShort(DateTime.Now.AddYears(DefaultValidityLength));
+            lblLicenseFees.Text = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseClassIfo.ClassFees.ToString();
+            lblTotalFees.Text = (Convert.ToSingle(lblApplicationFees.Text) + Convert.ToSingle(lblLicenseFees.Text)).ToString();
+            txtNotes.Text = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.Notes;
+
+            //check the license is not Expired.
+            if (!ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.IsLicenseExpired())
+            {
+                MessageBox.Show(
+                    "Selected License is not yet expiared, it will expire on: " + clsFormat.DateToShort(ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.ExpirationDate),
+                    "Not allowed", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error
+                    );
+                btnRenewLicense.Enabled = false;
+                return;
+            }
+
+            //check the license is not Active.
+            if (!ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.IsActive)
+            {
+                MessageBox.Show(
+                    "Selected License is not Not Active, choose an active license.",
+                    "Not allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                btnRenewLicense.Enabled = false;
+                return;
+            }
+
+            btnRenewLicense.Enabled = true;
         }
     }
 }

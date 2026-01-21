@@ -182,5 +182,12 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return clsLicenseData.GetDriverLicenses(DriverID);
         }
+
+        public Boolean IsLicenseExpired()
+        {
+
+            return (this.ExpirationDate < DateTime.Now);
+
+        }
     }
 }
