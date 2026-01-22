@@ -26,9 +26,9 @@ namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_
 
             if (rbDamagedLicense.Checked)
 
-                return enIssueReason.DamagedReplacement;
+                return clsLicense.enIssueReason.DamagedReplacement;
             else
-                return enIssueReason.LostReplacement;
+                return clsLicense.enIssueReason.LostReplacement;
         }
 
         public frmReplaceLostOrDamagedLicenseApplication()
