@@ -104,6 +104,39 @@ namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_
                 MessageBoxIcon.Question) == DialogResult.No
                 )
                 return;
+
+            clsLicense NewLicense =
+              ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.Replace(_GetIssueReason(),
+              clsGlobal.CurrentUser.UserID);
+
+            if (NewLicense == null)
+            {
+                MessageBox.Show(
+                    "Faild to Issue a replacemnet for this  License",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            lblApplicationID.Text = NewLicense.ApplicationID.ToString();
+            _NewLicenseID = NewLicense.LicenseID;
+
+            lblApplicationFees.Text = clsApplication.FindBaseApplication(NewLicense.ApplicationID).PaidFees.ToString() ;
+            lblRreplacedLicenseID.Text = _NewLicenseID.ToString();
+
+            MessageBox.Show(
+                "Licensed Replaced Successfully with ID=" + _NewLicenseID.ToString(),
+                "License Issued", 
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            btnIssueReplacement.Enabled = false;
+            gbReplacementFor.Enabled = false;
+            ctrlDriverLicenseInfoWithFilter1.FilterEnabled = false;
+            llShowLicenseInfo.Enabled = true;
+
         }
     }
 }
