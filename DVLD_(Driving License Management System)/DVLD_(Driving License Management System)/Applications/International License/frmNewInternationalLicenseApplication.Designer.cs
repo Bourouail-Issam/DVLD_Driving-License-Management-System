@@ -82,7 +82,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(599, 39);
             this.lblTitle.TabIndex = 258;
-            this.lblTitle.Text = "Local Driving License Application";
+            this.lblTitle.Text = "International License Application";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelMoveForm
@@ -450,7 +450,7 @@
             this.llShowLicenseInfo.AutoSize = true;
             this.llShowLicenseInfo.Enabled = false;
             this.llShowLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.llShowLicenseInfo.Location = new System.Drawing.Point(199, 882);
+            this.llShowLicenseInfo.Location = new System.Drawing.Point(199, 901);
             this.llShowLicenseInfo.Name = "llShowLicenseInfo";
             this.llShowLicenseInfo.Size = new System.Drawing.Size(148, 20);
             this.llShowLicenseInfo.TabIndex = 285;
@@ -463,7 +463,7 @@
             this.llShowLicenseHistory.AutoSize = true;
             this.llShowLicenseHistory.Enabled = false;
             this.llShowLicenseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.llShowLicenseHistory.Location = new System.Drawing.Point(12, 882);
+            this.llShowLicenseHistory.Location = new System.Drawing.Point(12, 901);
             this.llShowLicenseHistory.Name = "llShowLicenseHistory";
             this.llShowLicenseHistory.Size = new System.Drawing.Size(169, 20);
             this.llShowLicenseHistory.TabIndex = 284;

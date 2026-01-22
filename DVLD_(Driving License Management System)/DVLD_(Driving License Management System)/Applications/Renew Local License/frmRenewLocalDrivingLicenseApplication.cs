@@ -137,8 +137,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Renew_Local_Lice
 
         private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowLicenseInfo frm =
-        new frmShowLicenseInfo(_NewLicenseID);
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(_NewLicenseID);
             frm.ShowDialog();
         }
     }
