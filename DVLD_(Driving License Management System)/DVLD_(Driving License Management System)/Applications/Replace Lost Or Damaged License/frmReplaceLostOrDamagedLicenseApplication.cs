@@ -1,4 +1,6 @@
 ﻿using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.Licenses;
+using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DVLD_BuisnessDVLD_Buisness.clsLicense;
 
 namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_Damaged_License
 {
@@ -16,6 +19,17 @@ namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_
     {
         private FormMover _formMover;
         private int _NewLicenseID = -1;
+
+        private enIssueReason _GetIssueReason()
+        {
+            //this will decide which reason to issue a replacement for
+
+            if (rbDamagedLicense.Checked)
+
+                return enIssueReason.DamagedReplacement;
+            else
+                return enIssueReason.LostReplacement;
+        }
 
         public frmReplaceLostOrDamagedLicenseApplication()
         {
@@ -66,6 +80,30 @@ namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_
             }
 
             btnIssueReplacement.Enabled = true;
+        }
+
+        private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmShowPersonLicenseHistory frm =
+                new frmShowPersonLicenseHistory(ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID);
+            frm.ShowDialog();
+        }
+
+        private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(_NewLicenseID);
+            frm.ShowDialog();
+        }
+
+        private void btnIssueReplacement_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure you want to Issue a Replacement for the license?",
+                "Confirm", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.No
+                )
+                return;
         }
     }
 }

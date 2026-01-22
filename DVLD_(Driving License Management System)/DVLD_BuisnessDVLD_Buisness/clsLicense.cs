@@ -192,7 +192,6 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             return (clsLicenseData.DeactivateLicense(this.LicenseID));
         }
-
         public clsLicense RenewLicense(string Notes, int CreatedByUserID)
         {
 
@@ -239,5 +238,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return NewLicense;
         }
+
+
     }
 }
