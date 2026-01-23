@@ -38,6 +38,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             Mode = enMode.AddNew;
         }
+
         public clsDetainedLicense(int DetainID,
         int LicenseID, DateTime DetainDate,
         float FineFees, int CreatedByUserID,
@@ -60,9 +61,41 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         // ###################   Other Methods   ###################
+        private bool _AddNewDetainedLicense()
+        {
+            //call DataAccess Layer 
+
+            this.DetainID = clsDetainedLicenseData.AddNewDetainedLicense(
+                this.LicenseID, this.DetainDate, this.FineFees, this.CreatedByUserID);
+
+            return (this.DetainID != -1);
+        }
+        // ###################   Other Methods   ###################
         public static bool IsLicenseDetained(int LicenseID)
         {
             return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
         }
+
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewDetainedLicense())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case enMode.Update:
+                    return true;
+            }
+
+            return false;
+        }
+
     }
 }

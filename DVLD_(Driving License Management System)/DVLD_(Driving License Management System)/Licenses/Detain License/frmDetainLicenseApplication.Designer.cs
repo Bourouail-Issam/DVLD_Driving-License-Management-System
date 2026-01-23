@@ -146,6 +146,7 @@
             this.btnDetain.Text = "Detain";
             this.btnDetain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDetain.UseVisualStyleBackColor = true;
+            this.btnDetain.Click += new System.EventHandler(this.btnDetain_Click);
             // 
             // pictureBox1
             // 

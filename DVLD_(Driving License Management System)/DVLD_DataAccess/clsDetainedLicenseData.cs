@@ -44,5 +44,49 @@ namespace DVLD_DataAccess
                 }
             }
         }
+
+        public static int AddNewDetainedLicense(
+         int LicenseID, DateTime DetainDate,
+         float FineFees, int CreatedByUserID)
+        {
+            int DetainID = -1;
+
+
+            const string query = @"
+                          INSERT INTO dbo.DetainedLicenses
+                              (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased)
+                          VALUES
+                              (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, 0);
+                          
+                          SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@LicenseID", LicenseID);
+                cmd.Parameters.AddWithValue("@DetainDate", DetainDate);
+                cmd.Parameters.AddWithValue("@FineFees", FineFees);
+                cmd.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                try
+                {
+                    conn.Open();
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                    {
+                        DetainID = insertedID;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
+            return DetainID;
+        }
     }
 }

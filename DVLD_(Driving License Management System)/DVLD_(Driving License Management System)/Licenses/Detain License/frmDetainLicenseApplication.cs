@@ -102,5 +102,16 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Detain_License
             // Block anything else
             e.Handled = true;
         }
+
+        private void btnDetain_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure you want to detain this license?", 
+                "Confirm",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+        }
     }
 }
