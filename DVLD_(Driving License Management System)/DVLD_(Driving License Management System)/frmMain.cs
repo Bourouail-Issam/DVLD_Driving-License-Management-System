@@ -1,6 +1,7 @@
 ﻿using DVLD__Driving_License_Management_System_.Applications.Application_Types;
 using DVLD__Driving_License_Management_System_.Applications.International_License;
 using DVLD__Driving_License_Management_System_.Applications.Local_Driving_License;
+using DVLD__Driving_License_Management_System_.Applications.Release_Detained_License;
 using DVLD__Driving_License_Management_System_.Applications.Renew_Local_License;
 using DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_Damaged_License;
 using DVLD__Driving_License_Management_System_.Drivers;
@@ -198,6 +199,24 @@ namespace DVLD__Driving_License_Management_System_
         private void detainLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmDetainLicenseApplication frm = new frmDetainLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void manageDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ResetButtonColors();
+            btnApplications.BackColor = Color.FromArgb(63, 93, 127);
+            panelMainForm.Visible = false;
+
+            frmListDetainedLicenses frm = new frmListDetainedLicenses(this);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void releaseLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicenseApplication frm = new frmReleaseDetainedLicenseApplication();
             frm.ShowDialog();
         }
     }

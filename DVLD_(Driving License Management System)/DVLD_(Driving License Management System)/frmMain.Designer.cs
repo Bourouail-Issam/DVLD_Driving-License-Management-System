@@ -386,6 +386,7 @@
             this.manageDetainedLicenseToolStripMenuItem.Name = "manageDetainedLicenseToolStripMenuItem";
             this.manageDetainedLicenseToolStripMenuItem.Size = new System.Drawing.Size(283, 38);
             this.manageDetainedLicenseToolStripMenuItem.Text = "Manage Detained License";
+            this.manageDetainedLicenseToolStripMenuItem.Click += new System.EventHandler(this.manageDetainedLicenseToolStripMenuItem_Click);
             // 
             // detainLicenseToolStripMenuItem1
             // 
@@ -403,6 +404,7 @@
             this.releaseLicenseToolStripMenuItem.Name = "releaseLicenseToolStripMenuItem";
             this.releaseLicenseToolStripMenuItem.Size = new System.Drawing.Size(283, 38);
             this.releaseLicenseToolStripMenuItem.Text = "Release license";
+            this.releaseLicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseLicenseToolStripMenuItem_Click);
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
