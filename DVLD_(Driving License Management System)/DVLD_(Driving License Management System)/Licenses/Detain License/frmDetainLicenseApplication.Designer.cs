@@ -45,7 +45,7 @@
             this.lblLicenseID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblCreatedByUser = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblDetainDate = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.ctrlDriverLicenseInfoWithFilter1.Name = "ctrlDriverLicenseInfoWithFilter1";
             this.ctrlDriverLicenseInfoWithFilter1.Size = new System.Drawing.Size(959, 523);
             this.ctrlDriverLicenseInfoWithFilter1.TabIndex = 299;
+            this.ctrlDriverLicenseInfoWithFilter1.OnLicenseSelected += new System.Action<int>(this.ctrlDriverLicenseInfoWithFilter1_OnLicenseSelected);
             // 
             // lblTitle
             // 
@@ -200,7 +201,7 @@
             this.gpDetain.Controls.Add(this.lblLicenseID);
             this.gpDetain.Controls.Add(this.label3);
             this.gpDetain.Controls.Add(this.label6);
-            this.gpDetain.Controls.Add(this.label7);
+            this.gpDetain.Controls.Add(this.lblCreatedByUser);
             this.gpDetain.Controls.Add(this.label8);
             this.gpDetain.Controls.Add(this.lblDetainDate);
             this.gpDetain.Controls.Add(this.label9);
@@ -228,11 +229,11 @@
             // lblLicenseID
             // 
             this.lblLicenseID.AutoSize = true;
-            this.lblLicenseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLicenseID.Location = new System.Drawing.Point(579, 43);
             this.lblLicenseID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLicenseID.Name = "lblLicenseID";
-            this.lblLicenseID.Size = new System.Drawing.Size(49, 20);
+            this.lblLicenseID.Size = new System.Drawing.Size(44, 20);
             this.lblLicenseID.TabIndex = 191;
             this.lblLicenseID.Text = "[???]";
             // 
@@ -258,16 +259,16 @@
             this.label6.TabIndex = 181;
             this.label6.Text = "Created By :";
             // 
-            // label7
+            // lblCreatedByUser
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(579, 91);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 20);
-            this.label7.TabIndex = 180;
-            this.label7.Text = "[????]";
+            this.lblCreatedByUser.AutoSize = true;
+            this.lblCreatedByUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatedByUser.Location = new System.Drawing.Point(579, 91);
+            this.lblCreatedByUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCreatedByUser.Name = "lblCreatedByUser";
+            this.lblCreatedByUser.Size = new System.Drawing.Size(53, 20);
+            this.lblCreatedByUser.TabIndex = 180;
+            this.lblCreatedByUser.Text = "[????]";
             // 
             // label8
             // 
@@ -283,11 +284,11 @@
             // lblDetainDate
             // 
             this.lblDetainDate.AutoSize = true;
-            this.lblDetainDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetainDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetainDate.Location = new System.Drawing.Point(200, 95);
             this.lblDetainDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetainDate.Name = "lblDetainDate";
-            this.lblDetainDate.Size = new System.Drawing.Size(109, 20);
+            this.lblDetainDate.Size = new System.Drawing.Size(97, 20);
             this.lblDetainDate.TabIndex = 176;
             this.lblDetainDate.Text = "[??/??/????]";
             // 
@@ -305,11 +306,11 @@
             // lblDetainID
             // 
             this.lblDetainID.AutoSize = true;
-            this.lblDetainID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetainID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetainID.Location = new System.Drawing.Point(173, 47);
             this.lblDetainID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetainID.Name = "lblDetainID";
-            this.lblDetainID.Size = new System.Drawing.Size(49, 20);
+            this.lblDetainID.Size = new System.Drawing.Size(44, 20);
             this.lblDetainID.TabIndex = 173;
             this.lblDetainID.Text = "[???]";
             // 
@@ -396,7 +397,7 @@
         private System.Windows.Forms.Label lblLicenseID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblCreatedByUser;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblDetainDate;
         private System.Windows.Forms.Label label9;

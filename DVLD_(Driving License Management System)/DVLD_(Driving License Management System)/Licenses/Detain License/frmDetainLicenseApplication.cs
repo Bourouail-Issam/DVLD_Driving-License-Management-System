@@ -14,7 +14,8 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Detain_License
     public partial class frmDetainLicenseApplication : Form
     {
         private FormMover _formMover;
-        private int _NewLicenseID = -1;
+        private int _DetainID = -1;
+        private int _SelectedLicenseID = -1;
         public frmDetainLicenseApplication()
         {
             InitializeComponent();
@@ -27,7 +28,46 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Detain_License
 
         private void frmDetainLicenseApplication_Load(object sender, EventArgs e)
         {
+            lblDetainDate.Text = clsFormat.DateToShort(DateTime.Now);
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
+
             _formMover = new FormMover(this, panelMoveForm);
+        }
+
+        private void ctrlDriverLicenseInfoWithFilter1_OnLicenseSelected(int obj)
+        {
+            _SelectedLicenseID = obj;
+
+            lblLicenseID.Text = _SelectedLicenseID.ToString();
+
+            llShowLicenseHistory.Enabled = (_SelectedLicenseID != -1);
+
+            if (_SelectedLicenseID == -1)
+                return;
+
+            //dont allow a replacement if is Active .
+            if (!ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.IsActive)
+            {
+                MessageBox.Show("Selected License is not Not Active, choose an active license."
+                    , "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnDetain.Enabled = false;
+                return;
+            }
+
+            //ToDo: make sure the license is not detained already.
+            if (ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.IsDetained)
+            {
+                MessageBox.Show(
+                    "Selected License i already detained, choose another one.", 
+                    "Not allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                btnDetain.Enabled = false;
+                return;
+            }
+            txtFineFees.Focus();
+            btnDetain.Enabled = true;
         }
     }
 }
