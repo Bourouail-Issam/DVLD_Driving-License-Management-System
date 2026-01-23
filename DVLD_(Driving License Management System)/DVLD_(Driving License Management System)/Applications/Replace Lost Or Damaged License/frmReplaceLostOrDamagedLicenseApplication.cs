@@ -19,7 +19,17 @@ namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_
     {
         private FormMover _formMover;
         private int _NewLicenseID = -1;
+        private int _GetApplicationTypeID()
+        {
+            //this will decide which application type to use accirding 
+            // to user selection.
 
+            if (rbDamagedLicense.Checked)
+
+                return (int)clsApplication.enApplicationType.ReplaceDamagedDrivingLicense;
+            else
+                return (int)clsApplication.enApplicationType.ReplaceLostDrivingLicense;
+        }
         private enIssueReason _GetIssueReason()
         {
             //this will decide which reason to issue a replacement for
@@ -49,12 +59,15 @@ namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_
         {
             lblTitle.Text = "Replacement for Damaged License";
             this.Text = lblTitle.Text;
+            lblApplicationFees.Text = clsApplicationType.Find(_GetApplicationTypeID()).Fees.ToString();
+
         }
 
         private void rbLostLicense_CheckedChanged(object sender, EventArgs e)
         {
             lblTitle.Text = "Replacement for Lost License";
             this.Text = lblTitle.Text;
+            lblApplicationFees.Text = clsApplicationType.Find(_GetApplicationTypeID()).Fees.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -123,7 +136,6 @@ namespace DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_
             lblApplicationID.Text = NewLicense.ApplicationID.ToString();
             _NewLicenseID = NewLicense.LicenseID;
 
-            lblApplicationFees.Text = clsApplication.FindBaseApplication(NewLicense.ApplicationID).PaidFees.ToString() ;
             lblRreplacedLicenseID.Text = _NewLicenseID.ToString();
 
             MessageBox.Show(

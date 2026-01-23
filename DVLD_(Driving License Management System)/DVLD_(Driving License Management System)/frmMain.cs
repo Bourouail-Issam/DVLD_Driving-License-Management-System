@@ -5,6 +5,7 @@ using DVLD__Driving_License_Management_System_.Applications.Renew_Local_License;
 using DVLD__Driving_License_Management_System_.Applications.Replace_Lost_Or_Damaged_License;
 using DVLD__Driving_License_Management_System_.Drivers;
 using DVLD__Driving_License_Management_System_.Global_Classes;
+using DVLD__Driving_License_Management_System_.Licenses.Detain_License;
 using DVLD__Driving_License_Management_System_.People;
 using DVLD__Driving_License_Management_System_.Tests.Test_Types;
 using DVLD__Driving_License_Management_System_.User;
@@ -191,6 +192,12 @@ namespace DVLD__Driving_License_Management_System_
         private void replacementForLostDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReplaceLostOrDamagedLicenseApplication frm = new frmReplaceLostOrDamagedLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void detainLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmDetainLicenseApplication frm = new frmDetainLicenseApplication();
             frm.ShowDialog();
         }
     }
