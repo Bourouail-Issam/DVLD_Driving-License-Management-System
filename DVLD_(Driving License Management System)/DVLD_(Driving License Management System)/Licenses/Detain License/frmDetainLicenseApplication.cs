@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD__Driving_License_Management_System_.Licenses.Detain_License
 {
@@ -68,6 +69,38 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Detain_License
             }
             txtFineFees.Focus();
             btnDetain.Enabled = true;
+        }
+
+        private void txtFineFees_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFineFees.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtFineFees, "Fees cannot be empty!");
+                return;
+            }
+            else
+                errorProvider1.SetError(txtFineFees, null);
+        }
+
+        private void txtFineFees_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Always allow control keys (Backspace, Delete, etc.)
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            // Allow digits
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            // Allow ONE dot, not as first char
+            if (e.KeyChar == '.' && !txt.Text.Contains(".") && txt.SelectionStart > 0)
+                return;
+
+            // Block anything else
+            e.Handled = true;
         }
     }
 }
