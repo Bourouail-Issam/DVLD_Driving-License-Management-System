@@ -88,5 +88,43 @@ namespace DVLD_DataAccess
 
             return DetainID;
         }
+        public static bool UpdateDetainedLicense(int DetainID,
+        int LicenseID, DateTime DetainDate,
+        float FineFees, int CreatedByUserID)
+        {
+
+            int rowsAffected = 0;
+
+            const string query = @"UPDATE dbo.DetainedLicenses
+                              SET LicenseID = @LicenseID, 
+                                  DetainDate = @DetainDate, 
+                                  FineFees = @FineFees,
+                                  CreatedByUserID = @CreatedByUserID
+                              WHERE DetainID=@DetainID;";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@DetainID", DetainID);
+                cmd.Parameters.AddWithValue("@LicenseID", LicenseID);
+                cmd.Parameters.AddWithValue("@DetainDate", DetainDate);
+                cmd.Parameters.AddWithValue("@FineFees", FineFees);
+                cmd.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+
+                try
+                {
+                    conn.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+            return (rowsAffected > 0);
+        }
+
     }
 }

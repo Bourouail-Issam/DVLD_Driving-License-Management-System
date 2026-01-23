@@ -76,6 +76,13 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
         }
 
+        private bool _UpdateDetainedLicense()
+        {
+            //call DataAccess Layer 
+
+            return clsDetainedLicenseData.UpdateDetainedLicense(
+                this.DetainID, this.LicenseID, this.DetainDate, this.FineFees, this.CreatedByUserID);
+        }
 
         public bool Save()
         {
@@ -91,7 +98,7 @@ namespace DVLD_BuisnessDVLD_Buisness
                         return false;
 
                 case enMode.Update:
-                    return true;
+                    return _UpdateDetainedLicense();
             }
 
             return false;
