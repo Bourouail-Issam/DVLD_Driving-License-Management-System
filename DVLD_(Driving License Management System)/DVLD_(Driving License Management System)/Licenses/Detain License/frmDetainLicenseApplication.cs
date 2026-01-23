@@ -105,6 +105,11 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Detain_License
 
         private void btnDetain_Click(object sender, EventArgs e)
         {
+            if (!this.ValidateChildren())
+            {
+                return;
+            }
+
             if (MessageBox.Show(
                 "Are you sure you want to detain this license?", 
                 "Confirm",
@@ -112,6 +117,26 @@ namespace DVLD__Driving_License_Management_System_.Licenses.Detain_License
             {
                 return;
             }
+
+            _DetainID = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.Detain(Convert.ToSingle(txtFineFees.Text), clsGlobal.CurrentUser.UserID);
+            if (_DetainID == -1)
+            {
+                MessageBox.Show(
+                    "Faild to Detain License", 
+                    "Error", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            lblDetainID.Text = _DetainID.ToString();
+            MessageBox.Show("License Detained Successfully with ID=" + _DetainID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            btnDetain.Enabled = false;
+            ctrlDriverLicenseInfoWithFilter1.FilterEnabled = false;
+            txtFineFees.Enabled = false;
+            llShowLicenseInfo.Enabled = true;
+
         }
     }
 }
