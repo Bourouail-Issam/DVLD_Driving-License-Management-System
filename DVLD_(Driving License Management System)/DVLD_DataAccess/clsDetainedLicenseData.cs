@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -88,6 +89,7 @@ namespace DVLD_DataAccess
 
             return DetainID;
         }
+
         public static bool UpdateDetainedLicense(int DetainID,
         int LicenseID, DateTime DetainDate,
         float FineFees, int CreatedByUserID)
@@ -126,5 +128,34 @@ namespace DVLD_DataAccess
             return (rowsAffected > 0);
         }
 
+        public static DataTable GetAllDetainedLicenses()
+        {
+            DataTable dt = new DataTable();
+
+            const string query = @"SELECT DetainID, LicenseID, DetainDate, IsReleased, FineFees, 
+                                          ReleaseDate, NationalNo, FullName, ReleaseApplicationID
+                                   FROM detainedLicenses_View 
+                                   ORDER BY IsReleased ,DetainID;";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
+            return dt;
+        }
     }
 }

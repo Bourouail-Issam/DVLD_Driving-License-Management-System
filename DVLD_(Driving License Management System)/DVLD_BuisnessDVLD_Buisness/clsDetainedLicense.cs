@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,12 +71,6 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return (this.DetainID != -1);
         }
-        // ###################   Other Methods   ###################
-        public static bool IsLicenseDetained(int LicenseID)
-        {
-            return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
-        }
-
         private bool _UpdateDetainedLicense()
         {
             //call DataAccess Layer 
@@ -83,6 +78,17 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsDetainedLicenseData.UpdateDetainedLicense(
                 this.DetainID, this.LicenseID, this.DetainDate, this.FineFees, this.CreatedByUserID);
         }
+
+        public static DataTable GetAllDetainedLicenses()
+        {
+            return clsDetainedLicenseData.GetAllDetainedLicenses();
+        }
+        // ###################   Other Methods   ###################
+        public static bool IsLicenseDetained(int LicenseID)
+        {
+            return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
+        }
+
 
         public bool Save()
         {
