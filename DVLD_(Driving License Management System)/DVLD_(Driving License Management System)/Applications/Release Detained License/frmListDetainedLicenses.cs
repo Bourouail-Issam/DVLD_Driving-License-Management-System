@@ -87,5 +87,96 @@ namespace DVLD__Driving_License_Management_System_.Applications.Release_Detained
                 txtFilterValue.Focus();
             }
         }
+        private void _FilterDgvInternationalLicense(string columnName, string txtFilterValue)
+        {
+
+            if (!String.IsNullOrWhiteSpace(txtFilterValue))
+            {
+                _dtDetainedLicenses.DefaultView.RowFilter = $"CONVERT({columnName}, 'System.String') LIKE '{txtFilterValue}%'";
+                dgvDetainedLicenses.DataSource = _dtDetainedLicenses;
+            }
+            else
+            {
+                _dtDetainedLicenses.DefaultView.RowFilter = "";
+            }
+            lbRecords.Text = dgvDetainedLicenses.Rows.Count.ToString();
+        }
+        private void cbIsReleased_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "IsReleased";
+            string FilterValue = cbIsReleased.Text;
+
+            switch (FilterValue)
+            {
+                case "All":
+                    break;
+                case "Yes":
+                    FilterValue = "true";
+                    break;
+                case "No":
+                    FilterValue = "false";
+                    break;
+            }
+            if (FilterValue == "All")
+            {
+                _dtDetainedLicenses.DefaultView.RowFilter = "";
+                lbRecords.Text = dgvDetainedLicenses.Rows.Count.ToString();
+            }
+            else
+                _FilterDgvInternationalLicense(FilterColumn, FilterValue);
+        }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //we allow number incase person id or user id is selected.
+            if (cbFilterBy.Text == "Detain ID" || cbFilterBy.Text == "Release Application ID")
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "";
+            //Map Selected Filter to real Column name 
+            switch (cbFilterBy.Text)
+            {
+                case "Detain ID":
+                    FilterColumn = "DetainID";
+                    break;
+                case "Is Released":
+                    {
+                        FilterColumn = "IsReleased";
+                        break;
+                    }
+                    ;
+
+                case "National No.":
+                    FilterColumn = "NationalNo";
+                    break;
+
+
+                case "Full Name":
+                    FilterColumn = "FullName";
+                    break;
+
+                case "Release Application ID":
+                    FilterColumn = "ReleaseApplicationID";
+                    break;
+
+                default:
+                    FilterColumn = "None";
+                    break;
+            }
+
+
+            //Reset the filters in case nothing selected or filter value conains nothing.
+            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            {
+                _dtDetainedLicenses.DefaultView.RowFilter = "";
+                lbRecords.Text = dgvDetainedLicenses.Rows.Count.ToString();
+                return;
+            }
+            _FilterDgvInternationalLicense(FilterColumn, txtFilterValue.Text);
+
+        }
     }
 }
