@@ -183,6 +183,7 @@
             this.btnRelease.Text = "Release";
             this.btnRelease.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRelease.UseVisualStyleBackColor = true;
+            this.btnRelease.Click += new System.EventHandler(this.btnRelease_Click);
             // 
             // lblTitle
             // 

@@ -136,7 +136,11 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
         }
 
-
+        public bool ReleaseDetainedLicense(int ReleasedByUserID, int ReleaseApplicationID)
+        {
+            return clsDetainedLicenseData.ReleaseDetainedLicense(this.DetainID,
+                   ReleasedByUserID, ReleaseApplicationID);
+        }
         public bool Save()
         {
             switch (Mode)

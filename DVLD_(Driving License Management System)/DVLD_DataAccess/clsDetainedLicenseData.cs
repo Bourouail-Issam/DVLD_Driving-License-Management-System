@@ -278,5 +278,39 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+        public static bool ReleaseDetainedLicense(int DetainID,
+                 int ReleasedByUserID, int ReleaseApplicationID)
+        {
+
+            int rowsAffected = 0;
+
+            const string query = @"UPDATE dbo.DetainedLicenses
+                              SET IsReleased = 1, 
+                                  ReleaseDate = @ReleaseDate, 
+                                  ReleaseApplicationID = @ReleaseApplicationID,                    
+                                  ReleasedByUserID = @ReleasedByUserID   
+                              WHERE DetainID=@DetainID;";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@DetainID", DetainID);
+                cmd.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
+                cmd.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+                cmd.Parameters.AddWithValue("@ReleaseDate", DateTime.Now);
+                try
+                {
+                    conn.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    return false;
+                }
+            }
+            return (rowsAffected > 0);
+        }
     }
 }

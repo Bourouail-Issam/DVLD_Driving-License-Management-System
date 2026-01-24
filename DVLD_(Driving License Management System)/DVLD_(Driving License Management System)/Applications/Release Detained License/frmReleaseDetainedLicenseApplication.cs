@@ -88,5 +88,19 @@ namespace DVLD__Driving_License_Management_System_.Applications.Release_Detained
         new frmShowLicenseInfo(_SelectedLicenseID);
             frm.ShowDialog();
         }
+
+        private void btnRelease_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure you want to release this detained  license?", 
+                "Confirm", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+
+            int ApplicationID = -1;
+
+        }
     }
 }
