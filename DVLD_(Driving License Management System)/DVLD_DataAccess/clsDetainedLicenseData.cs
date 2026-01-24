@@ -47,8 +47,8 @@ namespace DVLD_DataAccess
         }
 
         public static int AddNewDetainedLicense(
-         int LicenseID, DateTime DetainDate,
-         float FineFees, int CreatedByUserID)
+            int LicenseID, DateTime DetainDate,
+            float FineFees, int CreatedByUserID)
         {
             int DetainID = -1;
 
@@ -91,8 +91,8 @@ namespace DVLD_DataAccess
         }
 
         public static bool UpdateDetainedLicense(int DetainID,
-        int LicenseID, DateTime DetainDate,
-        float FineFees, int CreatedByUserID)
+            int LicenseID, DateTime DetainDate,
+            float FineFees, int CreatedByUserID)
         {
 
             int rowsAffected = 0;
@@ -156,6 +156,66 @@ namespace DVLD_DataAccess
             }
 
             return dt;
+        }
+
+        public static bool GetDetainedLicenseInfoByID(int DetainID,
+            ref int LicenseID, ref DateTime DetainDate,
+            ref float FineFees, ref int CreatedByUserID,
+            ref bool IsReleased, ref DateTime ReleaseDate,
+            ref int ReleasedByUserID, ref int ReleaseApplicationID)
+        {
+            bool isFound = false;
+
+
+            const string query = @"SELECT DetainID, LicenseID, DetainDate, FineFees, CreatedByUserID,
+                        IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID
+                 FROM DetainedLicenses 
+                 WHERE DetainID = @DetainID";
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@DetainID", SqlDbType.Int).Value = DetainID;
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            LicenseID = (int)reader["LicenseID"];
+                            DetainDate = (DateTime)reader["DetainDate"];
+                            FineFees = Convert.ToSingle(reader["FineFees"]);
+                            CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                            IsReleased = (bool)reader["IsReleased"];
+
+                            // those fildes in Database is not requirerd they need hck if nulls
+                            ReleaseDate = reader["ReleaseDate"] == DBNull.Value 
+                                ? DateTime.MaxValue
+                                : (DateTime)reader["ReleaseDate"];
+
+                            ReleasedByUserID = reader["ReleasedByUserID"] == DBNull.Value
+                                ? -1
+                                : (int)reader["ReleasedByUserID"];
+
+                            ReleaseApplicationID = reader["ReleaseApplicationID"] == DBNull.Value
+                                ? -1
+                                : (int)reader["ReleaseApplicationID"];
+
+                            // The record was found
+                            isFound = true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    isFound = false;
+                }
+            }
+            return isFound;
         }
     }
 }
