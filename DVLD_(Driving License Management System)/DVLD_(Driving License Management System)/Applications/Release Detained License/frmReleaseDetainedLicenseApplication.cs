@@ -101,6 +101,31 @@ namespace DVLD__Driving_License_Management_System_.Applications.Release_Detained
 
             int ApplicationID = -1;
 
+            bool IsReleased = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.ReleaseDetainedLicense(clsGlobal.CurrentUser.UserID, ref ApplicationID); ;
+
+            lblApplicationID.Text = ApplicationID.ToString();
+
+            if (!IsReleased)
+            {
+                MessageBox.Show(
+                    "Faild to to release the Detain License", 
+                    "Error",
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
+
+            MessageBox.Show(
+                "Detained License released Successfully ",
+                "Detained License Released",
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information
+                );
+
+            btnRelease.Enabled = false;
+            ctrlDriverLicenseInfoWithFilter1.FilterEnabled = false;
+            llShowLicenseInfo.Enabled = true;
         }
     }
 }
