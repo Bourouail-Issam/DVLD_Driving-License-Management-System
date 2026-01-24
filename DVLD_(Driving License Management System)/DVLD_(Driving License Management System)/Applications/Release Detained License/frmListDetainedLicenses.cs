@@ -1,4 +1,7 @@
-﻿using DVLD__Driving_License_Management_System_.Licenses.Detain_License;
+﻿using DVLD__Driving_License_Management_System_.Licenses;
+using DVLD__Driving_License_Management_System_.Licenses.Detain_License;
+using DVLD__Driving_License_Management_System_.Licenses.Local_Licenses;
+using DVLD__Driving_License_Management_System_.People;
 using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -195,6 +198,31 @@ namespace DVLD__Driving_License_Management_System_.Applications.Release_Detained
             frm.ShowDialog();
             //refresh
             frmListDetainedLicenses_Load(null, null);
+        }
+
+        private void PesonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)dgvDetainedLicenses.CurrentRow.Cells[1].Value;
+            int PersonID = clsLicense.Find(LicenseID).DriverInfo.PersonID;
+
+            frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog();
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)dgvDetainedLicenses.CurrentRow.Cells[1].Value;
+
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+            frm.ShowDialog();
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)dgvDetainedLicenses.CurrentRow.Cells[1].Value;
+            int PersonID = clsLicense.Find(LicenseID).DriverInfo.PersonID;
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frm.ShowDialog();
         }
     }
 }
