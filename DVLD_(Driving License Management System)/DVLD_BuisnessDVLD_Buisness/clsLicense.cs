@@ -38,6 +38,7 @@ namespace DVLD_BuisnessDVLD_Buisness
             }
         }
 
+        public clsDetainedLicense DetainedInfo { set; get; }
         public bool IsDetained
         {
             get { return clsDetainedLicense.IsLicenseDetained(this.LicenseID); }
@@ -85,6 +86,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             this.LicenseClassIfo = clsLicenseClass.Find(this.LicenseClass);
             this.DriverInfo = clsDriver.FindByDriverID(DriverID);
+            this.DetainedInfo = clsDetainedLicense.FindByLicenseID(this.LicenseID);
             Mode = enMode.Update;
         }
 
