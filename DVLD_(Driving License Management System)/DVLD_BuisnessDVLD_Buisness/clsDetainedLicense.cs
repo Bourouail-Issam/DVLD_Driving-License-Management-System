@@ -71,6 +71,7 @@ namespace DVLD_BuisnessDVLD_Buisness
 
             return (this.DetainID != -1);
         }
+
         private bool _UpdateDetainedLicense()
         {
             //call DataAccess Layer 
@@ -78,10 +79,12 @@ namespace DVLD_BuisnessDVLD_Buisness
             return clsDetainedLicenseData.UpdateDetainedLicense(
                 this.DetainID, this.LicenseID, this.DetainDate, this.FineFees, this.CreatedByUserID);
         }
+
         public static DataTable GetAllDetainedLicenses()
         {
             return clsDetainedLicenseData.GetAllDetainedLicenses();
         }
+
         public static clsDetainedLicense Find(int DetainID)
         {
             int LicenseID = -1, ReleasedByUserID = -1, ReleaseApplicationID = -1, CreatedByUserID = -1;
@@ -103,6 +106,29 @@ namespace DVLD_BuisnessDVLD_Buisness
             else
                 return null;
         }
+
+        public static clsDetainedLicense FindByLicenseID(int LicenseID)
+        {
+            int DetainID = -1; DateTime DetainDate = DateTime.Now;
+            float FineFees = 0; int CreatedByUserID = -1;
+            bool IsReleased = false; DateTime ReleaseDate = DateTime.MaxValue;
+            int ReleasedByUserID = -1; int ReleaseApplicationID = -1;
+
+            if (clsDetainedLicenseData.GetDetainedLicenseInfoByLicenseID(LicenseID,
+            ref DetainID, ref DetainDate,
+            ref FineFees, ref CreatedByUserID,
+            ref IsReleased, ref ReleaseDate,
+            ref ReleasedByUserID, ref ReleaseApplicationID))
+
+                return new clsDetainedLicense(DetainID,
+                     LicenseID, DetainDate,
+                     FineFees, CreatedByUserID,
+                     IsReleased, ReleaseDate,
+                     ReleasedByUserID, ReleaseApplicationID);
+            else
+                return null;
+        }
+
 
         // ###################   Other Methods   ###################
         public static bool IsLicenseDetained(int LicenseID)

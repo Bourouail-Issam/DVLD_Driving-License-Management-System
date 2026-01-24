@@ -217,5 +217,66 @@ namespace DVLD_DataAccess
             }
             return isFound;
         }
+
+        public static bool GetDetainedLicenseInfoByLicenseID(int LicenseID,
+            ref int DetainID, ref DateTime DetainDate,
+            ref float FineFees, ref int CreatedByUserID,
+            ref bool IsReleased, ref DateTime ReleaseDate,
+            ref int ReleasedByUserID, ref int ReleaseApplicationID)
+        {
+            bool isFound = false;      
+
+            string query = @"SELECT top 1 * 
+                             FROM DetainedLicenses 
+                             WHERE LicenseID = @LicenseID 
+                             ORDER BY DetainID DESC";
+
+
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@LicenseID", SqlDbType.Int).Value = LicenseID;
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            DetainID = (int)reader["DetainID"];
+                            DetainDate = (DateTime)reader["DetainDate"];
+                            FineFees = Convert.ToSingle(reader["FineFees"]);
+                            CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                            IsReleased = (bool)reader["IsReleased"];
+
+                            // those fildes in Database is not requirerd they need hck if nulls
+                            ReleaseDate = reader["ReleaseDate"] == DBNull.Value
+                                ? DateTime.MaxValue
+                                : (DateTime)reader["ReleaseDate"];
+
+                            ReleasedByUserID = reader["ReleasedByUserID"] == DBNull.Value
+                                ? -1
+                                : (int)reader["ReleasedByUserID"];
+
+                            ReleaseApplicationID = reader["ReleaseApplicationID"] == DBNull.Value
+                                ? -1
+                                : (int)reader["ReleaseApplicationID"];
+
+                            // The record was found
+                            isFound = true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Console.WriteLine("Error: " + ex.Message);
+                    isFound = false;
+                }
+            }
+
+            return isFound;
+        }
     }
 }
