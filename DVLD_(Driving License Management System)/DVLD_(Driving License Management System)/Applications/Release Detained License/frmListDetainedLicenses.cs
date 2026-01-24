@@ -1,4 +1,5 @@
-﻿using DVLD_BuisnessDVLD_Buisness;
+﻿using DVLD__Driving_License_Management_System_.Licenses.Detain_License;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Release_Detained
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            _frmMain.MakeMainPictureVisible();
             this.Close();
         }
 
@@ -177,6 +179,22 @@ namespace DVLD__Driving_License_Management_System_.Applications.Release_Detained
             }
             _FilterDgvInternationalLicense(FilterColumn, txtFilterValue.Text);
 
+        }
+
+        private void btnDetainLicense_Click(object sender, EventArgs e)
+        {
+            frmDetainLicenseApplication frm = new frmDetainLicenseApplication();
+            frm.ShowDialog();
+            //refresh
+            frmListDetainedLicenses_Load(null, null);
+        }
+
+        private void btnReleaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicenseApplication frm = new frmReleaseDetainedLicenseApplication();
+            frm.ShowDialog();
+            //refresh
+            frmListDetainedLicenses_Load(null, null);
         }
     }
 }
