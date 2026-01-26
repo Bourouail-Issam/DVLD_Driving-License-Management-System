@@ -41,7 +41,7 @@ namespace DVLD__Driving_License_Management_System_.Applications.Controls
             lblStatus.Text = _Application.StatusText;
             lblType.Text = _Application.ApplicationTypeInfo.Title;
             lblFees.Text = _Application.PaidFees.ToString();
-            lblApplicant.Text = _Application.ApplicantFullName;
+            lblApplicant.Text = _Application.PersonInfo.FullName;
             lblDate.Text = clsFormat.DateToShort(_Application.ApplicationDate);
             lblStatusDate.Text = clsFormat.DateToShort(_Application.LastStatusDate);
             lblCreatedByUser.Text = _Application.CreatedByUserInfo.UserName;

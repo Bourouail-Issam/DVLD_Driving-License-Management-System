@@ -1,4 +1,6 @@
-﻿using DVLD_BuisnessDVLD_Buisness;
+﻿using DVLD__Driving_License_Management_System_.Licenses;
+using DVLD__Driving_License_Management_System_.People;
+using DVLD_BuisnessDVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -130,6 +132,27 @@ namespace DVLD__Driving_License_Management_System_.Drivers
                 return;
             }
             _FilterDgvPeople(FilterColumn, txtFilterValue.Text);
+        }
+
+        private void tsmShowDetails_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvDrivers.CurrentRow.Cells[1].Value;
+            frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog();
+            //refresh
+            frmListDrivers_Load(null, null);
+        }
+
+        private void tsmIssueInternationalLicense_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented yet.");
+        }
+
+        private void tsmShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvDrivers.CurrentRow.Cells[1].Value;
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
+            frm.ShowDialog();
         }
     }
 }

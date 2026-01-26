@@ -22,7 +22,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             get
             {
-                return clsPerson.Find(ApplicantPersonID).FullName;
+                return base.PersonInfo.FullName;
             }
         }
 

@@ -58,7 +58,6 @@ namespace DVLD__Driving_License_Management_System_
         {
             ResetButtonColors();
             btnDrivers.BackColor = Color.FromArgb(63, 93, 127);
-            btnPeople.BackColor = Color.FromArgb(63, 93, 127);
             panelMainForm.Visible = false;
 
             frmListDrivers frm = new frmListDrivers(this);  

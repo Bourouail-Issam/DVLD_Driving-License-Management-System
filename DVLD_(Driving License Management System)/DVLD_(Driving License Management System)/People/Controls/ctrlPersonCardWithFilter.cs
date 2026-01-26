@@ -33,6 +33,16 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
             }
         }
 
+        private bool _showAddPerson = true;
+        public bool ShowAddPerson 
+        {
+            get { return _showAddPerson; }
+            set 
+            {
+                _showAddPerson = value;
+                btnAddNewPerson.Enabled = _showAddPerson;
+            }
+        }
         public ctrlPersonCardWithFilter()
         {
             InitializeComponent();
@@ -72,7 +82,8 @@ namespace DVLD__Driving_License_Management_System_.People.Controls
                     break;
             }
             // Trigger the event to send data back to the caller form.
-            allowChangeTab?.Invoke(ctrPersonCard1.PersonId);
+            if(_FilterEnabled)
+                allowChangeTab?.Invoke(ctrPersonCard1.PersonId);
         }
 
         public void LoadPersonInfo(int PersonID)

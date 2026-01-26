@@ -23,13 +23,14 @@ namespace DVLD_BuisnessDVLD_Buisness
 
         public int ApplicationID { set; get; }
         public int ApplicantPersonID { set; get; }
-        public string ApplicantFullName
-        {
-            get
-            {
-                return clsPerson.Find(ApplicantPersonID).FullName;
-            }
-        }
+        public clsPerson PersonInfo;
+        //public string ApplicantFullName
+        //{
+        //    get
+        //    {
+        //        return clsPerson.Find(ApplicantPersonID).FullName;
+        //    }
+        //}
 
         public DateTime ApplicationDate { set; get; }
         public int ApplicationTypeID { set; get; }
@@ -81,6 +82,7 @@ namespace DVLD_BuisnessDVLD_Buisness
         {
             this.ApplicationID = ApplicationID;
             this.ApplicantPersonID = ApplicantPersonID;
+            this.PersonInfo = clsPerson.Find(ApplicantPersonID);
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationTypeInfo = clsApplicationType.Find(ApplicationTypeID);
