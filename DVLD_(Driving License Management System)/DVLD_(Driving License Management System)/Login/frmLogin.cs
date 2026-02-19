@@ -21,116 +21,168 @@ namespace DVLD__Driving_License_Management_System_.Login
         public frmLogin()
         {
             InitializeComponent();
+            // Set default button to login when Enter is pressed
             this.AcceptButton = btnLogin;
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Form load event - retrieves stored credentials if available
+        /// </summary>
+        private void LoadStoredCredentials()
         {
-            _formMover = new FormMover(this,panelMoveForm);
-            _formMover = new FormMover(this,panelSideBar);
+            string username = string.Empty;
+            string password = string.Empty;
 
-            string Username = "", Password = "";
-            if (clsGlobal.GetStoredCredential(ref Username, ref Password))
+            if (clsGlobal.GetStoredCredentialFromRegistry(ref username, ref password))
             {
-                txtUserName.Text = Username;
-                txtPassword.Text = Password;
+                // Credentials found - populate fields
+                txtUserName.Text = username;
+                txtPassword.Text = password;
                 cbRememberMe.Checked = true;
+                btnLogin.Focus();
             }
             else
+            {
+                // No credentials found - clear fields
                 cbRememberMe.Checked = false;
+                txtUserName.Text = string.Empty;
+                txtPassword.Text = string.Empty;
+                txtUserName.Focus();
+            }
         }
 
+        /// <summary>
+        /// Form load event
+        /// </summary>
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            // Initialize form mover ONLY once
+            if (_formMover == null)
+            {
+                _formMover = new FormMover(this, panelMoveForm);
+                _formMover = new FormMover(this, panelSideBar);
+            }
+
+            // Load credentials
+            LoadStoredCredentials();
+        }
+
+
+        /// <summary>
+        /// Close button click event - clears credentials if Remember Me is unchecked
+        /// </summary>
         private void btnClose_Click(object sender, EventArgs e)
         {
+            // Clear stored credentials if user doesn't want to remember
             if (!cbRememberMe.Checked)
             {
-                //store empty username and password
-                clsGlobal.RememberUsernameAndPassword("", "");
+                clsGlobal.SetStoredCredentialFromRegistry("", "");
             }
             this.Close();
         }
 
+
+        /// <summary>
+        /// Login button click event - validates credentials and logs in user
+        /// </summary>
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string Username = txtUserName.Text , Password = txtPassword.Text;
+            string username = txtUserName.Text.Trim();  // ✅ Trim whitespace
+            string password = txtPassword.Text;
 
-            if (string.IsNullOrWhiteSpace(Username))
+            // ✅ Validate username is not empty
+            if (string.IsNullOrWhiteSpace(username))
             {
                 txtUserName.Focus();
-                MessageBox.Show
-                    ("Please enter username.",
-                     "Missing Information",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                    );
+                MessageBox.Show(
+                    "Please enter a username.",
+                    "Missing Information",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(Password))
+
+            // ✅ Validate password is not empty
+            if (string.IsNullOrWhiteSpace(password))
             {
                 txtPassword.Focus();
-                MessageBox.Show
-                    ("Please enter Password.",
-                     "Missing Information",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                    );
+                MessageBox.Show(
+                    "Please enter a password.",
+                    "Missing Information",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
 
-            clsUser user = clsUser.FindByUsernameAndPassword(Username, Password);
+            // ✅ Attempt to find user by username and password
+            clsUser user = clsUser.FindByUsernameAndPassword(username, password);
 
-            if (user != null)
+            if (user == null)
             {
-                if (cbRememberMe.Checked)
-                {
-                    //store username and password
-                    clsGlobal.RememberUsernameAndPassword(Username, Password);
-                }
-                else
-                {
-                    //store empty username and password
-                    clsGlobal.RememberUsernameAndPassword("", "");
-                }
+                // ❌ Invalid credentials
+                txtUserName.Focus();
+                MessageBox.Show(
+                    "Invalid Username/Password.",
+                    "Authentication Failed",  // ✅ Fixed spelling
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
 
-                //incase the user is not active
-                if (!user.IsActive)
-                {
-                    txtUserName.Focus();
-                    MessageBox.Show
-                        (
-                        "Your accound is not Active, Contact Admin.",
-                        "In Active Account", 
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                        );
-                    return;
-                }
+            // ✅ Check if user account is active BEFORE saving credentials
+            if (!user.IsActive)
+            {
+                txtUserName.Focus();
+                MessageBox.Show(
+                    "Your account is not active. Please contact the administrator.",  // ✅ Fixed spelling
+                    "Inactive Account",  // ✅ Fixed spelling
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);  // ✅ Changed to Warning
+                return;
+            }
 
-                clsGlobal.CurrentUser = user;
-                this.Hide();
-                frmMain frm = new frmMain();
-                frm.ShowDialog();
-                this.Show();
+            // ✅ Save or clear credentials AFTER all validations pass
+            if (cbRememberMe.Checked)
+            {
+                clsGlobal.SetStoredCredentialFromRegistry(username, password);
             }
             else
             {
-                txtUserName.Focus();
-                MessageBox.Show
-                    (
-                    "Invalid Username/Password.",
-                    "Wrong Credintials", 
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                    );
+                clsGlobal.SetStoredCredentialFromRegistry(string.Empty, string.Empty);
             }
+
+            // ✅ Set current user
+            clsGlobal.CurrentUser = user;
+
+            // ✅ Clear sensitive data from memory
+            txtPassword.Text = string.Empty;
+            password = null;
+
+            // ✅ Show main form with proper resource disposal
+            this.Hide();
+            using (frmMain frm = new frmMain())
+            {
+                frm.ShowDialog();
+            }
+            LoadStoredCredentials();
+            this.Show();
         }
 
+        /// <summary>
+        /// Show password checkbox changed event - toggles password visibility
+        /// </summary>
         private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (cbShowPassword.Checked)
+            {
+                // Show password as plain text
                 txtPassword.PasswordChar = '\0';
+            }
             else
+            {
+                // Hide password with asterisks
                 txtPassword.PasswordChar = '*';
+            }
         }
     }
 }
