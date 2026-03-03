@@ -58,5 +58,11 @@
     <Compile Include="clsUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DVLD_Common\DVLD_Common.csproj">
+      <Project>{8379b233-1510-4a6b-b12a-ee1e0681cad8}</Project>
+      <Name>DVLD_Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
