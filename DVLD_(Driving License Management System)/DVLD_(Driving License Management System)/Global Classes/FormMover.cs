@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DVLD__Driving_License_Management_System_.Global_Classes
@@ -11,61 +7,159 @@ namespace DVLD__Driving_License_Management_System_.Global_Classes
     /// This class lets you move a borderless form
     /// by dragging a control (for example, a panel or header).
     /// </summary>
-    public class FormMover
+    public class FormMover : IDisposable
     {
-        private bool _isMoving = false; // True while dragging the form 
+        #region Private Fields
 
-        private int _x = 0, _y = 0; // Mouse position inside the control
+        /// <summary>True while the user is actively dragging the form.</summary>
+        private bool _isMoving = false;
 
-        private Form _targetForm; // The form to move
+        /// <summary>Mouse X offset within the drag control when dragging started.</summary>
+        private int _startX = 0;
 
-        private Control _targetMoveArea; // The control used to move the form
+        /// <summary>Mouse Y offset within the drag control when dragging started.</summary>
+        private int _startY = 0;
 
+        /// <summary>The form that will be repositioned during drag.</summary>
+        private readonly Form _targetForm;
 
-        public FormMover(Form form, Control moveArea)
+        /// <summary>The control the user interacts with to drag the form.</summary>
+        private readonly Control _dragArea;
+
+        /// <summary>Prevents double disposal.</summary>
+        private bool _disposed = false;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Initializes a new <see cref="FormMover"/> and subscribes to
+        /// the required mouse events on the specified drag area.
+        /// </summary>
+        /// <param name="form">The form to move. Must not be null.</param>
+        /// <param name="dragArea">The control used as the drag handle. Must not be null.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when <paramref name="form"/> or <paramref name="dragArea"/> is null.
+        /// </exception>
+        public FormMover(Form form, Control dragArea)
         {
             _targetForm = form ?? throw new ArgumentNullException(nameof(form));
-            _targetMoveArea = moveArea ?? throw new ArgumentNullException(nameof(moveArea));
+            _dragArea = dragArea ?? throw new ArgumentNullException(nameof(dragArea));
 
-            // Connect mouse events to the move area
-            moveArea.MouseDown += MoveArea_MouseDown;
-            moveArea.MouseMove += MoveArea_MouseMove;
-            moveArea.MouseUp += MoveArea_MouseUp;
-            moveArea.MouseLeave += MoveArea_MouseLeave;
-            moveArea.MouseEnter += MoveArea_MouseEnter;
+            SubscribeEvents();
         }
 
-        private void MoveArea_MouseDown(object sender, MouseEventArgs e)
+        #endregion
+
+        #region Mouse Event Handlers
+
+        /// <summary>
+        /// Begins the drag operation on LEFT mouse button press only.
+        /// Records the cursor offset within the control to allow smooth movement.
+        /// </summary>
+        private void DragArea_MouseDown(object sender, MouseEventArgs e)
         {
+            // ✅ Ignore right-click and middle-click
+            if (e.Button != MouseButtons.Left)
+                return;
+
             _isMoving = true;
-            _x = e.X;
-            _y = e.Y;
+            _startX = e.X;
+            _startY = e.Y;
         }
 
-        private void MoveArea_MouseMove(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Moves the form to follow the cursor while dragging.
+        /// Uses Control.MousePosition for screen-relative coordinates.
+        /// </summary>
+        private void DragArea_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_isMoving)
-            {
-                _targetForm.SetDesktopLocation(
-                    Control.MousePosition.X - _x,
-                    Control.MousePosition.Y - _y
-                );
-            }
+            if (!_isMoving)
+                return;
+
+            // Offset cursor position by the initial click position within the control
+            _targetForm.SetDesktopLocation(
+                Control.MousePosition.X - _startX,
+                Control.MousePosition.Y - _startY
+            );
         }
 
-        private void MoveArea_MouseUp(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Ends the drag operation when the LEFT mouse button is released.
+        /// </summary>
+        private void DragArea_MouseUp(object sender, MouseEventArgs e)
         {
-            _isMoving = false;
+            // ✅ Only stop on left button release
+            if (e.Button == MouseButtons.Left)
+                _isMoving = false;
         }
 
-        private void MoveArea_MouseLeave(object sender, EventArgs e)
+        /// <summary>
+        /// Resets the cursor to default when the mouse leaves the drag area.
+        /// Note: does NOT cancel an active drag — fast movement may temporarily
+        /// exit the control while the button is still held.
+        /// </summary>
+        private void DragArea_MouseLeave(object sender, EventArgs e)
         {
-            _targetMoveArea.Cursor = Cursors.Default;
+            _dragArea.Cursor = Cursors.Default;
         }
 
-        private void MoveArea_MouseEnter(object sender, EventArgs e)
+        /// <summary>
+        /// Changes the cursor to a move icon when hovering over the drag area,
+        /// providing a visual hint that the area can be used to move the form.
+        /// </summary>
+        private void DragArea_MouseEnter(object sender, EventArgs e)
         {
-            _targetMoveArea.Cursor = Cursors.SizeAll;
+            _dragArea.Cursor = Cursors.SizeAll;
         }
+
+        #endregion
+
+        #region Event Management
+
+        /// <summary>
+        /// Subscribes all required mouse events on the drag area control.
+        /// </summary>
+        private void SubscribeEvents()
+        {
+            _dragArea.MouseDown += DragArea_MouseDown;
+            _dragArea.MouseMove += DragArea_MouseMove;
+            _dragArea.MouseUp += DragArea_MouseUp;
+            _dragArea.MouseLeave += DragArea_MouseLeave;
+            _dragArea.MouseEnter += DragArea_MouseEnter;
+        }
+
+        /// <summary>
+        /// Unsubscribes all mouse events from the drag area.
+        /// Called by <see cref="Dispose"/> to prevent memory leaks.
+        /// </summary>
+        private void UnsubscribeEvents()
+        {
+            _dragArea.MouseDown -= DragArea_MouseDown;
+            _dragArea.MouseMove -= DragArea_MouseMove;
+            _dragArea.MouseUp -= DragArea_MouseUp;
+            _dragArea.MouseLeave -= DragArea_MouseLeave;
+            _dragArea.MouseEnter -= DragArea_MouseEnter;
+        }
+
+        #endregion
+
+        #region IDisposable
+
+        /// <summary>
+        /// Releases all event subscriptions to prevent memory leaks.
+        /// Should be called when the parent form is closed.
+        /// </summary>
+        public void Dispose()
+        {
+            if (_disposed)
+                return;
+
+            UnsubscribeEvents();
+            _disposed = true;
+        }
+
+        #endregion
     }
 }

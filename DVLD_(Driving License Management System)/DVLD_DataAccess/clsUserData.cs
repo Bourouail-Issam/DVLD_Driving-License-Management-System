@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Threading.Tasks;
+using DVLD_Common;
+using System.Diagnostics;
 
 
 namespace DVLD_DataAccess
@@ -12,8 +14,8 @@ namespace DVLD_DataAccess
     public class clsUserData
     {
         //################################ CRUD Methods ################################
-        public static bool GetUserInfoByUsernameAndPassword(
-            string UserName, string Password,
+        public static bool GetUserInfoByUsername(
+            string UserName, ref string Password,
             ref int UserID, ref int PersonID, ref bool IsActive
             )
         {
@@ -21,12 +23,11 @@ namespace DVLD_DataAccess
 
             SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Users WHERE Username = @Username and Password=@Password;";
+            string query = "SELECT * FROM Users WHERE Username = @Username;";
 
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = UserName;
-            cmd.Parameters.Add("@Password", SqlDbType.NVarChar,20).Value = Password;
 
             try
             {
@@ -38,6 +39,7 @@ namespace DVLD_DataAccess
                     UserID = (int)reader["UserID"];
                     PersonID = (int)reader["PersonID"];
                     IsActive = (bool)reader["IsActive"];
+                    Password = (string)reader["Password"];
 
                     // The record was found
                     isFound = true;
@@ -318,6 +320,66 @@ namespace DVLD_DataAccess
             return (rowsAffected > 0);
         }
 
+        
+        public static string GetstoredHashByUsername(string Username)
+        {
+            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("GetStoredPasswordHashByID",conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Username", Username);
+
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            if (dr["Password"] == DBNull.Value)
+                            {
+                                return null;
+                            }
+
+                            string HashStorePassword = dr["Password"].ToString();
+                                                           
+                            if (string.IsNullOrEmpty(HashStorePassword))
+                            {
+                                return null;
+                            }
+                            return HashStorePassword;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+                catch(SqlException sqlEx)
+                {
+                    clsLogEvent.LogEvent(
+                        $"SQL Error in GetStoredPasswordHashByID Procedure \n"  +
+                        $"Error Number: {sqlEx.Number}\n"                       +
+                        $"Error Message: {sqlEx.Message}\n"                     +
+                        $"Line Number: {sqlEx.LineNumber}\n"                    +
+                        $"Server: {conn.DataSource}\n"                          +
+                        $"Database: {conn.Database}\n"                          +
+                        $"Stack Trace: {sqlEx.StackTrace}",
+                        EventLogEntryType.Error
+                        );
+                    return null;
+                }
+                catch (Exception ex)
+                {
+                    clsLogEvent.LogEvent(
+                       $"General Error in GetStoredPasswordHashByID\n" +
+                       $"Error Message: {ex.Message}\n" +
+                       $"Stack Trace: {ex.StackTrace}",
+                       EventLogEntryType.Error);
+                    return null;
+                }
+            }
+        }
 
         //################################ Exist Methods ################################
         public static bool IsUserExistForPersonID(int PersonID)

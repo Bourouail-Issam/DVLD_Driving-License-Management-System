@@ -209,7 +209,9 @@ namespace DVLD__Driving_License_Management_System_.User
 
             _User.PersonID = ctrlPersonCardWithFilter1.PersonID;
             _User.UserName = txtUserName.Text.Trim();
-            _User.Password = txtPassword.Text.Trim();
+
+            string encryptedPassword = clsGlobal.EncryptPassword(txtPassword.Text.Trim());
+            _User.Password = encryptedPassword;
             _User.IsActive = chkIsActive.Checked;
 
             if (_User.Save())
@@ -243,9 +245,8 @@ namespace DVLD__Driving_License_Management_System_.User
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtUserName, "Username cannot be blank");
+                return;
             }
-            else
-                errorProvider1.SetError(txtUserName, null);
 
             if (_Mode == enMode.AddNew)
             {
@@ -255,8 +256,6 @@ namespace DVLD__Driving_License_Management_System_.User
                     errorProvider1.SetError(txtUserName, "username is used by another user");
                     return;
                 }
-                else
-                    errorProvider1.SetError(txtUserName, null);
             }
             else
             {
@@ -269,10 +268,10 @@ namespace DVLD__Driving_License_Management_System_.User
                         errorProvider1.SetError(txtUserName, "username is used by another user");
                         return;
                     }
-                    else
-                        errorProvider1.SetError(txtUserName, null);
                 }
             }
+
+            errorProvider1.SetError(txtUserName, null);
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)

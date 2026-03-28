@@ -48,15 +48,15 @@ namespace DVLD_BuisnessDVLD_Buisness
         }
 
         // ###################   CURD Methods   ###################
-        public static clsUser FindByUsernameAndPassword
-            (string UserName, string Password)
+        public static clsUser FindByUsername
+            (string UserName)
         {
             int UserID = -1, PersonID = -1;
-
+            string Password = "";
             bool IsActive = false;
 
-            bool IsFound = clsUserData.GetUserInfoByUsernameAndPassword
-                                (UserName, Password, 
+            bool IsFound = clsUserData.GetUserInfoByUsername
+                                (UserName, ref Password, 
                                 ref UserID, ref PersonID, ref IsActive);
 
             if (IsFound)
@@ -153,7 +153,10 @@ namespace DVLD_BuisnessDVLD_Buisness
             return false;
         }
 
-
+        public static string GetStoredHashByUsername(string Username)
+        {
+            return clsUserData.GetstoredHashByUsername(Username);
+        }
         // ###################   Exist Methods   ###################
 
         public static bool isUserExistForPersonID(int PersonID)
